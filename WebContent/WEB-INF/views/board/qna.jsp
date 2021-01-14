@@ -24,68 +24,12 @@
 	</head>
 	
 	<body>
-		<div id="mySidenav" class="sidenav">
-			<a class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="#">Review</a>
-			<a href="/html_css_javaspring/board/qna_board/qna.html">QnA</a>
-		</div>
-		<header onclick="gotoHome()" style="color:white">
-			<img id="sagi_logo" src="/html_css_javaspring/resource/img/logo/logo_white.png">	
-			SAGI</header>
+		<jsp:include page="/WEB-INF/views/include/sideNav.jsp"/>
+		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
 		
 		<div id="wrapper">
 		
-			<nav class="navbar navbar-expand-sm bg-light sticky-top">
-              <i id="barIcon" onclick="fun1()" class="fas fa-bars"></i>
-				<script type="text/javascript">
-					const fun1 = () =>{
-						document.getElementById("mySidenav").style.width = "250px";
-					};
-					
-					const closeNav = () =>{
-						document.getElementById("mySidenav").style.width = "0";
-					};
-				</script>
-				
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link"
-					href="/html_css_javaspring/index.html">HOME</a></li>
-				<li class="nav-item dropdown"><a class="nav-link dropbtn"
-					href="/html_css_javaspring/item_list/default_itemlist/item_list.html">SHOP</a>
-					<div class="dropdown-content">
-						<a href="/html_css_javaspring/item_list/new_itemlist/newitem_list.html">NEW</a>
-						<a href="/html_css_javaspring/item_list/best_itemlist/bestitem_list.html">BEST</a>
-					</div>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/html_css_javaspring/add/add.html">ADD</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
-              </ul>
-              
-              <div class="dropdown">
-  				<div id="myDropdown" class="search-dropdown-content" >
-    				<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-  				</div>
-				<i onclick="searchBar()" id="mySearch" style="margin-right:30px" class="fas fa-search"></i>
-			</div>
-			
-			<script type="text/javascript">
-				let toggle = true;
-				
-				const searchBar = () =>{
-					if(toggle){
-						document.getElementById("myDropdown").style.display = "inline";
-						toggle = !toggle;
-					}else{
-						document.getElementById("myDropdown").style.display = "none";
-						toggle = !toggle;
-					}
-						
-				};
-	
-			</script>
-			<a style="margin-right:10px" href="/html_css_javaspring/login/login.html"><i class="fas fa-user"></i></a>
-         </nav>	
+			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 			
 			<h3>QnA</h3>
 			
@@ -193,16 +137,7 @@
 			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
   			</ul>
   			
-			<footer>
-				<div id="left">
-					Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
-					<br/>designed by EB SHIN, JY WON, YJ LEE 
-				</div>
-				<div id="right">
-					(우)05717<br/>
-					  서울특별시 송파구 중대로 135 12층 
-				</div>
-			</footer>
+			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 		</div>
 	</body>
 </html>

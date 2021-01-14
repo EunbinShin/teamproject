@@ -10,7 +10,7 @@
 		</layout>
 	</appender>
 
-	<logger name="com.mycompany">
+	<logger name="teamproject.sagi">
 	<!-- 로그 레벨 : debug < info < warn < error -->
 		<level value="info" />
 	</logger>	
