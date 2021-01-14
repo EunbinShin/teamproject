@@ -1,30 +1,28 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title> SAGI </title>
 
-	<link rel="icon" href="/html_css_javaspring/resource/img/logo/logo_fapicon.png">
+	<link rel="icon" href="<%=application.getContextPath() %>/resource/img/logo/logo_fapicon.png">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="add.css?after" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="/html_css_javaspring/resource/css/header.css?after" type="text/css">
-	<link rel="stylesheet" href="/html_css_javaspring/resource/css/menu_bar.css?after" type="text/css">
-	<link rel="stylesheet" href="/html_css_javaspring/resource/css/footer.css?after" type="text/css">
+	<link rel="stylesheet" href="add.css?after" type="text/css"> 
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 	
 	<script type="text/javascript">
 		const gotoHome = () => {
 			location.href = "/html_css_javaspring/index.html";
 		}	
 	</script>
-	<style type="text/css">
-		li {
-			style: none;
-		}
-	</style>
+	
 </head>
 
 <body>
@@ -35,7 +33,7 @@
 	</div>
 	
 	<header onclick="gotoHome()"> 
-		<img id="sagi_logo" src="/html_css_javaspring/resource/img/logo/logo_white.png">
+		<img id="sagi_logo" src="<%=application.getContextPath() %>/resources/img/logo/logo_white.png">
 	SAGI</header>
 	
 	<div id="wrapper">
@@ -55,13 +53,13 @@
 				<li class="nav-item"><a class="nav-link"
 					href="/html_css_javaspring/index.html">HOME</a></li>
 				<li class="nav-item dropdown"><a class="nav-link dropbtn"
-					href="/html_css_javaspring/item_list/default_itemlist/item_list.html">SHOP</a>
+					href="<%=application.getContextPath() %>/item_list/default_itemlist/item_list.jsp">SHOP</a>
 					<div class="dropdown-content">
 						<a href="/html_css_javaspring/item_list/new_itemlist/newitem_list.html">NEW</a>
 						<a href="/html_css_javaspring/item_list/best_itemlist/bestitem_list.html">BEST</a>
 					</div>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/html_css_javaspring/add/add.html">ADD</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/resources/add/add.jsp">ADD</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
 			</ul>
@@ -93,7 +91,7 @@
 		
 		<div class="add">
 		
-		<form class="form-horizontal">
+		<form method= "post" action="add_item" class="form-horizontal">
 		<fieldset>
 		
 		<!-- Form Name -->
