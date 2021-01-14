@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,33 +95,33 @@
 
 		<div id="explainList">
 			<div id="explainLeft">
-				총 <b>16</b>개의 상품이 검색되었습니다.
+				ì´ <b>16</b>ê°ì ìíì´ ê²ìëììµëë¤.
 			</div>
-			<h3>상품</h3>
+			<h3>ìí</h3>
 			<ul class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item active"><a href="#">도자기</a></li>
-				<li class="breadcrumb-item"><a href="#">식기</a></li>
-				<li class="breadcrumb-item"><a href="#">유리그릇</a></li>
+				<li class="breadcrumb-item active"><a href="#">ëìê¸°</a></li>
+				<li class="breadcrumb-item"><a href="#">ìê¸°</a></li>
+				<li class="breadcrumb-item"><a href="#">ì ë¦¬ê·¸ë¦</a></li>
 			</ul>
 
 			<div id="explainRight">
 				<ul>
-					<li><a href="#">상품명</a></li>
-					<li><a href="#">높은가격순</a></li>
-					<li><a href="#">낮은가격순</a></li>
+					<li><a href="#">ìíëª</a></li>
+					<li><a href="#">ëìê°ê²©ì</a></li>
+					<li><a href="#">ë®ìê°ê²©ì</a></li>
 				</ul>
 			</div>
 		</div>
 		<div id="row">
 			<div class="column">
-				<!-- 모든 태그에 a태그 추가하기 -->
+				<!-- ëª¨ë  íê·¸ì aíê·¸ ì¶ê°íê¸° -->
 				<a href="/html_css_javaspring/item_detail/product01.html"> <img
 					src="/html_css_javaspring/resource/img/img01-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img01-2.jpg" class="img-top">
-				</a> <a href="/html_css_javaspring/item_detail/product01.html">이름이름이름</a>
+				</a> <a href="/html_css_javaspring/item_detail/product01.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -128,9 +129,9 @@
 					src="/html_css_javaspring/resource/img/img02-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img02-2.jpg" class="img-top">
-				</a> <a href="/html_css_javaspring/item_detail/product02.html">이름이름이름</a>
+				</a> <a href="/html_css_javaspring/item_detail/product02.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -138,9 +139,9 @@
 					src="/html_css_javaspring/resource/img/img03-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img03-2.jpg" class="img-top">
-				</a> <a href="/html_css_javaspring/item_detail/product03.html">이름이름이름</a>
+				</a> <a href="/html_css_javaspring/item_detail/product03.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -148,9 +149,9 @@
 					src="/html_css_javaspring/resource/img/img04-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img04-2.jpg" class="img-top">
-				</a> <a href="/html_css_javaspring/item_detail/product04.html">이름이름이름</a>
+				</a> <a href="/html_css_javaspring/item_detail/product04.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -158,9 +159,9 @@
 					src="/html_css_javaspring/resource/img/img05-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img05-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -168,9 +169,9 @@
 					src="/html_css_javaspring/resource/img/img06-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img06-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -178,9 +179,9 @@
 					src="/html_css_javaspring/resource/img/img07-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img07-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -188,9 +189,9 @@
 					src="/html_css_javaspring/resource/img/img08-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img08-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -198,9 +199,9 @@
 					src="/html_css_javaspring/resource/img/img09-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img09-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -208,9 +209,9 @@
 					src="/html_css_javaspring/resource/img/img10-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img10-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -218,9 +219,9 @@
 					src="/html_css_javaspring/resource/img/img11-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img11-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -228,9 +229,9 @@
 					src="/html_css_javaspring/resource/img/img12-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img12-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -238,9 +239,9 @@
 					src="/html_css_javaspring/resource/img/img13-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img13-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -248,9 +249,9 @@
 					src="/html_css_javaspring/resource/img/img14-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img14-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -258,9 +259,9 @@
 					src="/html_css_javaspring/resource/img/img15-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img15-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 			<div class="column">
@@ -268,9 +269,9 @@
 					src="/html_css_javaspring/resource/img/img16-1.jpg"
 					class="img-bottom"> <img
 					src="/html_css_javaspring/resource/img/img16-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
+				</a> <a href="html/product.html">ì´ë¦ì´ë¦ì´ë¦</a>
 				<p>
-					<b>가격: 25,000</b>
+					<b>ê°ê²©: 25,000</b>
 				</p>
 			</div>
 		</div>
@@ -306,11 +307,11 @@
 
 		<footer>
 			<div id="left">
-				Copyright ⓒ 신은빈 원지영 이영준. All rights reserved. <br />designed by EB
+				Copyright â ì ìë¹ ìì§ì ì´ìì¤. All rights reserved. <br />designed by EB
 				SHIN, JY WON, YJ LEE
 			</div>
 			<div id="right">
-				(우)05717<br /> 서울특별시 송파구 중대로 135 12층
+				(ì°)05717<br /> ìì¸í¹ë³ì ì¡íêµ¬ ì¤ëë¡ 135 12ì¸µ
 			</div>
 		</footer>
 	</div>
