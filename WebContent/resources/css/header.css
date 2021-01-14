@@ -1,0 +1,25 @@
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+		*{
+			font-family: 'Noto Sans KR', sans-serif;
+		}
+		
+		header {
+			background-color: #1F4948;
+			color: white;
+			height: 140px;
+			text-align: center;
+			font-size: 80px;
+		}
+	
+		#sagi_logo{
+			width: 80px;
+		}
+		
+		header:hover{
+			cursor: pointer;
+		}
+		
+		.navbar{
+			box-shadow: 1px 10px 20px 1px #eeeeee;
+		}

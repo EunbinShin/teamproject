@@ -1,0 +1,25 @@
+	    footer{
+		    margin-top:100px;
+			background-color: #1F4948;
+			color: white;
+			height: 200px;
+		}
+
+		footer div{
+			display:inline-block;
+			font-size:13px;
+		}
+		
+		footer div#left{
+			color: #f8f9fa;
+			float: left;
+			margin-top: 50px;
+			margin-left: 350px;
+		}
+		
+		footer div#right{
+			color: #f8f9fa;
+			float: right;
+			margin-top: 50px;
+			margin-right: 350px;
+		}
