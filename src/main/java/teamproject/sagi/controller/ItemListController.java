@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ItemListController {
 	private static final Logger logger = LoggerFactory.getLogger(ItemListController.class);
 	
-	@RequestMapping("/item_list")
+	@RequestMapping("/default")
 	public String content() {
 		logger.info("실행");
 		return "item_list/item_list";
@@ -19,7 +19,7 @@ public class ItemListController {
 	@RequestMapping("/itemDetail")
 	public String itemDetail() {
 		logger.info("실행");
-		return "item_detail/product01";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/gotoHome")

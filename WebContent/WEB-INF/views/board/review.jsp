@@ -26,7 +26,7 @@
 		
 			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 			
-			<h3>QnA</h3>
+			<h3>Review</h3>
 			
 			<!-- QnA board Table -->
 			<div id="table_container">
@@ -42,7 +42,7 @@
 					<tbody>
 						<tr>
 							<th>1</th>
-							<th><a href="show">그릇이 너무 좋아요</a></th>
+							<th>그릇이 너무 좋아요</th>
 							<th>신은빈</th>
 							<th>2021.01.02</th>
 						</tr>

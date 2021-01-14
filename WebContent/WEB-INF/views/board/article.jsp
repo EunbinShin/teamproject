@@ -26,91 +26,27 @@
 		
 			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 			
-			<h3>QnA</h3>
+			<h3>Review</h3>
 			
 			<!-- QnA board Table -->
 			<div id="table_container">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>날짜</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>1</th>
-							<th><a href="show">그릇이 너무 좋아요</a></th>
-							<th>신은빈</th>
-							<th>2021.01.02</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>2</th>
-							<th>제가 그릇은 안쓰는데 여기껀 써요</th>
-							<th>이영준</th>
-							<th>2021.01.05</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>3</th>
-							<th>이 그릇에 밥을 먹고 오병이어의 기적을 느꼈어요</th>
-							<th>원지영</th>
-							<th>2021.01.01</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>4</th>
-							<th>그릇이 깨졌어요</th>
-							<th>곽두팔</th>
-							<th>2021.01.02</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>5</th>
-							<th>야구선수가 던져도 안깨져요</th>
-							<th>김진욱</th>
-							<th>2021.01.05</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>6</th>
-							<th>최고의 사이트</th>
-							<th>감자바</th>
-							<th>2021.01.01</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>7</th>
-							<th>아 정말 데단헤</th>
-							<th>신은진</th>
-							<th>2021.01.02</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>8</th>
-							<th>QnA에 문의 드립니다</th>
-							<th>이준영</th>
-							<th>2021.01.05</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>10</th>
-							<th>유튜브 협찬 문의 드립니다</th>
-							<th>유듀버</th>
-							<th>2021.01.01</th>
-						</tr>
-					</tbody>
+				<table class="table text-left">
+					<tr>
+						<td>제목 : ${board.bNo}</td>
+					</tr>
+					<tr>
+						<td>작성자 : ${board.bWriter}</td>
+					</tr>
+					<tr>
+						<td>날짜 : ${board.date}</td>
+					</tr>
+					<tr>
+						<td>
+							<div style="width:300px;">
+								${board.bContent}
+							</div>
+						</td>
+					</tr>
 				</table>
 			</div>
 			

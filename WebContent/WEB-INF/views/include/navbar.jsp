@@ -16,13 +16,13 @@
 		<li class="nav-item"><a class="nav-link"
 			href="/html_css_javaspring/index.html">HOME</a></li>
 		<li class="nav-item dropdown">
-			<a class="nav-link dropbtn" href="<%=application.getContextPath() %>/item_list/item_list">SHOP</a>
+			<a class="nav-link dropbtn" href="<%=application.getContextPath() %>/item_list/default">SHOP</a>
 			<div class="dropdown-content">
-				<a href="<%=application.getContextPath() %>/item_list/newitem_list">NEW</a>
-				<a href="<%=application.getContextPath() %>/item_list/bestitem_list">BEST</a>
+				<a href="<%=application.getContextPath() %>/item_list/newitems">NEW</a>
+				<a href="<%=application.getContextPath() %>/item_list/bestitems">BEST</a>
 			</div>
 		</li>
-		<li class="nav-item"><a class="nav-link" href="/html_css_javaspring/add/add.html">ADD</a></li>
+		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/add/add">ADD</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
 	</ul>

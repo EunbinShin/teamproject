@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BestItemListController {
 	private static final Logger logger = LoggerFactory.getLogger(BestItemListController.class);
 	
-	@RequestMapping("/bestitem_list")
+	@RequestMapping("/bestitems")
 	public String content() {
 		logger.info("실행");
 		return "item_list/bestitem_list";
