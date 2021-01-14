@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* slide show */
-*{margin:0;padding:0;}
+.product_slide{margin:0;padding:0;}
 img > ul,li{list-style:none;}
 .slide{height: 75%;overflow:hidden;}
 .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
