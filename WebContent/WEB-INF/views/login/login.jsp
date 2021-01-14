@@ -11,7 +11,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/login.css" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/login.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
@@ -36,8 +36,12 @@
 					<div>
 						<!-- input은 inline요소 -->
 						<form method="post" action="login">
-							<input id="uid" name="uid" type="text" onkeyup="handleIdChange()" placeholder="아이디"/>
-							<input id="upassword" name="upassword" onkeyup="handlePasswordChange()" type="password" placeholder="패스워드"/>
+							<input id="uid" name="uid" value="${uid}" type="text"  onkeyup="handleIdChange()" placeholder="아이디" required=""/>
+							<input id="upassword" name="upassword" onkeyup="handlePasswordChange()" type="password" placeholder="패스워드" required=""/>
+							<div id="myCheckBox">
+								<input id="ucheck" name="ucheck" type="checkbox"/>
+								<label for="ucheck">아이디 기억하기</label>
+							</div>
 							<div class="hbox">
 								<button class="btn btn-info">로그인</button>
 							</div>

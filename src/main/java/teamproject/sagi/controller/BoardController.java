@@ -39,4 +39,16 @@ public class BoardController {
 		model.addAttribute("board", board);
 		return "board/article";
 	}
+	
+	@RequestMapping("/writeQnA")
+	public String writeQnA() {
+		logger.info("실행");
+		return "board/writeQnA";
+	}
+	
+	@RequestMapping("/submitQnA")
+	public String submitQnA() {
+		logger.info("실행");
+		return "redirect:/board/qna";
+	}
 }

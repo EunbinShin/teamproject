@@ -80,28 +80,18 @@
 				background-color: #1F4948;
 			}
 			
-			footer{
-		   		margin-top:100px;
-				background-color: #1F4948;
-				color: white;
-				height: 200px;
-				font-size:13px;
+			#myCheckBox{
+				text-align: left;
+				padding-left: 20px;
+				box-sizing: border-box;
 			}
 			
-			footer div{
-				display:inline-block;
+			#myCheckBox input{
+				width: 15px;
+				display: inline;
+				vertical-align: middle;
 			}
-			
-			footer div#left{
-				color: #f8f9fa;
-				float: left;
-				margin-top: 50px;
-				margin-left: 350px;
-			}
-	
-			footer div#right{
-				color: #f8f9fa;
-				float: right;
-				margin-top: 50px;
-				margin-right: 350px;
+			#myCheckBox label{
+				display: inline;
+				vertical-align: middle;
 			}

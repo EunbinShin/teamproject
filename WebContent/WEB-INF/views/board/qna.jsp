@@ -116,6 +116,8 @@
 			
 			<!-- QnA board Table -->
 			
+			<a href="writeQnA" class="btn btn-sm">글쓰기</a>
+			
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
 			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>

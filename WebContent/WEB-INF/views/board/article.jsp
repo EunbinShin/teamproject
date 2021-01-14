@@ -51,22 +51,6 @@
 			</div>
 			
 			<!-- QnA board Table -->
-			
-			<!-- page number navigation -->
-			<ul class="pagination justify-content-center">
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">6</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">7</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">8</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">9</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">10</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-  			</ul>
   			
 			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 		</div>
