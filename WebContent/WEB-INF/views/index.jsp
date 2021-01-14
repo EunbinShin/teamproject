@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +12,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/main.css" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
+	<link rel="stylesheet" href="index.css?after" type="text/css">
+	<link rel="stylesheet" href="/html_css_javaspring/resource/css/header.css?after" type="text/css">
+	<link rel="stylesheet" href="/html_css_javaspring/resource/css/menu_bar.css?after" type="text/css">
+	<link rel="stylesheet" href="/html_css_javaspring/resource/css/footer.css?after" type="text/css">
 	<script type="text/javascript">
 		const gotoHome = () => {
 			location.href = "/html_css_javaspring/index.html";
@@ -47,7 +48,7 @@
 	*{margin:0;padding:0;}
     img > ul,li{list-style:none;}
     .trend_slide{height: 75%;overflow:hidden;}
-    .trend_slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slideë¥¼ 8ì´ëì ì§ííë©° ë¬´íë°ë³µ í¨ */
+    .trend_slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
     .trend_slide li{width:calc(100% / 4);height: 75%;}
 	</style>
 </head>
@@ -117,7 +118,7 @@
               <a style="margin-right:10px" href="/html_css_javaspring/login/login.html"><i class="fas fa-user"></i></a>
          </nav>	
 		
-		<!-- ìì : main home image slide --> 
+		<!-- 수정: main home image slide --> 
 		<div id="demo" class="carousel slide" data-ride="carousel">
 	  		<ul class="carousel-indicators">
 	    		<li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -145,9 +146,9 @@
 	  		</a>
 		</div>
 
-		<!-- ìì : ëª©í ë¬ì± -->
+		<!-- 수정: 목표 달성 -->
 		
-		<!-- ìì : ì´ë¯¸ì§ì íì¤í¸  --> 
+		<!-- 수정: 이미지위 텍스트  --> 
 		<div id="banner_row">
 			<div class="banner_column">
 				<a href = "/html_css_javaspring/item_list/new_itemlist/newitem_list.html">
@@ -159,11 +160,11 @@
 			</div> 
 		</div>
 
-		<!-- ìì : ìë£  --> 
+		<!-- 수정: 완료  --> 
 		
 		
 		<div id="row">		
-			<div id="row_name"> <h3>이달의 상품</h3> </div>
+			<div id="row_name"> <h3>금주의 베스트 셀러</h3> </div>
 			<div class="column">
 				<a href = "html/product.html">
 					<img  src= "/html_css_javaspring/resource/img/img01-1.jpg" class="img-bottom"  >
@@ -223,13 +224,13 @@
 		</div> <!-- row -->
 		
 		<div id="trend">
-			<h3># ëª¨ìë³´ê¸°</h3>
+			<h3># 모아보기</h3>
 			<div class="trend_con">
 				<table id="tag_table" class="table table-bordered">
 	  				<tbody>
-						<tr><td>#ì°ë ìê¸°</td></tr>
-	  					<tr><td>#ì¤ë² ìê¸°</td></tr>
-	  					<tr><td>#ì£¼ë°©ì ë¦¬</td></tr>
+						<tr><td>#우드 식기</td></tr>
+	  					<tr><td>#실버 식기</td></tr>
+	  					<tr><td>#주방정리</td></tr>
 	  				</tbody>
 				</table>	
 				<div id="tag_slide" class="trend_slide ">
@@ -252,12 +253,12 @@
 		
 		<footer>
 			<div id="left">
-				Copyright â ì ìë¹ ìì§ì ì´ìì¤. All rights reserved.
+				Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
 				<br/>designed by EunBin SHIN
 			</div>
 			<div id="right">
-				(ì°)05717<br/>
-				  ìì¸í¹ë³ì ì¡íêµ¬ ì¤ëë¡ 135 12ì¸µ 
+				(우)05717<br/>
+				  서울특별시 송파구 중대로 135 12층 
 			</div>
 		</footer>
 
