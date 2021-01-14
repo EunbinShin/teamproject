@@ -30,10 +30,7 @@
 		<a href="/html_css_javaspring/board/qna_board/qna.html">QnA</a>
 	</div>
 
-	<header onclick="gotoHome()" style="color: white">
-		<img id="sagi_logo" src="<%=application.getContextPath() %>/resources/img/logo/logo_white.png">
-		SAGI
-	</header>
+	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
 
 	<div id="wrapper">
 		<nav class="navbar navbar-expand-sm bg-light sticky-top">
@@ -302,16 +299,7 @@
 				href="javascript:void(0);">Next</a></li>
 		</ul>
 
-		<footer>
-			<div id="left">
-				Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
-				<br/>designed by EB SHIN, JY WON, YJ LEE 
-			</div>
-			<div id="right">
-				(우)05717<br/>
-				  서울특별시 송파구 중대로 135 12층 
-			</div>
-		</footer>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

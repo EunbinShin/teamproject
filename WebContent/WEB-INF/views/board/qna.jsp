@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -11,10 +12,10 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 		rel="stylesheet">
-		<link rel="stylesheet" href="qna.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/header.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/menu_bar.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/footer.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/qna.css" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 		<script type="text/javascript">
 			const gotoHome = () => {
 				location.href = "/html_css_javaspring/index.html";

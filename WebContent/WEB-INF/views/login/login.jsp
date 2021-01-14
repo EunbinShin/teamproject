@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -9,11 +10,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="login.css?after" type="text/css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/header.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/menu_bar.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/footer.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/login.css" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 	
 		<script type="text/javascript">
 			const handleIdChange = () => {
@@ -68,9 +69,8 @@
 			<a href="/html_css_javaspring/board/qna_board/qna.html">QnA</a>
 		</div>
 	
-		<header onclick="gotoHome()"> 
-			<img id="sagi_logo" src="/html_css_javaspring/resource/img/logo/logo_white.png">
-			SAGI</header>
+		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+		
 		<div id="wrapper">
 			<nav class="navbar navbar-expand-sm bg-light sticky-top">
             <i id="barIcon" onclick="fun1()" class="fas fa-bars"></i>
@@ -143,16 +143,7 @@
 				</div>
 			</div>
 			
-			<footer>
-				<div id="left">
-					Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
-					<br/>designed by EunBin SHIN
-				</div>
-				<div id="right">
-					(우)05717<br/>
-					  서울특별시 송파구 중대로 135 12층 
-				</div>
-			</footer>
+			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 		</div>
 		
 	</body>
