@@ -1,18 +1,20 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title> SAGI </title>
-		<link rel="icon" href="/html_css_javaspring/resource/img/logo/logo_fapicon.png">
+		<link rel="icon" href="<%=application.getContextPath() %>/resources/img/logo/logo_fapicon.png">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="bestitem_list.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/header.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/menu_bar.css?after" type="text/css">
-		<link rel="stylesheet" href="/html_css_javaspring/resource/css/footer.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/bestitem_list.css" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 		<script type="text/javascript">
 			const gotoHome = () => {
 				location.href = "/html_css_javaspring/index.html";
@@ -48,7 +50,7 @@
 		</div>
 		
 		<header onclick="gotoHome()" style="color:white">
-			<img id="sagi_logo" src="/html_css_javaspring/resource/img/logo/logo_white.png">
+			<img id="sagi_logo" src="<%=application.getContextPath() %>/resources/img/logo/logo_white.png">
 			SAGI</header>
 		
 		<div id="wrapper">
@@ -125,8 +127,8 @@
 				<div class="column">
 					<!-- 모든 태그에 a태그 추가하기 -->
 					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<img src= "/html_css_javaspring/resource/img/img01-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img01-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -136,8 +138,8 @@
 				</div> 
 				<div class="column">
 					<a href = "/html_css_javaspring/item_detail/product02.html">
-						<img src= "/html_css_javaspring/resource/img/img02-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img02-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img02-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -147,8 +149,8 @@
 				</div> 
 				<div class="column">
 					<a href = "/html_css_javaspring/item_detail/product03.html">
-						<img src= "/html_css_javaspring/resource/img/img03-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img03-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img03-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img03-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -158,8 +160,8 @@
 				</div> 
 				<div class="column">
 					<a href = "/html_css_javaspring/item_detail/product04.html">
-						<img src= "/html_css_javaspring/resource/img/img04-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img04-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img04-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img04-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -169,8 +171,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img05-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img05-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img05-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img05-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -180,8 +182,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img06-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img06-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img06-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img06-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -191,8 +193,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img07-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img07-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img07-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img07-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -201,8 +203,8 @@
 					<p><b>가격: 25,000</b></p>
 				</div> <div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img08-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img08-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img08-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img08-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -212,8 +214,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img09-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img09-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img09-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img09-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -222,8 +224,8 @@
 					<p><b>가격: 25,000</b></p>
 				</div> <div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img10-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img10-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img10-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img10-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -232,8 +234,8 @@
 					<p><b>가격: 25,000</b></p>
 				</div> <div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img11-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img11-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img11-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img11-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -243,8 +245,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img12-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img12-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img12-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img12-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -254,8 +256,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img13-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img13-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img13-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img13-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -265,8 +267,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img14-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img14-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img14-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img14-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -276,8 +278,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img15-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img15-2.jpg" class="img-top" >	
+						<img src= "<%=application.getContextPath() %>/resources/img/img15-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img15-2.jpg" class="img-top" >	
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
@@ -287,8 +289,8 @@
 				</div> 
 				<div class="column">
 					<a href = "html/product.html">
-						<img src= "/html_css_javaspring/resource/img/img16-1.jpg" class="img-bottom">
-						<img src= "/html_css_javaspring/resource/img/img16-2.jpg" class="img-top" >
+						<img src= "<%=application.getContextPath() %>/resources/img/img16-1.jpg" class="img-bottom">
+						<img src= "<%=application.getContextPath() %>/resources/img/img16-2.jpg" class="img-top" >
 					</a>
 					<a href = "/html_css_javaspring/item_detail/product01.html">
 						<span class="badge badge-warning">Best</span>
