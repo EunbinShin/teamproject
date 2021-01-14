@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<title>SAGI</title>
+	<link rel="icon" href="/html_css_javaspring/resource/img/logo/logo_fapicon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/html_css_javaspring/item_detail/css/product.css?after" type="text/css">
+	<link rel="stylesheet" href="/html_css_javaspring/resource/css/header.css?after" type="text/css">
+	<link rel="stylesheet" href="/html_css_javaspring/resource/css/menu_bar.css?after" type="text/css">
+	<link rel="stylesheet" href="/html_css_javaspring/resource/css/footer.css?after" type="text/css">
+	<style type="text/css">
+	/* slide show */
+	*{margin:0;padding:0;}
+    img > ul,li{list-style:none;}
+    .slide{height: 75%;overflow:hidden;}
+    .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
+    .slide li{width:calc(100% / 4);height: 75%;}
+	</style>
+	<script type="text/javascript">
+				const gotoHome = () => {
+					location.href = "/html_css_javaspring/index.html";
+				}
+			</script>
+	</head>
+</head>
+	<div id="mySidenav" class="sidenav">
+		<a class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">Review</a>
+		<a href="/html_css_javaspring/board/qna_board/qna.html">QnA</a>
+	</div>
+	
+	<header onclick="gotoHome()" style="color: white">
+		<img id="sagi_logo"
+			src="/html_css_javaspring/resource/img/logo/logo_white.png">
+		SAGI
+	</header>
+	
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-expand-sm bg-light sticky-top">
+              <i id="barIcon" onclick="fun1()" class="fas fa-bars"></i>
+				<script type="text/javascript">
+					const fun1 = () =>{
+						document.getElementById("mySidenav").style.width = "250px";
+					};
+					
+					const closeNav = () =>{
+						document.getElementById("mySidenav").style.width = "0";
+					};
+				</script>
+				
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link"
+					href="/html_css_javaspring/index.html">HOME</a></li>
+				<li class="nav-item dropdown"><a class="nav-link dropbtn"
+					href="/html_css_javaspring/item_list/default_itemlist/item_list.html">SHOP</a>
+					<div class="dropdown-content">
+						<a href="/html_css_javaspring/item_list/new_itemlist/newitem_list.html">NEW</a>
+						<a href="/html_css_javaspring/item_list/best_itemlist/bestitem_list.html">BEST</a>
+					</div>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/html_css_javaspring/add/add.html">ADD</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
+              </ul>
+              
+              <div class="dropdown">
+  				<div id="myDropdown" class="search-dropdown-content" >
+    				<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+  				</div>
+				<i onclick="searchBar()" id="mySearch" style="margin-right:30px" class="fas fa-search"></i>
+			</div>
+			
+			<script type="text/javascript">
+				let toggle = true;
+				
+				const searchBar = () =>{
+					if(toggle){
+						document.getElementById("myDropdown").style.display = "inline";
+						toggle = !toggle;
+					}else{
+						document.getElementById("myDropdown").style.display = "none";
+						toggle = !toggle;
+					}
+						
+				};
+	
+			</script>
+              <a style="margin-right:10px" href="/html_css_javaspring/login/login.html"><i class="fas fa-user"></i></a>
+         </nav>	
+		
+			<section>
+				<div id="img">
+					<div>
+						<img src= "/html_css_javaspring/resource/img/img01-1.jpg" style="height:100%"  >
+					</div>
+				</div> <!-- cover -->
+				<div id="info">
+					<h2> 이름이름이름 </h2><br/>
+					<h4> 가격: 25,000 </h4>
+					<p></p>
+					<h5> I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. 
+						This is also a great space to write what makes this product special and how your customers can benefit from this item. </h5>
+					<br/>
+					<div class="Button" >
+						<a id="b1" href="구매" target="_blank">Buy</a>
+						<a id="b2" href="장바구니" target="_blank">Take a Cart <i class="fa fa-shopping-cart"></i></a>
+						<a id="b3" href="/html_css_javaspring/wishlist/wishList.html" target="_blank"><i class="fas fa-heart"></i></a>
+					</div>
+				</div>	
+			</section>
+			
+			<article>
+				<div id="row">
+					<h3> Recommendation </h3><br>
+					<div class="slide">
+						<ul>
+						<li><img src= "/html_css_javaspring/resource/img/img01-1.jpg" style="width:15%"/>   <img src= "/html_css_javaspring/resource/img/img02-1.jpg"style="width:15%"/>  
+						<img src= "/html_css_javaspring/resource/img/img03-1.jpg"style="width:15%"/>   <img src= "/html_css_javaspring/resource/img/img04-1.jpg" style="width:15%"/></li> 
+						
+						<li><img src= "/html_css_javaspring/resource/img/img05-1.jpg" style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img06-1.jpg" style="width:15%"/> 
+						<img src= "/html_css_javaspring/resource/img/img07-1.jpg"style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img08-1.jpg" style="width:15%"></li>
+						
+						<li><img src= "/html_css_javaspring/resource/img/img09-1.jpg" style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img10-1.jpg" style="width:15%"/> 
+						<img src= "/html_css_javaspring/resource/img/img11-1.jpg"style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img12-1.jpg" style="width:15%"></li>
+						
+						<li><img src= "/html_css_javaspring/resource/img/img13-1.jpg" style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img14-1.jpg" style="width:15%"/> 
+						<img src= "/html_css_javaspring/resource/img/img15-1.jpg"style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img16-1.jpg" style="width:15%"></li>
+						</ul>
+					</div> 
+				</div>		
+					
+				<div id="txt">
+					<img src= "/html_css_javaspring/resource/img/img01-3.jpg" style="width:100%"  >
+					<h3>POINT</h3>
+					<p> 주물 주전자의 아날로그 감성을 살린 디자인 <br> 동아시아권에서 전통적으로 찻물을 끓일 때 사용하던 무쇠 주물 주전자에서 <br> 모티브를 얻어 현대적으로 재해석한 디자인의 전기 포트입니다. <br>
+						
+					<p> 손잡이는 다이캐스트로 제작,  스테인리스 재질로 거친 무쇠의 느낌을 살렸습니다. <br> 균형잡힌 외관 라인과 구도 심플한 외관 라인을 위해 <br> 
+							직선과 곡선이 조화롭게 보일 수 있게 디자인했으며 구도상의 균형을 위해 받침대를 넓게 제작했습니다. <br>
+							
+					<p>	가벼운 느낌이 아닌 묵직한 느낌의 첫인상 일반적인 전기 포트의 가벼운 느낌과는 다른 첫인상과 같은 묵직함을 느끼실 수 있습니다.  <br> 
+							안정적인 곡선의 각도 추출구의 끝부분을 세밀하게 디자인하여 안정적인 각도로 물을 따를 수 있게 하였습니다. </p>
+					<img src= "/html_css_javaspring/resource/img/img01-4.jpg" style="width:100%"  >
+					<img src= "/html_css_javaspring/resource/img/img01-5.jpg" style="width:100%"  >
+				</div>
+			</article>
+		</div>
+		
+		<footer>
+			<div id="left">
+				Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
+				<br/>designed by EunBin SHIN
+			</div>
+			<div id="right">
+				(우)05717<br/>
+				서울특별시 송파구 중대로 135 12층 
+			</div>
+		</footer>
+	</body>
+</html>

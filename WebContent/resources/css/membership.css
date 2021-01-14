@@ -1,0 +1,139 @@
+			
+			header {
+				background-color: #1F4948;
+				color: white;
+				
+				height: 140px;
+				
+				text-align: center;
+				font-size: 80px;
+			}
+			
+			header:hover{
+				cursor: pointer;
+			}
+			
+			#sagi_logo{
+				width: 80px;
+			}
+			a{
+				color: black;
+				text-decoration: none;
+			}
+			
+			a:hover{
+				color: black;
+				text-decoration: none;
+			}
+
+			body{
+				background-color: #white;
+				text-align: center;
+				min-width: 1700px;
+				min-height: 900px;
+			}
+		
+			#wrapper{
+				display: flex;
+				flex-direction: column;
+			}
+			
+			footer{
+		   		margin-top:100px;
+				background-color: #1F4948;
+				color: white;
+				height: 200px;
+				font-size:13px;
+			}
+			
+			footer div{
+				display:inline-block;
+			}
+			
+			footer div#left{
+				color: #f8f9fa;
+				float: left;
+				margin-top: 50px;
+				margin-left: 350px;
+			}
+	
+			footer div#right{
+				color: #f8f9fa;
+				float: right;
+				margin-top: 50px;
+				margin-right: 350px;
+			}
+			
+.latest-product-section {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+h2 {
+    font-size: 30px;
+}
+
+
+p {
+
+    font-size: 15px;
+    font-weight: 400;
+    color: #a6a7aa;
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #515769;
+    line-height: 1.4;
+    margin: 0 0 15px;
+    text-align: center;
+}
+
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+    color: #1F4948;
+}
+
+.margin-b-20 {
+    margin-bottom: 20px !important;
+   
+}
+
+.margin-b-40 {
+    margin-bottom: 40px !important;
+    text-align:center;
+}
+
+.margin-b-50 {
+    margin-bottom: 40px !important;
+}
+
+span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1F4948;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+.link {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#text {
+	text-align:center;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+
+.card-pricing.popular {
+    z-index: 1;
+    border: 3px solid #1F4948;
+}
+.card-pricing .list-unstyled li {
+    padding: .5rem 0;
+    color: #1F4948;
+}

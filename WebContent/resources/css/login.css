@@ -1,0 +1,107 @@
+			
+			header {
+				background-color: #1F4948;
+				color: white;
+				
+				height: 140px;
+				
+				text-align: center;
+				font-size: 80px;
+			}
+			
+			header:hover{
+				cursor: pointer;
+			}
+			
+			#sagi_logo{
+				width: 80px;
+			}
+			a{
+				color: black;
+				text-decoration: none;
+			}
+			
+			a:hover{
+				color: black;
+				text-decoration: none;
+			}
+
+			body{
+				background-color: #white;
+				text-align: center;
+				min-width: 1700px;
+				min-height: 900px;
+			}
+		
+			#wrapper{
+				display: flex;
+				flex-direction: column;
+			}
+			
+			#loginCover{
+				flex:1;
+			}
+		
+			#loginBox{
+				margin: 50px auto;
+				background-color: #ffffff;
+				width: 400px;
+				height: 300px;
+				padding: 20px;
+				box-sizing: border-box;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			}
+			
+			#loginBox h3{
+				text-align: center;
+				font-size: 18px;
+				margin-bottom: 15px;
+			}
+			
+			#loginBox input{
+				width:90%;
+				height: 2rem;
+				margin-left:auto;
+				margin-right:auto;
+				margin-bottom: 0.1rem;
+				display: block;
+				
+			}
+			
+			#loginBox .hbox{
+				margin-top: 1rem;
+				display: flex;
+			}
+			
+			#loginBox .hbox button{
+				flex: 1;
+				margin: 5px;
+				background-color: #1F4948;
+			}
+			
+			footer{
+		   		margin-top:100px;
+				background-color: #1F4948;
+				color: white;
+				height: 200px;
+				font-size:13px;
+			}
+			
+			footer div{
+				display:inline-block;
+			}
+			
+			footer div#left{
+				color: #f8f9fa;
+				float: left;
+				margin-top: 50px;
+				margin-left: 350px;
+			}
+	
+			footer div#right{
+				color: #f8f9fa;
+				float: right;
+				margin-top: 50px;
+				margin-right: 350px;
+			}
