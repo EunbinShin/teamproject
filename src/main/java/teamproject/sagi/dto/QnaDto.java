@@ -6,8 +6,11 @@ public class QnaDto {
 	private int bNo;
 	private String qna_categorie;
 	private String qna_title;
+	private String qna_writer;
 	private String qna_content;
 	private Date date;
+	
+	
 	public int getbNo() {
 		return bNo;
 	}
@@ -26,6 +29,13 @@ public class QnaDto {
 	public void setQna_title(String qna_title) {
 		this.qna_title = qna_title;
 	}
+	public String getQna_writer() {
+		return qna_writer;
+	}
+	public void setQna_writer(String qna_writer) {
+		this.qna_writer = qna_writer;
+	}
+	
 	public String getQna_content() {
 		return qna_content;
 	}

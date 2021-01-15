@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -34,6 +36,7 @@
 					<thead>
 						<tr>
 							<th>번호</th>
+							<th>문의</th>
 							<th>제목</th>
 							<th>작성자</th>
 							<th>날짜</th>
@@ -42,6 +45,7 @@
 					<tbody>
 						<tr>
 							<th>1</th>
+							<th>배송</th>
 							<th><a href="show">그릇이 너무 좋아요</a></th>
 							<th>신은빈</th>
 							<th>2021.01.02</th>
@@ -50,6 +54,7 @@
 					<tbody>
 						<tr>
 							<th>2</th>
+							<th>배송</th>
 							<th>제가 그릇은 안쓰는데 여기껀 써요</th>
 							<th>이영준</th>
 							<th>2021.01.05</th>
@@ -58,6 +63,7 @@
 					<tbody>
 						<tr>
 							<th>3</th>
+							<th>기타</th>
 							<th>이 그릇에 밥을 먹고 오병이어의 기적을 느꼈어요</th>
 							<th>원지영</th>
 							<th>2021.01.01</th>
@@ -66,6 +72,7 @@
 					<tbody>
 						<tr>
 							<th>4</th>
+							<th>환불</th>
 							<th>그릇이 깨졌어요</th>
 							<th>곽두팔</th>
 							<th>2021.01.02</th>
@@ -74,6 +81,7 @@
 					<tbody>
 						<tr>
 							<th>5</th>
+							<th>환불</th>
 							<th>야구선수가 던져도 안깨져요</th>
 							<th>김진욱</th>
 							<th>2021.01.05</th>
@@ -82,6 +90,7 @@
 					<tbody>
 						<tr>
 							<th>6</th>
+							<th>환불</th>
 							<th>최고의 사이트</th>
 							<th>감자바</th>
 							<th>2021.01.01</th>
@@ -90,6 +99,7 @@
 					<tbody>
 						<tr>
 							<th>7</th>
+							<th>제품</th>
 							<th>아 정말 데단헤</th>
 							<th>신은진</th>
 							<th>2021.01.02</th>
@@ -98,6 +108,7 @@
 					<tbody>
 						<tr>
 							<th>8</th>
+							<th>제품</th>
 							<th>QnA에 문의 드립니다</th>
 							<th>이준영</th>
 							<th>2021.01.05</th>
@@ -106,6 +117,7 @@
 					<tbody>
 						<tr>
 							<th>10</th>
+							<th>제품</th>
 							<th>유튜브 협찬 문의 드립니다</th>
 							<th>유듀버</th>
 							<th>2021.01.01</th>
@@ -115,9 +127,9 @@
 			</div>
 			
 			<!-- QnA board Table -->
-			
-			<a href="writeQnA" class="btn btn-sm">글쓰기</a>
-			
+			<c:if test="${loginStatus != null}">
+				<a href="writeQnA" class="btn btn-sm btn-primary">글쓰기</a>
+			</c:if>
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
 			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>

@@ -50,6 +50,13 @@
 				  <input id="qna_title" name="qna_title" placeholder="제목" class="form-control input-md" required="" type="text">
 				  </div>
 				</div>
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="qna_writer">작성자</label>  
+				  <div class="col-md-4">
+				  <input readonly="readonly" id="qna_writer" name="qna_writer" placeholder="${loginStatus }" class="form-control input-md" required="" type="text">
+				  </div>
+				</div>
 				<!-- Textarea -->
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="qna_content">내용</label>

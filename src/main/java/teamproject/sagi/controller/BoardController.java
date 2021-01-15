@@ -2,6 +2,8 @@ package teamproject.sagi.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -48,11 +50,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/submitQnA")
-	public String submitQnA(QnaDto board) {
+	public String submitQnA(
+			HttpSession session,
+			QnaDto board) {
 		logger.info("실행");
 		board.setDate(new Date());
+		board.setQna_writer((String) session.getAttribute("loginStatus"));
 		logger.info(board.getQna_categorie());
 		logger.info(board.getQna_title());
+		logger.info(board.getQna_writer());
 		logger.info(board.getQna_content());
 		return "redirect:/board/qna";
 	}
