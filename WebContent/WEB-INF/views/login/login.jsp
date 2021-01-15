@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
@@ -35,17 +36,24 @@
 					<!-- 입력양식을 만들 때 사용 (block)요소 -->
 					<div>
 						<!-- input은 inline요소 -->
-						<form method="post" action="login">
-							<input id="uid" name="uid" value="${uid}" type="text"  onkeyup="handleIdChange()" placeholder="아이디" required=""/>
-							<input id="upassword" name="upassword" onkeyup="handlePasswordChange()" type="password" placeholder="패스워드" required=""/>
-							<div id="myCheckBox">
-								<input id="ucheck" name="ucheck" type="checkbox"/>
-								<label for="ucheck">아이디 기억하기</label>
+						<c:if test="${loginStatus == null}">
+							<form method="post" action="login">
+								<input id="uid" name="uid" value="${uid}" type="text"  onkeyup="handleIdChange()" placeholder="아이디" required=""/>
+								<input id="upassword" name="upassword" onkeyup="handlePasswordChange()" type="password" placeholder="패스워드" required=""/>
+								<div id="myCheckBox">
+									<input id="ucheck" name="ucheck" type="checkbox"/>
+									<label for="ucheck">아이디 기억하기</label>
+								</div>
+								<div class="hbox">
+									<button class="btn btn-info">로그인</button>
+								</div>
+							</form>
+						</c:if>
+						<c:if test="${loginStatus != null}">
+							<div>
+								<a class="btn btn-danger btn-sm" href="logout" >로그아웃</a>
 							</div>
-							<div class="hbox">
-								<button class="btn btn-info">로그인</button>
-							</div>
-						</form>
+						</c:if>
 					</div>
 				</div>
 			</div>

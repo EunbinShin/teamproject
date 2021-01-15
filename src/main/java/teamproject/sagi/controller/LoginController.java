@@ -3,12 +3,14 @@ package teamproject.sagi.controller;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,7 +36,9 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public String login(HttpServletResponse response,
+	public String login(
+			HttpSession session,
+			HttpServletResponse response,
 			HttpServletRequest request,
 			String uid, String upassword,boolean ucheck) {
 		logger.info("로그인 실행");
@@ -52,12 +56,21 @@ public class LoginController {
 			Cookie idCookie = new Cookie("ID", null);
 			response.addCookie(idCookie);
 		}
+		
+		if(uid.equals("admin") && upassword.equals("12345")) {
+			session.setAttribute("loginStatus", uid);
+		}
 			
 		if(uid.length() != 0 && upassword.length() != 0) {	//만약 폼이 맞으면
 			return "redirect:/index";
 		}else {
 			return "redirect:/login/";
 		}
-		
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/index";
 	}
 }
