@@ -1,4 +1,4 @@
-package dto;
+package teamproject.sagi.dto;
 
 public class SignupDto {
 
