@@ -3,10 +3,11 @@ package teamproject.sagi.dto;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 public class AddDto {
-
 	private String product_id; 
+	private String product_name;
 	private String product_categorie; //d
 	private double product_price; 
 	private double percentage_discount;
@@ -14,13 +15,20 @@ public class AddDto {
 	private int available_quantity;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date online_date;
-	private String filebutton;
+	private MultipartFile main_button;
+	private MultipartFile sub_button;
 	
 	public String getProduct_id() {
 		return product_id;
 	}
 	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
+	}
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 	public String getProduct_categorie() {
 		return product_categorie;
@@ -58,11 +66,19 @@ public class AddDto {
 	public void setOnline_date(Date online_date) {
 		this.online_date = online_date;
 	}
-	public String getFilebutton() {
-		return filebutton;
+	public MultipartFile getMain_button() {
+		return main_button;
 	}
-	public void setFilebutton(String filebutton) {
-		this.filebutton = filebutton;
-	}	  
+	public void setMain_button(MultipartFile main_button) {
+		this.main_button = main_button;
+	}
+	public MultipartFile getSub_button() {
+		return sub_button;
+	}
+	public void setSub_button(MultipartFile sub_button) {
+		this.sub_button = sub_button;
+	}
 	
+	
+
 }
