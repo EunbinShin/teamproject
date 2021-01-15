@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import teamproject.sagi.dto.BoardDTO;
+import teamproject.sagi.dto.QnaDto;
 
 @Controller
 @RequestMapping("/board")
@@ -47,8 +48,12 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/submitQnA")
-	public String submitQnA() {
+	public String submitQnA(QnaDto board) {
 		logger.info("실행");
+		board.setDate(new Date());
+		logger.info(board.getQna_categorie());
+		logger.info(board.getQna_title());
+		logger.info(board.getQna_content());
 		return "redirect:/board/qna";
 	}
 }
