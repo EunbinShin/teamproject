@@ -1,21 +1,21 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title> SAGI </title>
 
-	<link rel="icon" href="<%=application.getContextPath() %>/resource/img/logo/logo_fapicon.png">
+	<link rel="icon" href="<%=application.getContextPath()%>/resource/img/logo/logo_fapicon.png">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/add.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/add.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/header.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/menu_bar.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/footer.css?after" type="text/css">
 	
 	<script type="text/javascript">
 		const gotoHome = () => {
@@ -91,61 +91,20 @@
 		
 		<div class="add">
 		
-		<form method= "post" action="signup_form" class="form-horizontal">
-		<fieldset>
 		
-		<!-- Form Name -->
-		<legend id="form-name">회원 가입</legend>
 		
-		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="uname">이름</label>  
-		  <div class="col-md-4">
-		  <input id="uname" name="uname" placeholder="이름" class="form-control input-md" required="" type="text">
-		  </div>
-		</div>
-		
-		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="uid">아이디</label>  
-		  <div class="col-md-4">
-		  <input id="uid" name="uid" placeholder="아이디" class="form-control input-md" required="" type="text">
-		  </div>
-		</div>
-		
-		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="upassword">패스워드</label>  
-		  <div class="col-md-4">
-		  <input id="upassword" name="upassword" placeholder="패스워드" class="form-control input-md" required="" type="password">
-		  </div>
-		</div>
-		
-		<!-- Text input-->
+		<!-- 이미지 파일 업로드 -->
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="uemail">이메일</label>  
-		  <div class="col-md-4">
-		  <input id="uemail" name="uemail" placeholder="이메일" class="form-control input-md" required="" type="text">
-		  </div>
+		  <form method="post" enctype="multipart/form-data" action="fileupload">
+		  		<input type="text" name="uname"/><br/>
+		  		<input type="text" name="uid"/><br/>
+		  		<input type="password" name="upassword"/><br/>
+		  		<input type="text" name="uemail"/><br/>
+		  		<input type="file" name="uphoto"/><br/>
+		  		<input class="btn btn-sm btn-info" type="submit" value="회원가입"/></br>
+		  </form>
 		</div>
-		
-		<!-- Button -->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="singlebutton"></label>
-		  <div class="col-md-4">
-		    <button onclick="myFunction()" id="singlebutton" name="singlebutton" class="btn btn-secondary">회원가입</button>
-		    	<script>
-		    		function 
-		    			myFunction() {
-		    			confirm("상품을 게시하겠습니까?");
-					}
-				</script>
-		  </div>
-		  </div>
-		
-		</fieldset>
-		</form>
-		
 		
 		</div> <!-- /add -->
 		

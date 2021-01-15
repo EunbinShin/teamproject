@@ -1,12 +1,21 @@
 package teamproject.sagi.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class SignupDto {
 
 	private String uname; 
 	private String uid; 
 	private String upassword; 
 	private String uemail;
+	private MultipartFile uphoto;
 
+	public MultipartFile getUphoto() {
+		return uphoto;
+	}
+	public void setUphoto(MultipartFile uphoto) {
+		this.uphoto = uphoto;
+	}
 	public String getUname() {
 		return uname;
 	}

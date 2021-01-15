@@ -1,9 +1,16 @@
 package teamproject.sagi.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+
 import teamproject.sagi.dto.SignupDto;
 
 
@@ -17,6 +24,36 @@ public class SignupController {
 	@RequestMapping("/signup")
 	public String content() {
 		logger.info("signup 실행");
+		return "signup/signup";
+	}
+	
+	@PostMapping("/fileupload")
+	public String fileupload(SignupDto user) {
+		
+		String uname = user.getUname();
+		String uid = user.getUid();
+		String upassword = user.getUpassword();
+		String uemail = user.getUemail();
+		logger.info("NAME: " + uname);
+		logger.info("ID: " + uid);
+		logger.info("PASSWORD: " + upassword);
+		logger.info("EMAIL: " + uemail);
+		
+		MultipartFile uphoto = user.getUphoto();
+		
+		String originalFileName = uphoto.getOriginalFilename();
+		String saveFile = "D:/MyWorkspace/uploadfiles/";		
+		String fileName = new Date().getTime() + "-" + originalFileName;
+		String filePath = saveFile + fileName;
+		File file = new File(filePath);
+		try {
+			uphoto.transferTo(file);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return "signup/signup";
 	}
 	
