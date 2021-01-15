@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <nav class="navbar navbar-expand-sm bg-light sticky-top">
 	<i id="barIcon" onclick="fun1()" class="fas fa-bars"></i>
@@ -12,7 +13,7 @@
 		};
 	</script>
 
-	<ul class="navbar-nav mx-auto">
+	<ul id="menu_content" class="navbar-nav">
 		<li class="nav-item"><a class="nav-link"
 			href="/html_css_javaspring/index.html">HOME</a></li>
 		<li class="nav-item dropdown">
@@ -22,13 +23,15 @@
 				<a href="<%=application.getContextPath() %>/item_list/bestitems">BEST</a>
 			</div>
 		</li>
+		<c:if test="${loginStatus != null}">
 		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/add/add">ADD</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
+		</c:if>
 	</ul>
 
-	<div class="dropdown">
-		<div id="myDropdown" class="search-dropdown-content">
+	<div id="icon_content">
+		<div id="mySearchBox">
 			<input type="text" placeholder="Search.." id="myInput"
 				onkeyup="filterFunction()">
 		</div>
@@ -37,21 +40,20 @@
 	</div>
 
 	<script type="text/javascript">
-				let toggle = true;
-				
-				const searchBar = () =>{
-					if(toggle){
-						document.getElementById("myDropdown").style.display = "inline";
-						toggle = !toggle;
-					}else{
-						document.getElementById("myDropdown").style.display = "none";
-						toggle = !toggle;
-					}
-						
-				};
-	
-			</script>
-	<a style="margin-right: 10px" href="<%=application.getContextPath() %>/login/">
+		let toggle = true;
+		
+		const searchBar = () =>{
+			if(toggle){
+				document.getElementById("mySearchBox").style.display = "inline";
+				toggle = !toggle;
+			}else{
+				document.getElementById("mySearchBox").style.display = "none";
+				toggle = !toggle;
+			}	
+		};
+
+	</script>
+	<a href="<%=application.getContextPath() %>/login/">
 		<i class="fas fa-user"></i>
 	</a>
 </nav>

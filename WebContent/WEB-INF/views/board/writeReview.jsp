@@ -35,7 +35,9 @@
 				<div>
 					<div id="img_container">
 						<img src="<%=application.getContextPath() %>/resources/img/noimage.jpg" width="100px" height="100px"/>
-						<a class="btn btn-primary">상품정보선택</a>
+						<a href="findItem" class="btn btn-secondary" 
+							onclick="window.open(this.href, '_blank', 'width=600px,height=500px,toolbars=no,scrollbars=no'); return false;">
+							상품정보선택</a>
 					</div>
 				</div>
 				<!-- Text input-->

@@ -32,7 +32,7 @@
 			
 			<!-- QnA board Table -->
 			<div id="table_container">
-				<table class="table table-striped">
+				<table id="boardTable" class="table table-striped">
 					<thead>
 						<tr>
 							<th>번호</th>
@@ -127,9 +127,12 @@
 			</div>
 			
 			<!-- QnA board Table -->
-			<c:if test="${loginStatus != null}">
-				<a href="writeQnA" id="submitBtn" class="btn btn-sm btn-primary">글쓰기</a>
-			</c:if>
+			<div id="btnContainer">
+				<c:if test="${loginStatus != null}">
+					<a href="writeQnA" id="submitBtn" class="btn btn-sm btn-secondary">글쓰기</a>
+				</c:if>
+			</div>
+			
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
 			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
