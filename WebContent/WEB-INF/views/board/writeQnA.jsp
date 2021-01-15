@@ -12,7 +12,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 		rel="stylesheet">
-		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/writeQnA.css" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/writeReview.css" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
@@ -29,12 +29,12 @@
 			<h3>QnA</h3>
 			
 			<!-- QnA board Table -->
-			<form method= "post" action="submitQnA" class="form-horizontal">
+			<form method= "post" action="submitQnA" enctype="multipart/form-data" class="form-horizontal">
 				<fieldset>
 				<%--문의 카테고리 --%>
-				<div class="form-group">
+				<div>
 				  <label class="col-md-4 control-label" for="qna_categorie">문의내용</label>
-				  <div class="col-md-4">
+				  <div class="form-group">
 				    <select id="qna_categorie" name="qna_categorie" class="form-control">
 							<option value="qna_delivery">배송문의</option>
 							<option value="qna_item">제품문의</option>
@@ -44,31 +44,34 @@
 				  </div>
 				</div>
 				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="qna_title">제목</label>  
-				  <div class="col-md-4">
+				<div>
+				  <label class="control-label" for="qna_title">제목</label>  
+				  <div class="form-group">
 				  <input id="qna_title" name="qna_title" placeholder="제목" class="form-control input-md" required="" type="text">
 				  </div>
 				</div>
 				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="qna_writer">작성자</label>  
-				  <div class="col-md-4">
+				<div>
+				  <label class="control-label" for="qna_writer">작성자</label>  
+				  <div class="form-group">
 				  <input readonly="readonly" id="qna_writer" name="qna_writer" placeholder="${loginStatus }" class="form-control input-md" required="" type="text">
 				  </div>
 				</div>
 				<!-- Textarea -->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="qna_content">내용</label>
-				  <div class="col-md-4">                     
+				<div>
+				  <label class="control-label" for="qna_content">내용</label>
+				  <div class="form-group">                     
 				    <textarea class="form-control" id="qna_content" name="qna_content" rows="15" placeholder="내용"></textarea>
 				  </div>
 				</div>
 				<%--사진 올리기 --%>
+				<div>
 				 <div class="form-group">
-				  <label class="col-md-4 control-label" for="filebutton">추가 이미지</label>
-				  <div class="col-md-4">
-				    <input id="filebutton" name="filebutton" class="input-file" type="file">
+				  	<label>추가 이미지</label><br/>
+				    <input id="filebutton1" name="qnafile1" class="input-file" type="file"><br/>
+				    <input id="filebutton2" name="qnafile2" class="input-file" type="file"><br/>
+				    <input id="filebutton3" name="qnafile3" class="input-file" type="file"><br/>
+				    <input id="filebutton4" name="qnafile4" class="input-file" type="file"><br/>
 				  </div>
 				</div>
 				<!-- Button -->

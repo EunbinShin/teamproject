@@ -128,7 +128,7 @@
 			
 			<!-- QnA board Table -->
 			<c:if test="${loginStatus != null}">
-				<a href="writeQnA" class="btn btn-sm btn-primary">글쓰기</a>
+				<a href="writeQnA" id="submitBtn" class="btn btn-sm btn-primary">글쓰기</a>
 			</c:if>
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">

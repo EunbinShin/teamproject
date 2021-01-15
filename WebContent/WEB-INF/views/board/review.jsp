@@ -117,7 +117,7 @@
 			
 			<!-- QnA board Table -->
 			<c:if test="${loginStatus != null}">
-				<a href="writeReview" class="btn btn-sm btn-primary">글쓰기</a>
+				<a href="writeReview" id="submitBtn" class="btn btn-sm btn-primary">글쓰기</a>
 			</c:if>
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">

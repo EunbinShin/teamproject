@@ -29,7 +29,7 @@
 			<h3>Review</h3>
 			
 			<!-- QnA board Table -->
-			<form method= "post" action="submitReview" class="form-horizontal">
+			<form method= "post" action="submitReview" enctype="multipart/form-data" class="form-horizontal">
 				<fieldset>
 				<%--문의 카테고리 --%>
 				<div>
@@ -64,11 +64,11 @@
 				<%--사진 올리기 --%>
 				<div>
 				 <div class="form-group">
-				  	<label class="col-md-4 control-label" for="filebutton">추가 이미지</label>
-				    <input id="filebutton1" name="filebutton1" class="input-file" type="file"><br/>
-				    <input id="filebutton2" name="filebutton2" class="input-file" type="file"><br/>
-				    <input id="filebutton3" name="filebutton3" class="input-file" type="file"><br/>
-				    <input id="filebutton4" name="filebutton4" class="input-file" type="file"><br/>
+				  	<label>추가 이미지</label><br/>
+				    <input id="filebutton1" name="file1" class="input-file" type="file"><br/>
+				    <input id="filebutton2" name="file2" class="input-file" type="file"><br/>
+				    <input id="filebutton3" name="file3" class="input-file" type="file"><br/>
+				    <input id="filebutton4" name="file4" class="input-file" type="file"><br/>
 				  </div>
 				</div>
 				<!-- Button -->

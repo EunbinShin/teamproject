@@ -2,12 +2,18 @@ package teamproject.sagi.dto;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class QnaDto {
 	private int bNo;
 	private String qna_categorie;
 	private String qna_title;
 	private String qna_writer;
 	private String qna_content;
+	private MultipartFile qnafile1;
+	private MultipartFile qnafile2;
+	private MultipartFile qnafile3;
+	private MultipartFile qnafile4;
 	private Date date;
 	
 	
@@ -48,6 +54,32 @@ public class QnaDto {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public MultipartFile getQnafile1() {
+		return qnafile1;
+	}
+	public void setQnafile1(MultipartFile qnafile1) {
+		this.qnafile1 = qnafile1;
+	}
+	public MultipartFile getQnafile2() {
+		return qnafile2;
+	}
+	public void setQnafile2(MultipartFile qnafile2) {
+		this.qnafile2 = qnafile2;
+	}
+	public MultipartFile getQnafile3() {
+		return qnafile3;
+	}
+	public void setQnafile3(MultipartFile qnafile3) {
+		this.qnafile3 = qnafile3;
+	}
+	public MultipartFile getQnafile4() {
+		return qnafile4;
+	}
+	public void setQnafile4(MultipartFile qnafile4) {
+		this.qnafile4 = qnafile4;
+	}
+	
+	
 	
 	
 }

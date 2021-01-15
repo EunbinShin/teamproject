@@ -35,6 +35,11 @@
 			align-items: center;
 		}
 		
+		.form-horizontal div{
+			width: 900px;
+		}
+		
+		
 		#img_container{
 			border: 2px solid gray;
 			padding: 10px;
