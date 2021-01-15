@@ -46,15 +46,18 @@ public class LoginController {
 		logger.info(upassword+" is pw");
 		logger.info(ucheck+"");
 		
+		
 		if(ucheck == true) {
 			//아이디 기억하기가 true이면 쿠키를 생성
 			logger.info("쿠키생성");
 			Cookie idCookie = new Cookie("ID", uid);
 			response.addCookie(idCookie);
+			session.setAttribute("remerberID", "checked");
 		}else {
 			//아이디 기억하기가 false이면 쿠키를 지움
 			Cookie idCookie = new Cookie("ID", null);
 			response.addCookie(idCookie);
+			session.removeAttribute("remerberID");
 		}
 		
 		if(uid.equals("admin") && upassword.equals("12345")) {

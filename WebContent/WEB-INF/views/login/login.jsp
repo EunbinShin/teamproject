@@ -41,7 +41,7 @@
 								<input id="uid" name="uid" value="${uid}" type="text"  onkeyup="handleIdChange()" placeholder="아이디" required=""/>
 								<input id="upassword" name="upassword" onkeyup="handlePasswordChange()" type="password" placeholder="패스워드" required=""/>
 								<div id="myCheckBox">
-									<input id="ucheck" name="ucheck" type="checkbox"/>
+									<input id="ucheck" name="ucheck" type="checkbox" ${remerberID}/>
 									<label for="ucheck">아이디 기억하기</label>
 								</div>
 								<div class="hbox">
