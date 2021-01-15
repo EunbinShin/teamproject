@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
@@ -115,7 +116,9 @@
 			</div>
 			
 			<!-- QnA board Table -->
-			
+			<c:if test="${loginStatus != null}">
+				<a href="writeReview" class="btn btn-sm btn-primary">글쓰기</a>
+			</c:if>
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
 			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>

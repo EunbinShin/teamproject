@@ -8,9 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import teamproject.sagi.dto.BoardDTO;
 import teamproject.sagi.dto.QnaDto;
+import teamproject.sagi.dto.ReviewDto;
 
 @Controller
 @RequestMapping("/board")
@@ -62,4 +64,24 @@ public class BoardController {
 		logger.info(board.getQna_content());
 		return "redirect:/board/qna";
 	}
+	
+	@RequestMapping("/writeReview")
+	public String writeReview() {
+		logger.info("실행");
+		return "board/writeReview";
+	}
+	
+	@PostMapping("/submitReview")
+	public String submitReview(
+			HttpSession session,
+			ReviewDto board) {
+		logger.info("실행");
+		board.setDate(new Date());
+		board.setReview_writer((String) session.getAttribute("loginStatus"));
+		logger.info(board.getReview_title());
+		logger.info(board.getReview_writer());
+		logger.info(board.getReview_content());
+		return "redirect:/board/review";
+	}
+	
 }
