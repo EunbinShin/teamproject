@@ -68,10 +68,13 @@ public class AddController {
 			   e.printStackTrace();
 		   }
 	   }
+
 	   
 	   logger.info("상품 등록 완료");
 	   return "redirect:/add/add";
    }
+   
+   
    
 
 }

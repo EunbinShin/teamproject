@@ -6,19 +6,19 @@
 	<meta charset="UTF-8">
 	<title> SAGI </title>
 
-	<link rel="icon" href="/html_css_javaspring/resource/img/logo/logo_fapicon.png">
+	<link rel="icon" href="<%=application.getContextPath() %>/resources/img/logo/logo_fapicon.png">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="index.css?after" type="text/css">
-	<link rel="stylesheet" href="/html_css_javaspring/resource/css/header.css?after" type="text/css">
-	<link rel="stylesheet" href="/html_css_javaspring/resource/css/menu_bar.css?after" type="text/css">
-	<link rel="stylesheet" href="/html_css_javaspring/resource/css/footer.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/index.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 	<script type="text/javascript">
 		const gotoHome = () => {
-			location.href = "/html_css_javaspring/index.html";
+			location.href="<%=application.getContextPath() %>/index.jsp";
 		}	
 		
 		let change = true;
@@ -57,11 +57,11 @@
 	<div id="mySidenav" class="sidenav">
 		<a class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="#">Review</a>
-		<a href="/html_css_javaspring/board/qna_board/qna.html">QnA</a>
+		<a href="<%=application.getContextPath() %>/board/qna_board/qna.html">QnA</a>
 	</div>
 	
 	<header onclick="gotoHome()"> 
-		<img id="sagi_logo" src="/html_css_javaspring/resource/img/logo/logo_white.png">
+		<img id="sagi_logo" src="<%=application.getContextPath() %>/resources/img/logo/logo_white.png">
 	SAGI</header>
 	
 	<div id="wrapper">
@@ -79,15 +79,15 @@
               
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item"><a class="nav-link"
-					href="/html_css_javaspring/index.html">HOME</a></li>
+					href="<%=application.getContextPath() %>/index.jsp">HOME</a></li>
 				<li class="nav-item dropdown"><a class="nav-link dropbtn"
-					href="/html_css_javaspring/item_list/default_itemlist/item_list.html">SHOP</a>
+					href="<%=application.getContextPath() %>/item_list/default_itemlist/item_list.jsp">SHOP</a>
 					<div class="dropdown-content">
-						<a href="/html_css_javaspring/item_list/new_itemlist/newitem_list.html">NEW</a>
-						<a href="/html_css_javaspring/item_list/best_itemlist/bestitem_list.html">BEST</a>
+						<a href="<%=application.getContextPath() %>/item_list/new_itemlist/newitem_list.jsp">NEW</a>
+						<a href="<%=application.getContextPath() %>/item_list/best_itemlist/bestitem_list.jsp">BEST</a>
 					</div>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/html_css_javaspring/add/add.html">ADD</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/add/add.jsp">ADD</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
               </ul>
@@ -115,7 +115,7 @@
 	
 			</script>
               
-              <a style="margin-right:10px" href="/html_css_javaspring/login/login.html"><i class="fas fa-user"></i></a>
+              <a style="margin-right:10px" href="<%=application.getContextPath() %>/login/login.jsp"><i class="fas fa-user"></i></a>
          </nav>	
 		
 		<!-- 수정: main home image slide --> 
@@ -128,13 +128,13 @@
 			
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="/html_css_javaspring/resource/img/home_a01.jpg" alt="A" style= "wdith:100%">
+					<img src= "<%=application.getContextPath() %>/resources/img/home_a01.jpg" alt="A" >
 		    	</div>
 		    	<div class="carousel-item">
-		    		<img src="/html_css_javaspring/resource/img/home_a02.jpg" alt="B" style= "wdith:100%">
+		    		<img src= "<%=application.getContextPath() %>/resources/img/home_a02.jpg" alt="B" >
 		    	</div>
 		    	<div class="carousel-item">
-		    		<img src="/html_css_javaspring/resource/img/home_a03.jpg" alt="C" style= "wdith:100%">
+		    		<img src= "<%=application.getContextPath() %>/resources/img/home_a03.jpg" alt="C">
 		    	</div>
 		    </div>
 		    
@@ -151,11 +151,11 @@
 		<!-- 수정: 이미지위 텍스트  --> 
 		<div id="banner_row">
 			<div class="banner_column">
-				<a href = "/html_css_javaspring/item_list/new_itemlist/newitem_list.html">
-					<img id= "col_1" src="/html_css_javaspring/resource/img/main_event03.jpg" style= "wdith:100%">
+				<a href="<%=application.getContextPath() %>/item_list/new_itemlist/newitem_list.jsp">
+					<img id= "col_1" src="<%=application.getContextPath() %>/resources/img/main_event03.jpg" >
 				</a>
-				<a href = "/html_css_javaspring/item_list/best_itemlist/bestitem_list.html">
-					<img id= "col_2" src="/html_css_javaspring/resource/img/main_event04.jpg" style= "wdith:100%">
+				<a href="<%=application.getContextPath() %>/item_list/best_itemlist/bestitem_list.jsp">
+					<img id= "col_2" src="<%=application.getContextPath() %>/resources/img/main_event04.jpg" >
 				</a>
 			</div> 
 		</div>
@@ -167,57 +167,57 @@
 			<div id="row_name"> <h3>금주의 베스트 셀러</h3> </div>
 			<div class="column">
 				<a href = "html/product.html">
-					<img  src= "/html_css_javaspring/resource/img/img01-1.jpg" class="img-bottom"  >
-					<img  src= "/html_css_javaspring/resource/img/img01-2.jpg" class="img-top"  >
+					<img  src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom"  >
+					<img  src= "<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top"  >
 					<span class="badge badge-secondary">Best</span>
 				</a>
 			</div> 
 			<div class="column">
 				<a href = "html/product.html">
-					<img src= "/html_css_javaspring/resource/img/img02-1.jpg" class="img-bottom" >
-					<img src= "/html_css_javaspring/resource/img/img02-2.jpg" class="img-top"  >
+					<img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg" class="img-bottom" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img02-2.jpg" class="img-top"  >
 					<span class="badge badge-secondary">New</span>
 				</a>
 			</div> 
 			<div class="column">
 				<a href = "html/product.html">
-					<img src= "/html_css_javaspring/resource/img/img03-1.jpg" class="img-bottom" >
-					<img src= "/html_css_javaspring/resource/img/img03-2.jpg" class="img-top" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img03-1.jpg" class="img-bottom" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img03-2.jpg" class="img-top" >
 					<span class="badge badge-secondary">New</span>
 				</a>
 			</div> 
 			<div class="column">
 				<a href = "html/product.html">
-					<img src= "/html_css_javaspring/resource/img/img04-1.jpg" class="img-bottom" >
-					<img src= "/html_css_javaspring/resource/img/img04-2.jpg" class="img-top" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img04-1.jpg" class="img-bottom" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img04-2.jpg" class="img-top" >
 					<span class="badge badge-secondary">New</span>
 				</a>
 			</div> 		
 			<div class="column">
 				<a href = "html/product.html">
-					<img src= "/html_css_javaspring/resource/img/img05-1.jpg" class="img-bottom" >
-					<img src= "/html_css_javaspring/resource/img/img05-2.jpg" class="img-top" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img05-1.jpg" class="img-bottom" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img05-2.jpg" class="img-top" >
 					<span class="badge badge-secondary">New</span>
 				</a>
 			</div> 		
 			<div class="column">
 				<a href = "html/product.html">
-					<img src= "/html_css_javaspring/resource/img/img06-1.jpg" class="img-bottom" >
-					<img src= "/html_css_javaspring/resource/img/img06-2.jpg" class="img-top" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img06-1.jpg" class="img-bottom" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img06-2.jpg" class="img-top" >
 					<span class="badge badge-secondary">New</span>
 				</a>
 			</div> 		
 			<div class="column">
 				<a href = "html/product.html">
-					<img src= "/html_css_javaspring/resource/img/img07-1.jpg" class="img-bottom" >
-					<img src= "/html_css_javaspring/resource/img/img07-2.jpg" class="img-top" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img07-1.jpg" class="img-bottom" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img07-2.jpg" class="img-top" >
 					<span class="badge badge-secondary">New</span>
 				</a>
 			</div> 
 			<div class="column">
 				<a href = "html/product.html">
-					<img src= "/html_css_javaspring/resource/img/img08-1.jpg" class="img-bottom" >
-					<img src= "/html_css_javaspring/resource/img/img08-2.jpg" class="img-top" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img08-1.jpg" class="img-bottom" >
+					<img src= "<%=application.getContextPath() %>/resources/img/img08-2.jpg" class="img-top" >
 					<span class="badge badge-secondary">New</span>
 				</a>
 			</div> 
@@ -235,17 +235,17 @@
 				</table>	
 				<div id="tag_slide" class="trend_slide ">
 					<ul >
-						<li><img src= "/html_css_javaspring/resource/img/img01-1.jpg" style="width:15%"/>   <img src= "/html_css_javaspring/resource/img/img02-1.jpg"style="width:15%"/>  
-						<img src= "/html_css_javaspring/resource/img/img03-1.jpg"style="width:15%"/>   <img src= "/html_css_javaspring/resource/img/img04-1.jpg" style="width:15%"/></li> 
+						<li><img src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" style="width:15%"/>   <img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg"style="width:15%"/>  
+						<img src= "<%=application.getContextPath() %>/resources/img/img03-1.jpg"style="width:15%"/>   <img src= "<%=application.getContextPath() %>/resources/img/img04-1.jpg" style="width:15%"/></li> 
 						
-						<li><img src= "/html_css_javaspring/resource/img/img05-1.jpg" style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img06-1.jpg" style="width:15%"/> 
-						<img src= "/html_css_javaspring/resource/img/img07-1.jpg"style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img08-1.jpg" style="width:15%"></li>
+						<li><img src= "<%=application.getContextPath() %>/resources/img/img05-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img06-1.jpg" style="width:15%"/> 
+						<img src= "<%=application.getContextPath() %>/resources/img/img07-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img08-1.jpg" style="width:15%"></li>
 						
-						<li><img src= "/html_css_javaspring/resource/img/img09-1.jpg" style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img10-1.jpg" style="width:15%"/> 
-						<img src= "/html_css_javaspring/resource/img/img11-1.jpg"style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img12-1.jpg" style="width:15%"></li>
+						<li><img src= "<%=application.getContextPath() %>/resources/img/img09-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img10-1.jpg" style="width:15%"/> 
+						<img src= "<%=application.getContextPath() %>/resources/img/img11-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img12-1.jpg" style="width:15%"></li>
 						
-						<li><img src= "/html_css_javaspring/resource/img/img13-1.jpg" style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img14-1.jpg" style="width:15%"/> 
-						<img src= "/html_css_javaspring/resource/img/img15-1.jpg"style="width:15%"/> <img src= "/html_css_javaspring/resource/img/img16-1.jpg" style="width:15%"></li>
+						<li><img src= "<%=application.getContextPath() %>/resources/img/img13-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img14-1.jpg" style="width:15%"/> 
+						<img src= "<%=application.getContextPath() %>/resources/img/img15-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img16-1.jpg" style="width:15%"></li>
 					</ul>
 				</div>  <!-- slide  -->
 			</div> <!-- trend_con -->

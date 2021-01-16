@@ -110,12 +110,28 @@
 			</div>	
 			    
 			<!-- File Button --> 
-			<div class="form-group">
+			<div class="form-group" style="margin-bottom:50px;">
 				<label class="col-md-4 control-label" for="filebutton">메인 이미지</label>
 				<div class="col-md-4">
-					<input id="main_button" name="main_button" class="input-file" type="file">   
+					<input type = "file" onchange="readURL(this);" />
+					<input id="main_button" src="http://placehold.it/180" name="main_button" class="input-file" style=""/>   
 				</div>
 			</div>
+			
+			<script type="text/javascript">
+			   function readURL(input) {
+		           if (input.files && input.files[0]) {
+		               var reader = new FileReader();
+
+		               reader.onload = function (e) {
+		                   $('#main_button')
+		                       .attr('src', e.target.result);
+		               };
+
+		               reader.readAsDataURL(input.files[0]);
+		           }
+		       }
+			</script>
 			
 			<div class="form-group">
 				
