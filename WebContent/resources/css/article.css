@@ -34,4 +34,19 @@
 	    
 	    #article_table{
 	    	text-align: left;
+	    	font-size:10pt;
+	    }
+	    
+	    #article_table tr td{
+	    	padding-left: 20px;
+	    }
+	    
+	    #btnContainer{
+	    	text-align: left;
+	    	height: 100px;
+	    	margin: 100px auto;
+	    	border-bottom: 1px solid rgb(222,222,222);
+	    	border-top: 1px solid rgb(222,222,222);
+	    	padding-top:30px;
+	    	padding-left: 20px;
 	    }

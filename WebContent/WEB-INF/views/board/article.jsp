@@ -30,14 +30,14 @@
 			
 			<!-- QnA board Table -->
 			<div id="table_container">
-				<table border="1" id="article_table" class="table">
+				<table id="article_table" class="table">
 					<tr>
 						<td width="150px">제목 </td>
-						<td>그릇이 언제오나요?</td>
+						<td>제문 부분 입니다</td>
 					</tr>
 					<tr>
 						<td>작성자 </td>
-						<td>신은빈</td>
+						<td>작성자 이름 입니다.</td>
 					</tr>
 					<tr>
 						<td>날짜 </td>
@@ -50,7 +50,8 @@
 									$.ajax({
 										url: "photolist",
 										method: "get",
-										data: {bno : "${bno}"},
+										data: {bno : "${bno}",
+												type:"${type}"},
 										success: function(data){
 											$("#photoList").html(data);
 										}
@@ -58,14 +59,20 @@
 								});
 							</script>
 							<div id="photoList"></div>
-							배송이 너무 늦어요
+							게시글 내용입니다 <br/>
+							게시글 내용입니다 <br/>
+							게시글 내용입니다 <br/>
+							게시글 내용입니다 <br/>
 						</td>
 					</tr>
 				</table>
+				<%--버튼 컨테이너 --%>
+				<div id="btnContainer">
+					<a href="main?type=${type}" class="btn btn-secondary">목록</a>
+				</div>
 			</div>
 			
-			<!-- QnA board Table -->
-  			
+ 
 			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 		</div>
 	</body>

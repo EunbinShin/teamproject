@@ -31,40 +31,59 @@ public class BoardController {
 	private int qnaBoardNum = 1;
 	private int reviewBoardNum = 1;
 	
+	//1. QnA화면 실행
 	@RequestMapping("/qna")
 	public String qna() {
 		logger.info("실행");
 		return "board/qna";
 	}
-	
+	//1. Review화면 실행
 	@RequestMapping("/review")
 	public String review() {
 		logger.info("실행");
 		return "board/review";
 	}
 	
+	//목록으로 돌아가기
+	@RequestMapping("/main")
+	public String main(String type) {
+		logger.info(type+"실행");
+		if(type.equals("review")) {
+			return "redirect:/board/review";
+		}else if(type.equals("qna")) {
+			return "redirect:/board/qna";
+		}else {
+			return "redirect:/board/qna";
+		}
+	}
+	
+	//2. QnA 게시물 보기
 	@RequestMapping("/show")
-	public String showArticle(int bno
+	public String showArticle(
+			int bno, String type
 			, HttpServletResponse response
 			, Model model) {
-		logger.info("게시물 "+bno+" 실행");
+		logger.info(type+"게시물 "+bno+" 실행");
 		model.addAttribute("bno", bno);
+		model.addAttribute("type", type);
 		return "board/article";
 	}
 	
+	//3. 게시글 안
 	@GetMapping("/photolist")
-	public String photoList(Model model, int bno) {
-		logger.info(bno+"번 실행");
-		String saveDirPath = "D:/MyWorkspace/uploadfiles/qna/"+bno+"/";
+	public String photoList(Model model, int bno, String type) {
+		logger.info(bno+"번 "+type+"실행");
+		String saveDirPath = "D:/MyWorkspace/uploadfiles/"+type+"/"+bno+"/";
 		File dir = new File(saveDirPath);
 		String[] fileNames = dir.list();
 		model.addAttribute("fileNames", fileNames);
+		model.addAttribute("type", type);
 		model.addAttribute("bno", bno);
 		return "board/photolist";
 	}
 	
 	@GetMapping("/photodownload")
-	public void photoDownload(int bno, String photo, HttpServletResponse response) {
+	public void photoDownload(int bno,String type, String photo, HttpServletResponse response) {
 		logger.info("실행");
 		response.setContentType("image/jpeg");
 		try {
@@ -75,7 +94,7 @@ public class BoardController {
 		response.setHeader("Content-Disposition", "attachment; filename=\""+photo+"\"");	//attachment가 들어가면 contents가 다운로드됨
 		
 		try {
-			String saveDirPath = "D:/MyWorkspace/uploadfiles/qna/"+bno+"/";
+			String saveDirPath = "D:/MyWorkspace/uploadfiles/"+type+"/"+bno+"/";
 			String filePath = saveDirPath+photo;	//실제 경로
 			
 			InputStream is = new FileInputStream(filePath);

@@ -43,7 +43,7 @@
 					<tbody>
 						<tr>
 							<th>1</th>
-							<th>그릇이 너무 좋아요</th>
+							<th><a href="show?bno=1&type=review">그릇이 너무 좋아요</a></th>
 							<th>신은빈</th>
 							<th>2021.01.02</th>
 						</tr>

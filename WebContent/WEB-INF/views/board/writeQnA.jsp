@@ -33,6 +33,15 @@
 				<fieldset>
 				<%--문의 카테고리 --%>
 				<div>
+					<div id="img_container">
+						<img src="<%=application.getContextPath() %>/resources/img/noimage.jpg" width="100px" height="100px"/>
+						<a href="findItem" class="btn btn-secondary" 
+							onclick="window.open(this.href, '_blank', 'width=600px,height=500px,toolbars=no,scrollbars=no'); return false;">
+							상품정보선택</a>
+					</div>
+				</div>
+				<%--문의 카테고리 --%>
+				<div>
 				  <label class="col-md-4 control-label" for="qna_categorie">문의내용</label>
 				  <div class="form-group">
 				    <select id="qna_categorie" name="qna_categorie" class="form-control">
