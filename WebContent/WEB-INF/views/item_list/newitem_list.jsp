@@ -16,10 +16,6 @@
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 		<script type="text/javascript">
-			const gotoHome = () => {
-				location.href = "/html_css_javaspring/index.html";
-			}
-
 			let change = true;
 			
 			const gliter = (badge) => {

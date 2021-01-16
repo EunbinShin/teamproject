@@ -26,7 +26,7 @@
 		
 			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 			
-			<h3>QnA</h3>
+			<h3>${type}</h3>
 			
 			<!-- QnA board Table -->
 			<div id="table_container">

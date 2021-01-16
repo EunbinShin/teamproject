@@ -16,11 +16,6 @@
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript">
-				const gotoHome = () => {
-					location.href = "gotoHome";
-				}
-			</script>
 	</head>
 
 <body>
