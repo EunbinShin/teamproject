@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,17 +32,47 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	private int qnaBoardNum = 1;
 	private int reviewBoardNum = 1;
+	private int pageNum = 1;
 	
 	//1. QnA화면 실행
 	@RequestMapping("/qna")
-	public String qna() {
+	public String qna(Model model, int page) {
 		logger.info("실행");
+		List<QnaDto> list = new ArrayList<>();
+		for(int i = page*15 - 14 ; i <= page*15 ; i++) {
+			QnaDto qna = new QnaDto();
+			qna.setbNo(i);
+			qna.setQna_categorie("배송");
+			qna.setQna_title("제목"+i);
+			qna.setQna_writer("글쓴이"+i);
+			qna.setQna_content("내용"+i);
+			qna.setDate(new Date());
+			
+			list.add(qna);
+		}
+		
+		model.addAttribute("qnaList", list);
+		model.addAttribute("page", page);
 		return "board/qna";
 	}
 	//1. Review화면 실행
 	@RequestMapping("/review")
-	public String review() {
+	public String review(Model model, int page) {
 		logger.info("실행");
+		List<ReviewDto> list = new ArrayList<>();
+		
+		for(int i = page*15 - 14 ; i <= page*15 ; i++) {
+			ReviewDto review = new ReviewDto();
+			review.setbNo(i);
+			review.setReview_title("제목"+i);
+			review.setReview_writer("제목"+i);
+			review.setReview_content("내용"+i);
+			review.setDate(new Date());
+			list.add(review);
+		}
+		
+		model.addAttribute("reviewList", list);
+		model.addAttribute("page", page);
 		return "board/review";
 	}
 	

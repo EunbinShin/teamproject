@@ -2,6 +2,6 @@
 
 <div id="mySidenav" class="sidenav">
 	<a class="closebtn" onclick="closeNav()">&times;</a>
-	<a href="<%=application.getContextPath() %>/board/review">Review</a>
-	<a href="<%=application.getContextPath() %>/board/qna">QnA</a>
+	<a href="<%=application.getContextPath() %>/board/review?page=1">Review</a>
+	<a href="<%=application.getContextPath() %>/board/qna?page=1">QnA</a>
 </div>

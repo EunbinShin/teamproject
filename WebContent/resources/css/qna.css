@@ -53,6 +53,12 @@
 	    	width: 100px;
 	    }
 	    
+	    .pagination > .active > a{
+		    color: white;
+		    background-color: #1F4948 !Important;
+		    border: solid 1px #1F4948 !Important;
+		}
+		
 	    /*pagination*/
 	    .pagination{
 	    	margin-top: 50px; 
