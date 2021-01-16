@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,69 +55,11 @@
 </head>
 
 <body onload="start()">
-	<div id="mySidenav" class="sidenav">
-		<a class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="#">Review</a>
-		<a href="<%=application.getContextPath() %>/board/qna_board/qna.html">QnA</a>
-	</div>
-	
-	<header onclick="gotoHome()"> 
-		<img id="sagi_logo" src="<%=application.getContextPath() %>/resources/img/logo/logo_white.png">
-	SAGI</header>
+		<jsp:include page="/WEB-INF/views/include/sideNav.jsp"/>
+		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
 	
 	<div id="wrapper">
-		<nav class="navbar navbar-expand-sm bg-light sticky-top">
-            <i id="barIcon" onclick="fun1()" class="fas fa-bars"></i>
-			<script type="text/javascript">
-				const fun1 = () =>{
-					document.getElementById("mySidenav").style.width = "250px";
-				};
-				
-				const closeNav = () =>{
-					document.getElementById("mySidenav").style.width = "0";
-				};
-			</script>
-              
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link"
-					href="<%=application.getContextPath() %>/index.jsp">HOME</a></li>
-				<li class="nav-item dropdown"><a class="nav-link dropbtn"
-					href="<%=application.getContextPath() %>/item_list/default_itemlist/item_list.jsp">SHOP</a>
-					<div class="dropdown-content">
-						<a href="<%=application.getContextPath() %>/item_list/new_itemlist/newitem_list.jsp">NEW</a>
-						<a href="<%=application.getContextPath() %>/item_list/best_itemlist/bestitem_list.jsp">BEST</a>
-					</div>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/add/add.jsp">ADD</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
-              </ul>
-              
-              <div class="dropdown">
-  				<div id="myDropdown" class="search-dropdown-content" >
-    				<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-  				</div>
-				<i onclick="searchBar()" id="mySearch" style="margin-right:30px" class="fas fa-search"></i>
-			</div>
-			
-			<script type="text/javascript">
-				let toggle = true;
-				
-				const searchBar = () =>{
-					if(toggle){
-						document.getElementById("myDropdown").style.display = "inline";
-						toggle = !toggle;
-					}else{
-						document.getElementById("myDropdown").style.display = "none";
-						toggle = !toggle;
-					}
-						
-				};
-	
-			</script>
-              
-              <a style="margin-right:10px" href="<%=application.getContextPath() %>/login/login.jsp"><i class="fas fa-user"></i></a>
-         </nav>	
+		<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 		
 		<!-- 수정: main home image slide --> 
 		<div id="demo" class="carousel slide" data-ride="carousel">
