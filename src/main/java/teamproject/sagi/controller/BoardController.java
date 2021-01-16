@@ -69,7 +69,7 @@ public class BoardController {
 		return "board/article";
 	}
 	
-	//3. 게시글 안
+	//3. 게시글 내부 ( 자신이 원하는 파일명/ 게시글의 타입/ 게시글 번호 를 보냄)
 	@GetMapping("/photolist")
 	public String photoList(Model model, int bno, String type) {
 		logger.info(bno+"번 "+type+"실행");
@@ -82,6 +82,7 @@ public class BoardController {
 		return "board/photolist";
 	}
 	
+	//게시글에 들어갈 사진 download
 	@GetMapping("/photodownload")
 	public void photoDownload(int bno,String type, String photo, HttpServletResponse response) {
 		logger.info("실행");
@@ -110,12 +111,14 @@ public class BoardController {
 		}
 	}
 	
+	//QnA 작성 화면 넘어감
 	@RequestMapping("/writeQnA")
 	public String writeQnA() {
 		logger.info("실행");
 		return "board/writeQnA";
 	}
 	
+	//QnA 제출 (끝난 후 qna 게시판으로 redirect)
 	@RequestMapping("/submitQnA")
 	public String submitQnA(
 			HttpSession session,
@@ -158,19 +161,13 @@ public class BoardController {
 		
 		return "redirect:/board/qna";
 	}
-	
+	//Review 작성 화면 넘어감
 	@RequestMapping("/writeReview")
 	public String writeReview() {
 		logger.info("실행");
 		return "board/writeReview";
 	}
-	
-	@GetMapping("/findItem")
-	public String findItem() {
-		logger.info("실행");
-		return "board/pop_up";
-	}
-	
+	//Review 제출 (끝난 후 qna 게시판으로 redirect)
 	@PostMapping("/submitReview")
 	public String submitReview(
 			HttpSession session,
@@ -211,6 +208,25 @@ public class BoardController {
 		}
 		
 		return "redirect:/board/review";
+	}
+	
+	//물품을 찾기위한 pop_up화면을 띄움
+	@GetMapping("/findItem")
+	public String findItem() {
+		logger.info("실행");
+		return "board/pop_up";
+	}
+	
+	@GetMapping("/search_item")
+	public String searchItem(
+			String search_type,
+			String keyword,
+			Model model) {
+		logger.info("타입: "+search_type);
+		logger.info("키워드: "+keyword);
+		model.addAttribute("search_type", search_type);
+		model.addAttribute("keyword", keyword);
+		return "board/pop_up";
 	}
 	
 }
