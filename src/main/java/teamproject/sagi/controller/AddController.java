@@ -1,14 +1,20 @@
 package teamproject.sagi.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,6 +34,13 @@ public class AddController {
 		logger.info("add 실행");
 		return "add/add";
 	}
+	
+	@RequestMapping("/add_confirm")
+	public String review() {
+		logger.info("실행");
+		return "add/add_confirm";
+	}
+	
    
    @PostMapping("/add_upload")
    public String add_upload(AddDto add_item) {
@@ -58,7 +71,7 @@ public class AddController {
 		   logger.info("contentType: "+contentType);
 		   logger.info("size: "+size);
 		   
-		   String saveDirPath = "D:/MyWorkspace/uploadfiles/";
+		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/";
 		   String fileName = new Date().getTime()+"_"+originalFileName;
 		   String filePath = saveDirPath + fileName;
 		   File file = new File(filePath);
@@ -71,10 +84,44 @@ public class AddController {
 
 	   
 	   logger.info("상품 등록 완료");
-	   return "redirect:/add/add";
+	   return "redirect:/add/add_confirm";
    }
    
+   @GetMapping("/photolist")
+   public String photolist(Model model) {
+      logger.info("실행");
+      String saveDirPath = "D:/MyWorkspace/uploadfiles/add/";
+      File dir = new File(saveDirPath);
+      String[] fileNames = dir.list();
+      model.addAttribute("fileNames", fileNames);
+      return "add/photolist";
+   }
    
-   
+   @GetMapping("/photodownload")
+   public void photodownload(String photo, HttpServletResponse response) { 
+		String saveDirPath = "D:/MyWorkspace/uploadfiles/add/";
+		String filePath = saveDirPath + photo;
 
+		response.setContentType("image/jpeg"); 
+		try {
+			photo = new String(photo.getBytes("UTF-8"), "ISO-8859-1");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		response.setHeader("Content-Disposition", "attachment; filename=\""+photo+".jpg\"");
+	   try {
+
+		OutputStream os = response.getOutputStream();
+		InputStream is = new FileInputStream(filePath);
+
+		FileCopyUtils.copy(is, os);
+		os.flush();
+		os.close();
+		is.close();
+		
+	   	} catch (IOException e) {
+		e.printStackTrace();
+	   	}
+
+   }
 }

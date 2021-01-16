@@ -65,7 +65,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="product_name">상품명</label>
 				<div class="col-md-4">
-					<input id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" required="" type="text">
+					<input id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
 				</div>
 			</div>
 			
@@ -73,7 +73,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="product_name_fr">상품 가격</label>  
 				<div class="col-md-4">
-					<input id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" required="" type="number">
+					<input id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number">
 				</div>
 			</div>
 			
@@ -81,7 +81,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="percentage_discount">상품 할인율</label>  
 				<div class="col-md-4">
-					<input id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" required="" type="number">
+					<input id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number">
 				</div>
 			</div>
 			
@@ -97,7 +97,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="available_quantity">주문 가능 수량</label>  
 				<div class="col-md-4">
-					<input id="available_quantity" name="available_quantity" placeholder="주문 가능 수량" class="form-control input-md" required="" type="number">
+					<input id="available_quantity" name="available_quantity" placeholder="주문 가능 수량" class="form-control input-md" type="number">
 				</div>
 			</div>
 			
@@ -105,7 +105,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="online_date">상품 개시일</label>  
 				<div class="col-md-4">
-					<input id="online_date" name="online_date" placeholder="ONLINE DATE" class="form-control input-md" required="" type="date">
+					<input id="online_date" name="online_date" placeholder="ONLINE DATE" class="form-control input-md" type="date">
 				</div>
 			</div>	
 			    
@@ -113,25 +113,9 @@
 			<div class="form-group" style="margin-bottom:50px;">
 				<label class="col-md-4 control-label" for="filebutton">메인 이미지</label>
 				<div class="col-md-4">
-					<input type = "file" onchange="readURL(this);" />
-					<input id="main_button" src="http://placehold.it/180" name="main_button" class="input-file" style=""/>   
+					<input type="file" id="main_button" name="main_button" class="input-file"/>
 				</div>
 			</div>
-			
-			<script type="text/javascript">
-			   function readURL(input) {
-		           if (input.files && input.files[0]) {
-		               var reader = new FileReader();
-
-		               reader.onload = function (e) {
-		                   $('#main_button')
-		                       .attr('src', e.target.result);
-		               };
-
-		               reader.readAsDataURL(input.files[0]);
-		           }
-		       }
-			</script>
 			
 			<div class="form-group">
 				
@@ -141,7 +125,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="singlebutton"></label>
 				<div class="col-md-4">
-					<button onclick="myFunction()" id="singlebutton" name="singlebutton" class="btn btn-secondary">등록</button>
+					<input type="submit" onclick="myFunction()" id="singlebutton" name="singlebutton" class="btn btn-secondary">
 					
 				<script>
 					function myFunction(){

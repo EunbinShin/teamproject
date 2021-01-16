@@ -16,7 +16,6 @@ public class AddDto {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date online_date;
 	private MultipartFile main_button;
-	private MultipartFile sub_button;
 	
 	public String getProduct_id() {
 		return product_id;
@@ -71,12 +70,6 @@ public class AddDto {
 	}
 	public void setMain_button(MultipartFile main_button) {
 		this.main_button = main_button;
-	}
-	public MultipartFile getSub_button() {
-		return sub_button;
-	}
-	public void setSub_button(MultipartFile sub_button) {
-		this.sub_button = sub_button;
 	}
 	
 	
