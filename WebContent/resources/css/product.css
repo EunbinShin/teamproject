@@ -21,20 +21,21 @@
 			background-color: white;
 			display: block;
 			float: left;
+			box-sizing: border-box;
 			padding-top: 60px;
 			padding-left: 15%;
 			display: flex;
 			flex-direction: row;
 		}
-		#img {
-			display: inline-block;
-			width: auto;
+		.img {
+			flex: 4;
 			box-sizing: border-box;
+			display: inline-block;
 		}
-		#info {
+		.info {
 			font-size: 23px;
 			background-color: white;
-			flex: 1;
+			flex: 8;
 			text-align: center;
 			box-sizing: border-box;
 			display: inline-block;
@@ -102,13 +103,14 @@
 			margin-top: 3%;
 			margin-left: 15%;
 			margin-right: 15%;
+			text-align: center;
 		}
 				
 		#row {
 			text-align: center;
 		}
 		
-		#txt {
+		.txt {
 			margin: 50px;
 			font-size: 20px;
 			text-align: center;
