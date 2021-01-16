@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide.css?after" type="text/css">
 	<script type="text/javascript">
 		const gotoHome = () => {
 			location.href="<%=application.getContextPath() %>/index.jsp";
@@ -176,21 +177,8 @@
 	  					<tr><td>#주방정리</td></tr>
 	  				</tbody>
 				</table>	
-				<div id="tag_slide" class="trend_slide ">
-					<ul >
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" style="width:15%"/>   <img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg"style="width:15%"/>  
-						<img src= "<%=application.getContextPath() %>/resources/img/img03-1.jpg"style="width:15%"/>   <img src= "<%=application.getContextPath() %>/resources/img/img04-1.jpg" style="width:15%"/></li> 
-						
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img05-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img06-1.jpg" style="width:15%"/> 
-						<img src= "<%=application.getContextPath() %>/resources/img/img07-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img08-1.jpg" style="width:15%"></li>
-						
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img09-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img10-1.jpg" style="width:15%"/> 
-						<img src= "<%=application.getContextPath() %>/resources/img/img11-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img12-1.jpg" style="width:15%"></li>
-						
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img13-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img14-1.jpg" style="width:15%"/> 
-						<img src= "<%=application.getContextPath() %>/resources/img/img15-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img16-1.jpg" style="width:15%"></li>
-					</ul>
-				</div>  <!-- slide  -->
+				<jsp:include page="/WEB-INF/views/item_detail/product_slide.jsp"/>
+				
 			</div> <!-- trend_con -->
 		</div> <!-- trend  -->
 		
