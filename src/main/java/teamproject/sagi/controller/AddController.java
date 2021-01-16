@@ -87,14 +87,14 @@ public class AddController {
 	   return "redirect:/add/add_confirm";
    }
    
-   @GetMapping("/photolist")
-   public String photolist(Model model) {
+   @GetMapping("/add_photolist")
+   public String add_photolist(Model model) {
       logger.info("실행");
       String saveDirPath = "D:/MyWorkspace/uploadfiles/add/";
       File dir = new File(saveDirPath);
       String[] fileNames = dir.list();
       model.addAttribute("fileNames", fileNames);
-      return "add/photolist";
+      return "add/add_photolist";
    }
    
    @GetMapping("/photodownload")

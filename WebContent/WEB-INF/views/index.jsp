@@ -17,7 +17,8 @@
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/index_product_slide.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/index_carousel.css?after" type="text/css">
 	<script type="text/javascript">
 		const gotoHome = () => {
 			location.href="<%=application.getContextPath() %>/index.jsp";
@@ -62,35 +63,8 @@
 	<div id="wrapper">
 		<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 		
-		<!-- 수정: main home image slide --> 
-		<div id="demo" class="carousel slide" data-ride="carousel">
-	  		<ul class="carousel-indicators">
-	    		<li data-target="#demo" data-slide-to="0" class="active"></li>
-	    		<li data-target="#demo" data-slide-to="1"></li>
-	    		<li data-target="#demo" data-slide-to="2"></li>
-	  		</ul>
-			
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src= "<%=application.getContextPath() %>/resources/img/home_a01.jpg" alt="A" >
-		    	</div>
-		    	<div class="carousel-item">
-		    		<img src= "<%=application.getContextPath() %>/resources/img/home_a02.jpg" alt="B" >
-		    	</div>
-		    	<div class="carousel-item">
-		    		<img src= "<%=application.getContextPath() %>/resources/img/home_a03.jpg" alt="C">
-		    	</div>
-		    </div>
-		    
-		    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-	    		<span class="carousel-control-prev-icon"></span>
-	  		</a>
-	  		<a class="carousel-control-next" href="#demo" data-slide="next">
-	 		   <span class="carousel-control-next-icon"></span>
-	  		</a>
-		</div>
-
-		<!-- 수정: 목표 달성 -->
+		<!-- index_carousel --> 
+		<jsp:include page="/WEB-INF/views/index/index_carousel.jsp"/>
 		
 		<!-- 수정: 이미지위 텍스트  --> 
 		<div id="banner_row">
@@ -177,7 +151,7 @@
 	  					<tr><td>#주방정리</td></tr>
 	  				</tbody>
 				</table>	
-				<jsp:include page="/WEB-INF/views/item_detail/product_slide.jsp"/>
+				<jsp:include page="/WEB-INF/views/index/index_product_slide.jsp"/>
 				
 			</div> <!-- trend_con -->
 		</div> <!-- trend  -->
