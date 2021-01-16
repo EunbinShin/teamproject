@@ -12,7 +12,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 		rel="stylesheet">
-		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/qna.css" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/article.css" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
@@ -26,25 +26,39 @@
 		
 			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 			
-			<h3>Review</h3>
+			<h3>QnA</h3>
 			
 			<!-- QnA board Table -->
 			<div id="table_container">
-				<table class="table text-left">
+				<table border="1" id="article_table" class="table">
 					<tr>
-						<td>제목 : ${board.bNo}</td>
+						<td width="150px">제목 </td>
+						<td>그릇이 언제오나요?</td>
 					</tr>
 					<tr>
-						<td>작성자 : ${board.bWriter}</td>
+						<td>작성자 </td>
+						<td>신은빈</td>
 					</tr>
 					<tr>
-						<td>날짜 : ${board.date}</td>
+						<td>날짜 </td>
+						<td>2021-01-16</td>
 					</tr>
 					<tr>
-						<td>
-							<div style="width:300px;">
-								${board.bContent}
-							</div>
+						<td height="200px" colspan="2">
+							<script type="text/javascript">
+								$(function(){
+									$.ajax({
+										url: "photolist",
+										method: "get",
+										data: {bno : "${bno}"},
+										success: function(data){
+											$("#photoList").html(data);
+										}
+									});
+								});
+							</script>
+							<div id="photoList"></div>
+							배송이 너무 늦어요
 						</td>
 					</tr>
 				</table>

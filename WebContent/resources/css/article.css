@@ -1,0 +1,37 @@
+		* {
+			box-sizing: border-box;
+		}
+		
+		/*��� ��ũ �±� �⺻ ����*/
+		body{
+            min-width: 1700px;
+            min-height: 900px;
+      	}
+		
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		
+		a:visited{
+			color: black;
+			text-decoration: none;
+		}
+
+		#wrapper{
+        	text-align:center;
+        }
+        
+        #wrapper h3{
+			margin-top: 100px;
+		}
+
+		#table_container{
+			margin: 100px auto;
+			flex: 1;
+			width: 60%;
+		}
+	    
+	    #article_table{
+	    	text-align: left;
+	    }

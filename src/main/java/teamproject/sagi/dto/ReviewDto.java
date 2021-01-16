@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ReviewDto {
+	private int bNo;
 	private String review_title;
 	private String review_writer;
 	private String review_content;
@@ -14,6 +15,13 @@ public class ReviewDto {
 	private MultipartFile file4;
 	private Date date;
 	
+	
+	public int getbNo() {
+		return bNo;
+	}
+	public void setbNo(int bNo) {
+		this.bNo = bNo;
+	}
 	public String getReview_title() {
 		return review_title;
 	}
