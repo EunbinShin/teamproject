@@ -15,7 +15,7 @@
 
 	<ul id="menu_content" class="navbar-nav">
 		<li class="nav-item"><a class="nav-link"
-			href="/html_css_javaspring/index.html">HOME</a></li>
+			href="<%=application.getContextPath() %>">HOME</a></li>
 		<li class="nav-item dropdown">
 			<a class="nav-link dropbtn" href="<%=application.getContextPath() %>/item_list/default">SHOP</a>
 			<div class="dropdown-content">

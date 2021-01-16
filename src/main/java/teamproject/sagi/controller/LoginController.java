@@ -65,7 +65,7 @@ public class LoginController {
 		}
 			
 		if(uid.length() != 0 && upassword.length() != 0) {	//만약 폼이 맞으면
-			return "redirect:/index";
+			return "redirect:/";
 		}else {
 			return "redirect:/login/";
 		}
