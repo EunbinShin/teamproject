@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -18,16 +20,16 @@
 				<h1>상품검색</h1>
 			</div>
 			<div class="content">
-				<form id="searchForm" name="" action="" method="" target="_self" enctype="multipart/form-data">
+				<form id="searchForm" action="search_item" method="get" target="_self"  enctype="multipart/form-data">
 					<div>
 						<div id="searchBarContainer">
 							<select id="search_type" name="search_type">
 							<option value="product_name">상품명</option>
-							<option value="prd_model">모델명</option>
+							<option value="model_name">모델명</option>
 							</select> 
 							<input id="keyword" name="keyword"
 								type="text">
-							<a href="" id="searchBtn">검색</a>
+							<button id="searchBtn">검색</button>
 						</div>
 						<div>
 							<p>총 <b>0</b>개 의 상품이 검색되었습니다.</p>
@@ -42,7 +44,10 @@
 							<th scope="col">상품 정보</th>
 							<th scope="col">선택</th>
 						</tr>
-						<tbody class="center"></tbody>
+						
+						<tbody id="item_list" class="center">
+							
+						</tbody>
 					</table>
 				</div>
 	

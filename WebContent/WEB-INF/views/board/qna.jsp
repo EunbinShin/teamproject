@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 
@@ -48,81 +49,18 @@
 							<th>배송</th>
 							<th><a href="show?bno=1&type=qna">배송문의 드려요</a></th>
 							<th>신은빈</th>
-							<th>2021.01.02</th>
+							<th>2021-01-02</th>
 						</tr>
 					</tbody>
-					<tbody>
+					<c:forEach var="board" items="${qnaList}">
 						<tr>
-							<th>2</th>
-							<th>배송</th>
-							<th>제가 그릇은 안쓰는데 여기껀 써요</th>
-							<th>이영준</th>
-							<th>2021.01.05</th>
+							<th>${board.bNo}</th>
+							<th>${board.qna_categorie}</th>
+							<th>${board.qna_title}</th>
+							<th>${board.qna_writer}</th>
+							<th><fmt:formatDate value="${board.date}" pattern="yyyy-MM-dd"/></th>
 						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>3</th>
-							<th>기타</th>
-							<th>이 그릇에 밥을 먹고 오병이어의 기적을 느꼈어요</th>
-							<th>원지영</th>
-							<th>2021.01.01</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>4</th>
-							<th>환불</th>
-							<th>그릇이 깨졌어요</th>
-							<th>곽두팔</th>
-							<th>2021.01.02</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>5</th>
-							<th>환불</th>
-							<th>야구선수가 던져도 안깨져요</th>
-							<th>김진욱</th>
-							<th>2021.01.05</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>6</th>
-							<th>환불</th>
-							<th>최고의 사이트</th>
-							<th>감자바</th>
-							<th>2021.01.01</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>7</th>
-							<th>제품</th>
-							<th>아 정말 데단헤</th>
-							<th>신은진</th>
-							<th>2021.01.02</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>8</th>
-							<th>제품</th>
-							<th>QnA에 문의 드립니다</th>
-							<th>이준영</th>
-							<th>2021.01.05</th>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th>10</th>
-							<th>제품</th>
-							<th>유튜브 협찬 문의 드립니다</th>
-							<th>유듀버</th>
-							<th>2021.01.01</th>
-						</tr>
-					</tbody>
+					</c:forEach>
 				</table>
 			</div>
 			
@@ -135,18 +73,18 @@
 			
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">6</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">7</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">8</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">9</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">10</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+			    <li class="page-item<c:if test="${page == 1}"> disabled</c:if>"><a class="page-link" href="qna?page=${page-1}">Previous</a></li>
+			    <li class="page-item<c:if test="${page == 1}"> active</c:if>"><a class="page-link" href="qna?page=1">1</a></li>
+			    <li class="page-item<c:if test="${page == 2}"> active</c:if>"><a class="page-link" href="qna?page=2">2</a></li>
+			    <li class="page-item<c:if test="${page == 3}"> active</c:if>"><a class="page-link" href="qna?page=3">3</a></li>
+			    <li class="page-item<c:if test="${page == 4}"> active</c:if>"><a class="page-link" href="qna?page=4">4</a></li>
+			    <li class="page-item<c:if test="${page == 5}"> active</c:if>"><a class="page-link" href="qna?page=5">5</a></li>
+			    <li class="page-item<c:if test="${page == 6}"> active</c:if>"><a class="page-link" href="qna?page=6">6</a></li>
+			    <li class="page-item<c:if test="${page == 7}"> active</c:if>"><a class="page-link" href="qna?page=7">7</a></li>
+			    <li class="page-item<c:if test="${page == 8}"> active</c:if>"><a class="page-link" href="qna?page=8">8</a></li>
+			    <li class="page-item<c:if test="${page == 9}"> active</c:if>"><a class="page-link" href="qna?page=9">9</a></li>
+			    <li class="page-item<c:if test="${page == 10}"> active</c:if>"><a class="page-link" href="qna?page=10">10</a></li>
+			    <li class="page-item"><a class="page-link" href="qna?page=${page+1}">Next</a></li>
   			</ul>
   			
 			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>

@@ -17,6 +17,8 @@
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/index_product_slide.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/index_carousel.css?after" type="text/css">
 	<script type="text/javascript">
 		const gotoHome = () => {
 			location.href="<%=application.getContextPath() %>/index.jsp";
@@ -61,44 +63,17 @@
 	<div id="wrapper">
 		<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 		
-		<!-- 수정: main home image slide --> 
-		<div id="demo" class="carousel slide" data-ride="carousel">
-	  		<ul class="carousel-indicators">
-	    		<li data-target="#demo" data-slide-to="0" class="active"></li>
-	    		<li data-target="#demo" data-slide-to="1"></li>
-	    		<li data-target="#demo" data-slide-to="2"></li>
-	  		</ul>
-			
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src= "<%=application.getContextPath() %>/resources/img/home_a01.jpg" alt="A" >
-		    	</div>
-		    	<div class="carousel-item">
-		    		<img src= "<%=application.getContextPath() %>/resources/img/home_a02.jpg" alt="B" >
-		    	</div>
-		    	<div class="carousel-item">
-		    		<img src= "<%=application.getContextPath() %>/resources/img/home_a03.jpg" alt="C">
-		    	</div>
-		    </div>
-		    
-		    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-	    		<span class="carousel-control-prev-icon"></span>
-	  		</a>
-	  		<a class="carousel-control-next" href="#demo" data-slide="next">
-	 		   <span class="carousel-control-next-icon"></span>
-	  		</a>
-		</div>
-
-		<!-- 수정: 목표 달성 -->
+		<!-- index_carousel --> 
+		<jsp:include page="/WEB-INF/views/index/index_carousel.jsp"/>
 		
 		<!-- 수정: 이미지위 텍스트  --> 
 		<div id="banner_row">
 			<div class="banner_column">
-				<a href="<%=application.getContextPath() %>/item_list/new_itemlist/newitem_list.jsp">
-					<img id= "col_1" src="<%=application.getContextPath() %>/resources/img/main_event03.jpg" >
+				<a href="<%=application.getContextPath() %>/item_list/newitems">
+					<img id= "col_1" src="<%=application.getContextPath() %>/resources/img/main_event03.jpg" title="New아이템 둘러보기">
 				</a>
-				<a href="<%=application.getContextPath() %>/item_list/best_itemlist/bestitem_list.jsp">
-					<img id= "col_2" src="<%=application.getContextPath() %>/resources/img/main_event04.jpg" >
+				<a href="<%=application.getContextPath() %>/item_list/bestitems">
+					<img id= "col_2" src="<%=application.getContextPath() %>/resources/img/main_event04.jpg" title="Best아이템 둘러보기">
 				</a>
 			</div> 
 		</div>
@@ -176,21 +151,8 @@
 	  					<tr><td>#주방정리</td></tr>
 	  				</tbody>
 				</table>	
-				<div id="tag_slide" class="trend_slide ">
-					<ul >
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" style="width:15%"/>   <img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg"style="width:15%"/>  
-						<img src= "<%=application.getContextPath() %>/resources/img/img03-1.jpg"style="width:15%"/>   <img src= "<%=application.getContextPath() %>/resources/img/img04-1.jpg" style="width:15%"/></li> 
-						
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img05-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img06-1.jpg" style="width:15%"/> 
-						<img src= "<%=application.getContextPath() %>/resources/img/img07-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img08-1.jpg" style="width:15%"></li>
-						
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img09-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img10-1.jpg" style="width:15%"/> 
-						<img src= "<%=application.getContextPath() %>/resources/img/img11-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img12-1.jpg" style="width:15%"></li>
-						
-						<li><img src= "<%=application.getContextPath() %>/resources/img/img13-1.jpg" style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img14-1.jpg" style="width:15%"/> 
-						<img src= "<%=application.getContextPath() %>/resources/img/img15-1.jpg"style="width:15%"/> <img src= "<%=application.getContextPath() %>/resources/img/img16-1.jpg" style="width:15%"></li>
-					</ul>
-				</div>  <!-- slide  -->
+				<jsp:include page="/WEB-INF/views/index/index_product_slide.jsp"/>
+				
 			</div> <!-- trend_con -->
 		</div> <!-- trend  -->
 		
