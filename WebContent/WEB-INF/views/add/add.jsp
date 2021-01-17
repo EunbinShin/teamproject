@@ -42,7 +42,7 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="product_id">상품 코드</label>
+				<label class="col-md-4 control-label">상품 코드</label>
 				<div class="col-md-4">
 					<input id="product_id" name="product_id" placeholder="상품 코드" class="form-control input-md"  type="text">
 				</div>
@@ -50,7 +50,7 @@
 			
 			<!-- Select Basic -->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="product_categorie">상품 카테고리</label>
+				<label class="col-md-4 control-label">상품 카테고리</label>
 				<div class="col-md-4">
 					<select id="product_categorie" name="product_categorie" class="form-control">
 						<option value="">상품 카테고리</option>
@@ -63,7 +63,7 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="product_name">상품명</label>
+				<label class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
 					<input id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
 				</div>
@@ -71,7 +71,7 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="product_name_fr">상품 가격</label>  
+				<label class="col-md-4 control-label">상품 가격</label>  
 				<div class="col-md-4">
 					<input id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number">
 				</div>
@@ -79,15 +79,22 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="percentage_discount">상품 할인율</label>  
+				<label class="col-md-4 control-label">상품 할인율</label>  
 				<div class="col-md-4">
-					<input id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number">
+					<input onkeyup="price_Calc()"  id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number">
 				</div>
+			</div>
+			
+			
+			<!-- Text input-->
+			<div class="form-group">				
+				<label class="col-md-4 control-label">상품 판매가 (할인 적용) </label>  
+				<jsp:include page="/WEB-INF/views/add/add_priceCalc.jsp"/>
 			</div>
 			
 			<!-- Textarea -->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="product_description">상품 설명</label>
+				<label class="col-md-4 control-label">상품 설명</label>
 				<div class="col-md-4">                     
 					<textarea class="form-control" id="product_description" name="product_description"></textarea>
 				</div>
@@ -95,7 +102,7 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="available_quantity">주문 가능 수량</label>  
+				<label class="col-md-4 control-label">주문 가능 수량</label>  
 				<div class="col-md-4">
 					<input id="available_quantity" name="available_quantity" placeholder="주문 가능 수량" class="form-control input-md" type="number">
 				</div>
@@ -103,7 +110,7 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="online_date">상품 개시일</label>  
+				<label class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
 					<input id="online_date" name="online_date" placeholder="ONLINE DATE" class="form-control input-md" type="date">
 				</div>
@@ -111,7 +118,7 @@
 			    
 			<!-- File Button --> 
 			<div class="form-group" style="margin-bottom:50px;">
-				<label class="col-md-4 control-label" for="filebutton">메인 이미지</label>
+				<label class="col-md-4 control-label">메인 이미지</label>
 				<div class="col-md-4">
 					<input type="file" id="main_button" name="main_button" class="input-file"/>
 				</div>
@@ -123,7 +130,7 @@
 			
 			<!-- Button -->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="singlebutton"></label>
+				<label class="col-md-4 control-label"></label>
 				<div class="col-md-4">
 					<input type="submit" onclick="myFunction()" id="singlebutton" name="singlebutton" class="btn btn-secondary">
 					

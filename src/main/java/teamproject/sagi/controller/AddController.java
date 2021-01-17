@@ -49,6 +49,7 @@ public class AddController {
 	   String product_categorie = add_item.getProduct_categorie();
 	   double product_price = add_item.getProduct_price();
 	   double percentage_discount = add_item.getPercentage_discount();
+	   double selling_price = add_item.getProduct_price();
 	   String product_description = add_item.getProduct_description();
 	   int available_quantity = add_item.getAvailable_quantity();
 	   Date online_date = add_item.getOnline_date();
@@ -58,6 +59,7 @@ public class AddController {
 	   logger.info("product_categorie: " + product_categorie);
 	   logger.info("product_price: " + product_price);
 	   logger.info("percentage_discount: " + percentage_discount);
+	   logger.info("selling_price: " + selling_price);  
 	   logger.info("product_description: " + product_description);
 	   logger.info("available_quantity: " + available_quantity);
 	   logger.info("online_date: " + online_date);  

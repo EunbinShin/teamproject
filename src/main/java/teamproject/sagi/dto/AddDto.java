@@ -11,6 +11,8 @@ public class AddDto {
 	private String product_categorie; //d
 	private double product_price; 
 	private double percentage_discount;
+	private double selling_price;
+	
 	private String product_description;
 	private int available_quantity;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -46,6 +48,12 @@ public class AddDto {
 	}
 	public void setPercentage_discount(double percentage_discount) {
 		this.percentage_discount = percentage_discount;
+	}
+	public double getSelling_price() {
+		return selling_price;
+	}
+	public void setSelling_price(double selling_price) {
+		this.selling_price = selling_price;
 	}
 	public String getProduct_description() {
 		return product_description;
