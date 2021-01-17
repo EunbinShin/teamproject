@@ -7,7 +7,7 @@
 		var oriprice = Number(document.getElementById("product_price").value);
 		var sales = Number(document.getElementById("percentage_discount").value) / 100;
 		var sellp = oriprice - (oriprice * sales);
-		document.getElementById("selling_price").value = sellp.toFixed(2);
+		document.getElementById("selling_price").value = sellp.toFixed(0);
 		}
 	</script>
 </div>
