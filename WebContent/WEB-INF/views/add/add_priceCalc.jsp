@@ -16,7 +16,7 @@
 </script>
 
 
-<!-- Text input-->
+<!-- num input-->
 <div class="form-group">
 	<label class="col-md-4 control-label">상품 가격</label>  
 	<div class="col-md-4">
@@ -25,7 +25,7 @@
 	</div>
 </div>
 
-<!-- Text input-->
+<!-- num input-->
 <div class="form-group">
 	<label class="col-md-4 control-label">상품 할인율</label>  
 	<div class="col-md-4">
@@ -35,7 +35,7 @@
 </div>
 
 
-<!-- Text input-->
+<!-- num input-->
 <div class="form-group">				
 	<label class="col-md-4 control-label">상품 판매가 (할인 적용) </label>  
 	

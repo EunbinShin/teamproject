@@ -40,14 +40,6 @@
 			<!-- Form Name -->
 			<legend id="form-name">제품 등록</legend>
 			
-			<!-- Text input-->
-			<div class="form-group">
-				<label class="col-md-4 control-label">상품 코드</label>
-				<div class="col-md-4">
-					<input id="product_id" name="product_id" placeholder="상품 코드" class="form-control input-md"  type="text">
-				</div>
-			</div>
-			
 			<!-- Select Basic -->
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 카테고리</label>
@@ -66,6 +58,14 @@
 				<label class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
 					<input id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
+				</div>
+			</div>
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label">상품 코드</label>
+				<div class="col-md-4">
+					<input readonly id="product_id" name="product_id" placeholder="상품 코드" class="form-control input-md"  type="text">
 				</div>
 			</div>
 			
