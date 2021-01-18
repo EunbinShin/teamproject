@@ -38,7 +38,7 @@ a:visited{
 	height: 60px;
 	margin: 15px;
 	text-align: center;
-	line-height:60px;
+	padding-top: 15px;
 }
 
 #searchBarContainer input{
@@ -71,7 +71,9 @@ input{
 
 #searchBtn{
 	width: 100px;
-	height: 24px;
+	height: 30px;
 	text-align: center;
 	background-color: rgb(222,222,222);
+	border: none;
+	border-radius: 5px;
 }

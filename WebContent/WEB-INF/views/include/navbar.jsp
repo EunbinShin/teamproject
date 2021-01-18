@@ -23,7 +23,7 @@
 				<a href="<%=application.getContextPath() %>/item_list/bestitems">BEST</a>
 			</div>
 		</li>
-		<c:if test="${loginStatus != null}">
+		<c:if test="${loginStatus == 'admin'}">
 		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/add/add">ADD</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">EDIT</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>

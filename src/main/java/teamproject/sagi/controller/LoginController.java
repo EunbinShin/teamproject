@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import teamproject.sagi.dto.UserDto;
+
 @Controller
 @RequestMapping("/login")
 public class LoginController {
@@ -40,17 +42,17 @@ public class LoginController {
 			HttpSession session,
 			HttpServletResponse response,
 			HttpServletRequest request,
-			String uid, String upassword,boolean ucheck) {
+			UserDto user,boolean ucheck) {
 		logger.info("로그인 실행");
-		logger.info(uid+" is ID");
-		logger.info(upassword+" is pw");
+		logger.info(user.getUid()+" is ID");
+		logger.info(user.getUpassword()+" is pw");
 		logger.info(ucheck+"");
 		
 		
 		if(ucheck == true) {
 			//아이디 기억하기가 true이면 쿠키를 생성
 			logger.info("쿠키생성");
-			Cookie idCookie = new Cookie("ID", uid);
+			Cookie idCookie = new Cookie("ID", user.getUid());
 			response.addCookie(idCookie);
 			session.setAttribute("remerberID", "checked");
 		}else {
@@ -60,11 +62,13 @@ public class LoginController {
 			session.removeAttribute("remerberID");
 		}
 		
-		if(uid.equals("admin") && upassword.equals("12345")) {
-			session.setAttribute("loginStatus", uid);
+		if(user.getUid().equals("admin") && user.getUpassword().equals("12345")) {
+			session.setAttribute("loginStatus", "admin");
+		}else {
+			session.setAttribute("loginStatus", user.getUid());
 		}
 			
-		if(uid.length() != 0 && upassword.length() != 0) {	//만약 폼이 맞으면
+		if(user.getUid().length() != 0 && user.getUpassword().length() != 0) {	//만약 폼이 맞으면
 			return "redirect:/";
 		}else {
 			return "redirect:/login/";
