@@ -22,6 +22,29 @@
 		const gotoHome = () => {
 			location.href = "/html_css_javaspring/index.html";
 		}	
+		
+		
+		price_Calc = function(){
+			var oriprice = Number(document.getElementById("product_price").value);
+			var sales = Number(document.getElementById("percentage_discount").value) / 100;
+			
+			if(sales > 0.99) {
+				alert("할인율은 최대 99%입니다")
+				document.getElementById("percentage_discount").value = 99;
+			} else {
+				var sellp = oriprice - (oriprice * sales);
+				document.getElementById("selling_price").value = sellp.toFixed(0);
+			}
+		}
+		
+		genId = function() {
+			var pcate = document.getElementById("product_categorie").value
+			var pname = document.getElementById("product_name").value
+			document.getElementById("product_id").value = pcate + "-" + pname;
+			
+			
+		}
+			
 	</script>
 	
 </head>
@@ -46,9 +69,9 @@
 				<div class="col-md-4">
 					<select id="product_categorie" name="product_categorie" class="form-control">
 						<option value="">상품 카테고리</option>
-						<option value="texnolog1">은식기 </option>
-						<option value="texnolog2">나무식기 2</option>
-						<option value="texnolog3">무쇠  3</option>
+						<option value="ceramics">도자기 </option>
+						<option value="cutlery">식기</option>
+						<option value="glassware">유리그릇</option>
 					</select>
 				</div>
 			</div>
@@ -57,7 +80,8 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
-					<input id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
+					<input onkeyup="genId()" id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
+					
 				</div>
 			</div>
 			
@@ -69,7 +93,34 @@
 				</div>
 			</div>
 			
-			<jsp:include page="/WEB-INF/views/add/add_priceCalc.jsp"/>
+			<!-- num input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label">상품 가격</label>  
+				<div class="col-md-4">
+				<input id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number" step="1000">
+					
+				</div>
+			</div>
+			
+			<!-- num input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label">상품 할인율</label>  
+				<div class="col-md-4">
+				<input onkeyup="price_Calc()"  id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number" 
+				step="10" min="0" max="100">	
+				</div>
+			</div>
+			
+			
+			<!-- num input-->
+			<div class="form-group">				
+				<label class="col-md-4 control-label">상품 판매가 (할인 적용) </label>  
+				
+				<div class="col-md-4">
+				<input readonly id="selling_price" name="selling_price" value ="selling_price" class="form-control input-md" type="number">
+			</div>
+				
+			</div>
 			
 			<!-- Textarea -->
 			<div class="form-group">

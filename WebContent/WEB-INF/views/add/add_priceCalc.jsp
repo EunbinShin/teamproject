@@ -13,6 +13,7 @@
 			document.getElementById("selling_price").value = sellp.toFixed(0);
 		}
 	}
+		
 </script>
 
 
