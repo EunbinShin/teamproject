@@ -73,7 +73,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 가격</label>  
 				<div class="col-md-4">
-					<input id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number">
+					<input id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number" step="1000">
 				</div>
 			</div>
 			
@@ -81,7 +81,8 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 할인율</label>  
 				<div class="col-md-4">
-					<input onkeyup="price_Calc()"  id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number">
+					<input onkeyup="price_Calc()"  id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number" 
+					step="10" min="0" max="100">
 				</div>
 			</div>
 			

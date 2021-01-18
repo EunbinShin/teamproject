@@ -78,26 +78,27 @@ public class BoardController {
 	
 	//목록으로 돌아가기
 	@RequestMapping("/main")
-	public String main(String type) {
+	public String main(String type, int page) {
 		logger.info(type+"실행");
 		if(type.equals("review")) {
-			return "redirect:/board/review";
+			return "redirect:/board/review?page="+page;
 		}else if(type.equals("qna")) {
-			return "redirect:/board/qna";
+			return "redirect:/board/qna?page="+page;
 		}else {
-			return "redirect:/board/qna";
+			return "redirect:/board/qna?page="+page;
 		}
 	}
 	
 	//2. QnA 게시물 보기
 	@RequestMapping("/show")
 	public String showArticle(
-			int bno, String type
+			int bno, String type, int page
 			, HttpServletResponse response
 			, Model model) {
 		logger.info(type+"게시물 "+bno+" 실행");
 		model.addAttribute("bno", bno);
 		model.addAttribute("type", type);
+		model.addAttribute("page", page);
 		return "board/article";
 	}
 	
@@ -191,7 +192,7 @@ public class BoardController {
 			}
 		}
 		
-		return "redirect:/board/qna";
+		return "redirect:/board/qna?page=1";
 	}
 	//Review 작성 화면 넘어감
 	@RequestMapping("/writeReview")
@@ -239,7 +240,7 @@ public class BoardController {
 			}
 		}
 		
-		return "redirect:/board/review";
+		return "redirect:/board/review?page=1";
 	}
 	
 	//물품을 찾기위한 pop_up화면을 띄움

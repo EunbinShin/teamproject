@@ -47,7 +47,7 @@
 						<tr>
 							<th>1</th>
 							<th>배송</th>
-							<th><a href="show?bno=1&type=qna">배송문의 드려요</a></th>
+							<th><a href="show?bno=1&type=qna&page=${page}">배송문의 드려요</a></th>
 							<th>신은빈</th>
 							<th>2021-01-02</th>
 						</tr>
