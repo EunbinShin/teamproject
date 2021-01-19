@@ -47,7 +47,7 @@
 		<div id="row">
 			<div class="column">
 				<!-- ëª¨ë  íê·¸ì aíê·¸ ì¶ê°íê¸° -->
-				<a href="item_detail/product01"> 
+				<a href="item_detail/product01?item=product01"> 
 					<img src="<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom">
 					<img src="<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top">
 				</a> <a href="itemDetail">이름이름이름</a>
