@@ -55,6 +55,7 @@
 							</div>
 						</c:if>
 					</div>
+					<a href="<%=application.getContextPath() %>/signup/signup" style="color:blue;">회원이 아니신가요?</a>
 				</div>
 			</div>
 			
