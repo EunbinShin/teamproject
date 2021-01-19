@@ -43,7 +43,7 @@
 					<div class="Button" >
 						<a id="b1" href="구매" target="_blank">Buy</a>
 						<a id="b2" href="장바구니" target="_blank">Take a Cart <i class="fa fa-shopping-cart"></i></a>
-						<a id="b3" href="<%=application.getContextPath() %>/wishlist/wishlist" target="_blank"><i class="fas fa-heart"></i></a>
+						<a id="b3" href="/teamproject/wishlist/wishlist?item=product01" target="_blank"><i class="fas fa-heart"></i></a>
 					</div>
 				</div>	
 			</section>
