@@ -47,9 +47,9 @@
 		<div id="row">
 			<div class="column">
 				<!-- ëª¨ë  íê·¸ì aíê·¸ ì¶ê°íê¸° -->
-				<a href="/html_css_javaspring/item_detail/product01.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top">
+				<a href="item_detail/product01"> 
+					<img src="<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom">
+					<img src="<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top">
 				</a> <a href="itemDetail">이름이름이름</a>
 				<p>
 					<b>가격: 25,000</b>

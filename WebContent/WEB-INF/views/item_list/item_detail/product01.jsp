@@ -17,11 +17,6 @@
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product.css?after" type="text/css">
-	<script type="text/javascript">
-				const gotoHome = () => {
-					location.href = "/<%=application.getContextPath() %>/index.html";
-				}
-	</script>
 	</head>
 </head>
 <body>
@@ -48,15 +43,12 @@
 					<div class="Button" >
 						<a id="b1" href="구매" target="_blank">Buy</a>
 						<a id="b2" href="장바구니" target="_blank">Take a Cart <i class="fa fa-shopping-cart"></i></a>
-						<a id="b3" href="/<%=application.getContextPath() %>/wishlist/wishList.jsp" target="_blank"><i class="fas fa-heart"></i></a>
+						<a id="b3" href="<%=application.getContextPath() %>/wishlist/wishlist" target="_blank"><i class="fas fa-heart"></i></a>
 					</div>
 				</div>	
 			</section>
 			
 			<article>
-				
-				<jsp:include page="/WEB-INF/views/item_detail/product_slide.jsp"/>
-					
 				<div class="txt">
 					<img src= "<%=application.getContextPath() %>/resources/img/img01-3.jpg" style="width:100%"  >
 					<p></p>

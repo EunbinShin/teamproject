@@ -12,23 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import teamproject.sagi.dto.ItemDetailDto;
 
 @Controller
-@RequestMapping("/item_detail")
+@RequestMapping("/item_list")
 public class ItemDetailController {
 	private static final Logger logger 
 		= LoggerFactory.getLogger(ItemDetailController.class);
 	
-	@RequestMapping("/gotoHome") // 홈페이지로 가기
-	public String gotoHome() {
-		logger.info("실행");
-		return "redirect:/index";
-	}
-	
-	@RequestMapping("/product01") // 상품으로 가기
+	@RequestMapping("/item_detail/product01") // 상품으로 가기
 	public String product01() {
 		logger.info("실행");
-		return "item_detail/product01";
+		return "item_list/item_detail/product01";
 	}
 	
+	/*
 	@RequestMapping("/product02") // 상품으로 가기
 	public String product02() {
 		logger.info("실행");
@@ -45,7 +40,7 @@ public class ItemDetailController {
 	public String product04() {
 		logger.info("실행");
 		return "item_detail/product04";
-	}
+	}*/
 		
 	// HttpSession과 DTO를 이용하여 위시리스로 정보를 보내기
 	@PostMapping("/wishlist")

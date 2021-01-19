@@ -18,11 +18,6 @@
 	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/footer.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide1.css?after" type="text/css">
-	<script type="text/javascript">
-		const gotoHome = () => {
-			location.href = "/html_css_javaspring/index.html";
-		}	
-	</script>
 	
 </head>
 
@@ -107,8 +102,8 @@
 		  </form>
 		</div>
 		
-		</div> <!-- /add -->
-		<jsp:include page="/WEB-INF/views/item_detail/product_slide.jsp"/>
+		</div> <!-- /add -->	
+		<jsp:include page="/WEB-INF/views/item_list/item_detail/product_slide.jsp"/>
 		<footer>
 			<div id="left">
 				Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
