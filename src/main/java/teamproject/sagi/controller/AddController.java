@@ -36,15 +36,19 @@ public class AddController {
 	}
 	
 	@RequestMapping("/add_confirm")
-	public String review() {
+	public String review(String product_id, Model model) {
 		logger.info("실행");
+		logger.info(product_id+" 실행");
+		model.addAttribute("product_id", product_id);
 		return "add/add_confirm";
 	}
 	
    
    @PostMapping("/add_upload")
-   public String add_upload(AddDto add_item) {
+   public String add_upload(AddDto add_item, Model model) {
 	   String product_id = add_item.getProduct_id();
+
+	   model.addAttribute("product_id", product_id);
 	   String product_name = add_item.getProduct_name();
 	   String product_categorie = add_item.getProduct_categorie();
 	   double product_price = add_item.getProduct_price();
@@ -64,45 +68,110 @@ public class AddController {
 	   logger.info("available_quantity: " + available_quantity);
 	   logger.info("online_date: " + online_date);  
 	   
-	   MultipartFile main_button = add_item.getMain_button();
-	   if(!main_button.isEmpty()) {
-		   String originalFileName = main_button.getOriginalFilename();
-		   String contentType = main_button.getContentType();
-		   long size = main_button.getSize();
+	   MultipartFile thumbnail = add_item.getThumbnail();
+	   if(!thumbnail.isEmpty()) {
+		   String originalFileName = thumbnail.getOriginalFilename();
+		   String contentType = thumbnail.getContentType();
+		   long size = thumbnail.getSize();
 		   logger.info("originalFileName: "+originalFileName);
 		   logger.info("contentType: "+contentType);
 		   logger.info("size: "+size);
 		   
-		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/";
-		   String fileName = new Date().getTime()+"_"+originalFileName;
+		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id+  "/thumbnail/";
+		   String fileName = new Date().getTime()+"_" + product_id +"_thumbnail.jpg";
 		   String filePath = saveDirPath + fileName;
 		   File file = new File(filePath);
 		   try {
-			   main_button.transferTo(file);
+			   thumbnail.transferTo(file);
 		   }catch (IOException e) {
 			   e.printStackTrace();
 		   }
 	   }
 
+	   MultipartFile main_img = add_item.getMain_img();
+	   if(!main_img.isEmpty()) {
+		   String originalFileName = main_img.getOriginalFilename();
+		   String contentType = main_img.getContentType();
+		   long size = main_img.getSize();
+		   logger.info("originalFileName: "+originalFileName);
+		   logger.info("contentType: "+contentType);
+		   logger.info("size: "+size);
+		   
+		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id+ "/main/";
+		   String fileName = new Date().getTime()+"_" + product_id +"_main_img.jpg";
+		   String filePath = saveDirPath + fileName;
+		   File file = new File(filePath);
+		   try {
+			   main_img.transferTo(file);
+		   }catch (IOException e) {
+			   e.printStackTrace();
+		   }
+	   }
+	   
+	   MultipartFile[] files = new MultipartFile[3];
+
+	   files[0] = add_item.getSub1_img();
+	   files[1] = add_item.getSub2_img();
+	   files[2] = add_item.getSub3_img();
+	   
+	   for(int i = 0 ; i < 3; i++) {
+		   if(!files[i].isEmpty()) {
+			   String originalFileName = files[i].getOriginalFilename();
+			   String contentType = files[i].getContentType();
+			   String name = "sub" + i + "_img.jpg";
+			   long size = files[i].getSize();
+			   logger.info("originalFileName: "+originalFileName);
+			   logger.info("contentType: "+contentType);
+			   logger.info("size: "+size);
+			   
+			   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id+ "/sub/";
+			   String fileName = new Date().getTime()+"_" + product_id + name;
+			   String filePath = saveDirPath + fileName;
+			   File file = new File(filePath);
+			   try {
+				   files[i].transferTo(file);
+			   }catch (IOException e) {
+				   e.printStackTrace();
+			   }
+		   }		   
+	   }	   
 	   
 	   logger.info("상품 등록 완료");
 	   return "redirect:/add/add_confirm";
    }
    
-   @GetMapping("/add_photolist")
-   public String add_photolist(Model model) {
+   @RequestMapping("/add_photolist")
+   public String add_photolist(Model model, String product_id ,AddDto add_item) {
       logger.info("실행");
-      String saveDirPath = "D:/MyWorkspace/uploadfiles/add/";
+      logger.info(product_id);
+      String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/thumbnail/";
+      logger.info(saveDirPath);
       File dir = new File(saveDirPath);
       String[] fileNames = dir.list();
+      model.addAttribute("product_id", product_id);
       model.addAttribute("fileNames", fileNames);
       return "add/add_photolist";
    }
    
    @GetMapping("/photodownload")
-   public void photodownload(String photo, HttpServletResponse response) { 
-		String saveDirPath = "D:/MyWorkspace/uploadfiles/add/";
-		String filePath = saveDirPath + photo;
+   public void photodownload(String photo,String productid, HttpServletResponse response, AddDto add_item) { 
+	   logger.info("실행");
+	   logger.info(photo);
+	   logger.info(productid);
+	   String product_id = productid;
+	   String thumbnail = "thumbnail";
+	   String main = "main";
+	   String saveDirPath;
+	   
+	   if(photo.indexOf(thumbnail) != -1) {
+		   saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/thumbnail/";
+	   } else if (photo.indexOf(main) != -1) {
+		   saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id + "/main/";
+	   } else {
+		   saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/sub/";
+	   }
+	   
+	   String filePath = saveDirPath + photo;
 
 		response.setContentType("image/jpeg"); 
 		try {

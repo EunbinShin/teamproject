@@ -41,10 +41,13 @@
 		<h5>등록된 상품</h5>
 		<div>
 			<script type="text/javascript">
+			
 			$(()=>{
+				console.log('실행');
 				$.ajax({
 					url: "add_photolist",
 					method: "get",
+					data: {product_id:"${product_id}"},
 					success: (data) => {
 						$("#add_photolist").html(data);
 					}
