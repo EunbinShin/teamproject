@@ -41,10 +41,8 @@
 			var pcate = document.getElementById("product_categorie").value
 			var pname = document.getElementById("product_name").value
 			document.getElementById("product_id").value = pcate + "-" + pname;
-			
-			
 		}
-			
+		
 	</script>
 	
 </head>
@@ -142,7 +140,12 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
-					<input id="online_date" name="online_date" placeholder="ONLINE DATE" class="form-control input-md" type="date">
+					<input id="online_date" name="online_date" class="form-control input-md" 
+					type="date" min="min_date()">
+					<script>
+						document.getElementById('online_date').valueAsDate = new Date();
+					</script>
+					
 				</div>
 			</div>	
 			    
