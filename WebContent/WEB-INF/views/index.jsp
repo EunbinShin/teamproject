@@ -46,14 +46,6 @@
 		}
 	</script>
 	
-	<style type="text/css">
-	/* slide show */
-	*{margin:0;padding:0;}
-    img > ul,li{list-style:none;}
-    .trend_slide{height: 75%;overflow:hidden;}
-    .trend_slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
-    .trend_slide li{width:calc(100% / 4);height: 75%;}
-	</style>
 </head>
 
 <body onload="start()">

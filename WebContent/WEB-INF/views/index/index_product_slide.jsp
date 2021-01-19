@@ -19,7 +19,7 @@ li img{
     border-radius: 20%;
 }
 
-.slide ul {
+#slide_ul {
 	width: calc(100% * 4);
 	display: flex;
 	animation: slide 10s infinite;
