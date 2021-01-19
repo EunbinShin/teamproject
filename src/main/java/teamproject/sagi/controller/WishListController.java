@@ -14,16 +14,16 @@ public class WishListController {
 	= LoggerFactory.getLogger(ItemDetailController.class);
 	
 	@RequestMapping("/wishlist")
-	public String wishlist(HttpSession session) {
-		
-		
-		logger.info("loginStatus"+session.getAttribute("loginStatus"));
-		
-		return "/wishlist/wishlist";
+	public String wishlist(HttpSession session, String item) {
+		logger.info("loginStatus "+session.getAttribute("loginStatus"));
+		logger.info(item);
+		return "redirect:/wishlist/temp";
 	}
-	
-	
-	
-	
+
+	@RequestMapping("/temp") 
+	public String wishlist(HttpSession session) {	 
+	 logger.info("loginStatus "+session.getAttribute("loginStatus"));
+	 return "/wishlist/wishlist";
+	}
 
 }

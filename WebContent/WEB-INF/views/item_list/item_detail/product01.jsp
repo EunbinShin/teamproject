@@ -43,7 +43,7 @@
 					<div class="Button" >
 						<a id="b1" href="구매" target="_blank">Buy</a>
 						<a id="b2" href="장바구니" target="_blank">Take a Cart <i class="fa fa-shopping-cart"></i></a>
-						<a id="b3" href="/teamproject/wishlist/wishlist?item=product01" target="_blank"><i class="fas fa-heart"></i></a>
+						<a id="b3" href="/teamproject/wishlist/wishlist?item=${item}" target="_blank"><i class="fas fa-heart"></i></a>
 					</div>
 				</div>	
 			</section>
@@ -67,16 +67,7 @@
 				</div>
 			</article>
 		
-		<footer>
-			<div id="left">
-				Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
-				<br/>designed by EunBin SHIN
-			</div>
-			<div id="right">
-				(우)05717<br/>
-				서울특별시 송파구 중대로 135 12층 
-			</div>
-		</footer>
+			<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 		</div>
 </body>	
 </html>
