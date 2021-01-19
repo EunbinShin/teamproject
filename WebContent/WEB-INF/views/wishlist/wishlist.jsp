@@ -49,7 +49,7 @@
 											</td>
 											<td class="desc">
 												<h3>
-													<a href="#" class="text-navy"> 전기주전자 </a>
+													<a href="#" class="text-navy"> ${product_name} </a>
 												</h3>
 												<p class="small">질 좋은 전기주전자입니다</p>
 												<dl class="small m-b-none">
@@ -64,11 +64,11 @@
 												</div>
 											</td>
 
-											<td>15,000</td>
+											<td>${itemdetail.product_price}</td>
 											<td width="65"><input type="text" class="form-control"
 												placeholder="1"></td>
 											<td>
-												<h4>15,000</h4>
+												<h4> ${itemdetail.available_quantity}</h4>
 											</td>
 										</tr>
 									</tbody>
