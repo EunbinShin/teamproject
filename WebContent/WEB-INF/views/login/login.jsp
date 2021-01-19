@@ -51,11 +51,14 @@
 						</c:if>
 						<c:if test="${loginStatus != null}">
 							<div>
-								<a class="btn btn-danger btn-sm" href="logout" >로그아웃</a>
+								<h5>${loginStatus}님 안녕하세요!</h5>
+								<a class="btn btn-danger btn-sm"" href="logout" >로그아웃</a>
 							</div>
 						</c:if>
 					</div>
-					<a href="<%=application.getContextPath() %>/signup/signup" style="color:blue;">회원이 아니신가요?</a>
+					<c:if test="${loginStatus == null}">
+						<a href="<%=application.getContextPath() %>/signup/signup" style="color:blue;">회원이 아니신가요?</a>
+					</c:if>
 				</div>
 			</div>
 			

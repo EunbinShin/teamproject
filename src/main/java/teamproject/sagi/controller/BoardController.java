@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import teamproject.sagi.dto.BoardDTO;
+import teamproject.sagi.dto.Paging;
 import teamproject.sagi.dto.QnaDto;
 import teamproject.sagi.dto.ReviewDto;
 
@@ -36,10 +37,10 @@ public class BoardController {
 	
 	//1. QnA화면 실행
 	@RequestMapping("/qna")
-	public String qna(Model model, int page) {
-		logger.info("실행");
+	public String qna(Model model, int page, int range) {
+		logger.info(page+"번 qna 페이지 실행");
 		List<QnaDto> list = new ArrayList<>();
-		for(int i = page*15 - 14 ; i <= page*15 ; i++) {
+		for(int i = 1 ; i <= 151 ; i++) {
 			QnaDto qna = new QnaDto();
 			qna.setbNo(i);
 			qna.setQna_categorie("배송");
@@ -51,17 +52,21 @@ public class BoardController {
 			list.add(qna);
 		}
 		
+		Paging paging = new Paging();
+		paging.pageInfo(page, range, 151);
+		
+		model.addAttribute("paging", paging);
 		model.addAttribute("qnaList", list);
 		model.addAttribute("page", page);
 		return "board/qna";
 	}
 	//1. Review화면 실행
 	@RequestMapping("/review")
-	public String review(Model model, int page) {
+	public String review(Model model, int page, int range) {
 		logger.info("실행");
 		List<ReviewDto> list = new ArrayList<>();
 		
-		for(int i = page*15 - 14 ; i <= page*15 ; i++) {
+		for(int i = 1 ; i <= 153 ; i++) {
 			ReviewDto review = new ReviewDto();
 			review.setbNo(i);
 			review.setReview_title("제목"+i);
@@ -70,7 +75,10 @@ public class BoardController {
 			review.setDate(new Date());
 			list.add(review);
 		}
+		Paging paging = new Paging();
+		paging.pageInfo(page, range, 153);
 		
+		model.addAttribute("paging", paging);
 		model.addAttribute("reviewList", list);
 		model.addAttribute("page", page);
 		return "board/review";
@@ -78,26 +86,27 @@ public class BoardController {
 	
 	//목록으로 돌아가기
 	@RequestMapping("/main")
-	public String main(String type, int page) {
+	public String main(String type, int page, int range) {
 		logger.info(type+"실행");
 		if(type.equals("review")) {
-			return "redirect:/board/review?page="+page;
+			return "redirect:/board/review?page="+page+"&range="+range;
 		}else if(type.equals("qna")) {
-			return "redirect:/board/qna?page="+page;
+			return "redirect:/board/qna?page="+page+"&range="+range;
 		}else {
-			return "redirect:/board/qna?page="+page;
+			return "redirect:/board/qna?page="+page+"&range="+range;
 		}
 	}
 	
 	//2. QnA 게시물 보기
 	@RequestMapping("/show")
 	public String showArticle(
-			int bno, String type, int page
+			int bno, String type, int page, int range
 			, HttpServletResponse response
 			, Model model) {
 		logger.info(type+"게시물 "+bno+" 실행");
 		model.addAttribute("bno", bno);
 		model.addAttribute("type", type);
+		model.addAttribute("range", range);
 		model.addAttribute("page", page);
 		return "board/article";
 	}
@@ -261,5 +270,4 @@ public class BoardController {
 		model.addAttribute("keyword", keyword);
 		return "board/pop_up";
 	}
-	
 }

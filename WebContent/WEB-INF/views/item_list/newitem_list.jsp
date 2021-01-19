@@ -243,18 +243,22 @@
 		
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-			    <li class="page-item active"><a class="page-link" href="javascript:void(0); ">1</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">6</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">7</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">8</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">9</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">10</a></li>
-			    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+				<li class="page-item<c:if test="${page == 1}"> disabled</c:if>"><a class="page-link" href="newitems?page=${page-1}"> 
+					<span aria-hidden="true">&laquo;</span>
+        			<span class="sr-only">Previous</span></a></li>
+			    <li class="page-item<c:if test="${page == 1}"> active</c:if>"><a class="page-link" href="newitems?page=1">1</a></li>
+			    <li class="page-item<c:if test="${page == 2}"> active</c:if>"><a class="page-link" href="newitems?page=2">2</a></li>
+			    <li class="page-item<c:if test="${page == 3}"> active</c:if>"><a class="page-link" href="newitems?page=3">3</a></li>
+			    <li class="page-item<c:if test="${page == 4}"> active</c:if>"><a class="page-link" href="newitems?page=4">4</a></li>
+			    <li class="page-item<c:if test="${page == 5}"> active</c:if>"><a class="page-link" href="newitems?page=5">5</a></li>
+			    <li class="page-item<c:if test="${page == 6}"> active</c:if>"><a class="page-link" href="newitems?page=6">6</a></li>
+			    <li class="page-item<c:if test="${page == 7}"> active</c:if>"><a class="page-link" href="newitems?page=7">7</a></li>
+			    <li class="page-item<c:if test="${page == 8}"> active</c:if>"><a class="page-link" href="newitems?page=8">8</a></li>
+			    <li class="page-item<c:if test="${page == 9}"> active</c:if>"><a class="page-link" href="newitems?page=9">9</a></li>
+			    <li class="page-item<c:if test="${page == 10}"> active</c:if>"><a class="page-link" href="newitems?page=10">10</a></li>
+			    <li class="page-item"><a class="page-link" href="newitems?page=${page+1}">
+			    	<span aria-hidden="true">&raquo;</span>
+        			<span class="sr-only">Next</span></a></li>
   			</ul>
   			
 					<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

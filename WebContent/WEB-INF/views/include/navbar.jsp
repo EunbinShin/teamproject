@@ -17,10 +17,10 @@
 		<li class="nav-item"><a class="nav-link"
 			href="<%=application.getContextPath() %>">HOME</a></li>
 		<li class="nav-item dropdown">
-			<a class="nav-link dropbtn" href="<%=application.getContextPath() %>/item_list/default">SHOP</a>
+			<a class="nav-link dropbtn" href="<%=application.getContextPath() %>/item_list/default?page=1">SHOP</a>
 			<div class="dropdown-content">
-				<a href="<%=application.getContextPath() %>/item_list/newitems">NEW</a>
-				<a href="<%=application.getContextPath() %>/item_list/bestitems">BEST</a>
+				<a href="<%=application.getContextPath() %>/item_list/newitems?page=1">NEW</a>
+				<a href="<%=application.getContextPath() %>/item_list/bestitems?page=1">BEST</a>
 			</div>
 		</li>
 		<c:if test="${loginStatus == 'admin'}">

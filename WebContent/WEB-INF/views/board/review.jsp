@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
+		<script src="<%=application.getContextPath() %>/resources/js/paging.js"></script>
 	</head>
 	
 	<body>
@@ -30,7 +31,8 @@
 			
 			<h3>Review</h3>
 			
-			<!-- QnA board Table -->
+			<!-- 
+ board Table -->
 			<div id="table_container">
 				<table id="boardTable" class="table table-striped">
 					<thead>
@@ -44,18 +46,20 @@
 					<tbody>
 						<tr>
 							<th>1</th>
-							<th><a href="show?bno=1&type=review&page=${page}">그릇이 너무 좋아요</a></th>
+							<th><a href="show?bno=1&type=review&page=${page}&range=${paging.range}">그릇이 너무 좋아요</a></th>
 							<th>신은빈</th>
 							<th>2021-01-02</th>
 						</tr>
 					</tbody>
-					<c:forEach var="board" items="${reviewList}">
-						<tr>
-							<th>${board.bNo}</th>
-							<th>${board.review_title}</th>
-							<th>${board.review_writer}</th>
-							<th><fmt:formatDate value="${board.date}" pattern="yyyy-MM-dd"/></th>
-						</tr>
+					<c:forEach begin="${paging.page*15-15}" end="${paging.page*15-1}" step="1" var="idx">
+						<c:if test="${reviewList[idx] != null}">
+							<tr>
+								<th>${reviewList[idx].bNo}</th>
+								<th>${reviewList[idx].review_title}</th>
+								<th>${reviewList[idx].review_writer}</th>
+								<th><fmt:formatDate value="${reviewList[idx].date}" pattern="yyyy-MM-dd"/></th>
+							</tr>
+						</c:if>
 					</c:forEach>
 				</table>
 			</div>
@@ -67,23 +71,32 @@
 				</c:if>
 			</div>
 			<!-- page number navigation -->
+			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
-				<li class="page-item<c:if test="${page == 1}"> disabled</c:if>"><a class="page-link" href="review?page=${page-1}"> 
-					<span aria-hidden="true">&laquo;</span>
-        			<span class="sr-only">Previous</span></a></li>
-			    <li class="page-item<c:if test="${page == 1}"> active</c:if>"><a class="page-link" href="review?page=1">1</a></li>
-			    <li class="page-item<c:if test="${page == 2}"> active</c:if>"><a class="page-link" href="review?page=2">2</a></li>
-			    <li class="page-item<c:if test="${page == 3}"> active</c:if>"><a class="page-link" href="review?page=3">3</a></li>
-			    <li class="page-item<c:if test="${page == 4}"> active</c:if>"><a class="page-link" href="review?page=4">4</a></li>
-			    <li class="page-item<c:if test="${page == 5}"> active</c:if>"><a class="page-link" href="review?page=5">5</a></li>
-			    <li class="page-item<c:if test="${page == 6}"> active</c:if>"><a class="page-link" href="review?page=6">6</a></li>
-			    <li class="page-item<c:if test="${page == 7}"> active</c:if>"><a class="page-link" href="review?page=7">7</a></li>
-			    <li class="page-item<c:if test="${page == 8}"> active</c:if>"><a class="page-link" href="review?page=8">8</a></li>
-			    <li class="page-item<c:if test="${page == 9}"> active</c:if>"><a class="page-link" href="review?page=9">9</a></li>
-			    <li class="page-item<c:if test="${page == 10}"> active</c:if>"><a class="page-link" href="review?page=10">10</a></li>
-			    <li class="page-item"><a class="page-link" href="review?page=${page+1}">
-			    	<span aria-hidden="true">&raquo;</span>
-        			<span class="sr-only">Next</span></a></li>
+  				<c:if test="${paging.prev}">
+  					<li class="page-item">
+  						<a class="page-link" 
+  						href="javascript:void(0);" 
+  						onClick="prev('review','${paging.page}', '${paging.range}', '${paging.rangeSize}')">
+  						Prev</a>
+  					</li>
+  				</c:if>
+  				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="index">
+  					<li class="page-item 
+  						<c:out value="${paging.page == index ? 'active' : ''}"/> ">
+  						<a class="page-link" href="javascript:void(0);" onClick="pagination('review','${index}', '${paging.range}', '${paging.rangeSize}')">
+  							 ${index}
+  						</a>
+  					</li>
+  				</c:forEach>
+  				<c:if test="${paging.next}">
+  					<li class="page-item">
+  						<a class="page-link" 
+  							href="javascript:void(0);" 
+  							onClick="next('review','${paging.range}','${paging.range}', '${paging.rangeSize}')">
+  								Next</a>
+  					</li>
+  				</c:if>
   			</ul>
   			
 			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
