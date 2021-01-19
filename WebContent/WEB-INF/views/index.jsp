@@ -69,10 +69,10 @@
 		<!-- 수정: 이미지위 텍스트  --> 
 		<div id="banner_row">
 			<div class="banner_column">
-				<a href="<%=application.getContextPath() %>/item_list/newitems">
+				<a href="<%=application.getContextPath() %>/item_list/newitems?page=1">
 					<img id= "col_1" src="<%=application.getContextPath() %>/resources/img/main_event03.jpg" title="New아이템 둘러보기">
 				</a>
-				<a href="<%=application.getContextPath() %>/item_list/bestitems">
+				<a href="<%=application.getContextPath() %>/item_list/bestitems?page=1">
 					<img id= "col_2" src="<%=application.getContextPath() %>/resources/img/main_event04.jpg" title="Best아이템 둘러보기">
 				</a>
 			</div> 
