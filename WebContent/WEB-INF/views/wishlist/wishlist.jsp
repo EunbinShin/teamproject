@@ -26,7 +26,7 @@
 
 <c:if test="${loginStatus != null}">
 <body>
-
+</form>
 	<div class="container">
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div class="row">
@@ -49,7 +49,7 @@
 											</td>
 											<td class="desc">
 												<h3>
-													<a href="#" class="text-navy"> ${product_name} </a>
+													<a href="#" class="text-navy"> ${name} </a>
 												</h3>
 												<p class="small">질 좋은 전기주전자입니다</p>
 												<dl class="small m-b-none">
@@ -68,7 +68,7 @@
 											<td width="65"><input type="text" class="form-control"
 												placeholder="1"></td>
 											<td>
-												<h4> ${itemdetail.available_quantity}</h4>
+												<h4> ${itemdetail1}</h4>
 											</td>
 										</tr>
 									</tbody>
