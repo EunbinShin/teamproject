@@ -17,7 +17,11 @@ public class AddDto {
 	private int available_quantity;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date online_date;
-	private MultipartFile main_button;
+	private MultipartFile thumbnail;
+	private MultipartFile main_img;
+	private MultipartFile sub1_img;
+	private MultipartFile sub2_img;
+	private MultipartFile sub3_img;
 	
 	public String getProduct_id() {
 		return product_id;
@@ -73,13 +77,36 @@ public class AddDto {
 	public void setOnline_date(Date online_date) {
 		this.online_date = online_date;
 	}
-	public MultipartFile getMain_button() {
-		return main_button;
+
+	public MultipartFile getThumbnail() {
+		return thumbnail;
 	}
-	public void setMain_button(MultipartFile main_button) {
-		this.main_button = main_button;
+	public void setThumbnail(MultipartFile thumbnail) {
+		this.thumbnail = thumbnail;
 	}
-	
-	
+	public MultipartFile getMain_img() {
+		return main_img;
+	}
+	public void setMain_img(MultipartFile main_img) {
+		this.main_img = main_img;
+	}
+	public MultipartFile getSub1_img() {
+		return sub1_img;
+	}
+	public void setSub1_img(MultipartFile sub1_img) {
+		this.sub1_img = sub1_img;
+	}
+	public MultipartFile getSub2_img() {
+		return sub2_img;
+	}
+	public void setSub2_img(MultipartFile sub2_img) {
+		this.sub2_img = sub2_img;
+	}
+	public MultipartFile getSub3_img() {
+		return sub3_img;
+	}
+	public void setSub3_img(MultipartFile sub3_img) {
+		this.sub3_img = sub3_img;
+	}
 
 }

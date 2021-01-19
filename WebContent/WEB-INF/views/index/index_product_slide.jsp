@@ -2,17 +2,53 @@
 
 <style type="text/css">
 
-.slide_ul {
+*{margin:0;padding:0;}
+
+img>ul, li {
+	list-style: none;
+}
+
+.slide {
+	height: 75%;
+	overflow: hidden;
+	text-align: center;
+}
+
+li img{
+	margin-left: 10px;
+    border-radius: 20%;
+}
+
+#slide_ul {
 	width: calc(100% * 4);
 	display: flex;
 	animation: slide 10s infinite;
 } 
+.slide li {
+	width: calc(100%/ 4);
+}
+
+ul:hover {
+  animation-play-state: paused;
+}
+		
+@keyframes slide {
+      0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+      10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+      25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+      35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+      50% {margin-left:-200%;}
+      60% {margin-left:-200%;}
+      75% {margin-left:-300%;}
+      85% {margin-left:-300%;}
+      100% {margin-left:0;}
+}
 
 </style>
 
 <div class="slide">
-	<ul class="slide_ul">
-		<li class="slide_li"><img
+	<ul id="slide_ul">
+		<li ><img
 			src="<%=application.getContextPath()%>/resources/img/img01-1.jpg"
 			style="width: 15%" /> <img
 			src="<%=application.getContextPath()%>/resources/img/img02-1.jpg"

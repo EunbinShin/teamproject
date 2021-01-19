@@ -68,7 +68,7 @@
 				</table>
 				<%--버튼 컨테이너 --%>
 				<div id="btnContainer">
-					<a href="main?type=${type}&page=${page}" class="btn btn-secondary">목록</a>
+					<a href="main?type=${type}&page=${page}&range=${range}" class="btn btn-secondary">목록</a>
 				</div>
 			</div>
 			

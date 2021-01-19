@@ -26,13 +26,13 @@
 		
 		price_Calc = function(){
 			var oriprice = Number(document.getElementById("product_price").value);
-			var sales = Number(document.getElementById("percentage_discount").value) / 100;
-			
-			if(sales > 0.99) {
+			var sales = Number(document.getElementById("percentage_discount").value);
+			if(sales > 99) {
 				alert("할인율은 최대 99%입니다")
 				document.getElementById("percentage_discount").value = 99;
 			} else {
-				var sellp = oriprice - (oriprice * sales);
+				var discount = sales /100;
+				var sellp = oriprice - (oriprice * discount);
 				document.getElementById("selling_price").value = sellp.toFixed(0);
 			}
 		}
@@ -42,6 +42,9 @@
 			var pname = document.getElementById("product_name").value
 			document.getElementById("product_id").value = pcate + "-" + pname;
 		}
+		
+		
+		
 		
 	</script>
 	
@@ -105,7 +108,7 @@
 				<label class="col-md-4 control-label">상품 할인율</label>  
 				<div class="col-md-4">
 				<input onkeyup="price_Calc()"  id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number" 
-				step="10" min="0" max="100">	
+				step="5" min="0" max="100">	
 				</div>
 			</div>
 			
@@ -132,7 +135,8 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">주문 가능 수량</label>  
 				<div class="col-md-4">
-					<input id="available_quantity" name="available_quantity" placeholder="주문 가능 수량" class="form-control input-md" type="number">
+					<input id="available_quantity" name="available_quantity" placeholder="주문 가능 수량" class="form-control input-md" 
+					type="number" min="0" max="100">
 				</div>
 			</div>
 			
@@ -140,37 +144,54 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
-					<input id="online_date" name="online_date" class="form-control input-md" 
-					type="date" min="min_date()">
+					<input id="online_date" name="online_date" class="form-control input-md" type="date">
 					<script>
 						document.getElementById('online_date').valueAsDate = new Date();
 					</script>
 					
 				</div>
 			</div>	
+
+			<!-- File Button --> 
+			<div class="form-group" style="margin-bottom:50px;">
+				<label class="col-md-4 control-label">썸네일 이미지</label>
+				<div class="col-md-4">
+					<input type="file" id="thumbnail" name="thumbnail" class="input-file"/>
+				</div>
+			</div>
 			    
 			<!-- File Button --> 
 			<div class="form-group" style="margin-bottom:50px;">
 				<label class="col-md-4 control-label">메인 이미지</label>
 				<div class="col-md-4">
-					<input type="file" id="main_button" name="main_button" class="input-file"/>
+					<input type="file" id="main_img" name="main_img" class="input-file"/>
 				</div>
 			</div>
 			
-			<div class="form-group">
-				
+			<!-- File Button --> 
+			<div class="form-group" style="margin-bottom:50px;">
+				<label class="col-md-4 control-label">서브 이미지</label>
+				<div class="col-md-4">
+					<input type="file" id="sub1_img" name="sub1_img" class="input-file"/>
+					<input type="file" id="sub2_img" name="sub2_img" class="input-file"/>
+					<input type="file" id="sub3_img" name="sub3_img" class="input-file"/>
+				</div>
 			</div>
-			
+				
+				
 			<!-- Button -->
 			<div class="form-group">
 				<label class="col-md-4 control-label"></label>
 				<div class="col-md-4">
-					<input type="submit" onclick="myFunction()" id="singlebutton" name="singlebutton" class="btn btn-secondary">
-					
+					<input type="submit" onclick="submit()" id="singlebutton" name="singlebutton" class="btn btn-secondary">
 				<script>
-					function myFunction(){
-						confirm("상품을 등록하겠습니까?");
+					function submit(){
+						if (confirm("상품을 등록하겠습니까?") == true){
+						    document.form.submit();
+						}else{
+						    return;
 						}
+					}
 				</script>
 				</div>
 			</div>

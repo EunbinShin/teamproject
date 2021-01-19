@@ -130,3 +130,9 @@
 	    .pagination > li > a{
 		    color: black;
 		}
+		
+		 .pagination > .active > a{
+		    color: white;
+		    background-color: #1F4948 !Important;
+		    border: solid 1px #1F4948 !Important;
+		}

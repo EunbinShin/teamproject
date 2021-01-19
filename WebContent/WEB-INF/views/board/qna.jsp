@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 		<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
+		<script src="<%=application.getContextPath() %>/resources/js/paging.js"></script>
 	</head>
 	
 	<body>
@@ -47,19 +48,21 @@
 						<tr>
 							<th>1</th>
 							<th>배송</th>
-							<th><a href="show?bno=1&type=qna&page=${page}">배송문의 드려요</a></th>
+							<th><a href="show?bno=1&type=qna&page=${page}&range=${paging.range}">배송문의 드려요</a></th>
 							<th>신은빈</th>
 							<th>2021-01-02</th>
 						</tr>
 					</tbody>
-					<c:forEach var="board" items="${qnaList}">
-						<tr>
-							<th>${board.bNo}</th>
-							<th>${board.qna_categorie}</th>
-							<th>${board.qna_title}</th>
-							<th>${board.qna_writer}</th>
-							<th><fmt:formatDate value="${board.date}" pattern="yyyy-MM-dd"/></th>
-						</tr>
+					<c:forEach begin="${paging.page*15-15}" end="${paging.page*15-1}" step="1" var="idx">
+						<c:if test="${qnaList[idx] != null}">
+							<tr>
+								<th>${qnaList[idx].bNo}</th>
+								<th>${qnaList[idx].qna_categorie}</th>
+								<th>${qnaList[idx].qna_title}</th>
+								<th>${qnaList[idx].qna_writer}</th>
+								<th><fmt:formatDate value="${qnaList[idx].date}" pattern="yyyy-MM-dd"/></th>
+							</tr>
+						</c:if>
 					</c:forEach>
 				</table>
 			</div>
@@ -73,18 +76,30 @@
 			
 			<!-- page number navigation -->
 			<ul class="pagination justify-content-center">
-			    <li class="page-item<c:if test="${page == 1}"> disabled</c:if>"><a class="page-link" href="qna?page=${page-1}">Previous</a></li>
-			    <li class="page-item<c:if test="${page == 1}"> active</c:if>"><a class="page-link" href="qna?page=1">1</a></li>
-			    <li class="page-item<c:if test="${page == 2}"> active</c:if>"><a class="page-link" href="qna?page=2">2</a></li>
-			    <li class="page-item<c:if test="${page == 3}"> active</c:if>"><a class="page-link" href="qna?page=3">3</a></li>
-			    <li class="page-item<c:if test="${page == 4}"> active</c:if>"><a class="page-link" href="qna?page=4">4</a></li>
-			    <li class="page-item<c:if test="${page == 5}"> active</c:if>"><a class="page-link" href="qna?page=5">5</a></li>
-			    <li class="page-item<c:if test="${page == 6}"> active</c:if>"><a class="page-link" href="qna?page=6">6</a></li>
-			    <li class="page-item<c:if test="${page == 7}"> active</c:if>"><a class="page-link" href="qna?page=7">7</a></li>
-			    <li class="page-item<c:if test="${page == 8}"> active</c:if>"><a class="page-link" href="qna?page=8">8</a></li>
-			    <li class="page-item<c:if test="${page == 9}"> active</c:if>"><a class="page-link" href="qna?page=9">9</a></li>
-			    <li class="page-item<c:if test="${page == 10}"> active</c:if>"><a class="page-link" href="qna?page=10">10</a></li>
-			    <li class="page-item"><a class="page-link" href="qna?page=${page+1}">Next</a></li>
+  				<c:if test="${paging.prev}">
+  					<li class="page-item">
+  						<a class="page-link" 
+  						href="javascript:void(0);" 
+  						onClick="prev('qna','${paging.page}', '${paging.range}', '${paging.rangeSize}')">
+  						Prev</a>
+  					</li>
+  				</c:if>
+  				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="index">
+  					<li class="page-item 
+  						<c:out value="${paging.page == index ? 'active' : ''}"/> ">
+  						<a class="page-link" href="javascript:void(0);" onClick="pagination('qna','${index}', '${paging.range}', '${paging.rangeSize}')">
+  							 ${index}
+  						</a>
+  					</li>
+  				</c:forEach>
+  				<c:if test="${paging.next}">
+  					<li class="page-item">
+  						<a class="page-link" 
+  							href="javascript:void(0);" 
+  							onClick="next('qna','${paging.range}','${paging.range}', '${paging.rangeSize}')">
+  								Next</a>
+  					</li>
+  				</c:if>
   			</ul>
   			
 			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
