@@ -6,9 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import teamproject.sagi.dto.ItemDetailDto;
 
 @Controller
 @RequestMapping("/wishlist")
@@ -17,18 +14,15 @@ public class WishListController {
 	= LoggerFactory.getLogger(ItemDetailController.class);
 	
 	@RequestMapping("/wishlist")
-	public String wishlist(HttpSession session, String item, String quantity) {
+	public String wishlist(HttpSession session, String item) {
 		logger.info("loginStatus "+session.getAttribute("loginStatus"));
-		logger.info(quantity);
 		logger.info(item);
-		return "forward:/wishlist/temp";
+		return "redirect:/wishlist/temp";
 	}
 
 	@RequestMapping("/temp") 
-	public String wishlist(HttpSession session,  String quantity) {	 
+	public String wishlist(HttpSession session) {	 
 	 logger.info("loginStatus "+session.getAttribute("loginStatus"));
-	 logger.info(quantity);
-	 
 	 return "/wishlist/wishlist";
 	}
 
