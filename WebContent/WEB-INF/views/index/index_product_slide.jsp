@@ -28,7 +28,7 @@ li img{
 	width: calc(100%/ 4);
 }
 
-ul:hover {
+#slide_ul:hover {
   animation-play-state: paused;
 }
 		
