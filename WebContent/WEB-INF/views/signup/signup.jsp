@@ -29,17 +29,17 @@
 		<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>	
 		<div class="add">
 		
-		
+		<br/>
 		
 		<!-- 이미지 파일 업로드 -->
-		<div class="form-group">
+		<div class="form-group" align="center" >
 		  <label class="col-md-4 control-label" for="uemail">이메일</label>  
 		  <form method="post" enctype="multipart/form-data" action="fileupload">
-		  		<input type="text" name="uname"/><br/>
-		  		<input type="text" name="uid"/><br/>
-		  		<input type="password" name="upassword"/><br/>
-		  		<input type="text" name="uemail"/><br/>
-		  		<input type="file" name="uphoto"/><br/>
+		  		이름: <input type="text" name="uname"/><br/>
+		  		아이디: <input type="text" name="uid"/><br/>
+		  		패스워드: <input type="password" name="upassword"/><br/>
+		  		이메일: <input type="text" name="uemail"/><br/>
+		  		프로필 사진: <input type="file" name="uphoto"/><br/>
 		  		<input class="btn btn-sm btn-info" type="submit" value="회원가입"/></br>
 		  </form>
 		</div>
