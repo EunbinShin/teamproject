@@ -17,8 +17,8 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	</head>
 	
-<c:if test="${loginStatus == null}">
-<h3>회원이 아닙니다</h3>
+<c:if test="${loginStatus == null}" >
+<h3 style="center">회원이 아닙니다</h3>
 <a class="btn btn-danger btn-sm" href="<%=application.getContextPath()%>/">홈으로 돌아가기</a>
 </c:if>
 

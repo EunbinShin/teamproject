@@ -16,8 +16,7 @@ public class WishListController {
 	@RequestMapping("/wishlist")
 	public String wishlist(HttpSession session, String item, String quantity) {
 		logger.info("loginStatus "+session.getAttribute("loginStatus"));
-		logger.info(item+"를 장바구니에 담았습니다");
-		
+		logger.info(item+"를 장바구니에 담았습니다"); 
 		logger.info(quantity);
 		logger.info(item);
 		return "forward:/wishlist/temp";

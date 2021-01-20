@@ -27,7 +27,7 @@
 	<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>	
 		
 			<section>
-				<div class="img">
+				<div class="img"> 
 					<div>
 						<img src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" style="height:100%"  >
 					</div>
