@@ -43,7 +43,7 @@
 					<div class="Button" >
 						<a id="b1" href="구매" target="_blank">Buy</a>
 						<a id="b2" href="장바구니" target="_blank">Take a Cart <i class="fa fa-shopping-cart"></i></a>
-<<<<<<< HEAD
+
 						<script type="text/javascript">
 							$(()=>{
 								console.log('실행');
@@ -52,9 +52,8 @@
 							});
 						</script>
 						<a id="b3" href="<%=application.getContextPath()%>/wishlist/wishlist?item=${item}" target="_blank"><i class="fas fa-heart"></i></a>
-=======
 						<a id="b3" href="/teamproject/wishlist/wishlist?item=${item}&quantity=${quantity}&name=${name}&detail=${detail}&price=${price}&discount=${discount}" target="_blank"><i class="fas fa-heart"></i></a>
->>>>>>> branch 'master' of https://github.com/EunbinShin/teamproject
+
 					</div>
 				</div>	
 			</section>

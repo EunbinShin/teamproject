@@ -4,11 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-=======
->>>>>>> branch 'master' of https://github.com/EunbinShin/teamproject
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import teamproject.sagi.dto.ItemDetailDto;
@@ -20,10 +17,6 @@ public class ItemDetailController {
 		= LoggerFactory.getLogger(ItemDetailController.class);
 	
 	@RequestMapping("/item_detail/product01") // 상품으로 가기
-<<<<<<< HEAD
-	public String product01(String item, Model model) {
-		logger.info(item+" 실행");
-=======
 	public String product01(String item, Model model, ItemDetailDto itemdetail) {
 		itemdetail.setProduct_name("이름1");
 		itemdetail.setProduct_detail("상세설명임");
@@ -36,7 +29,6 @@ public class ItemDetailController {
 		model.addAttribute("name", itemdetail.getProduct_name());
 		model.addAttribute("price", itemdetail.getProduct_price());
 		logger.info(item+"실행");
->>>>>>> branch 'master' of https://github.com/EunbinShin/teamproject
 		model.addAttribute("item", item);
 		return "item_list/item_detail/product01";
 	}
@@ -77,9 +69,5 @@ public class ItemDetailController {
 		return "redirect:/wishlist/wishlist";
 	}*/
 
-	
-=======
-	}*/	
->>>>>>> branch 'master' of https://github.com/EunbinShin/teamproject
 	
 }
