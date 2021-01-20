@@ -33,22 +33,24 @@
 					</div>
 				</div> <!-- cover -->
 				<div class="info">
-					<h2> 이름이름이름 </h2><br/>
-					<h4> 가격: 25,000 <input id="buy_quantity" name="buy_quantity" placeholder="주문량" required="" type="number" style="width:100px" min="1"></h4>
+					<h2> 이름: ${name} </h2><br/>
+					<h4> 가격: ${price} <input id="buy_quantity" name="buy_quantity" placeholder="4" required="" type="number" style="width:100px" min="1"></h4>
 					<p></p>
-					<h5> I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. 
+					<h5> ${detail} I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. 
 						This is also a great space to write what makes this product special and how your customers can benefit from this item. </h5>
-					<br/>
+					<br/> 
 					
 					<div class="Button" >
 						<a id="b1" href="구매" target="_blank">Buy</a>
 						<a id="b2" href="장바구니" target="_blank">Take a Cart <i class="fa fa-shopping-cart"></i></a>
-						<a id="b3" href="/teamproject/wishlist/wishlist?item=${item}" target="_blank"><i class="fas fa-heart"></i></a>
+						<a id="b3" href="/teamproject/wishlist/wishlist?item=${item}&quantity=${quantity}&name=${name}&detail=${detail}&price=${price}&discount=${discount}" target="_blank"><i class="fas fa-heart"></i></a>
 					</div>
 				</div>	
 			</section>
 			
 			<article>
+				<jsp:include page="/WEB-INF/views/item_list/item_detail/product_slide.jsp"/>
+				
 				<div class="txt">
 					<img src= "<%=application.getContextPath() %>/resources/img/img01-3.jpg" style="width:100%"  >
 					<p></p>

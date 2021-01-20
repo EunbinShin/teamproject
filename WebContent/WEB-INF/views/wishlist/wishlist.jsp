@@ -44,12 +44,12 @@
 										<tr>
 											<td width="90">
 												<div class="cart-product-imitation">
-													<img src="/html_css_javaspring/resource/img/img01-1.jpg">
+													<img src="<%=application.getContextPath()%>/resources/img/img01-1.jpg">
 												</div>
 											</td>
 											<td class="desc">
 												<h3>
-													<a href="#" class="text-navy"> ${product_name} </a>
+													<a href="#" class="text-navy"> 이름 </a>
 												</h3>
 												<p class="small">질 좋은 전기주전자입니다</p>
 												<dl class="small m-b-none">
@@ -64,11 +64,11 @@
 												</div>
 											</td>
 
-											<td>${itemdetail.product_price}</td>
+											<td>21000</td>
 											<td width="65"><input type="text" class="form-control"
 												placeholder="1"></td>
 											<td>
-												<h4> ${itemdetail.available_quantity}</h4>
+												<h4> 1</h4>
 											</td>
 										</tr>
 									</tbody>
@@ -84,7 +84,7 @@
 										<tr>
 											<td width="90">
 												<div class="cart-product-imitation">
-													<img src="/html_css_javaspring/resource/img/img02-1.jpg">
+													<img src="<%=application.getContextPath()%>/resources/img/img02-1.jpg">
 												</div>
 											</td>
 											<td class="desc">
@@ -125,7 +125,7 @@
 										<tr>
 											<td width="90">
 												<div class="cart-product-imitation">
-													<img src="/html_css_javaspring/resource/img/img03-1.jpg">
+													<img src="<%=application.getContextPath()%>/resources/img/img03-1.jpg">
 												</div>
 											</td>
 											<td class="desc">
@@ -159,7 +159,7 @@
 								<i class="fa fa fa-shopping-cart"></i> 구매
 							</button>
 							<button class="btn btn-white"
-								onclick="location.href='/html_css_javaspring/'">
+								onclick="location.href='/teamproject/'">
 								<i class="fa fa-arrow-left"></i> 쇼핑몰로 돌아가기
 							</button>
 
@@ -209,7 +209,7 @@
 							<div>
 								<a href="#" class="product-name"> 상품1</a>
 								<div class="cart-product-imitation">
-									<img src="/html_css_javaspring/resource/img/img04-1.jpg">
+									<img src="<%=application.getContextPath()%>/resources/img/img04-1.jpg">
 								</div>
 								<div class="small m-t-xs">트리</div>
 								<div class="m-t text-righ">
@@ -224,7 +224,7 @@
 							<div>
 								<a href="#" class="product-name"> 상품2</a>
 								<div class="cart-product-imitation">
-									<img src="/html_css_javaspring/resource/img/img03-1.jpg">
+									<img src="<%=application.getContextPath()%>/resources/img/img03-1.jpg">
 								</div>
 								<div class="small m-t-xs">받침대</div>
 								<div class="m-t text-righ">
