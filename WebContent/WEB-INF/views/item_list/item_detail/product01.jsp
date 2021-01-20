@@ -47,11 +47,9 @@
 						<script type="text/javascript">
 							$(()=>{
 								console.log('실행');
-
 								console.log('${item}');
 							});
 						</script>
-						<a id="b3" href="<%=application.getContextPath()%>/wishlist/wishlist?item=${item}" target="_blank"><i class="fas fa-heart"></i></a>
 						<a id="b3" href="/teamproject/wishlist/wishlist?item=${item}&quantity=${quantity}&name=${name}&detail=${detail}&price=${price}&discount=${discount}" target="_blank"><i class="fas fa-heart"></i></a>
 
 					</div>
