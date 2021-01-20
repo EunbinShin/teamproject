@@ -34,20 +34,10 @@ public class AddController {
 		logger.info("add 실행");
 		return "add/add";
 	}
-	
-	@RequestMapping("/add_confirm")
-	public String review(String product_id, Model model) {
-		logger.info("실행");
-		logger.info(product_id+" 실행");
-		model.addAttribute("product_id", product_id);
-		return "add/add_confirm";
-	}
-	
    
    @PostMapping("/add_upload")
    public String add_upload(AddDto add_item, Model model) {
 	   String product_id = add_item.getProduct_id();
-
 	   model.addAttribute("product_id", product_id);
 	   String product_name = add_item.getProduct_name();
 	   String product_categorie = add_item.getProduct_categorie();
@@ -140,8 +130,16 @@ public class AddController {
 	   return "redirect:/add/add_confirm";
    }
    
+	@RequestMapping("/add_confirm")
+	public String review(String product_id, Model model) {
+		logger.info("add confirm 실행");
+		logger.info(product_id+" 실행");
+		model.addAttribute("product_id", product_id);
+		return "add/add_confirm";
+	}
+	
    @RequestMapping("/add_photolist")
-   public String add_photolist(Model model, String product_id ,AddDto add_item) {
+   public String add_photolist(Model model, String product_id) {
       logger.info("실행");
       logger.info(product_id);
       String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/thumbnail/";
@@ -154,10 +152,10 @@ public class AddController {
    }
    
    @GetMapping("/photodownload")
-   public void photodownload(String photo,String productid, HttpServletResponse response, AddDto add_item) { 
+   public void photodownload(String photo,String productid, HttpServletResponse response) { 
 	   logger.info("실행");
-	   logger.info(photo);
-	   logger.info(productid);
+	   logger.info("photo name: " + photo);
+	   logger.info("product_id" +  productid);
 	   String product_id = productid;
 	   String thumbnail = "thumbnail";
 	   String main = "main";
