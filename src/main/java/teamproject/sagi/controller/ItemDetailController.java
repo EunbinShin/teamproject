@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +19,9 @@ public class ItemDetailController {
 		= LoggerFactory.getLogger(ItemDetailController.class);
 	
 	@RequestMapping("/item_detail/product01") // 상품으로 가기
-	public String product01() {
-		logger.info("실행");
+	public String product01(String item, Model model) {
+		logger.info(item+" 실행");
+		model.addAttribute("item", item);
 		return "item_list/item_detail/product01";
 	}
 	
@@ -41,12 +43,14 @@ public class ItemDetailController {
 		logger.info("실행");
 		return "item_detail/product04";
 	}*/
-		
+	
+	/*	
 	// HttpSession과 DTO를 이용하여 위시리스로 정보를 보내기
 	@PostMapping("/wishlist")
-	public String wishlist(ItemDetailDto item, HttpSession session, String customer) {
+	public String wishlist( HttpSession session, String customer, String item) {
 		customer = (String) session.getAttribute("logoutStatus");
-		logger.info("실행");
+		logger.info(item+": 실행");
+		
 		logger.info("상품번호" + item.getProduct_id());
 		logger.info("상품이름" + item.getProduct_name());
 		logger.info("상품카테고리" + item.getProduct_categorie());
@@ -54,7 +58,7 @@ public class ItemDetailController {
 		logger.info("상품할인율" + item.getPercentage_discount());
 		logger.info("상품갯수" + item.getAvailable_quantity());
 		return "redirect:/wishlist/wishlist";
-	}
+	}*/
 
 	
 	

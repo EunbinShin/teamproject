@@ -62,13 +62,8 @@ public class LoginController {
 			session.removeAttribute("remerberID");
 		}
 		
-		if(user.getUid().equals("admin") && user.getUpassword().equals("12345")) {
-			session.setAttribute("loginStatus", "admin");
-		}else {
-			session.setAttribute("loginStatus", user.getUid());
-		}
-			
 		if(user.getUid().length() != 0 && user.getUpassword().length() != 0) {	//만약 폼이 맞으면
+			session.setAttribute("loginStatus", user.getUid());
 			return "redirect:/";
 		}else {
 			return "redirect:/login/";
@@ -77,7 +72,7 @@ public class LoginController {
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.invalidate();
+		session.removeAttribute("loginStatus");
 		return "redirect:/login/";
 	}
 }

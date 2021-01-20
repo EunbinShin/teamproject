@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,6 +210,7 @@
 		<!-- row -->
 
 		<!-- page number navigation -->
+		
 			<ul class="pagination justify-content-center">
 				<li class="page-item<c:if test="${page == 1}"> disabled</c:if>"><a class="page-link" href="default?page=${page-1}"> 
 					<span aria-hidden="true">&laquo;</span>

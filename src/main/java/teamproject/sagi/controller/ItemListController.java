@@ -13,7 +13,7 @@ public class ItemListController {
 	
 	@RequestMapping("/default")
 	public String content(int page, Model model) {
-		logger.info(page+" 실행");
+		logger.info(page+"페이지 실행");
 		model.addAttribute("page", page);
 		return "item_list/item_list";
 	}

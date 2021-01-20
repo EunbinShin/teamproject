@@ -201,7 +201,7 @@ public class BoardController {
 			}
 		}
 		
-		return "redirect:/board/qna?page=1";
+		return "redirect:/board/qna?page=1&range=1";
 	}
 	//Review 작성 화면 넘어감
 	@RequestMapping("/writeReview")
@@ -249,7 +249,7 @@ public class BoardController {
 			}
 		}
 		
-		return "redirect:/board/review?page=1";
+		return "redirect:/board/review?page=1&range=1";
 	}
 	
 	//물품을 찾기위한 pop_up화면을 띄움

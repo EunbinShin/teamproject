@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/wishlist")
 public class WishListController {
 	private static final Logger logger 
-	= LoggerFactory.getLogger(ItemDetailController.class);
+	= LoggerFactory.getLogger(WishListController.class);
 	
 	@RequestMapping("/wishlist")
-	public String wishlist(HttpSession session, String item) {
+	public String wishlist(HttpSession session,String item) {
 		logger.info("loginStatus "+session.getAttribute("loginStatus"));
-		logger.info(item);
+		logger.info(item+"를 장바구니에 담았습니다");
 		return "redirect:/wishlist/temp";
 	}
 
 	@RequestMapping("/temp") 
-	public String wishlist(HttpSession session) {	 
+	public String temp(HttpSession session) {	 
 	 logger.info("loginStatus "+session.getAttribute("loginStatus"));
 	 return "/wishlist/wishlist";
 	}

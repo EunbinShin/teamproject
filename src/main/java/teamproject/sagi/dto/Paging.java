@@ -1,11 +1,11 @@
 package teamproject.sagi.dto;
 
 public class Paging {
-	private int listSize = 15;	//목록갯수
-	private int rangeSize = 10;
+	private int listSize = 15;	//한 페이지에 보일 게시글 갯수
+	private int rangeSize = 10;	//목록갯수
 	private int page;
-	private int range;
-	private int listCnt;
+	private int range;	//목록단위의 수
+	private int listCnt;	//총 게시글 수
 	private int pageCnt;
 	private int startPage;
 	private int startList;
@@ -87,7 +87,7 @@ public class Paging {
 		this.pageCnt = (int) Math.ceil(listCnt/(double)listSize);
 		this.startPage = (range-1)*rangeSize+1;
 		this.endPage = range*rangeSize;
-		this.startList = (page-1)*listSize;
+		
 		if(range == 1) {
 			this.prev = false;
 		}else {
@@ -96,13 +96,9 @@ public class Paging {
 		
 		if(endPage >= pageCnt) {
 			this.next = false;
+			this.endPage = this.pageCnt;
 		}else {
 			this.next = true;
-		}
-		
-		if(this.endPage > this.pageCnt) {
-			this.endPage = this.pageCnt;
-			this.next = false;
 		}
 	}
 }
