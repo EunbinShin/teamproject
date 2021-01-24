@@ -29,13 +29,26 @@
 			var sales = Number(document.getElementById("percentage_discount").value);
 			if(sales > 99) {
 				alert("할인율은 최대 99%입니다")
-				document.getElementById("percentage_discount").value = 99;
-			} else {
+				sales = 99;
+			} 
+			var discount = sales /100;
+			var sellp = oriprice - (oriprice * discount);
+			
+			if(sales == 99){
+				document.getElementById("percentage_discount").value = 99;	
+				
+				var oriprice = Number(document.getElementById("product_price").value);
+				var sales = Number(document.getElementById("percentage_discount").value);
 				var discount = sales /100;
 				var sellp = oriprice - (oriprice * discount);
-				document.getElementById("selling_price").value = sellp.toFixed(0);
+				
 			}
+			
+			document.getElementById("selling_price").value = sellp.toFixed(0);
+
 		}
+	
+		
 		
 		genId = function() {
 			var pcate = document.getElementById("product_categorie").value
@@ -63,12 +76,12 @@
 			
 			<!-- Form Name -->
 			<legend id="form-name">제품 등록</legend>
-			
+
 			<!-- Select Basic -->
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 카테고리</label>
 				<div class="col-md-4">
-					<select id="product_categorie" name="product_categorie" class="form-control">
+					<select onchange="genId()" id="product_categorie" name="product_categorie" class="form-control">
 						<option value="">상품 카테고리</option>
 						<option value="ceramics">도자기 </option>
 						<option value="cutlery">식기</option>
@@ -98,7 +111,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 가격</label>  
 				<div class="col-md-4">
-				<input id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number" step="1000">
+				<input onchange="price_Calc()" id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number" step="1000">
 					
 				</div>
 			</div>
@@ -120,7 +133,7 @@
 				<div class="col-md-4">
 				<input readonly id="selling_price" name="selling_price" value ="selling_price" class="form-control input-md" type="number">
 			</div>
-				
+
 			</div>
 			
 			<!-- Textarea -->
@@ -144,7 +157,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
-					<input id="online_date" name="online_date" class="form-control input-md" type="date">
+					<input id="online_date" name="online_date" requried class="form-control input-md" type="date">
 					<script>
 						document.getElementById('online_date').valueAsDate = new Date();
 					</script>
@@ -156,7 +169,7 @@
 			<div class="form-group" style="margin-bottom:50px;">
 				<label class="col-md-4 control-label">썸네일 이미지</label>
 				<div class="col-md-4">
-					<input type="file" id="thumbnail" name="thumbnail" class="input-file"/>
+					<input type="file" id="thumbnail" name="thumbnail" requried class="input-file"/>
 				</div>
 			</div>
 			    
@@ -183,7 +196,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label"></label>
 				<div class="col-md-4">
-					<input type="submit" onclick="submit()" id="singlebutton" name="singlebutton" class="btn btn-secondary">
+				
 				<script>
 					function submit(){
 						if (confirm("상품을 등록하겠습니까?") == true){
@@ -193,6 +206,9 @@
 						}
 					}
 				</script>
+				
+				<input type="submit" onclick="submit()" id="singlebutton" name="singlebutton" class="btn btn-secondary">
+
 				</div>
 			</div>
 			</fieldset>
