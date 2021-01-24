@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,16 +36,27 @@
 				</div> <!-- cover -->
 				<div class="info">
 					<h2> 이름: ${name} </h2><br/>
-					<h4> 가격: ${price} <input id="buy_quantity" name="buy_quantity" placeholder="4" required="" type="number" style="width:100px" min="1"></h4>
-					<p></p>
-					<h5> ${detail} I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. 
-						This is also a great space to write what makes this product special and how your customers can benefit from this item. </h5>
-					<br/> 
 					
-					<div class="Button" >
-						<a id="b1" href="구매" target="_blank">Buy</a>
-						<a id="b2" href="장바구니" target="_blank">Take a Cart <i class="fa fa-shopping-cart"></i></a>
+					<h4> 가격: ${price} </h4><br/> 
+					
+					<input id="buy_quantity"
+					name="buy_quantity" placeholder="4" required="" type="number"
+					style="width: 100px" min="1"><br/>
 
+				<div class="Button" >
+						<c:if test="${loginStatus != 'admin'}">
+						<a id="b1" href="<%=application.getContextPath() %>/buy/buy_product" target="_blank">Buy</a>
+						</c:if>
+						
+						<c:if test="${loginStatus == 'admin'}">
+						<a id="b2" href="delete" target="_blank">Delete</a><p></p>
+						</c:if>
+						
+						<c:if test="${loginStatus == 'admin' }">
+						<a id="b2" href="edit" target="_blank">Edit</a><p></p>
+						</c:if>
+						
+						<c:if test="${loginStatus != 'admin'}">
 						<script type="text/javascript">
 							$(()=>{
 								console.log('실행');
@@ -51,7 +64,7 @@
 							});
 						</script>
 						<a id="b3" href="/teamproject/wishlist/wishlist?item=${item}&quantity=${quantity}&name=${name}&detail=${detail}&price=${price}&discount=${discount}" target="_blank"><i class="fas fa-heart"></i></a>
-
+						</c:if>
 					</div>
 				</div>	
 			</section>

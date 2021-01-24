@@ -3,20 +3,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		
+<head>
+<meta charset="UTF-8">
 <title>SAGI</title>
-	<link rel="icon" href="/html_css_javaspring/resource/img/logo/logo_fapicon.png">
+	<link rel="icon" href="<%=application.getContextPath()%>/resource/img/logo/logo_fapicon.png">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/wishlist.css?after" type="text/css">
+		<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/buy.css?after" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-	</head>
-	
+</head>
+
 <c:if test="${loginStatus == null}" >
 <h3 style="center">회원이 아닙니다</h3>
 <a class="btn btn-danger btn-sm" href="<%=application.getContextPath()%>/">홈으로 돌아가기</a>
@@ -26,15 +25,76 @@
 
 <c:if test="${loginStatus != null}">
 <body>
-	<div class="container">
+	<form method= "post" action="buy_action">
+		<div class="container">
+			<div class="wrapper wrapper-content animated fadeInRight">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="ibox">
+							<div class="ibox-title">
+								<h5>수령자 정보</h5>
+								<div class="ibox-content">
+									<div class="table-responsive">
+										<table class="table shoping-cart-table">
+											<tbody>
+												<tr>
+													<td width="250"><h3>수령인</h3></td>
+													<td id="buy-box"><input type="text" name="receiver" value="receiver"  oninvalid="alert('쓰셔야 합니다');"required></td>
+												</tr>
+												<tr>
+													<td width="250"><h3>배송지 주소</h3></td>
+													<td id="buy-box"><input type="text" name="address" value="address" oninvalid="alert('쓰셔야 합니다');" required>
+												</tr>
+												<tr>
+													<td width="250"><h3>전화번호</h3></td>
+													<td id="buy-box"><input type="text" name="rcellphone" value="rcellphone" oninvalid="alert('쓰셔야 합니다');" required>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="ibox">
+							<div class="ibox-title">
+								<h5>구매자 정보</h5>
+								<div class="ibox-content">
+									<div class="table-responsive">
+										<table class="table shoping-cart-table">
+											<tbody>
+												<tr>
+													<td><input type="text" name="name" value="name"
+														size="20" oninvalid="alert('쓰셔야 합니다');" required></td>
+												</tr>
+												<tr>
+													<td class="desc"><input type="text" name="email" value="email"
+														size="20" oninvalid="alert('쓰셔야 합니다');" required></td>
+												</tr>
+												<tr>
+													<td class="desc"><input type="text" name="cellphone" value="cellphone" size="20" maxlength="11" oninvalid="alert('쓰셔야 합니다');" required> </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-12">
 					<div class="ibox">
 						<div class="ibox-title">
 							<span class="pull-right">(<strong>3</strong>) items
 							</span>
-							<h5>좋아요</h5>
+							<h5>구매</h5>
 						</div>
 						<div class="ibox-content">
 							<div class="table-responsive">
@@ -63,11 +123,11 @@
 												</div>
 											</td>
 
-											<td>21000</td>
+											<td>$130,00</td>
 											<td width="65"><input type="text" class="form-control"
 												placeholder="1"></td>
 											<td>
-												<h4> 1</h4>
+												<h4>$130,00</h4>
 											</td>
 										</tr>
 									</tbody>
@@ -155,90 +215,19 @@
 						</div>
 						<div class="ibox-content">
 							<button class="btn btn-secondary pull-right">
-								<i class="fa fa fa-shopping-cart"></i> 구매
+							<i class="fa fa fa-shopping-cart"></i> 구매
 							</button>
-							<button class="btn btn-white" 
-								onclick="window.close();">
-								<i class="fa fa-arrow-left"></i> 쇼핑몰로 돌아가기
+							<button class="btn btn-white">
+							<i class="fa fa-arrow-left"></i> 쇼핑몰로 돌아가기
 							</button>
-							
 						</div>
 					</div>
 
-				</div>
-				<div class="col-md-3">
-					<div class="ibox">
-						<div class="ibox-title">
-							<h5>좋아요 요약</h5>
-						</div>
-						<div class="ibox-content">
-							<span> 총합 </span>
-							<h3 class="font-bold">$200,00 + 15,000</h3>
-
-							<hr>
-							<span class="text-muted small"> * 3만원 이상 무료배송 </span>
-							<div class="m-t-sm">
-								<div class="btn-group">
-									<a href="#" class="btn btn-secondary btn-sm"><i
-										class="fa fa-shopping-cart"></i> 구매 </a> <a href="#"
-										class="btn btn-white btn-sm"> 취소 <i class="fa fa-ban"
-										aria-hidden="true"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="ibox">
-						<div class="ibox-title">
-							<h5>광고</h5>
-						</div>
-						<div class="ibox-content text-center">
-							<h3>
-								<i class="fa fa-phone"></i> 0507-1319-0273
-							</h3>
-							<span class="small"> 회기 최고의 치킨집 좋수닭 </span>
-						</div>
-					</div>
-
-					<div class="ibox">
-						<div class="ibox-content">
-
-							<p class="font-bold">추천상품</p>
-							<hr>
-							<div>
-								<a href="#" class="product-name"> 상품1</a>
-								<div class="cart-product-imitation">
-									<img src="<%=application.getContextPath()%>/resources/img/img04-1.jpg">
-								</div>
-								<div class="small m-t-xs">트리</div>
-								<div class="m-t text-righ">
-
-									<a href="/html_css_javaspring/item_detail/product04.html"
-										class="btn btn-secondary btn-xs">상품 보러가기 <i
-										class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							<hr>
-							<div>
-								<a href="#" class="product-name"> 상품2</a>
-								<div class="cart-product-imitation">
-									<img src="<%=application.getContextPath()%>/resources/img/img03-1.jpg">
-								</div>
-								<div class="small m-t-xs">받침대</div>
-								<div class="m-t text-righ">
-									<a href="/html_css_javaspring/item_detail/product03.html"
-										class="btn btn-secondary btn-xs">상품 보러가기 <i
-										class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	</form>
 	<footer>
 		<div id="left">
 			Copyright ⓒ 신은빈 원지영 이영준. All rights reserved. <br />designed by
