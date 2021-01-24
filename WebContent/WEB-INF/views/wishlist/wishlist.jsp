@@ -154,7 +154,8 @@
 							</div>
 						</div>
 						<div class="ibox-content">
-							<button class="btn btn-secondary pull-right">
+							<button class="btn btn-secondary pull-right"
+								onclick="location.href='/teamproject/buy/buy_product'">
 								<i class="fa fa fa-shopping-cart"></i> 구매
 							</button>
 							<button class="btn btn-white" 
