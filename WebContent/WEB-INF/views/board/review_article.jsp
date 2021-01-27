@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -26,49 +29,50 @@
 		
 			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 			
-			<h3>${type}</h3>
+			<h3>Review</h3>
 			
 			<!-- QnA board Table -->
 			<div id="table_container">
 				<table id="article_table" class="table">
 					<tr>
 						<td width="150px">제목 </td>
-						<td>제문 부분 입니다</td>
+						<td>${review.review_title}</td>
 					</tr>
 					<tr>
 						<td>작성자 </td>
-						<td>작성자 이름 입니다.</td>
+						<td>${review.users_id}</td>
 					</tr>
 					<tr>
 						<td>날짜 </td>
-						<td>2021-01-16</td>
+						<td><fmt:formatDate value="${review.review_date}" pattern="yyyy.MM.dd"/></td>
 					</tr>
 					<tr>
 						<td height="200px" colspan="2">
-							<script type="text/javascript">
-								$(function(){
-									$.ajax({
-										url: "photolist",
-										method: "get",
-										data: {bno : "${bno}",
-												type:"${type}"},
-										success: function(data){
-											$("#photoList").html(data);
-										}
-									});
-								});
-							</script>
-							<div id="photoList"></div>
-							게시글 내용입니다 <br/>
-							게시글 내용입니다 <br/>
-							게시글 내용입니다 <br/>
-							게시글 내용입니다 <br/>
+						
+							${review.review_content}
+							<c:if test="${review.image1 != null}">
+								<div><img src="reviewphoto?image=${review.image1}&bno=${review.review_no}" width="600px"></div>
+							</c:if>
+							<c:if test="${review.image2 != null}">
+								<div><img src="reviewphoto?image=${review.image2}&bno=${review.review_no}" width="600px"></div>
+							</c:if>
+							<c:if test="${review.image3 != null}">
+								<div><img src="reviewphoto?image=${review.image3}&bno=${review.review_no}" width="600px"></div>
+							</c:if>
+							<c:if test="${review.image4 != null}">
+								<div><img src="reviewphoto?image=${review.image4}&bno=${review.review_no}" width="600px"></div>
+							</c:if>
+							
 						</td>
 					</tr>
 				</table>
 				<%--버튼 컨테이너 --%>
 				<div id="btnContainer">
-					<a href="main?type=${type}&page=${page}&range=${range}" class="btn btn-secondary">목록</a>
+					<a href="review?page=${page}" class="btn btn-secondary">목록</a>
+					<c:if test="${loginStatus == review.users_id}">
+						<a href="delete_review?bno=${review.review_no}" class="btn btn-secondary">삭제</a>
+						<a href="edit_review?bno=${review.review_no}" class="btn btn-secondary">수정</a>
+					</c:if>
 				</div>
 			</div>
 			

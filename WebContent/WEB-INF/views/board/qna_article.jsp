@@ -48,26 +48,28 @@
 					<tr>
 						<td height="200px" colspan="2">
 							<c:if test="${qna.image1 != null}">
-								<img src="photo?image=${qna.image1}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image1}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
 							<c:if test="${qna.image2 != null}">
-								<img src="photo?image=${qna.image2}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image2}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
 							<c:if test="${qna.image3 != null}">
-								<img src="photo?image=${qna.image3}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image3}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
 							<c:if test="${qna.image4 != null}">
-								<img src="photo?image=${qna.image4}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image4}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
-							<div id="photoList"></div>
 							${qna.qna_content}
-							
 						</td>
 					</tr>
 				</table>
 				<%--버튼 컨테이너 --%>
 				<div id="btnContainer">
 					<a href="qna?page=${page}" class="btn btn-secondary">목록</a>
+					<c:if test="${loginStatus == qna.users_id}">
+						<a href="delete_qna?bno=${qna.qna_bno}" class="btn btn-secondary">삭제</a>
+						<a href="edit_qna?bno=${qna.qna_bno}" class="btn btn-secondary">수정</a>
+					</c:if>
 				</div>
 			</div>
 			

@@ -45,4 +45,14 @@ public class QnaDao {
 		return qna;
 	}
 
+	public int deleteByPk(int bno) {
+		int rows = sst.delete("mybatis.mapper.qna_boards.deleteByPk", bno);
+		return rows;
+	}
+
+	public int update(QnaDto qna) {
+		int rows = sst.update("mybatis.mapper.qna_boards.updateQna", qna);
+		return rows;
+	}
+
 }

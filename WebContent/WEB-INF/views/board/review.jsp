@@ -38,29 +38,21 @@
 					<thead>
 						<tr>
 							<th>번호</th>
-							<th>제목</th>
+							<th style="width: 50%;">제목</th>
 							<th>작성자</th>
 							<th>날짜</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th>1</th>
-							<th><a href="show?bno=1&type=review&page=${page}&range=${paging.range}">그릇이 너무 좋아요</a></th>
-							<th>신은빈</th>
-							<th>2021-01-02</th>
-						</tr>
-					</tbody>
-					<c:forEach begin="${paging.page*15-15}" end="${paging.page*15-1}" step="1" var="idx">
-						<c:if test="${reviewList[idx] != null}">
-							<tr>
-								<th>${reviewList[idx].bNo}</th>
-								<th>${reviewList[idx].review_title}</th>
-								<th>${reviewList[idx].review_writer}</th>
-								<th><fmt:formatDate value="${reviewList[idx].date}" pattern="yyyy-MM-dd"/></th>
-							</tr>
-						</c:if>
-					</c:forEach>
+						<c:forEach var="board" items="${list}">
+					  		<tr>
+					      		<td>${board.review_no}</td>
+					      		<td><a href="showreview?bno=${board.review_no}&page=${page}" class="text-danger text-decoration-none">${board.review_title}</a></td>
+					      		<td>${board.users_id}</td>
+					      		<td><fmt:formatDate value="${board.review_date}" pattern="yyyy.MM.dd"/></td>
+					    	</tr>
+					  	</c:forEach>
+				  	</tbody>
 				</table>
 			</div>
 			
@@ -71,33 +63,26 @@
 				</c:if>
 			</div>
 			<!-- page number navigation -->
-			<!-- page number navigation -->
-			<ul class="pagination justify-content-center">
-  				<c:if test="${paging.prev}">
-  					<li class="page-item">
-  						<a class="page-link" 
-  						href="javascript:void(0);" 
-  						onClick="prev('review','${paging.page}', '${paging.range}', '${paging.rangeSize}')">
-  						Prev</a>
-  					</li>
-  				</c:if>
-  				<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="index">
-  					<li class="page-item 
-  						<c:out value="${paging.page == index ? 'active' : ''}"/> ">
-  						<a class="page-link" href="javascript:void(0);" onClick="pagination('review','${index}', '${paging.range}', '${paging.rangeSize}')">
-  							 ${index}
-  						</a>
-  					</li>
-  				</c:forEach>
-  				<c:if test="${paging.next}">
-  					<li class="page-item">
-  						<a class="page-link" 
-  							href="javascript:void(0);" 
-  							onClick="next('review','${paging.range}','${paging.range}', '${paging.rangeSize}')">
-  								Next</a>
-  					</li>
-  				</c:if>
-  			</ul>
+			<div class="d-flex align-items-center justify-content-center">
+				<div>
+					<a href="review?page=1" class="btn btn-outline-dark btn-sm mr-1">처음</a>
+					<c:if test="${pager.groupNo > 1}">
+						<a href="review?page=${pager.startPageNo-1}" class="btn btn-outline-dark btn-sm mr-1">이전</a>
+					</c:if>
+					<c:forEach var="i" begin="${pager.startPageNo}" end="${pager.endPageNo}">
+						<c:if test="${i == pager.pageNo }">
+							<a href="review?page=${i}" class="btn btn-secondary btn-sm mr-1">${i}</a>
+						</c:if>
+						<c:if test="${i != pager.pageNo }">
+							<a href="review?page=${i}" class="btn btn-outline-secondary btn-sm mr-1">${i}</a>
+						</c:if>
+					</c:forEach>
+					<c:if test="${pager.groupNo < pager.totalGroupNo}">
+						<a href="review?page=${pager.endPageNo+1}" class="btn btn-outline-dark btn-sm ml-1 mr-1">다음</a>
+					</c:if>
+					<a href="review?page=${pager.totalPageNo}" class="btn btn-outline-dark btn-sm">맨끝</a>
+				</div>
+			</div>
   			
 			<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 		</div>

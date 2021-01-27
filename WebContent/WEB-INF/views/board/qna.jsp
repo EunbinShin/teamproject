@@ -47,8 +47,8 @@
 					<c:forEach var="board" items="${list}">
 				  		<tr>
 				      		<td>${board.qna_bno}</td>
-				      		<td>${board.qna_category}</td>
-				      		<td><a href="showqna?bno=${board.qna_bno}&page=${page}" class="text-danger text-decoration-none">${board.qna_title}</a></td>
+				      		<td>${board.category_name}</td>
+				      		<td><a href="showqna?bno=${board.qna_bno}&page=${page}" class="text-decoration-none">${board.qna_title}</a></td>
 				      		<td>${board.users_id}</td>
 				      		<td><fmt:formatDate value="${board.qna_date}" pattern="yyyy.MM.dd"/></td>
 				    	</tr>
@@ -65,12 +65,6 @@
 			
 			<!-- page number navigation -->
 			<div class="d-flex align-items-center justify-content-center">
-				<c:if test="${sessionMid != null}">
-					<a href="boardwrite" class="btn btn-light btn-sm">글쓰기</a>
-				</c:if>
-				<c:if test="${sessionMid == null}">
-					<span></span>
-				</c:if>
 				<div>
 					<a href="qna?page=1" class="btn btn-outline-dark btn-sm mr-1">처음</a>
 					<c:if test="${pager.groupNo > 1}">

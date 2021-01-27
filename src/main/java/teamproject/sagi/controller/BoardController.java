@@ -29,6 +29,7 @@ import teamproject.sagi.dto.Pager;
 import teamproject.sagi.dto.QnaDto;
 import teamproject.sagi.dto.ReviewDto;
 import teamproject.sagi.service.QnaService;
+import teamproject.sagi.service.ReviewService;
 
 @Controller
 @RequestMapping("/board")
@@ -36,8 +37,8 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	@Resource
 	private QnaService qnaService;
-	
-	private int reviewBoardNum = 1;
+	@Resource
+	private ReviewService reviewService;
 	
 	//1. QnA화면 실행
 	@RequestMapping("/qna")
@@ -53,9 +54,15 @@ public class BoardController {
 	}
 	//1. Review화면 실행
 	@RequestMapping("/review")
-	public String review(Model model, int page) {
-		logger.info("실행");
-		
+	public String review(Model model, 
+			@RequestParam(defaultValue="1") int page) {
+		logger.info(page+"번 review 페이지 실행");
+		int totalRows = reviewService.getTotalRows();
+		Pager pager = new Pager(15, 10, totalRows, page);
+		List<ReviewDto> list = reviewService.getBoardList(pager);
+		model.addAttribute("list", list);
+		model.addAttribute("pager", pager);
+		model.addAttribute("page", page);
 		return "board/review";
 	}
 	
@@ -63,9 +70,9 @@ public class BoardController {
 	@RequestMapping("/showqna")
 	public String showqna(
 			int bno,
-			@RequestParam(defaultValue="1") int page
-			, Model model) {
-		logger.info(+bno+" qna 실행");
+			@RequestParam(defaultValue="1") int page, 
+			Model model) {
+		logger.info(bno+" qna 실행");
 		
 		QnaDto qna = qnaService.showQna(bno);
 
@@ -76,59 +83,16 @@ public class BoardController {
 	
 	@RequestMapping("/showreview")
 	public String showreview(
-			int bno, String type, int page, int range
-			, HttpServletResponse response
-			, Model model) {
-		logger.info(type+"게시물 "+bno+" 실행");
-		model.addAttribute("bno", bno);
-		model.addAttribute("type", type);
-		model.addAttribute("range", range);
-		model.addAttribute("page", page);
-		return "board/article";
-	}
-	
-	//3. 게시글 내부 ( 자신이 원하는 파일명/ 게시글의 타입/ 게시글 번호 를 보냄)
-	@GetMapping("/photolist")
-	public String photoList(Model model, int bno, String type) {
-		logger.info(bno+"번 "+type+"실행");
-		String saveDirPath = "D:/MyWorkspace/uploadfiles/"+type+"/"+bno+"/";
-		File dir = new File(saveDirPath);
-		String[] fileNames = dir.list();
-		model.addAttribute("fileNames", fileNames);
-		model.addAttribute("type", type);
-		model.addAttribute("bno", bno);
-		return "board/photolist";
-	}
-	
-	//게시글에 들어갈 사진 download
-	@GetMapping("/photodownload")
-	public void photoDownload(int bno,String type, String photo, HttpServletResponse response) {
-		logger.info("실행");
-		response.setContentType("image/jpeg");
-		try {
-			photo = new String(photo.getBytes("UTF-8"), "ISO-8859-1");
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		response.setHeader("Content-Disposition", "attachment; filename=\""+photo+"\"");	//attachment가 들어가면 contents가 다운로드됨
+			int bno,
+			@RequestParam(defaultValue="1") int page,
+			Model model) {
+		logger.info(bno+" review 실행");
 		
-		try {
-			String saveDirPath = "D:/MyWorkspace/uploadfiles/"+type+"/"+bno+"/";
-			String filePath = saveDirPath+photo;	//실제 경로
-			
-			InputStream is = new FileInputStream(filePath);
-			OutputStream os = response.getOutputStream();
-			
-			FileCopyUtils.copy(is, os);
-			
-			os.flush();
-			os.close();
-			is.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		ReviewDto review = reviewService.showReview(bno);
+		model.addAttribute("review", review);
+		model.addAttribute("page", page);
+		return "board/review_article";
 	}
-	
 	
 	//QnA 작성 화면 넘어감
 	@RequestMapping("/writeQnA")
@@ -206,29 +170,41 @@ public class BoardController {
 			HttpSession session,
 			ReviewDto board) {
 		logger.info("실행");
-		board.setDate(new Date());
-		board.setReview_writer((String) session.getAttribute("loginStatus"));
-		board.setbNo(reviewBoardNum++);
-		logger.info("게시판 번호: "+board.getbNo());
-		logger.info(board.getReview_title());
-		logger.info(board.getReview_writer());
-		logger.info(board.getReview_content());
 		
 		MultipartFile[] files = new MultipartFile[4];
 		files[0] = board.getFile1();
 		files[1] = board.getFile2();
 		files[2] = board.getFile3();
 		files[3] = board.getFile4();
+		String []snames = new String[4];
 		
 		for(int i = 0 ; i < 4; i++) {
 			if(!files[i].isEmpty()) {
-				logger.info(files[i].getOriginalFilename());
 				String originalFileName = files[i].getOriginalFilename();
-				String contentType = files[i].getContentType();
-				//파일경로
-				String saveDirPath = "D:/MyWorkspace/uploadfiles/review/"+board.getbNo()+"/";
 				//파일 이름
-				String fileName = new Date().getTime()+"_"+originalFileName;
+				String fileName = new Date().getTime()+"-"+originalFileName;
+				if(i==0) {
+					board.setImage1(fileName);
+				}else if(i==1) {
+					board.setImage2(fileName);
+				}else if(i==2) {
+					board.setImage3(fileName);
+				}else {
+					board.setImage4(fileName);
+				}
+				snames[i] = fileName;
+			}
+		}
+		
+		board.setUsers_id((String) session.getAttribute("loginStatus"));
+		reviewService.writeReivew(board);
+		
+		for(int i = 0 ; i < 4; i++) {
+			if(!files[i].isEmpty()) {
+				//파일 이름
+				String fileName = snames[i];
+				//파일경로
+				String saveDirPath = "D:/MyWorkspace/uploadfiles/review/"+board.getReview_no()+"/";
 				//파일 전체 경로
 				String filePath = saveDirPath + fileName;
 				File file = new File(filePath);
@@ -240,10 +216,10 @@ public class BoardController {
 			}
 		}
 		
-		return "redirect:/board/review?page=1&range=1";
+		return "redirect:/board/review?page=1";
 	}
 	
-	@GetMapping("/photo")
+	@GetMapping("/qna_photo")
 	public void photo(String image,
 			int bno,
 			HttpServletResponse response) throws IOException {
@@ -259,6 +235,68 @@ public class BoardController {
 		os.flush();
 		os.close();
 		is.close();
+	}
+	
+	@GetMapping("/reviewphoto")
+	public void reviewphoto(String image,
+			int bno,
+			HttpServletResponse response) throws IOException {
+		
+		String filePath = "D:/MyWorkspace/uploadfiles/review/"
+				+bno+"/"+image;
+			
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	//review 삭제
+	@GetMapping("/delete_review")
+	public String delete_review(int bno) {
+		reviewService.deleteReview(bno);
+		return "redirect:/board/review";
+	}
+	
+	//qna 삭제
+	@GetMapping("/delete_qna")
+	public String delete_qna(int bno) {
+		qnaService.deleteQna(bno);
+		return "redirect:/board/qna";
+	}
+	
+	//review 수정 페이지
+	@GetMapping("/edit_review")
+	public String edit_reviewForm(int bno, Model model) {
+		ReviewDto review = reviewService.getReview(bno);
+		model.addAttribute("review", review);
+		return "board/editReview";
+	}
+	
+	//review 수정 제출
+	@PostMapping("/edit_review")
+	public String edit_review(ReviewDto review) {
+		reviewService.editReview(review);
+		return "redirect:/board/showreview?bno="+review.getReview_no();
+	}
+	
+	//qna 수정 페이지
+	@GetMapping("/edit_qna")
+	public String edit_qnaForm(int bno, Model model) {
+		QnaDto qna = qnaService.getQna(bno);
+		model.addAttribute("qna", qna);
+		return "board/editQnA";
+	}
+	
+	//qna 수정 제출
+	@PostMapping("/edit_qna")
+	public String edit_qna(QnaDto qna) {
+		qnaService.editQna(qna);
+		return "redirect:/board/showqna?bno="+qna.getQna_bno();
 	}
 	
 	//물품을 찾기위한 pop_up화면을 띄움

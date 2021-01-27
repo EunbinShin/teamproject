@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <html>
@@ -26,10 +28,10 @@
 		
 			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 			
-			<h3>Review</h3>
+			<h3>QnA</h3>
 			
 			<!-- QnA board Table -->
-			<form method= "post" action="submitReview" enctype="multipart/form-data" class="form-horizontal">
+			<form method= "post" action="edit_qna" enctype="multipart/form-data" class="form-horizontal">
 				<fieldset>
 				<%--문의 카테고리 --%>
 				<div>
@@ -40,52 +42,49 @@
 							상품정보선택</a>
 					</div>
 				</div>
-				<!-- Text input-->
+				<%--문의 카테고리 --%>
 				<div>
-					<div>
-					  <label class="col-md-4 control-label" for="review_title">제목</label>  
-					  <input id="review_title" name="review_title" placeholder="제목" class="form-control input-md" required="" type="text">
-					</div>
-				</div>
-				<!-- Text input-->
-				<div>
-					<div class="form-group">
-					  <label class="col-md-4 control-label" for="review_writer">작성자</label>  
-					  <input id="review_writer" name="review_writer" readonly="readonly"  placeholder="${loginStatus }" class="form-control input-md" required="" type="text">
-					</div>
-				</div>
-				<!-- Textarea -->
-				<div>  
-					<div class="form-group">
-				  		<label class="col-md-4 control-label" for="review_content">내용</label>
-				    	<textarea class="form-control" id="review_content" name="review_content" rows="15" placeholder="내용">1. 제품옵션 :
-2. 사용후기 :
-3. 제품사진 :
-						</textarea>
-					</div>
-				</div>
-				<%--사진 올리기 --%>
-				<div>
-				 <div class="form-group">
-				  	<label>추가 이미지</label><br/>
-				    <input id="filebutton1" name="file1" class="input-file" type="file"><br/>
-				    <input id="filebutton2" name="file2" class="input-file" type="file"><br/>
-				    <input id="filebutton3" name="file3" class="input-file" type="file"><br/>
-				    <input id="filebutton4" name="file4" class="input-file" type="file"><br/>
+				  <label class="col-md-4 control-label" for="qna_categorie">문의내용</label>
+				  <div class="form-group">
+				    <select id="qna_category" name="qna_category" class="form-control">
+							<option value="1" <c:if test="${qna.qna_category == 1}">selected="selected"</c:if>>상품 문의</option>
+							<option value="2" <c:if test="${qna.qna_category == 2}">selected="selected"</c:if>>배송 문의</option>
+							<option value="3" <c:if test="${qna.qna_category == 3}">selected="selected"</c:if>>환불 문의</option>
+							<option value="4" <c:if test="${qna.qna_category == 4}">selected="selected"</c:if>>기타</option>
+							
+				    </select>
 				  </div>
 				</div>
-				<!-- Button -->
+				<!-- Text input-->
+				<input type="hidden" name="qna_bno" value="${qna.qna_bno}">
 				<div>
-					<div class="form-group">
-				    	<button onclick="myFunction()" id="review_submit" name="review_submit" class="btn btn-secondary">개시</button>
-				    	<script>
-				    		function 
-				    			myFunction() {
-				    			confirm("상품을 게시하겠습니까?");
-							}
-						</script>
-				  	</div>
+				  <label class="control-label" for="qna_title">제목</label>  
+				  <div class="form-group">
+				  <input id="qna_title" name="qna_title" value="${qna.qna_title}" class="form-control input-md" required type="text">
+				  </div>
 				</div>
+				<!-- Text input-->
+				<div>
+				  <label class="control-label" for="qna_writer">작성자</label>  
+				  <div class="form-group">
+				  <input readonly="readonly" id="qna_writer" name="qna_writer" placeholder="${loginStatus }" class="form-control input-md" required="" type="text">
+				  </div>
+				</div>
+				<!-- Textarea -->
+				<div>
+				  <label class="control-label" for="qna_content">내용</label>
+				  <div class="form-group">                     
+				    <textarea class="form-control" id="qna_content" name="qna_content" rows="15" placeholder="내용" required>${qna.qna_content}</textarea>
+				  </div>
+				</div>
+				<%--사진 올리기 --%>
+				
+				<!-- Button -->
+				<div class="form-group">
+				  <div class="col-md-4">
+				    <button class="btn btn-secondary">수정</button>
+				  </div>
+				 </div>
 				</fieldset>
 			</form>
 			
