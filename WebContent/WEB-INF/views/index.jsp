@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/index_product_slide.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/index_carousel.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/test.css?after" type="text/css">
 	<script type="text/javascript">
 		const gotoHome = () => {
 			location.href="<%=application.getContextPath() %>/index.jsp";
@@ -138,26 +139,36 @@
 			<div class="trend_con">
 				<table id="tag_table" class="table table-bordered">
 	  				<tbody>
-						<tr><td>#우드 식기</td></tr>
-	  					<tr><td>#실버 식기</td></tr>
-	  					<tr><td>#주방정리</td></tr>
+						<tr><td><a onclick="stop(this)" id="pottery">#도자기</a></td></tr>
+	  					<tr><td><a onclick="stop(this)" id="tablewear">#식기</a></td></tr>
+	  					<tr><td><a onclick="stop(this)" id="glass">#유리그릇</a></td></tr>
 	  				</tbody>
-				</table>	
-				<jsp:include page="/WEB-INF/views/index/index_product_slide.jsp"/>
+				</table>
 				
+				<script>
+					var trigger = true;
+					const stop = (item) => {
+						var getId=$(item).attr('id');
+						console.log(getId);
+						$.ajax({
+							url: "slider",
+							method: "get",
+							data: {item : getId},
+							success: function(data){
+								console.log("성공");
+								$(".test_slide ul").css("animation-play-state","running");
+								$("#slider").html(data);
+							}
+						});
+					}
+				</script>
+				<div style="width: 100%; height: 380px;" id="slider">
+					<jsp:include page="/WEB-INF/views/item_list/item_detail/product_slide.jsp"/>
+				</div>
 			</div> <!-- trend_con -->
 		</div> <!-- trend  -->
 		
-		<footer>
-			<div id="left">
-				Copyright ⓒ 신은빈 원지영 이영준. All rights reserved.
-				<br/>designed by EunBin SHIN
-			</div>
-			<div id="right">
-				(우)05717<br/>
-				  서울특별시 송파구 중대로 135 12층 
-			</div>
-		</footer>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 
 	</div> <!-- wrapper -->	
 </body>
