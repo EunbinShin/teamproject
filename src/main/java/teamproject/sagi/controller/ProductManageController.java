@@ -19,24 +19,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import teamproject.sagi.dto.AddDto;
+import teamproject.sagi.dto.ProductDto;
 
 
 
 @Controller
-@RequestMapping("/add")
-public class AddController {
+@RequestMapping("/product_manage")
+public class ProductManageController {
 	private static final Logger logger = 
-			LoggerFactory.getLogger(AddController.class);
+			LoggerFactory.getLogger(ProductManageController.class);
 	 
-	@RequestMapping("/add")
+	@RequestMapping("/product_content")
 	public String content() {
-		logger.info("add 실행");
-		return "add/add";
+		logger.info("product content 실행");
+		return "product_manage/product_content";
 	}
    
-   @PostMapping("/add_upload")
-   public String add_upload(AddDto add_item, Model model) {
+   @PostMapping("/add/add_upload")
+   public String add_upload(ProductDto add_item, Model model) {
 	   String product_id = add_item.getProduct_id();
 	   model.addAttribute("product_id", product_id);
 	   String product_name = add_item.getProduct_name();
@@ -127,18 +127,18 @@ public class AddController {
 	   }	   
 	   
 	   logger.info("상품 등록 완료");
-	   return "redirect:/add/add_confirm";
+	   return "redirect:/product_manage/add/add_confirm";
    }
    
-	@RequestMapping("/add_confirm")
+	@RequestMapping("/add/add_confirm")
 	public String review(String product_id, Model model) {
 		logger.info("add confirm 실행");
 		logger.info(product_id+" 실행");
 		model.addAttribute("product_id", product_id);
-		return "add/add_confirm";
+		return "product_manage/add/add_confirm";
 	}
 	
-   @RequestMapping("/add_photolist")
+   @RequestMapping("add/add_photolist")
    public String add_photolist(Model model, String product_id) {
       logger.info("실행");
       logger.info(product_id);
@@ -148,10 +148,10 @@ public class AddController {
       String[] fileNames = dir.list();
       model.addAttribute("product_id", product_id);
       model.addAttribute("fileNames", fileNames);
-      return "add/add_photolist";
+      return "product_manage/add/add_photolist";
    }
    
-   @GetMapping("/photodownload")
+   @GetMapping("add/photodownload")
    public void photodownload(String photo,String productid, HttpServletResponse response) { 
 	   logger.info("실행");
 	   logger.info("photo name: " + photo);
@@ -193,4 +193,6 @@ public class AddController {
 	   	}
 
    }
+   
+   
 }

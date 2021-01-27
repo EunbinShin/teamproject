@@ -71,7 +71,7 @@
 	<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 	
 	<div class="add">
-		<form method= "post" enctype="multipart/form-data" action="add_upload" class="form-horizontal">
+		<form method= "post" enctype="multipart/form-data" action="add/add_upload" class="form-horizontal">
 			<fieldset>
 			
 			<!-- Form Name -->

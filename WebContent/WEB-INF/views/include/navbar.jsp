@@ -24,7 +24,7 @@
 			</div>
 		</li>
 		<c:if test="${loginStatus == 'admin'}">
-		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/add/add">ADD</a></li>
+		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/product_manage/product_content">ADD</a></li>
 		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/edit/edit">EDIT</a></li>
 		<li class="nav-item"><a class="nav-link" href="#">DELETE</a></li>
 		</c:if>

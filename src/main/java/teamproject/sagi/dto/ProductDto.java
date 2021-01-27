@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
-public class AddDto {
+public class ProductDto {
 	private String product_id; 
 	private String product_name;
 	private String product_categorie; //d
