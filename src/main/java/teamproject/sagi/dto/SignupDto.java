@@ -3,41 +3,65 @@ package teamproject.sagi.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 public class SignupDto {
-
-	private String uname; 
-	private String uid; 
-	private String upassword; 
-	private String uemail;
-	private MultipartFile uphoto;
-
-	public MultipartFile getUphoto() {
-		return uphoto;
+	private String id;
+	private String password;
+	private String name;
+	private String cellphone;
+	private String email;
+	
+	private MultipartFile photo;
+	private String profile_image;
+	private String address;
+	
+	public String getId() {
+		return id;
 	}
-	public void setUphoto(MultipartFile uphoto) {
-		this.uphoto = uphoto;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getUname() {
-		return uname;
+	public String getPassword() {
+		return password;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getUid() {
-		return uid;
+	public String getName() {
+		return name;
 	}
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getUpassword() {
-		return upassword;
+	public String getCellphone() {
+		return cellphone;
 	}
-	public void setUpassword(String upassword) {
-		this.upassword = upassword;
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
 	}
-	public String getUemail() {
-		return uemail;
+	public String getEmail() {
+		return email;
 	}
-	public void setUemail(String uemail) {
-		this.uemail = uemail;
-	}	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public MultipartFile getPhoto() {
+		return photo;
+	}
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
+	}
+	public String getProfile_image() {
+		return profile_image;
+	}
+	public void setProfile_image(String profile_image) {
+		this.profile_image = profile_image;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
+	
 }

@@ -28,49 +28,49 @@
 		<div class="add">
 		
 		<div class="form-group" align="center" > 
-			<form action="fileupload" method="post" enctype="multipart/form-data" class="mt-5">
+			<form action="signup" method="post" enctype="multipart/form-data" class="mt-5">
 				<div class="form-group">
-					<label for="mid">아이디</label>
+					<label for="id">아이디</label>
 					<div class="d-flex">
 						<input type="text" class="form-control" 
-							id="uid" name="uid" required/>
+							id="id" name="id" required/>
 						<a href="#" class="btn btn-danger" id="checkbtn">중복확인</a>
 					</div>
 					
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="uname">이름</label>
+					<label for="name">이름</label>
 					<input type="text" class="form-control" 
-						name="uname" id="uname" required/>
+						name="name" id="name" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="upassword">비밀번호</label>
+					<label for="password">비밀번호</label>
 					<input type="password" class="form-control"
-						 id="upassword" name="upassword" required/>
+						 id="password" name="password" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="uphonenumber">전화번호</label>
+					<label for="cellphone">전화번호</label>
 					<input type="text" class="form-control" 
-						name="uphonenumber" id="uphonenumber" required/>
+						name="cellphone" id="cellphone" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="uemail">이메일</label>
+					<label for="email">이메일</label>
 					<input type="text" class="form-control" 
-						name="uemail" id="uemail" required/>
+						name="email" id="email" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="uaddress">주소</label>
+					<label for="address">주소</label>
 					<input type="text" class="form-control" 
-						name="uaddress" id="uaddress" required/>
+						name="address" id="address" required/>
 				</div>
 				<div class="form-group">
-					<label for="uphoto">프로필사진</label><br/>
-					<input type="file" id="uhoto" name="uphoto">
+					<label for="photo">프로필사진</label><br/>
+					<input type="file" id="photo" name="photo">
 				</div>
 				
 				<button class="btn btn-secondary">저장</button>

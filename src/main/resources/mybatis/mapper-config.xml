@@ -8,5 +8,6 @@
 	<typeAliases>
 		<typeAlias alias="qnaboard" type="teamproject.sagi.dto.QnaDto"/>
 		<typeAlias alias="pager" type="teamproject.sagi.dto.Pager"/>
+		<typeAlias alias="signupdto" type="teamproject.sagi.dto.SignupDto"/>
 	</typeAliases>
 </configuration>
