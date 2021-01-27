@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import teamproject.sagi.dto.ItemDetailDto;
@@ -51,21 +52,22 @@ public class ItemDetailController {
 <<<<<<< HEAD
 	}*/
 	
-	/*	
-	// HttpSession과 DTO를 이용하여 위시리스로 정보를 보내기
-	@PostMapping("/wishlist")
-	public String wishlist( HttpSession session, String customer, String item) {
-		customer = (String) session.getAttribute("logoutStatus");
-		logger.info(item+": 실행");
-		
-		logger.info("상품번호" + item.getProduct_id());
-		logger.info("상품이름" + item.getProduct_name());
-		logger.info("상품카테고리" + item.getProduct_categorie());
-		logger.info("상품가격" + item.getProduct_price());
-		logger.info("상품할인율" + item.getPercentage_discount());
-		logger.info("상품갯수" + item.getAvailable_quantity());
-		return "redirect:/wishlist/wishlist";
-	}*/
-
+	@GetMapping("/item_detail/asyncform01")
+	public String asyncform01() {
+		logger.info("상세페이지 보냄");
+		return "item_list/item_detail/asyncform01";
+	}
+	
+	@GetMapping("/item_detail/reviewform01")
+	public String reviewform01() {
+		logger.info("상세페이지 보냄");
+		return "item_list/item_detail/reviewform01";
+	}
+	
+	@GetMapping("/item_detail/deliveryform01")
+	public String deliveryform01() {
+		logger.info("상세페이지 보냄");
+		return "item_list/item_detail/deliveryform01";
+	}
 	
 }
