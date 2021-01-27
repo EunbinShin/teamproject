@@ -1,0 +1,176 @@
+		* {
+			box-sizing: border-box;
+		}
+		
+		#wrapper{
+			display:flex;
+			flex-direction: column;
+		}
+		
+		.nav-link{
+			color: black;
+			text-decoration: none;
+		}
+		
+		.nav-link:hover{
+			color: black;
+			text-decoration: none;
+		}
+		
+		#row{
+			flex:1;
+		}
+		
+		#hbanner img {
+			width: 100%;
+			text-align:center;
+		}
+		
+	
+		.column {
+			display: inline-block;	
+			
+			position: relative;
+			
+			float: left;
+			
+			width: 25%;
+			padding: 10px;	
+		}
+		
+		.row: after {
+			display: table;
+			
+			box-sizing: border-box;
+			content: "";
+			clear: both;
+			
+		}
+		
+	    a{
+			color: black;
+			text-decoration: none;
+		}
+		
+		a:visited{
+			color: black;
+			text-decoration: none;
+		}
+		
+		.img-bottom{
+			width:100%;
+		}
+		
+		.img-top{
+			width:100%;
+		}
+		
+	    .column .img-top {
+	        display: none;
+	    }
+	    .column a:hover .img-top {
+	        display: inline;
+	    }
+	    
+		.column a:hover .img-bottom{
+			display: none;
+		}
+		 		
+		.banner_column img{
+		  float: left;
+		  width: 50%;
+		}
+		
+		#col_1 {
+			margin-top:20px;	
+			margin-bottom:10px;
+			padding-right:10px;
+			padding-left: 10px;
+		}
+		
+		#col_2 {
+			margin-top:20px;	
+			margin-bottom:10px;
+			padding-right: 10px;
+			padding-left:10px;
+		}
+		
+		#banner_row{
+			display: flex;
+			
+			align-items: center;
+		}
+		
+		
+		
+		#row_name {
+			margin-top: 50px;
+			margin-bottom: 50px;
+			text-align: center; 
+		}
+		
+		#row {
+			background-color: #red;
+		}
+		
+		.column img {
+		  width: 100%;
+		  height: auto;
+		}
+		
+		.column img {
+		  width: 100%;
+		  height: auto;
+		}
+		
+		.column span  {
+		 	/* background-color: black; */
+			position: absolute;
+			top: 6%;
+			left: 87.5%;
+			transform: translate(-50%, -50%);
+	 		-ms-transform: translate(-50%, -50%);
+			color: white;
+			font-size: 150%;
+			border: none;
+			cursor: pointer;
+			text-align: center;
+		}
+		
+		body{
+            min-width: 1700px;
+            min-height: 900px;
+      	}
+		
+		.badge{
+			width:100px;
+			height:50px;
+		}
+	
+		#trend{
+			text-align: center;
+		}
+		
+		#trend h3{
+			margin-top: 100px;
+			margin-bottom: 80px;
+		}
+		
+		#tag_table{
+			width: 10%;
+			float: left;
+			margin-left: 150px;
+		}
+		#tag_slide{
+			width: 80%;
+			float: right;
+		}
+		
+		.form-horizontal {
+			margin-top: 50px;
+			width: 100%;
+			margin-left: 35%;
+		}
+		
+		
+		
