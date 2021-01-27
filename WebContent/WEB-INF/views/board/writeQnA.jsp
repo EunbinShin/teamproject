@@ -44,11 +44,11 @@
 				<div>
 				  <label class="col-md-4 control-label" for="qna_categorie">문의내용</label>
 				  <div class="form-group">
-				    <select id="qna_categorie" name="qna_categorie" class="form-control">
-							<option value="qna_delivery">배송문의</option>
-							<option value="qna_item">제품문의</option>
-							<option value="qna_refund">환불문의</option>
-							<option value="qna_etc">기타</option>
+				    <select id="qna_category" name="qna_category" class="form-control">
+							<option value="1">상품 문의</option>
+							<option value="2">배송 문의</option>
+							<option value="3">환불 문의</option>
+							<option value="4">기타</option>
 				    </select>
 				  </div>
 				</div>
@@ -56,7 +56,7 @@
 				<div>
 				  <label class="control-label" for="qna_title">제목</label>  
 				  <div class="form-group">
-				  <input id="qna_title" name="qna_title" placeholder="제목" class="form-control input-md" required="" type="text">
+				  <input id="qna_title" name="qna_title" placeholder="제목" class="form-control input-md" required type="text">
 				  </div>
 				</div>
 				<!-- Text input-->
@@ -70,7 +70,7 @@
 				<div>
 				  <label class="control-label" for="qna_content">내용</label>
 				  <div class="form-group">                     
-				    <textarea class="form-control" id="qna_content" name="qna_content" rows="15" placeholder="내용"></textarea>
+				    <textarea class="form-control" id="qna_content" name="qna_content" rows="15" placeholder="내용" required></textarea>
 				  </div>
 				</div>
 				<%--사진 올리기 --%>

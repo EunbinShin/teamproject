@@ -6,7 +6,7 @@
 
 <configuration>
 	<typeAliases>
-		
+		<typeAlias alias="qnaboard" type="teamproject.sagi.dto.QnaDto"/>
+		<typeAlias alias="pager" type="teamproject.sagi.dto.Pager"/>
 	</typeAliases>
-
 </configuration>
