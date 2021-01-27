@@ -60,7 +60,8 @@
 				  		<label class="col-md-4 control-label" for="review_content">내용</label>
 				    	<textarea class="form-control" id="review_content" name="review_content" rows="15" placeholder="내용">1. 제품옵션 :
 2. 사용후기 :
-3. 제품사진 :</textarea>
+3. 제품사진 :
+						</textarea>
 					</div>
 				</div>
 				<%--사진 올리기 --%>

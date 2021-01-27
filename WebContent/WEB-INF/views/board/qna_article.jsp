@@ -48,20 +48,18 @@
 					<tr>
 						<td height="200px" colspan="2">
 							<c:if test="${qna.image1 != null}">
-								<img src="photo?image=${qna.image1}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image1}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
 							<c:if test="${qna.image2 != null}">
-								<img src="photo?image=${qna.image2}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image2}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
 							<c:if test="${qna.image3 != null}">
-								<img src="photo?image=${qna.image3}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image3}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
 							<c:if test="${qna.image4 != null}">
-								<img src="photo?image=${qna.image4}&bno=${qna.qna_bno}" width="600px">
+								<div><img src="qna_photo?image=${qna.image4}&bno=${qna.qna_bno}" width="600px"></div>
 							</c:if>
-							<div id="photoList"></div>
 							${qna.qna_content}
-							
 						</td>
 					</tr>
 				</table>

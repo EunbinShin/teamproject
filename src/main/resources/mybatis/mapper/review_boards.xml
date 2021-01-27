@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.mapper.review_boards">
+
+	<select id="countAll" 
+		resultType="int">
+		select count(*)
+		from review_boards
+	</select>
+	
+	<select id="selectByPk" 
+		resultType="reviewboard">
+		select *
+		from review_boards
+		where review_no = #{bno}
+	</select>
+	
+	<select id="selectByPage" 
+		parameterType="pager"
+		resultType="reviewboard">
+		select rno, review_no, products_product_id,
+		 	review_title ,users_id, review_content, review_date,
+		 	image1, image2, image3, image4
+		from(
+			select rownum as rno, review_no, products_product_id,
+				 	review_title ,users_id, review_content, review_date,
+				 	image1, image2, image3, image4
+		    from (
+		        select review_no, products_product_id,
+				 	review_title ,users_id, review_content, review_date,
+				 	image1, image2, image3, image4
+		        from review_boards
+		        order by review_no desc)
+		    where rownum &lt;= #{endRowNo}	
+		)
+		where rno &gt;= #{startRowNo}
+	</select>
+
+	<insert id="insertreview" parameterType="reviewboard">
+		<selectKey keyProperty="review_no" resultType="int" order="BEFORE">
+			select rno_seq.nextval
+			from dual
+		</selectKey>
+		<if test="image1 == null">
+			insert into review_boards
+				(review_no, products_product_id,
+				 	review_title ,users_id, review_content, review_date)
+			values
+				(#{review_no}, 1,
+				 #{review_title} ,#{users_id}, #{review_content}, sysdate)
+	 	</if>
+	 	<if test="image1 != null">
+			insert into review_boards
+				(review_no, products_product_id,
+				 	review_title ,users_id, review_content, review_date,
+				 	image1, image2, image3, image4)
+			values
+				(#{review_no}, 1,
+				 #{review_title} ,#{users_id}, #{review_content}, sysdate,
+				 #{image1}, #{image2, jdbcType=VARCHAR}, #{image3, jdbcType=VARCHAR}, #{image4, jdbcType=VARCHAR})
+	 	</if>
+	</insert>
+</mapper>

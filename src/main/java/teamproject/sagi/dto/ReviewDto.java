@@ -5,22 +5,31 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ReviewDto {
-	private int bNo;
+	private int review_no;
+	private String products_product_id;
 	private String review_title;
-	private String review_writer;
+	private String users_id;
 	private String review_content;
 	private MultipartFile file1;
 	private MultipartFile file2;
 	private MultipartFile file3;
 	private MultipartFile file4;
-	private Date date;
-	
-	
-	public int getbNo() {
-		return bNo;
+	private Date review_date;
+	private String image1;
+	private String image2;
+	private String image3;
+	private String image4;
+	public int getReview_no() {
+		return review_no;
 	}
-	public void setbNo(int bNo) {
-		this.bNo = bNo;
+	public void setReview_no(int review_no) {
+		this.review_no = review_no;
+	}
+	public String getProducts_product_id() {
+		return products_product_id;
+	}
+	public void setProducts_product_id(String products_product_id) {
+		this.products_product_id = products_product_id;
 	}
 	public String getReview_title() {
 		return review_title;
@@ -28,23 +37,17 @@ public class ReviewDto {
 	public void setReview_title(String review_title) {
 		this.review_title = review_title;
 	}
-	public String getReview_writer() {
-		return review_writer;
+	public String getUsers_id() {
+		return users_id;
 	}
-	public void setReview_writer(String review_writer) {
-		this.review_writer = review_writer;
+	public void setUsers_id(String users_id) {
+		this.users_id = users_id;
 	}
 	public String getReview_content() {
 		return review_content;
 	}
 	public void setReview_content(String review_content) {
 		this.review_content = review_content;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
 	}
 	public MultipartFile getFile1() {
 		return file1;
@@ -70,8 +73,34 @@ public class ReviewDto {
 	public void setFile4(MultipartFile file4) {
 		this.file4 = file4;
 	}
-	
-	
-	
-	
+	public Date getReview_date() {
+		return review_date;
+	}
+	public void setReview_date(Date review_date) {
+		this.review_date = review_date;
+	}
+	public String getImage1() {
+		return image1;
+	}
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+	public String getImage2() {
+		return image2;
+	}
+	public void setImage2(String image2) {
+		this.image2 = image2;
+	}
+	public String getImage3() {
+		return image3;
+	}
+	public void setImage3(String image3) {
+		this.image3 = image3;
+	}
+	public String getImage4() {
+		return image4;
+	}
+	public void setImage4(String image4) {
+		this.image4 = image4;
+	}
 }
