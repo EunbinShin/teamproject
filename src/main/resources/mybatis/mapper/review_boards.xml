@@ -61,4 +61,17 @@
 				 #{image1}, #{image2, jdbcType=VARCHAR}, #{image3, jdbcType=VARCHAR}, #{image4, jdbcType=VARCHAR})
 	 	</if>
 	</insert>
+	
+	<update id="updateReview" 
+		parameterType="reviewboard">
+		update review_boards
+		set review_title = #{review_title},
+			 review_content = #{review_content}
+		where review_no = #{review_no}
+	</update>
+	
+	<delete id="deleteByPk">
+		delete from review_boards
+		where review_no = #{bno}
+	</delete>
 </mapper>

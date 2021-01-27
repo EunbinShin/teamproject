@@ -66,6 +66,10 @@
 				<%--버튼 컨테이너 --%>
 				<div id="btnContainer">
 					<a href="qna?page=${page}" class="btn btn-secondary">목록</a>
+					<c:if test="${loginStatus == qna.users_id}">
+						<a href="delete_qna?bno=${qna.qna_bno}" class="btn btn-secondary">삭제</a>
+						<a href="edit_qna?bno=${qna.qna_bno}" class="btn btn-secondary">수정</a>
+					</c:if>
 				</div>
 			</div>
 			

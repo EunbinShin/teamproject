@@ -48,6 +48,8 @@
 					</tr>
 					<tr>
 						<td height="200px" colspan="2">
+						
+							${review.review_content}
 							<c:if test="${review.image1 != null}">
 								<div><img src="reviewphoto?image=${review.image1}&bno=${review.review_no}" width="600px"></div>
 							</c:if>
@@ -60,13 +62,17 @@
 							<c:if test="${review.image4 != null}">
 								<div><img src="reviewphoto?image=${review.image4}&bno=${review.review_no}" width="600px"></div>
 							</c:if>
-							${review.review_content}
+							
 						</td>
 					</tr>
 				</table>
 				<%--버튼 컨테이너 --%>
 				<div id="btnContainer">
-					<a href="main?type=${type}&page=${page}&range=${range}" class="btn btn-secondary">목록</a>
+					<a href="review?page=${page}" class="btn btn-secondary">목록</a>
+					<c:if test="${loginStatus == review.users_id}">
+						<a href="delete_review?bno=${review.review_no}" class="btn btn-secondary">삭제</a>
+						<a href="edit_review?bno=${review.review_no}" class="btn btn-secondary">수정</a>
+					</c:if>
 				</div>
 			</div>
 			

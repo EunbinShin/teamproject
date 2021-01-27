@@ -45,4 +45,14 @@ public class ReviewDao {
 		return review;
 	}
 
+	public int deleteByPk(int bno) {
+		int rows = sst.delete("mybatis.mapper.review_boards.deleteByPk", bno);
+		return rows;
+	}
+
+	public int update(ReviewDto review) {
+		int rows = sst.update("mybatis.mapper.review_boards.updateReview", review);
+		return rows;
+	}
+
 }

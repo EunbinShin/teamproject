@@ -22,6 +22,10 @@ public class QnaService {
 	}
 	public List<QnaDto> getBoardList(Pager pager) {
 		List<QnaDto> list = qnaDao.selectByPage(pager);
+		for(QnaDto qna : list) {
+			String category = qnaDao.selectCategoryName(qna.getQna_category());
+			qna.setCategory_name(category);
+		}
 		return list;
 	}
 	public QnaDto showQna(int bno) {
@@ -29,6 +33,17 @@ public class QnaService {
 		String temp = qna.getQna_content();
 		temp = temp.replace("\n", "<br/>");
 		qna.setQna_content(temp);
+		return qna;
+	}
+	public void deleteQna(int bno) {
+		qnaDao.deleteByPk(bno);
+		
+	}
+	public void editQna(QnaDto qna) {
+		qnaDao.update(qna);
+	}
+	public QnaDto getQna(int bno) {
+		QnaDto qna = qnaDao.selectByPk(bno);
 		return qna;
 	}
 }

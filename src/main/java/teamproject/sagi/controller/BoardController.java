@@ -94,49 +94,6 @@ public class BoardController {
 		return "board/review_article";
 	}
 	
-	//3. 게시글 내부 ( 자신이 원하는 파일명/ 게시글의 타입/ 게시글 번호 를 보냄)
-	@GetMapping("/photolist")
-	public String photoList(Model model, int bno, String type) {
-		logger.info(bno+"번 "+type+"실행");
-		String saveDirPath = "D:/MyWorkspace/uploadfiles/"+type+"/"+bno+"/";
-		File dir = new File(saveDirPath);
-		String[] fileNames = dir.list();
-		model.addAttribute("fileNames", fileNames);
-		model.addAttribute("type", type);
-		model.addAttribute("bno", bno);
-		return "board/photolist";
-	}
-	
-	//게시글에 들어갈 사진 download
-	@GetMapping("/photodownload")
-	public void photoDownload(int bno,String type, String photo, HttpServletResponse response) {
-		logger.info("실행");
-		response.setContentType("image/jpeg");
-		try {
-			photo = new String(photo.getBytes("UTF-8"), "ISO-8859-1");
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		response.setHeader("Content-Disposition", "attachment; filename=\""+photo+"\"");	//attachment가 들어가면 contents가 다운로드됨
-		
-		try {
-			String saveDirPath = "D:/MyWorkspace/uploadfiles/"+type+"/"+bno+"/";
-			String filePath = saveDirPath+photo;	//실제 경로
-			
-			InputStream is = new FileInputStream(filePath);
-			OutputStream os = response.getOutputStream();
-			
-			FileCopyUtils.copy(is, os);
-			
-			os.flush();
-			os.close();
-			is.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	
 	//QnA 작성 화면 넘어감
 	@RequestMapping("/writeQnA")
 	public String writeQnA() {
@@ -296,6 +253,50 @@ public class BoardController {
 		os.flush();
 		os.close();
 		is.close();
+	}
+	
+	//review 삭제
+	@GetMapping("/delete_review")
+	public String delete_review(int bno) {
+		reviewService.deleteReview(bno);
+		return "redirect:/board/review";
+	}
+	
+	//qna 삭제
+	@GetMapping("/delete_qna")
+	public String delete_qna(int bno) {
+		qnaService.deleteQna(bno);
+		return "redirect:/board/qna";
+	}
+	
+	//review 수정 페이지
+	@GetMapping("/edit_review")
+	public String edit_reviewForm(int bno, Model model) {
+		ReviewDto review = reviewService.getReview(bno);
+		model.addAttribute("review", review);
+		return "board/editReview";
+	}
+	
+	//review 수정 제출
+	@PostMapping("/edit_review")
+	public String edit_review(ReviewDto review) {
+		reviewService.editReview(review);
+		return "redirect:/board/showreview?bno="+review.getReview_no();
+	}
+	
+	//qna 수정 페이지
+	@GetMapping("/edit_qna")
+	public String edit_qnaForm(int bno, Model model) {
+		QnaDto qna = qnaService.getQna(bno);
+		model.addAttribute("qna", qna);
+		return "board/editQnA";
+	}
+	
+	//qna 수정 제출
+	@PostMapping("/edit_qna")
+	public String edit_qna(QnaDto qna) {
+		qnaService.editQna(qna);
+		return "redirect:/board/showqna?bno="+qna.getQna_bno();
 	}
 	
 	//물품을 찾기위한 pop_up화면을 띄움

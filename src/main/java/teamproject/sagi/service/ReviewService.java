@@ -4,7 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import teamproject.sagi.controller.BoardController;
 import teamproject.sagi.dao.QnaDao;
 import teamproject.sagi.dao.ReviewDao;
 import teamproject.sagi.dto.Pager;
@@ -13,6 +17,8 @@ import teamproject.sagi.dto.ReviewDto;
 
 @Service
 public class ReviewService {
+	private static final Logger logger = LoggerFactory.getLogger(ReviewService.class);
+
 	@Resource
 	private ReviewDao reviewDao;
 	public void writeReivew(ReviewDto review) {
@@ -32,5 +38,17 @@ public class ReviewService {
 		temp = temp.replace("\n", "<br/>");
 		review.setReview_content(temp);
 		return review;
+	}
+	public void deleteReview(int bno) {
+		// TODO Auto-generated method stub
+		reviewDao.deleteByPk(bno);
+	}
+	
+	public ReviewDto getReview(int bno) {
+		ReviewDto review = reviewDao.selectByPk(bno);
+		return review;
+	}
+	public void editReview(ReviewDto review) {
+		reviewDao.update(review);
 	}
 }

@@ -71,4 +71,17 @@
 				 #{image1}, #{image2, jdbcType=VARCHAR}, #{image3, jdbcType=VARCHAR}, #{image4, jdbcType=VARCHAR})
 	 	</if>
 	</insert>
+	
+	<update id="updateQna" parameterType="qnaboard">
+		update qna_boards
+		set qna_category = #{qna_category},
+			qna_title = #{qna_title},
+		     qna_content = #{qna_content}
+		where qna_bno = #{qna_bno}
+	</update>
+	
+	<delete id="deleteByPk">
+		delete from qna_boards
+		where qna_bno = #{bno}
+	</delete>
 </mapper>
