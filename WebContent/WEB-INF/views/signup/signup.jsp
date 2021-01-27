@@ -40,32 +40,37 @@
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="mname">이름</label>
+					<label for="uname">이름</label>
 					<input type="text" class="form-control" 
 						name="uname" id="uname" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="mpassword">비밀번호</label>
+					<label for="upassword">비밀번호</label>
 					<input type="password" class="form-control"
 						 id="upassword" name="upassword" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="mpassword">비밀번호 재확인</label>
-					<input type="password" class="form-control"
-						 id="upassword" name="upassword" required/>
-					<small class="form-text text-muted"></small>
+					<label for="uphonenumber">전화번호</label>
+					<input type="text" class="form-control" 
+						name="uphonenumber" id="uphonenumber" required/>
+					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="mname">이메일</label>
+					<label for="uemail">이메일</label>
 					<input type="text" class="form-control" 
 						name="uemail" id="uemail" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
-					<label for="mphoto">프로필사진</label><br/>
-					<input type="file" id="mphoto" name="mphoto">
+					<label for="uaddress">주소</label>
+					<input type="text" class="form-control" 
+						name="uaddress" id="uaddress" required/>
+				</div>
+				<div class="form-group">
+					<label for="uphoto">프로필사진</label><br/>
+					<input type="file" id="uhoto" name="uphoto">
 				</div>
 				
 				<button class="btn btn-secondary">저장</button>
