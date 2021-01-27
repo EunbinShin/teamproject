@@ -16,17 +16,7 @@
 	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/header.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/menu_bar.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/footer.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide1.css?after" type="text/css">
-	<script>
-	document.getElementById("upassword").addEventListener("invalid", passwordCheck);
-
-	function passwordCheck() {
-	  alert("비밀번호는 6자 이상이어야 합니다.");
-	}
-	
-	
-	</script>
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/signup.css?after" type="text/css">
 </head>
 
 <body>
@@ -34,35 +24,58 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
 		
 		<div id="wrapper">
-		<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>	
+			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>	
 		<div class="add">
 		
-		<br/>
-		
-		<!-- 이미지 파일 업로드 -->
-		<div class="form-group" align="center" >
-		  <label class="col-md-4 control-label" for="uemail">이메일</label>  
-		  <form method="post" enctype="multipart/form-data" action="fileupload">
-		  		이름: <input type="text" name="uname"/><br/>
-		  		
-		  		아이디: <input type="text" id="uid" name="uid"  pattern=".{6,}" required/>
-		  		<script>
-		  		document.getElementById("uid").addEventListener("invalid", uid);
-		  		function uid() {
-		  			alert("아이디는 최소 6자이상 입니다");
-		  		}
-		  		</script>
-		  		<button onclick="uid()" class="btn btn-secondary">nestedCheck</button><br/>
-		  		
-		  		
-		  		패스워드: <input type="password" id="upassword" name="upassword" pattern=".{6,}" required/>
-		  		<button onclick="passwordCheck()" class="btn btn-secondary" >비밀번호 확인</button><br/>
-		  		
-		  		
-		  		이메일: <input type="text" name="uemail"/><br/>
-		  		프로필 사진: <input type="file" name="uphoto"/><br/>
-		  		<input class="btn btn-sm btn-info" type="submit" value="회원가입"/><br/>
-		  </form>
+		<div class="form-group" align="center" > 
+			<form action="fileupload" method="post" enctype="multipart/form-data" class="mt-5">
+				<div class="form-group">
+					<label for="mid">아이디</label>
+					<div class="d-flex">
+						<input type="text" class="form-control" 
+							id="uid" name="uid" required/>
+						<a href="#" class="btn btn-danger" id="checkbtn">중복확인</a>
+					</div>
+					
+					<small class="form-text text-muted">필수 입력 사항입니다.</small>
+				</div>
+				<div class="form-group">
+					<label for="uname">이름</label>
+					<input type="text" class="form-control" 
+						name="uname" id="uname" required/>
+					<small class="form-text text-muted">필수 입력 사항입니다.</small>
+				</div>
+				<div class="form-group">
+					<label for="upassword">비밀번호</label>
+					<input type="password" class="form-control"
+						 id="upassword" name="upassword" required/>
+					<small class="form-text text-muted">필수 입력 사항입니다.</small>
+				</div>
+				<div class="form-group">
+					<label for="uphonenumber">전화번호</label>
+					<input type="text" class="form-control" 
+						name="uphonenumber" id="uphonenumber" required/>
+					<small class="form-text text-muted">필수 입력 사항입니다.</small>
+				</div>
+				<div class="form-group">
+					<label for="uemail">이메일</label>
+					<input type="text" class="form-control" 
+						name="uemail" id="uemail" required/>
+					<small class="form-text text-muted">필수 입력 사항입니다.</small>
+				</div>
+				<div class="form-group">
+					<label for="uaddress">주소</label>
+					<input type="text" class="form-control" 
+						name="uaddress" id="uaddress" required/>
+				</div>
+				<div class="form-group">
+					<label for="uphoto">프로필사진</label><br/>
+					<input type="file" id="uhoto" name="uphoto">
+				</div>
+				
+				<button class="btn btn-secondary">저장</button>
+				<a href="<%=application.getContextPath() %>/login/" class="btn btn-secondary">취소</a>
+			</form>
 		</div>
 		
 		</div> <!-- /add -->	

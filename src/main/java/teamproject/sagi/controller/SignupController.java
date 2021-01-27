@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import teamproject.sagi.dto.SignupDto;
+import teamproject.sagi.dto.UserDto;
 
 
 
@@ -28,7 +29,7 @@ public class SignupController {
 	}
 	
 	@PostMapping("/fileupload")
-	public String fileupload(SignupDto user) {
+	public String fileupload(UserDto user) {
 		
 		String uname = user.getUname();
 		String uid = user.getUid();
@@ -42,19 +43,17 @@ public class SignupController {
 		MultipartFile uphoto = user.getUphoto();
 		
 		String originalFileName = uphoto.getOriginalFilename();
-		String saveFile = "D:/MyWorkspace/uploadfiles/";		
+		String saveFile = "D:/MyWorkspace/uploadfiles/users/"+uid+"/";		
 		String fileName = new Date().getTime() + "-" + originalFileName;
 		String filePath = saveFile + fileName;
 		File file = new File(filePath);
 		try {
 			uphoto.transferTo(file);
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		}catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		return "signup/signup";
+		return "redirect:/login/";
 	}
 	
    @RequestMapping("/signup_form")
