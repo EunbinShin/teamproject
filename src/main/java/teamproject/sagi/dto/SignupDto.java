@@ -8,7 +8,6 @@ public class SignupDto {
 	private String name;
 	private String cellphone;
 	private String email;
-	
 	private MultipartFile photo;
 	private String profile_image;
 	private String address;

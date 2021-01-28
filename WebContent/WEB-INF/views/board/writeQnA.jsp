@@ -34,11 +34,20 @@
 				<%--문의 카테고리 --%>
 				<div>
 					<div id="img_container">
-						<img src="<%=application.getContextPath() %>/resources/img/noimage.jpg" width="100px" height="100px"/>
-						<a href="findItem" class="btn btn-secondary" 
-							onclick="window.open(this.href, '_blank', 'width=600px,height=500px,toolbars=no,scrollbars=no'); return false;">
+						<img id="selectImg" src="<%=application.getContextPath() %>/resources/img/noimage.jpg" width="100px" height="100px"/>
+						<a class="btn btn-secondary" 
+							onclick="popUp()">
 							상품정보선택</a>
+						<input id="products_product_id" name="products_product_id" type="hidden">
+						<span id="ptest"></span>
 					</div>
+					
+					<script>
+						const popUp = () => {
+							var result = window.open('findItem', '_blank', 'width=600px,height=500px,toolbars=no,scrollbars=no');
+							console.log(result);
+						};
+					</script>
 				</div>
 				<%--문의 카테고리 --%>
 				<div>
@@ -63,7 +72,7 @@
 				<div>
 				  <label class="control-label" for="qna_writer">작성자</label>  
 				  <div class="form-group">
-				  <input readonly="readonly" id="qna_writer" name="qna_writer" placeholder="${loginStatus }" class="form-control input-md" required="" type="text">
+				  <input readonly="readonly" id="qna_writer" name="qna_writer" placeholder="${loginStatus.id }" class="form-control input-md" required="" type="text">
 				  </div>
 				</div>
 				<!-- Textarea -->

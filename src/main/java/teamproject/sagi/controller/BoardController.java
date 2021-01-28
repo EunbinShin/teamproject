@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -26,10 +28,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import teamproject.sagi.dto.BoardDTO;
 import teamproject.sagi.dto.Pager;
+import teamproject.sagi.dto.ProductDto;
 import teamproject.sagi.dto.QnaDto;
 import teamproject.sagi.dto.ReviewDto;
+import teamproject.sagi.dto.SearchDto;
+import teamproject.sagi.dto.SignupDto;
 import teamproject.sagi.service.QnaService;
 import teamproject.sagi.service.ReviewService;
+import teamproject.sagi.service.SearchService;
 
 @Controller
 @RequestMapping("/board")
@@ -39,6 +45,8 @@ public class BoardController {
 	private QnaService qnaService;
 	@Resource
 	private ReviewService reviewService;
+	@Resource
+	private SearchService searchService;
 	
 	//1. QnA화면 실행
 	@RequestMapping("/qna")
@@ -75,8 +83,9 @@ public class BoardController {
 		logger.info(bno+" qna 실행");
 		
 		QnaDto qna = qnaService.showQna(bno);
-
+		ProductDto product = searchService.getProduct(qna.getProducts_product_id());
 		model.addAttribute("qna", qna);
+		model.addAttribute("product", product);
 		model.addAttribute("page", page);
 		return "board/qna_article";
 	}
@@ -89,7 +98,9 @@ public class BoardController {
 		logger.info(bno+" review 실행");
 		
 		ReviewDto review = reviewService.showReview(bno);
+		ProductDto product = searchService.getProduct(review.getProducts_product_id());
 		model.addAttribute("review", review);
+		model.addAttribute("product", product);
 		model.addAttribute("page", page);
 		return "board/review_article";
 	}
@@ -134,7 +145,8 @@ public class BoardController {
 			}
 		}
 		
-		board.setUsers_id((String) session.getAttribute("loginStatus"));
+		SignupDto user = (SignupDto) session.getAttribute("loginStatus");
+		board.setUsers_id(user.getId());
 		qnaService.writeQna(board);
 		
 		for(int i = 0 ; i < 4; i++) {
@@ -196,7 +208,9 @@ public class BoardController {
 			}
 		}
 		
-		board.setUsers_id((String) session.getAttribute("loginStatus"));
+		SignupDto user = (SignupDto) session.getAttribute("loginStatus");
+		board.setUsers_id(user.getId());
+		
 		reviewService.writeReivew(board);
 		
 		for(int i = 0 ; i < 4; i++) {
@@ -306,15 +320,57 @@ public class BoardController {
 		return "board/pop_up";
 	}
 	
-	@GetMapping("/search_item")
+	//pop up화면에 아이템 리스트
+	@PostMapping("/search_items")
 	public String searchItem(
-			String search_type,
-			String keyword,
+			SearchDto search,
 			Model model) {
-		logger.info("타입: "+search_type);
-		logger.info("키워드: "+keyword);
-		model.addAttribute("search_type", search_type);
-		model.addAttribute("keyword", keyword);
-		return "board/pop_up";
+		
+		List<ProductDto>items = searchService.findItem(search.getKeyword());
+		model.addAttribute("items", items);
+		return "board/itemlist";
 	}
+	
+	//아이템 리스트들의 사진
+	@GetMapping("/searchphoto")
+	public void searchphoto(
+			String id,
+			String image,
+			HttpServletResponse response) throws IOException {
+		
+		String filePath = "D:/MyWorkspace/uploadfiles/add/"
+				+id+"/thumbnail/"+image;
+			
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	//popup화면 결과
+	@PostMapping("/update_item")
+	public void update_item(
+			String product_id,
+			HttpServletResponse response) throws IOException {
+		response.setContentType("application/json; charset=UTF-8");
+		
+		String thumbnail = searchService.getThumbnail(product_id);
+		
+		PrintWriter pw = response.getWriter();
+		JSONObject root = new JSONObject();
+		root.put("product_id", product_id);
+		root.put("thumbnail", thumbnail);
+		
+		logger.info(thumbnail);
+		
+		String json = root.toString();
+		pw.println(json);
+		pw.flush();
+		pw.close();
+	}
+	
 }

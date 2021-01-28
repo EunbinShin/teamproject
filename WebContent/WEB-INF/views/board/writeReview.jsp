@@ -34,10 +34,12 @@
 				<%--문의 카테고리 --%>
 				<div>
 					<div id="img_container">
-						<img src="<%=application.getContextPath() %>/resources/img/noimage.jpg" width="100px" height="100px"/>
+						<img id="selectImg" src="<%=application.getContextPath() %>/resources/img/noimage.jpg" width="100px" height="100px"/>
 						<a href="findItem" class="btn btn-secondary" 
 							onclick="window.open(this.href, '_blank', 'width=600px,height=500px,toolbars=no,scrollbars=no'); return false;">
 							상품정보선택</a>
+						<input id="products_product_id" name="products_product_id" type="hidden">
+						<span id="ptest"></span>
 					</div>
 				</div>
 				<!-- Text input-->
@@ -51,7 +53,7 @@
 				<div>
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="review_writer">작성자</label>  
-					  <input id="review_writer" name="review_writer" readonly="readonly"  placeholder="${loginStatus }" class="form-control input-md" required="" type="text">
+					  <input id="review_writer" name="review_writer" readonly="readonly"  placeholder="${loginStatus.id }" class="form-control input-md" required="" type="text">
 					</div>
 				</div>
 				<!-- Textarea -->

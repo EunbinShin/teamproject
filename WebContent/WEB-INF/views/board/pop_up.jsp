@@ -20,36 +20,75 @@
 				<h1>상품검색</h1>
 			</div>
 			<div class="content">
-				<form id="searchForm" action="search_item" method="get" target="_self"  enctype="multipart/form-data">
+				<form onsubmit="loadItems()" id="searchForm" target="_self"  enctype="multipart/form-data">
 					<div>
 						<div id="searchBarContainer">
 							<select id="search_type" name="search_type">
 							<option value="product_name">상품명</option>
-							<option value="model_name">모델명</option>
 							</select> 
 							<input id="keyword" name="keyword"
-								type="text">
+								type="text" required>
 							<button id="searchBtn">검색</button>
 						</div>
 						<div>
-							<p>총 <b>0</b>개 의 상품이 검색되었습니다.</p>
+							<p>총 <b id="item_count">0</b>개 의 상품이 검색되었습니다.</p>
 						</div>
 					</div>
 				</form>
+				
 				<div id="tableContainer">
 					<table class="table">
-						<caption>제품 검색결과입니다</caption>
+						<caption id="resultcaption">제품 검색결과입니다</caption>
 						<tr>
 							<th scope="col">상품 이미지</th>
 							<th scope="col">상품 정보</th>
 							<th scope="col">선택</th>
 						</tr>
-						
 						<tbody id="item_list" class="center">
 							
 						</tbody>
 					</table>
 				</div>
+				<script type="text/javascript">
+					const loadItems = () =>{
+						event.preventDefault();
+						var search_type = $("#search_type").val();
+						var keyword = $("#keyword").val();
+						$.ajax({
+							url: "search_items",
+							method: "post",
+							data: {search_type:search_type, 
+								keyword:keyword},
+							success: (data)=>{
+								console.log("load Item 실행");
+								$("#item_list").html(data);
+								if($(".item_result").length == 0){
+									$("#item_count").html(0);
+									$("#resultcaption").html('제품 검색결과입니다.');
+								}else{
+									$("#item_count").html($(".item_result").length);
+									$("#resultcaption").html('');
+								}
+							}
+						});
+					}
+					const selectItem = (product_id) => {
+						console.log("select Item");
+						$.ajax({
+							url: "update_item",
+							method: "post",
+							data: {product_id:product_id},
+							success: (data)=>{
+								console.log("load Item 실행");
+								$(opener.document).find("#ptest").text(data.product_id);
+								var url = "searchphoto?id="+data.product_id+"&image="+data.thumbnail;
+								$(opener.document).find("#selectImg").attr("src", url);
+								$(opener.document).find("#products_product_id").val(data.product_id);
+								self.close();
+							}
+						});
+					}
+				</script>
 	
 			</div>
 		</div>

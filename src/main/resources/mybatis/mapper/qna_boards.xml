@@ -52,12 +52,13 @@
 			select qno_seq.nextval
 			from dual
 		</selectKey>
+		
 		<if test="image1 == null">
 			insert into qna_boards
 				(qna_bno, products_product_id, qna_category,
 				 	qna_title ,users_id, qna_content, qna_date)
 			values
-				(#{qna_bno}, 1, #{qna_category},
+				(#{qna_bno}, #{products_product_id}, #{qna_category},
 					 #{qna_title} ,#{users_id}, #{qna_content}, sysdate)
 	 	</if>
 	 	<if test="image1 != null">
@@ -66,7 +67,7 @@
 				 	qna_title ,users_id, qna_content, qna_date,
 				 	image1, image2, image3, image4)
 			values
-				(#{qna_bno}, 1, #{qna_category},
+				(#{qna_bno}, #{products_product_id}, #{qna_category},
 				 #{qna_title} ,#{users_id}, #{qna_content}, sysdate,
 				 #{image1}, #{image2, jdbcType=VARCHAR}, #{image3, jdbcType=VARCHAR}, #{image4, jdbcType=VARCHAR})
 	 	</if>

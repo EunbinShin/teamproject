@@ -67,7 +67,7 @@
 				<div>
 				  <label class="control-label" for="qna_writer">작성자</label>  
 				  <div class="form-group">
-				  <input readonly="readonly" id="qna_writer" name="qna_writer" placeholder="${loginStatus }" class="form-control input-md" required="" type="text">
+				  <input readonly="readonly" id="qna_writer" name="qna_writer" placeholder="${loginStatus.id}" class="form-control input-md" required="" type="text">
 				  </div>
 				</div>
 				<!-- Textarea -->

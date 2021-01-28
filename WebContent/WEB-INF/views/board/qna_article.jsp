@@ -32,6 +32,21 @@
 			
 			<!-- QnA board Table -->
 			<div id="table_container">
+				<div id="selectedItem" class="d-flex flex-row">
+					<c:if test="${product == null}"> 
+						<img height="130px"
+						src="<%=application.getContextPath() %>/resources/img/defaultphoto.png">
+					</c:if>
+					<c:if test="${product != null}"> 
+						<img height="130px"
+						src="searchphoto?id=${product.product_id}&image=${product.thumbnail}">
+					</c:if>
+					<div class="ml-5">
+						<div><a>${product.product_name }</a></div>
+						<div><a>${product.product_price } 원</a></div>
+						<div><a class="btn btn-sm btn-primary">상세보기</a></div>
+					</div>
+				</div>
 				<table id="article_table" class="table">
 					<tr>
 						<td width="150px">제목 </td>
@@ -66,7 +81,7 @@
 				<%--버튼 컨테이너 --%>
 				<div id="btnContainer">
 					<a href="qna?page=${page}" class="btn btn-secondary">목록</a>
-					<c:if test="${loginStatus == qna.users_id}">
+					<c:if test="${loginStatus.id == qna.users_id}">
 						<a href="delete_qna?bno=${qna.qna_bno}" class="btn btn-secondary">삭제</a>
 						<a href="edit_qna?bno=${qna.qna_bno}" class="btn btn-secondary">수정</a>
 					</c:if>

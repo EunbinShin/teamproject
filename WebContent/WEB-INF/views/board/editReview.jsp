@@ -52,7 +52,7 @@
 				<div>
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="review_writer">작성자</label>  
-					  <input id="review_writer" name="review_writer" readonly="readonly"  placeholder="${loginStatus}" class="form-control input-md" required type="text">
+					  <input id="review_writer" name="review_writer" readonly="readonly"  placeholder="${loginStatus.id}" class="form-control input-md" required type="text">
 					</div>
 				</div>
 				<!-- Textarea -->
