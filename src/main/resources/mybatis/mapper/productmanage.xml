@@ -25,8 +25,14 @@
 		insert into products
 		(product_id, product_name, product_category, product_price, product_desc, percentage_discount, available_quantity, post_date, thumbnail, main_img, sub1_img, sub2_img, sub3_img, thumbnailhover)
 		values
-		(#{product_id}, #{product_name}, #{product_category}, #{product_price}, #{product_desc}, #{percentage_discount}, #{available_quantity}, #{post_date}, #{thumbnail}, #{main_img}, #{sub1_img, jdbcType=VARCHAR},  #{sub2_img, jdbcType=VARCHAR}, #{sub3_img, jdbcType=VARCHAR}, #{thumbnailhover}) 
+		(#{product_id}, #{product_name}, #{product_category}, #{product_price}, #{product_desc}, #{percentage_discount}, #{available_quantity}, #{post_date}, #{thumbnail}, #{main_img}, #{sub1_img, jdbcType=VARCHAR}, #{sub2_img, jdbcType=VARCHAR}, #{sub3_img, jdbcType=VARCHAR}, #{thumbnailhover}) 
 	</insert>
+	
+	<select id="selectByPk" parameterType="string" resultType="productmanage">
+		select product_id
+		from products
+		where product_id = #{product_id}
+	</select>
 	
 	
 	

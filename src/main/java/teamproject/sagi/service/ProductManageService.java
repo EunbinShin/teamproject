@@ -28,5 +28,15 @@ public class ProductManageService {
 	public void saveproduct(ProductDto product) {
 		pmDao.insert(product);		
 	}
+
+	public ProductDto getProduct(String product_id) {
+		ProductDto pDto = pmDao.selectByPk(product_id);
+		return pDto;
+	}
+
+	public ProductDto getUpdateProduct(String product_id) {
+		ProductDto pDto = pmDao.selectUpdateByPk(product_id);
+		return pDto;
+	}
 	
 }

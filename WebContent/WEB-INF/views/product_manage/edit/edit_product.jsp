@@ -73,21 +73,14 @@
 	<div class="add">
 		<form method= "post" enctype="multipart/form-data" name="addForm" action="add/add_upload" class="form-horizontal">
 			<fieldset>
-			
 			<!-- Form Name -->
-			<legend id="form-name">제품 등록</legend>
+			<legend id="form-name">상품 수정</legend>
 
 			<!-- Select Basic -->
 			<div class="form-group">
 				<label for="product_categorie" class="col-md-4 control-label">상품 카테고리</label>
 				<div class="col-md-4">
-					<select onchange="genId()" id="product_category" name="product_category" class="form-control">
-						<option value="">상품 카테고리</option>
-						<option value="1">도자기 </option>
-						<option value="2">식기</option>
-						<option value="3">유리그릇</option>
-						<option value="4">장식품</option>
-					</select>
+					<input onchange="genId()" value="${pmDto.product_category}" id="product_category" name="product_category" class="form-control" type="text">
 				</div>
 			</div>
 			
@@ -95,7 +88,7 @@
 			<div class="form-group">
 				<label for="product_name" class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
-					<input onchange="genId()" id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
+					<input onchange="genId()" value="${pmDto.product_name}" id="product_name" name="product_name"  class="form-control input-md" type="text">
 					
 				</div>
 			</div>
@@ -104,7 +97,7 @@
 			<div class="form-group">
 				<label for="product_id" class="col-md-4 control-label">상품 코드</label>
 				<div class="col-md-4">
-					<input readonly id="product_id" name="product_id" placeholder="상품 코드" class="form-control input-md"  type="text">
+					<input readonly value="${pmDto.product_id}" id="product_id" name="product_id"  class="form-control input-md"  type="text">
 				</div>
 			</div>
 			
@@ -112,7 +105,7 @@
 			<div class="form-group">
 				<label for="product_price" class="col-md-4 control-label">상품 가격</label>  
 				<div class="col-md-4">
-				<input onchange="price_Calc()" id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number" step="1000">
+				<input onchange="price_Calc()" value="${pmDto.product_price}" id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number" step="1000">
 					
 				</div>
 			</div>
@@ -121,7 +114,7 @@
 			<div class="form-group">
 				<label for="percentage_discount" class="col-md-4 control-label">상품 할인율</label>  
 				<div class="col-md-4">
-				<input onchange="price_Calc()"  id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number" 
+				<input onchange="price_Calc()" value="${pmDto.percentage_discount}" id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number" 
 				step="5" min="0" max="100">	
 				</div>
 			</div>
@@ -132,7 +125,7 @@
 				<label for="selling_price" class="col-md-4 control-label">상품 판매가 (할인 적용) </label>  
 				
 				<div class="col-md-4">
-				<input readonly id="selling_price" name="selling_price" value ="selling_price" class="form-control input-md" type="number">
+				<input readonly value="${pmDto.selling_price}" id="selling_price"  name="selling_price" value ="selling_price" class="form-control input-md" type="number">
 			</div>
 
 			</div>
@@ -141,7 +134,7 @@
 			<div class="form-group">
 				<label for="product_desc" class="col-md-4 control-label">상품 설명</label>
 				<div class="col-md-4">                     
-					<textarea class="form-control" id="product_desc" name="product_desc"></textarea>
+					<textarea class="form-control" id="product_desc" name="product_desc">${pmDto.product_desc}</textarea>
 				</div>
 			</div>
 			
@@ -149,7 +142,7 @@
 			<div class="form-group">
 				<label for="available_quantity" class="col-md-4 control-label">주문 가능 수량</label>  
 				<div class="col-md-4">
-					<input id="available_quantity" name="available_quantity" placeholder="주문 가능 수량" class="form-control input-md" 
+					<input value="${pmDto.available_quantity}" id="available_quantity" name="available_quantity" class="form-control input-md" 
 					type="number" min="0" max="100">
 				</div>
 			</div>
@@ -158,48 +151,35 @@
 			<div class="form-group">
 				<label for="post_date" class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
-					<input id="post_date" name="post_date" requried class="form-control input-md" type="date">
-					<script>
-						document.getElementById('online_date').valueAsDate = new Date();
-					</script>
-					
+					<input value="${pmDto.post_date}" id="post_date" name="post_date" requried class="form-control input-md" type="date">					
 				</div>
 			</div>	
 
+			<div class="form-group">
+				<label for="best" class="col-md-4 control-label">상품 뱃지 설정</label>  
+				<div class="col-md-4">
+					<input value="${pmDto.best}" id="best" name="best"  class="form-control input-md" type="checkbox">					
+				</div>
+			</div>
+
 			<!-- File Button --> 
 			<div class="form-group" style="margin-bottom:50px;">
-				<label for="thumbnailhovert_file" class="col-md-4 control-label">썸네일 이미지</label>
+				<label for="thumbnailhovert_file" class="col-md-4 control-label">이미지는 수정이 불가능합니다. 삭제 후 다시  이미지</label>
 				<div class="col-md-4">
 					<input type="file" id="thumbnail_file" name="thumbnail_file" requried class="input-file"/>
 				</div>
 			</div>
 			
-			<!-- File Button --> 
-			<div class="form-group" style="margin-bottom:50px;">
-				<label for="thumbnailhover_file" class="col-md-4 control-label">썸네일 호버 이미지</label>
-				<div class="col-md-4">
-					<input type="file" id="thumbnailhover_file" name="thumbnailhover_file" requried class="input-file"/>
+			<div class="form-group">
+				<label for="product_img" class="col-md-4 control-label">상품 이미지 관련 안내</label>
+				<div class="col-md-4">                     
+					<textarea class="form-control">
+					상품 이미지는 수정이 불가능합니다. <br/>
+					삭제 후 다시 상품을 등록해주실 바랍니다. <br/>
+					</textarea>
 				</div>
 			</div>
-			    
-			<!-- File Button --> 
-			<div class="form-group" style="margin-bottom:50px;">
-				<label for="main_img_file" class="col-md-4 control-label">메인 이미지</label>
-				<div class="col-md-4">
-					<input type="file" id="main_img_file" name="main_img_file" class="input-file"/>
-				</div>
-			</div>
-			
-			<!-- File Button --> 
-			<div class="form-group" style="margin-bottom:50px;">
-				<label class="col-md-4 control-label">서브 이미지</label>
-				<div class="col-md-4">
-					<input type="file" id="sub1_img_file" name="sub1_img_file" class="input-file"/>
-					<input type="file" id="sub2_img_file" name="sub2_img_file" class="input-file"/>
-					<input type="file" id="sub3_img_file" name="sub3_img_file" class="input-file"/>
-				</div>
-			</div>				
-				
+	
 			<!-- Button -->
 			<button type="submit" class="btn btn-primary">저장</button>
 			</fieldset>

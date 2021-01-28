@@ -56,156 +56,19 @@
 					<b>가격: 25,000</b>
 				</p>
 			</div>
-			<div class="column">
-				<a href="/html_css_javaspring/item_detail/product02.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img02-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img02-2.jpg" class="img-top">
-				</a> <a href="/html_css_javaspring/item_detail/product02.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="/html_css_javaspring/item_detail/product03.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img03-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img03-2.jpg" class="img-top">
-				</a> <a href="/html_css_javaspring/item_detail/product03.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="/html_css_javaspring/item_detail/product04.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img04-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img04-2.jpg" class="img-top">
-				</a> <a href="/html_css_javaspring/item_detail/product04.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img05-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img05-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img06-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img06-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img07-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img07-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img08-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img08-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img09-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img09-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img10-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img10-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img11-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img11-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img12-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img12-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img13-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img13-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img14-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img14-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img15-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img15-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			<div class="column">
-				<a href="html/product.html"> <img
-					src="<%=application.getContextPath() %>/resources/img/img16-1.jpg"
-					class="img-bottom"> <img
-					src="<%=application.getContextPath() %>/resources/img/img16-2.jpg" class="img-top">
-				</a> <a href="html/product.html">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
+			
+			<c:forEach var="product" items="${list}">
+				<div class="column">
+					<a href="productread?bno=${prouct.no}"> 
+						<img src="pphoto?mid=${board.bwriter}" class="img-bottom">
+						<img src="mphoto?mid=${board.bwriter}" class="img-top">
+					</a> <a href="productread?bno=${board.bno}">${board.btitle}</a>
+					<p>
+						<b>가격: 25,000</b>
+					</p>
+				</div>
+			</c:forEach>
+
 		</div>
 		<!-- row -->
 

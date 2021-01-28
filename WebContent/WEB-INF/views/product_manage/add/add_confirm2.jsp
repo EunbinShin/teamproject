@@ -34,34 +34,22 @@
 	<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 	
 	<div class="add">
-	<form class="form-horizontal">
+	<form method= "post" enctype="multipart/form-data" name="addForm" action="add/add_upload" class="form-horizontal">
 	<h3>상품을 등록을 완료했습니다</h3>
-	<div>
-	
-		<h5>등록된 상품</h5>
-		<div>
-			<script type="text/javascript">
-			
-			$(()=>{
-				console.log('실행');
-				$.ajax({
-					url: "add_photolist",
-					method: "get",
-					data: {product_id:"${product_id}"},
-					success: (data) => {
-						$("#add_photolist").html(data);
-					}
-				});
-			});
-			</script>
-		</div>
-		<div id="add_photolist" style="margin-top:10px;"></div>	
-	</div>
-
-	<div style="margin-top:30px;">
-	<a href="<%=application.getContextPath() %>/add/add" class="btn btn-secondary">추가</a>
-	<a href="<%=application.getContextPath() %>"class="btn btn-secondary">홈페이지</a>	
-	</div>
+			<fieldset>
+			<!-- Text input-->
+			<div class="form-group">
+				<label for="product_id" class="col-md-4 control-label">등록된 상품 코드</label>
+				<div class="col-md-4">
+					<input readonly value="${pDto.product_id}"  class="form-control input-md"  type="text">
+				</div>
+			</div>			
+				
+			<div style="margin-top:30px;">
+			<a href="<%=application.getContextPath() %>/add/add" class="btn btn-secondary">추가</a>
+			<a href="<%=application.getContextPath() %>"class="btn btn-secondary">홈페이지</a>	
+			</div>
+			</fieldset>
 	</form>
 	</div> <!-- /add -->
 		

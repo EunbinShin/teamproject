@@ -1,7 +1,6 @@
 package teamproject.sagi.dto;
 
 import java.util.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,21 +31,78 @@ public class ProductDto {
 	private String sub3_img;
 	
 	
+	///일반 
+	public String getProduct_id() {
+		return product_id;
+	}
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+	public int getProduct_category() {
+		return product_category;
+	}
+	public void setProduct_category(int product_category) {
+		this.product_category = product_category;
+	}
+	public double getProduct_price() {
+		return product_price;
+	}
+	public void setProduct_price(double product_price) {
+		this.product_price = product_price;
+	}
+	public double getPercentage_discount() {
+		return percentage_discount;
+	}
+	public void setPercentage_discount(double percentage_discount) {
+		this.percentage_discount = percentage_discount;
+	}
+	public double getSelling_price() {
+		return selling_price;
+	}
+	public void setSelling_price(double selling_price) {
+		this.selling_price = selling_price;
+	}
+	public String getProduct_desc() {
+		return product_desc;
+	}
+	public void setProduct_desc(String product_desc) {
+		this.product_desc = product_desc;
+	}
+	public int getAvailable_quantity() {
+		return available_quantity;
+	}
+	public void setAvailable_quantity(int available_quantity) {
+		this.available_quantity = available_quantity;
+	}
+	public Date getPost_date() {
+		return post_date;
+	}
+	public void setPost_date(Date post_date) {
+		this.post_date = post_date;
+	}
+	
+	
+	/// 이미지 파일
+	
+	
 	public MultipartFile getThumbnail_file() {
 		return thumbnail_file;
 	}
 	public void setThumbnail_file(MultipartFile thumbnail_file) {
 		this.thumbnail_file = thumbnail_file;
 	}
-	
 	public MultipartFile getThumbnailhover_file() {
 		return thumbnailhover_file;
 	}
 	public void setThumbnailhover_file(MultipartFile thumbnailhover_file) {
 		this.thumbnailhover_file = thumbnailhover_file;
 	}
-
-	
 	public MultipartFile getMain_img_file() {
 		return main_img_file;
 	}
@@ -71,6 +127,11 @@ public class ProductDto {
 	public void setSub3_img_file(MultipartFile sub3_img_file) {
 		this.sub3_img_file = sub3_img_file;
 	}
+	
+	
+	// 이미지 스트링 
+	
+	
 	public String getThumbnail() {
 		return thumbnail;
 	}
@@ -108,64 +169,6 @@ public class ProductDto {
 		this.sub3_img = sub3_img;
 	}
 	
-		
-	public int getProduct_category() {
-		return product_category;
-	}
-	public void setProduct_category(int product_category) {
-		this.product_category = product_category;
-	}
-	public String getProduct_desc() {
-		return product_desc;
-	}
-	public void setProduct_desc(String product_desc) {
-		this.product_desc = product_desc;
-	}
-	public String getProduct_id() {
-		return product_id;
-	}
-	public void setProduct_id(String product_id) {
-		this.product_id = product_id;
-	}
-	public String getProduct_name() {
-		return product_name;
-	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
-	}
-
-	public double getProduct_price() {
-		return product_price;
-	}
-	public void setProduct_price(double product_price) {
-		this.product_price = product_price;
-	}
-	public double getPercentage_discount() {
-		return percentage_discount;
-	}
-	public void setPercentage_discount(double percentage_discount) {
-		this.percentage_discount = percentage_discount;
-	}
-	public double getSelling_price() {
-		return selling_price;
-	}
-	public void setSelling_price(double selling_price) {
-		this.selling_price = selling_price;
-	}
-
-	public int getAvailable_quantity() {
-		return available_quantity;
-	}
-	public void setAvailable_quantity(int available_quantity) {
-		this.available_quantity = available_quantity;
-	}
-
-	public Date getPost_date() {
-		return post_date;
-	}
-	public void setPost_date(Date post_date) {
-		this.post_date = post_date;
-	}
 	
 
 	

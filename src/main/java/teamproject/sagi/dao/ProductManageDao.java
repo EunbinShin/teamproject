@@ -30,4 +30,20 @@ public class ProductManageDao {
 		return rows;
 	}
 
+	public ProductDto selectByPk(String product_id) {
+		ProductDto pDto = sst.selectOne("mybatis.mapper.productmanages.selectByPk", product_id);
+		return pDto;
+	}
+
+	public int update(ProductDto pDto) {
+		int rows = sst.update("mybatis.mapper.productmanages.update", pDto);
+		return rows;
+		
+	}
+
+	public ProductDto selectUpdateByPk(String product_id) {
+		ProductDto pDto = sst.selectOne("mybatis.mapper.productmanages.selectUpdateByPk", product_id);
+		return pDto;
+	}
+
 }
