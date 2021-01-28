@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.productmanages">
+	<select id="selectAll"
+			resultType="productmanage">
+		select
+			product_id,
+			product_name,
+			product_category,
+			product_price,
+			product_desc,
+			percentage_discount,
+			available_quantity,
+			post_date,
+			thumbnail,
+			main_img,
+			sub1_img,
+			sub2_img,
+			sub3_img,
+			thumbnailhover
+		from products
+	</select>
+	
+	<insert id="insert" parameterType="productmanage">
+		insert into products
+		(product_id, product_name, product_category, product_price, product_desc, percentage_discount, available_quantity, post_date, thumbnail, main_img, sub1_img, sub2_img, sub3_img, thumbnailhover)
+		values
+		(#{product_id}, #{product_name}, #{product_category}, #{product_price}, #{product_desc}, #{percentage_discount}, #{available_quantity}, #{post_date}, #{thumbnail}, #{main_img}, #{sub1_img, jdbcType=VARCHAR},  #{sub2_img, jdbcType=VARCHAR}, #{sub3_img, jdbcType=VARCHAR}, #{thumbnailhover}) 
+	</insert>
+	
+	
+	
+
+</mapper>

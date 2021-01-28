@@ -5,9 +5,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,55 +25,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import teamproject.sagi.dto.ProductDto;
-
-
+import teamproject.sagi.service.ProductManageService;
 
 @Controller
 @RequestMapping("/product_manage")
 public class ProductManageController {
 	private static final Logger logger = 
 			LoggerFactory.getLogger(ProductManageController.class);
-	 
+
+	@Resource
+	private ProductManageService pmService;
+	
 	@RequestMapping("/product_content")
 	public String content() {
 		logger.info("product content 실행");
 		return "product_manage/product_content";
 	}
-   
-   @PostMapping("/add/add_upload")
-   public String add_upload(ProductDto add_item, Model model) {
-	   String product_id = add_item.getProduct_id();
-	   model.addAttribute("product_id", product_id);
-	   String product_name = add_item.getProduct_name();
-	   String product_categorie = add_item.getProduct_categorie();
-	   double product_price = add_item.getProduct_price();
-	   double percentage_discount = add_item.getPercentage_discount();
-	   double selling_price = add_item.getProduct_price();
-	   String product_description = add_item.getProduct_description();
-	   int available_quantity = add_item.getAvailable_quantity();
-	   Date online_date = add_item.getOnline_date();
-	   
-	   logger.info("product_id: " + product_id);
-	   logger.info("product_name: " + product_name);
-	   logger.info("product_categorie: " + product_categorie);
-	   logger.info("product_price: " + product_price);
-	   logger.info("percentage_discount: " + percentage_discount);
-	   logger.info("selling_price: " + selling_price);  
-	   logger.info("product_description: " + product_description);
-	   logger.info("available_quantity: " + available_quantity);
-	   logger.info("online_date: " + online_date);  
-	   
-	   MultipartFile thumbnail = add_item.getThumbnail();
-	   if(!thumbnail.isEmpty()) {
-		   String originalFileName = thumbnail.getOriginalFilename();
-		   String contentType = thumbnail.getContentType();
-		   long size = thumbnail.getSize();
-		   logger.info("originalFileName: "+originalFileName);
-		   logger.info("contentType: "+contentType);
-		   logger.info("size: "+size);
-		   
-		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id+  "/thumbnail/";
-		   String fileName = new Date().getTime()+"_" + product_id +"_thumbnail.jpg";
+	
+	@GetMapping("/add/add_upload")
+	public String addForm() {
+		return "product_manage/add/add_upload";
+	}
+	
+	@PostMapping("/add/add_upload")
+	public String add_upload(ProductDto product, HttpSession session) {
+		
+		//thubnail img
+		MultipartFile thumbnail = product.getThumbnail_file();
+		
+		String id = product.getProduct_id();
+		
+		if(!thumbnail.isEmpty()) {	
+		   String fileName = new Date().getTime() + "-" + thumbnail.getOriginalFilename();
+		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/thumbnail/";
+		   product.setThumbnail(fileName);
 		   String filePath = saveDirPath + fileName;
 		   File file = new File(filePath);
 		   try {
@@ -76,19 +66,31 @@ public class ProductManageController {
 		   }catch (IOException e) {
 			   e.printStackTrace();
 		   }
-	   }
-
-	   MultipartFile main_img = add_item.getMain_img();
-	   if(!main_img.isEmpty()) {
-		   String originalFileName = main_img.getOriginalFilename();
-		   String contentType = main_img.getContentType();
-		   long size = main_img.getSize();
-		   logger.info("originalFileName: "+originalFileName);
-		   logger.info("contentType: "+contentType);
-		   logger.info("size: "+size);
+	    }
+	    
+	    //thumbnailhover img
+	    MultipartFile thumbnailhover = product.getThumbnailhover_file();
+	    if(!thumbnailhover.isEmpty()) {	   
+		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id +  "/thumbnailhover/";
+		   String fileName = new Date().getTime()+"-"+thumbnailhover.getOriginalFilename();
 		   
-		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id+ "/main/";
-		   String fileName = new Date().getTime()+"_" + product_id +"_main_img.jpg";
+		   product.setThumbnailhover(fileName);
+		   
+		   String filePath = saveDirPath + fileName;
+		   File file = new File(filePath);
+		   try {
+			   thumbnailhover.transferTo(file);
+		   }catch (IOException e) {
+			   e.printStackTrace();
+		   }
+	    }
+	    
+	    //main_img
+	    MultipartFile main_img = product.getMain_img_file();
+	   if(!main_img.isEmpty()) {
+		   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id+ "/main/";
+		   String fileName = new Date().getTime()+ "-" + main_img.getOriginalFilename();
+		   product.setMain_img(fileName);
 		   String filePath = saveDirPath + fileName;
 		   File file = new File(filePath);
 		   try {
@@ -98,101 +100,30 @@ public class ProductManageController {
 		   }
 	   }
 	   
-	   MultipartFile[] files = new MultipartFile[3];
-
-	   files[0] = add_item.getSub1_img();
-	   files[1] = add_item.getSub2_img();
-	   files[2] = add_item.getSub3_img();
-	   
-	   for(int i = 0 ; i < 3; i++) {
-		   if(!files[i].isEmpty()) {
-			   String originalFileName = files[i].getOriginalFilename();
-			   String contentType = files[i].getContentType();
-			   String name = "sub" + i + "_img.jpg";
-			   long size = files[i].getSize();
-			   logger.info("originalFileName: "+originalFileName);
-			   logger.info("contentType: "+contentType);
-			   logger.info("size: "+size);
-			   
-			   String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id+ "/sub/";
-			   String fileName = new Date().getTime()+"_" + product_id + name;
-			   String filePath = saveDirPath + fileName;
-			   File file = new File(filePath);
-			   try {
-				   files[i].transferTo(file);
-			   }catch (IOException e) {
-				   e.printStackTrace();
-			   }
-		   }		   
-	   }	   
-	   
+		/*
+		 * MultipartFile[] files = new MultipartFile[3];
+		 * 
+		 * files[0] = product.getSub1_img(); files[1] = product.getSub2_img(); files[2]
+		 * = product.getSub3_img();
+		 * 
+		 * for(int i = 0 ; i < 3; i++) { if(!files[i].isEmpty()) { String name = "sub" +
+		 * i + "_img.jpg";
+		 * 
+		 * String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id+ "/sub/"; String
+		 * fileName = new Date().getTime()+"_" + id + name; String filePath =
+		 * saveDirPath + fileName; File file = new File(filePath); try {
+		 * files[i].transferTo(file); }catch (IOException e) { e.printStackTrace(); } }
+		 * }
+		 */
 	   logger.info("상품 등록 완료");
-	   return "redirect:/product_manage/add/add_confirm";
-   }
-   
-	@RequestMapping("/add/add_confirm")
-	public String review(String product_id, Model model) {
-		logger.info("add confirm 실행");
-		logger.info(product_id+" 실행");
-		model.addAttribute("product_id", product_id);
-		return "product_manage/add/add_confirm";
+	   
+	   pmService.saveproduct(product);
+	   return "redirect:/";
+	   
 	}
 	
-   @RequestMapping("add/add_photolist")
-   public String add_photolist(Model model, String product_id) {
-      logger.info("실행");
-      logger.info(product_id);
-      String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/thumbnail/";
-      logger.info(saveDirPath);
-      File dir = new File(saveDirPath);
-      String[] fileNames = dir.list();
-      model.addAttribute("product_id", product_id);
-      model.addAttribute("fileNames", fileNames);
-      return "product_manage/add/add_photolist";
-   }
-   
-   @GetMapping("add/photodownload")
-   public void photodownload(String photo,String productid, HttpServletResponse response) { 
-	   logger.info("실행");
-	   logger.info("photo name: " + photo);
-	   logger.info("product_id" +  productid);
-	   String product_id = productid;
-	   String thumbnail = "thumbnail";
-	   String main = "main";
-	   String saveDirPath;
-	   
-	   if(photo.indexOf(thumbnail) != -1) {
-		   saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/thumbnail/";
-	   } else if (photo.indexOf(main) != -1) {
-		   saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id + "/main/";
-	   } else {
-		   saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/sub/";
-	   }
-	   
-	   String filePath = saveDirPath + photo;
-
-		response.setContentType("image/jpeg"); 
-		try {
-			photo = new String(photo.getBytes("UTF-8"), "ISO-8859-1");
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		response.setHeader("Content-Disposition", "attachment; filename=\""+photo+".jpg\"");
-	   try {
-
-		OutputStream os = response.getOutputStream();
-		InputStream is = new FileInputStream(filePath);
-
-		FileCopyUtils.copy(is, os);
-		os.flush();
-		os.close();
-		is.close();
-		
-	   	} catch (IOException e) {
-		e.printStackTrace();
-	   	}
-
-   }
-   
-   
+	
+	
+	
+	
 }

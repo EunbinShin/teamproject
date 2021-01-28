@@ -10,5 +10,6 @@
 		<typeAlias alias="reviewboard" type="teamproject.sagi.dto.ReviewDto"/>
 		<typeAlias alias="pager" type="teamproject.sagi.dto.Pager"/>
 		<typeAlias alias="signupdto" type="teamproject.sagi.dto.SignupDto"/>
+		<typeAlias alias="productmanage" type="teamproject.sagi.dto.ProductDto"/>
 	</typeAliases>
 </configuration>

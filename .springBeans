@@ -9,6 +9,7 @@
 	<configs>
 	</configs>
 	<autoconfigs>
+		<config>src/main/resources/spring/dispatcher/sagi_component_scan.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

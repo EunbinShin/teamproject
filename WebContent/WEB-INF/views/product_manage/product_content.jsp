@@ -51,7 +51,7 @@
 		
 		
 		genId = function() {
-			var pcate = document.getElementById("product_categorie").value
+			var pcate = document.getElementById("product_category").value
 			var pname = document.getElementById("product_name").value
 			document.getElementById("product_id").value = pcate + "-" + pname;
 		}
@@ -71,7 +71,7 @@
 	<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 	
 	<div class="add">
-		<form method= "post" enctype="multipart/form-data" action="add/add_upload" class="form-horizontal">
+		<form method= "post" enctype="multipart/form-data" name="addForm" action="add/add_upload" class="form-horizontal">
 			<fieldset>
 			
 			<!-- Form Name -->
@@ -79,20 +79,20 @@
 
 			<!-- Select Basic -->
 			<div class="form-group">
-				<label class="col-md-4 control-label">상품 카테고리</label>
+				<label for="product_categorie" class="col-md-4 control-label">상품 카테고리</label>
 				<div class="col-md-4">
-					<select onchange="genId()" id="product_categorie" name="product_categorie" class="form-control">
+					<select onchange="genId()" id="product_category" name="product_category" class="form-control">
 						<option value="">상품 카테고리</option>
-						<option value="ceramics">도자기 </option>
-						<option value="cutlery">식기</option>
-						<option value="glassware">유리그릇</option>
+						<option value="1">도자기 </option>
+						<option value="2">식기</option>
+						<option value="3">유리그릇</option>
 					</select>
 				</div>
 			</div>
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label">상품명</label>
+				<label for="product_name" class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
 					<input onchange="genId()" id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
 					
@@ -101,7 +101,7 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label">상품 코드</label>
+				<label for="product_id" class="col-md-4 control-label">상품 코드</label>
 				<div class="col-md-4">
 					<input readonly id="product_id" name="product_id" placeholder="상품 코드" class="form-control input-md"  type="text">
 				</div>
@@ -109,7 +109,7 @@
 			
 			<!-- num input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label">상품 가격</label>  
+				<label for="product_price" class="col-md-4 control-label">상품 가격</label>  
 				<div class="col-md-4">
 				<input onchange="price_Calc()" id="product_price" name="product_price" placeholder="상품 가격 " class="form-control input-md" type="number" step="1000">
 					
@@ -118,7 +118,7 @@
 			
 			<!-- num input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label">상품 할인율</label>  
+				<label for="percentage_discount" class="col-md-4 control-label">상품 할인율</label>  
 				<div class="col-md-4">
 				<input onchange="price_Calc()"  id="percentage_discount" name="percentage_discount" placeholder="상품 할인율" class="form-control input-md" type="number" 
 				step="5" min="0" max="100">	
@@ -128,7 +128,7 @@
 			
 			<!-- num input-->
 			<div class="form-group">				
-				<label class="col-md-4 control-label">상품 판매가 (할인 적용) </label>  
+				<label for="selling_price" class="col-md-4 control-label">상품 판매가 (할인 적용) </label>  
 				
 				<div class="col-md-4">
 				<input readonly id="selling_price" name="selling_price" value ="selling_price" class="form-control input-md" type="number">
@@ -138,15 +138,15 @@
 			
 			<!-- Textarea -->
 			<div class="form-group">
-				<label class="col-md-4 control-label">상품 설명</label>
+				<label for="product_desc" class="col-md-4 control-label">상품 설명</label>
 				<div class="col-md-4">                     
-					<textarea class="form-control" id="product_description" name="product_description"></textarea>
+					<textarea class="form-control" id="product_desc" name="product_desc"></textarea>
 				</div>
 			</div>
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label">주문 가능 수량</label>  
+				<label for="available_quantity" class="col-md-4 control-label">주문 가능 수량</label>  
 				<div class="col-md-4">
 					<input id="available_quantity" name="available_quantity" placeholder="주문 가능 수량" class="form-control input-md" 
 					type="number" min="0" max="100">
@@ -155,9 +155,9 @@
 			
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label">상품 개시일</label>  
+				<label for="post_date" class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
-					<input id="online_date" name="online_date" requried class="form-control input-md" type="date">
+					<input id="post_date" name="post_date" requried class="form-control input-md" type="date">
 					<script>
 						document.getElementById('online_date').valueAsDate = new Date();
 					</script>
@@ -167,17 +167,25 @@
 
 			<!-- File Button --> 
 			<div class="form-group" style="margin-bottom:50px;">
-				<label class="col-md-4 control-label">썸네일 이미지</label>
+				<label for="thumbnailhovert_file" class="col-md-4 control-label">썸네일 이미지</label>
 				<div class="col-md-4">
-					<input type="file" id="thumbnail" name="thumbnail" requried class="input-file"/>
+					<input type="file" id="thumbnail_file" name="thumbnail_file" requried class="input-file"/>
+				</div>
+			</div>
+			
+			<!-- File Button --> 
+			<div class="form-group" style="margin-bottom:50px;">
+				<label for="thumbnailhover_file" class="col-md-4 control-label">썸네일 호버 이미지</label>
+				<div class="col-md-4">
+					<input type="file" id="thumbnailhover_file" name="thumbnailhover_file" requried class="input-file"/>
 				</div>
 			</div>
 			    
 			<!-- File Button --> 
 			<div class="form-group" style="margin-bottom:50px;">
-				<label class="col-md-4 control-label">메인 이미지</label>
+				<label for="main_img_file" class="col-md-4 control-label">메인 이미지</label>
 				<div class="col-md-4">
-					<input type="file" id="main_img" name="main_img" class="input-file"/>
+					<input type="file" id="main_img_file" name="main_img_file" class="input-file"/>
 				</div>
 			</div>
 			
@@ -185,32 +193,15 @@
 			<div class="form-group" style="margin-bottom:50px;">
 				<label class="col-md-4 control-label">서브 이미지</label>
 				<div class="col-md-4">
-					<input type="file" id="sub1_img" name="sub1_img" class="input-file"/>
-					<input type="file" id="sub2_img" name="sub2_img" class="input-file"/>
-					<input type="file" id="sub3_img" name="sub3_img" class="input-file"/>
+					<input type="file" id="sub1_img_file" name="sub1_img_file" class="input-file"/>
+					<input type="file" id="sub2_img_file" name="sub2_img_file" class="input-file"/>
+					<input type="file" id="sub3_img_file" name="sub3_img_file" class="input-file"/>
 				</div>
 			</div>
 				
 				
 			<!-- Button -->
-			<div class="form-group">
-				<label class="col-md-4 control-label"></label>
-				<div class="col-md-4">
-				
-				<script>
-					function submit(){
-						if (confirm("상품을 등록하겠습니까?") == true){
-						    document.form.submit();
-						}else{
-						    return;
-						}
-					}
-				</script>
-				
-				<input type="submit" onclick="submit()" id="singlebutton" name="singlebutton" class="btn btn-secondary">
-
-				</div>
-			</div>
+			<button type="submit" class="btn btn-primary">저장</button>
 			</fieldset>
 		</form>
 		</div> <!-- /add -->
