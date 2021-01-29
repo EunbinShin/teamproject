@@ -19,6 +19,9 @@ public class ItemDetailService {
 	
 	public ProductDto iDetail(String product_id) {
 		ProductDto iDetail = iDetailDao.selectByPk(product_id);
+		String temp = iDetail.getProduct_desc();
+		temp = temp.replaceAll("\n", "<br/>");
+		iDetail.setProduct_desc(temp);
 		return iDetail;
 	}
 }

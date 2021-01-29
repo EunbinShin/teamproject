@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -18,19 +19,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import teamproject.sagi.dto.ProductDto;
+import teamproject.sagi.dto.ReviewDto;
 import teamproject.sagi.service.ItemDetailService;
+import teamproject.sagi.service.ReviewService;
 
 @Controller
 @RequestMapping("/item_list")
 public class ItemDetailController {
+	
 	private static final Logger logger 
 		= LoggerFactory.getLogger(ItemDetailController.class);
-	// item_detail/product01?item=${product.product_id}
+	
 	@Resource
 	private ItemDetailService itemdetailService;
+	@Resource
+	private ReviewService reviewService;
 	
 	@GetMapping("/item_detail")
-	public String product(@RequestParam("item")String product_id, Model model) {
+	public String product(
+			@RequestParam("item")String product_id,
+			Model model) {
 		logger.info(product_id);
 		
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
@@ -57,7 +65,7 @@ public class ItemDetailController {
 		is.close();
 	}
 	
-	@GetMapping("/item_detail/mainphoto")
+	@GetMapping("/mainphoto")
 	public void mainphoto(String product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
@@ -74,7 +82,7 @@ public class ItemDetailController {
 		is.close();
 	}
 	
-	@GetMapping("/item_detail/sub1photo")
+	@GetMapping("/sub1photo")
 	public void sub1photo(String product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
@@ -91,7 +99,7 @@ public class ItemDetailController {
 		is.close();
 	}
 	
-	@GetMapping("/item_detail/sub2photo")
+	@GetMapping("/sub2photo")
 	public void sub2photo(String product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
@@ -108,7 +116,7 @@ public class ItemDetailController {
 		is.close();
 	}
 	
-	@GetMapping("/item_detail/sub3photo")
+	@GetMapping("/sub3photo")
 	public void edit_sub3photo(String product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
@@ -126,8 +134,8 @@ public class ItemDetailController {
 	}
 	
 	
-	@GetMapping("/item_detail/asyncform")
-	public String asyncform(String product_id, Model model) {
+	@GetMapping("/defaultform")
+	public String defaultform(String product_id, Model model) {
 		logger.info(product_id);
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		model.addAttribute("itemdetail", iDetail);
@@ -135,16 +143,19 @@ public class ItemDetailController {
 		return "item_list/item_detail/asyncform";
 	}
 	
-	@GetMapping("/item_detail/reviewform01")
-	public String reviewform01() {
-		logger.info("상세페이지 보냄");
+	@GetMapping("/reviewform")
+	public String reviewform01(String product_id, Model model) {
+		logger.info(product_id);
+		List<ReviewDto> reviews = reviewService.getProductReview(product_id);
+		model.addAttribute("list", reviews);
+		logger.info("리뷰페이지 보냄");
 		return "item_list/item_detail/reviewform01";
 	}
 	
-	@GetMapping("/item_detail/deliveryform01")
+	@GetMapping("/deliveryform")
 	public String deliveryform01() {
 		logger.info("상세페이지 보냄");
-		return "item_list/item_detail/deliveryform01";
+		return "item_list/item_detail/deliveryform";
 	}
 	
 }

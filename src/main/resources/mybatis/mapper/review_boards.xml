@@ -16,6 +16,13 @@
 		where review_no = #{bno}
 	</select>
 	
+	<select id="selectByProduct" 
+		resultType="reviewboard">
+		select *
+		from review_boards
+		where PRODUCTS_PRODUCT_ID = #{product_id}
+	</select>
+	
 	<select id="selectByPage" 
 		parameterType="pager"
 		resultType="reviewboard">

@@ -37,34 +37,26 @@
 				<div class="info">
 					<h2> 이름: ${iDetail.product_name} </h2><br/>
 					<h4> 가격: ${iDetail.product_price} </h4><br/>
-					<h4> 할인가격: ${iDetail.product_price * product.percentage_discount} </h4><br/> 
-					<h4> 수량선택: ${iDetail.available_quantity} </h4><br/>
-					<h4> 총상품금액: ${iDetail.selling_price} </h4><br/>
 					
 					<input id="buy_quantity"
 					name="buy_quantity" placeholder="4" type="number"
 					style="width: 100px" min="1"><br/>
 
-				<div class="Button" >
-						<c:if test="${loginStatus != 'admin'}">
+					<div class="Button" >
+						<c:if test="${loginStatus.id != 'admin'}">
 						<a id="b1" href="<%=application.getContextPath() %>/buy/buy_product" target="_blank">Buy</a>
 						</c:if>
 						
-						<c:if test="${loginStatus == 'admin'}">
+						<c:if test="${loginStatus.id == 'admin'}">
 						<a id="b2" href="delete" target="_blank">Delete</a><p></p>
 						</c:if>
 						
-						<c:if test="${loginStatus == 'admin' }">
+						<c:if test="${loginStatus.id == 'admin' }">
 						<a id="b2" href="edit" target="_blank">Edit</a><p></p>
 						</c:if>
 						
-						<c:if test="${loginStatus != 'admin'}">
-						<script type="text/javascript">
-							$(()=>{
-								console.log('실행');
-								console.log('${item}');
-							});
-						</script>
+						<c:if test="${loginStatus.id != 'admin'}">
+						
 						<a id="b3" href="/teamproject/wishlist/wishlist?item=${item}&quantity=${quantity}&name=${name}&detail=${detail}&price=${price}&discount=${discount}" target="_blank"><i class="fas fa-heart"></i></a>
 						</c:if>
 					</div>
@@ -79,13 +71,12 @@
 					<a id="delivery" class="btn btn-info btn-sm" href="javascript:delivery()">배송정보</a>
 				</div>
 				<script>
+					var id = "<c:out value='${iDetail.product_id}'/>";
 					const detail = () => {
 						$.ajax({
-							url:"asyncform",
+							url:"defaultform",
 							method:"get",
-							error : function() {
-						          alert('실패');
-						        },
+							data: {product_id : id},
 							success: (data) => {
 								console.log("성공");
 								$("#deatail").html(data);
@@ -96,9 +87,7 @@
 						$.ajax({
 							url:"reviewform",
 							method:"get",
-							error : function() {
-						          alert('실패');
-						        },
+							data: {product_id : id},
 							success: (data) => {
 								console.log("성공");
 								$("#deatail").html(data);
@@ -109,15 +98,18 @@
 						$.ajax({
 							url:"deliveryform",
 							method:"get",
-							error : function() {
-						          alert('실패');
-						        },
 							success: (data) => {
 								console.log("성공");
 								$("#deatail").html(data);
 							}
 						})
 					};
+					
+					$(()=>{
+						console.log('실행');
+						detail();
+						
+					});
 				</script>
 				<div id="deatail"></div>
 			</article>
