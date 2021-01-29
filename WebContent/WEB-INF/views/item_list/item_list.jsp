@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.*, java.text.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
 
 		<div id="explainList">
 			<div id="explainLeft">
-				총 <b>16</b>개의 상품이 검색되었습니다.
+				총 <b>${total_products}</b>개의 상품이 검색되었습니다.
 			</div>
 			<h3>상품</h3>
 			<ul class="breadcrumb justify-content-center">
@@ -45,53 +46,45 @@
 				</ul>
 			</div>
 		</div>
-		<div id="row">
-			<div class="column">
-				<!-- ëª¨ë  íê·¸ì aíê·¸ ì¶ê°íê¸° -->
-				<a href="item_detail/product01?item=product01"> 
-					<img src="<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom">
-					<img src="<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top">
-				</a> <a href="itemDetail">이름이름이름</a>
-				<p>
-					<b>가격: 25,000</b>
-				</p>
-			</div>
-			
-			<c:forEach var="product" items="${list}">
+		
+		<!-- row -->
+		
+		<div id="row"> 
+			<c:forEach var="product" items="${products}" varStatus="status">
 				<div class="column">
-					<a href="productread?bno=${prouct.no}"> 
-						<img src="pphoto?mid=${board.bwriter}" class="img-bottom">
-						<img src="mphoto?mid=${board.bwriter}" class="img-top">
-					</a> <a href="productread?bno=${board.bno}">${board.btitle}</a>
+					<a href="item_detail/product01?item=${product.product_id}"> 
+						<img src="thumbnail?id=${product.product_id}&image=${product.thumbnail}" class="img-bottom">
+						<img src="thumbnail_hover?id=${product.product_id}&image=${product.thumbnailhover}" class="img-top">
+					</a>
+					<a href="item_detail/product01?item=${product.product_id}">${product.product_name}</a>
 					<p>
-						<b>가격: 25,000</b>
+						<b>가격: ${product.product_price}</b>
 					</p>
 				</div>
-			</c:forEach>
-
-		</div>
-		<!-- row -->
-
-		<!-- page number navigation -->
+		  	</c:forEach>
+	  	</div> 
 		
-			<ul class="pagination justify-content-center">
-				<li class="page-item<c:if test="${page == 1}"> disabled</c:if>"><a class="page-link" href="default?page=${page-1}"> 
-					<span aria-hidden="true">&laquo;</span>
-        			<span class="sr-only">Previous</span></a></li>
-			    <li class="page-item<c:if test="${page == 1}"> active</c:if>"><a class="page-link" href="default?page=1">1</a></li>
-			    <li class="page-item<c:if test="${page == 2}"> active</c:if>"><a class="page-link" href="default?page=2">2</a></li>
-			    <li class="page-item<c:if test="${page == 3}"> active</c:if>"><a class="page-link" href="default?page=3">3</a></li>
-			    <li class="page-item<c:if test="${page == 4}"> active</c:if>"><a class="page-link" href="default?page=4">4</a></li>
-			    <li class="page-item<c:if test="${page == 5}"> active</c:if>"><a class="page-link" href="default?page=5">5</a></li>
-			    <li class="page-item<c:if test="${page == 6}"> active</c:if>"><a class="page-link" href="default?page=6">6</a></li>
-			    <li class="page-item<c:if test="${page == 7}"> active</c:if>"><a class="page-link" href="default?page=7">7</a></li>
-			    <li class="page-item<c:if test="${page == 8}"> active</c:if>"><a class="page-link" href="default?page=8">8</a></li>
-			    <li class="page-item<c:if test="${page == 9}"> active</c:if>"><a class="page-link" href="default?page=9">9</a></li>
-			    <li class="page-item<c:if test="${page == 10}"> active</c:if>"><a class="page-link" href="default?page=10">10</a></li>
-			    <li class="page-item"><a class="page-link" href="default?page=${page+1}">
-			    	<span aria-hidden="true">&raquo;</span>
-        			<span class="sr-only">Next</span></a></li>
-  			</ul>
+		<!-- page number navigation -->
+			<div class="d-flex align-items-center justify-content-center">
+				<div>
+					<a href="default?page=1" class="btn btn-outline-dark btn-sm mr-1">처음</a>
+					<c:if test="${pager.groupNo > 1}">
+						<a href="default?page=${pager.startPageNo-1}" class="btn btn-outline-dark btn-sm mr-1">이전</a>
+					</c:if>
+					<c:forEach var="i" begin="${pager.startPageNo}" end="${pager.endPageNo}">
+						<c:if test="${i == pager.pageNo }">
+							<a href="default?page=${i}" class="btn btn-secondary btn-sm mr-1">${i}</a>
+						</c:if>
+						<c:if test="${i != pager.pageNo }">
+							<a href="default?page=${i}" class="btn btn-outline-secondary btn-sm mr-1">${i}</a>
+						</c:if>
+					</c:forEach>
+					<c:if test="${pager.groupNo < pager.totalGroupNo}">
+						<a href="default?page=${pager.endPageNo+1}" class="btn btn-outline-dark btn-sm ml-1 mr-1">다음</a>
+					</c:if>
+					<a href="default?page=${pager.totalPageNo}" class="btn btn-outline-dark btn-sm">맨끝</a>
+				</div>
+			</div>
 
 		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 	</div>

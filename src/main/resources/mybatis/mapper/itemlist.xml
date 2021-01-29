@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.itemlist">
+
+	<select id="countAll" 
+		resultType="int">
+		select count(*)
+		from products
+	</select>
+	
+	<select id="selectByPage" 
+		parameterType="pager"
+		resultType="productmanage">
+		select rno, product_id, product_name, product_category,
+				product_price, product_desc, percentage_discount,
+				available_quantity, post_date,
+				thumbnail,
+				main_img,
+				sub1_img, sub2_img, sub3_img,
+				thumbnailhover
+		from(
+			select rownum as rno, product_id, product_name, product_category,
+					product_price, product_desc, percentage_discount,
+					available_quantity, post_date,
+					thumbnail,
+					main_img,
+					sub1_img, sub2_img, sub3_img,
+					thumbnailhover
+		    from (
+		        select product_id, product_name, product_category,
+						product_price, product_desc, percentage_discount,
+						available_quantity, post_date,
+						thumbnail,
+						main_img,
+						sub1_img, sub2_img, sub3_img,
+						thumbnailhover
+		        from products
+		        order by post_date desc)
+		    where rownum &lt;= #{endRowNo}	
+		)
+		where rno &gt;= #{startRowNo}
+	</select>
+
+</mapper>

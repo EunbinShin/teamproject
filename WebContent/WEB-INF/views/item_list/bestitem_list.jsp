@@ -66,6 +66,7 @@
 				</div>
 			</div>
 			<div id="row">
+				<div>
 				<div class="column">
 					<!-- 모든 태그에 a태그 추가하기 -->
 					<a href = "/html_css_javaspring/item_detail/product01.html">
@@ -77,7 +78,7 @@
 						이름이름이름
 					</a>
 					<p><b><b>가격: 25,000</b></b></p>
-				</div> 
+				</div> </div>
 				<div class="column">
 					<a href = "/html_css_javaspring/item_detail/product02.html">
 						<img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg" class="img-bottom">
