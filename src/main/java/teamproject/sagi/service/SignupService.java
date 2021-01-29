@@ -2,6 +2,7 @@ package teamproject.sagi.service;
 
 import javax.annotation.Resource;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,14 @@ public class SignupService {
 	
 	public void signup(SignupDto signup) {
 		signupDao.insert(signup);
+	}
+
+	public String idCheck(String id) {
+		String signup = signupDao.idCheck(id);
+		if(signup == null) {
+			return "success";
+		}else{
+			return "duplicate";
+	    }
 	}
 }

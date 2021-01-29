@@ -1,10 +1,13 @@
 package teamproject.sagi.controller;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -45,4 +48,20 @@ public class SignupController {
 		return "redirect:/signup/signup";
 	}
 	
+	@PostMapping("/idCheck")
+	public void idCheck(String id, 
+			HttpServletResponse response) throws Exception {
+		response.setContentType("application/json; charset=UTF-8");
+		
+		PrintWriter pw = response.getWriter();
+		String idCheck = signupService.idCheck(id);
+		JSONObject root = new JSONObject();
+		root.put("id", idCheck);
+		
+		String json = root.toString();
+		pw.println(json);
+		
+		pw.flush();
+		pw.close();
+	}
 }

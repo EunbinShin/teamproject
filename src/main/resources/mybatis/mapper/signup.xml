@@ -16,4 +16,13 @@
 			(#{id}, #{name}, #{password}, #{cellphone}, #{email}, #{address}, #{profile_image})
 		</if>
 	</insert>
+	
+	<select id="idCheck" 
+		parameterType="string"
+		resultType="string">
+		select id
+		from users
+		where id = #{id}
+	</select>
+	
 </mapper>

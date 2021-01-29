@@ -17,8 +17,41 @@
 	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/menu_bar.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/footer.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/signup.css?after" type="text/css">
+	<script>
+    	function idCheck(){
+    		var id = $("#id").val();
+    		
+    		$.ajax({
+   				url: "idCheck",
+   				method: "post",
+   				data: {id:id},
+   				success: function(data) {
+   					if(data.id === "success"){
+   						alert("사용하실 수 있습니다.");
+   						console.log('사용가능');
+   					} else{
+   						alert("중복입니다");
+   						console.log("중복");
+   					}
+   				}
+   			});
+    	}
+    		
+		$(function() {
+			$('#pw2').blur(function() {
+				if ($("#password").val() != $("#password2").val()) {
+					if ($("#password2").val() != "") {
+						alert("비밀번호가 일치하지 않습니다");
+						$("#password2").val("");
+						$("#password2").focus();
+					}
+				}
+			})
+		});
+		
+	</script>
 </head>
-
+	
 <body>
 		<jsp:include page="/WEB-INF/views/include/sideNav.jsp"/>
 		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
@@ -32,11 +65,9 @@
 				<div class="form-group">
 					<label for="id">아이디</label>
 					<div class="d-flex">
-						<input type="text" class="form-control" 
-							id="id" name="id" required/>
-						<a href="#" class="btn btn-danger" id="checkbtn">중복확인</a>
+						<input type="text" id="id" name="id" class="form-control" required/>
+						<a onclick="idCheck()" class="btn btn-danger">중복확인</a>
 					</div>
-					
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
@@ -49,6 +80,12 @@
 					<label for="password">비밀번호</label>
 					<input type="password" class="form-control"
 						 id="password" name="password" required/>
+					<small class="form-text text-muted">필수 입력 사항입니다.</small>
+				</div>
+				<div class="form-group">
+					<label for="password2">비밀번호 확인</label>
+					<input type="password" class="form-control"
+						 id="password2" name="password2" required/>
 					<small class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
