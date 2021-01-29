@@ -17,6 +17,11 @@ public class SignupDao {
 	@Resource
 	private SqlSessionTemplate sst;
 	
+	public String idCheck(String id) {
+		String idcheck = sst.selectOne("mybatis.mapper.signup.idCheck", id);
+		return idcheck;
+	}
+	
 	public int insert(SignupDto signup) {
 		int rows = sst.insert("mybatis.mapper.signup.insert", signup);
 		return rows;
