@@ -32,4 +32,11 @@ public class SearchDao {
 		ProductDto product = sst.selectOne("mybatis.mapper.search.selectByPk", products_product_id);
 		return product;
 	}
+
+	public List<ProductDto> selectByCategory(String category) {
+		List<ProductDto> products = sst.selectList(
+								"mybatis.mapper.search.selectByCategory",
+								category);
+		return products;
+	}
 }

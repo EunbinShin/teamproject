@@ -30,5 +30,11 @@ public class SearchService {
 		ProductDto product = searchDao.selectByPk(products_product_id);
 		return product;
 	}
+
+	public List<ProductDto> findSliderItem(String category) {
+		// TODO Auto-generated method stub
+		List<ProductDto> products = searchDao.selectByCategory(category);
+		return products;
+	}
 	
 }

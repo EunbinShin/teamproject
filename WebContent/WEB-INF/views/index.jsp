@@ -153,7 +153,7 @@
 						$.ajax({
 							url: "slider",
 							method: "get",
-							data: {item : getId},
+							data: {category : getId},
 							success: function(data){
 								console.log("성공");
 								$(".test_slide ul").css("animation-play-state","running");

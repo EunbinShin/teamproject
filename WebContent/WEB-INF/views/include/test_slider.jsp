@@ -4,8 +4,8 @@
 <div class="test_slide">
 	<ul>
 		<li>
-		<c:forEach var="fileName" items="${fileNames}">
-			<img style="width: 15%" src="adphoto?photo=${fileName}&item=${item}"/>
+		<c:forEach var="product" items="${products}">
+			<img style="width: 15%" src="thumbnail?id=${product.product_id}&image=${product.thumbnail}"/>
 		</c:forEach>
 		</li>
 	</ul>

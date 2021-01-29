@@ -9,6 +9,20 @@
 		where product_name like '%'||#{keyword}||'%'
 	</select>
 	
+	<select id="selectByCategory"
+		resultType="productmanage">
+		select product_id, thumbnail
+		from(select product_id, thumbnail
+		    from products
+		    where product_category
+		             = (select cno
+		                from categories
+		                where cname = #{category}
+		                )
+    		order by DBMS_RANDOM.RANDOM)
+    	where rownum &lt;= 4
+	</select>
+	
 	<select id="selectThumbnailByPk"
 		resultType="string">
 		select thumbnail
