@@ -35,15 +35,15 @@ public class ProductManageDao {
 		return pDto;
 	}
 
-	public int update(ProductDto pDto) {
-		int rows = sst.update("mybatis.mapper.productmanages.update", pDto);
-		return rows;
-		
-	}
-
-	public ProductDto selectUpdateByPk(String product_id) {
-		ProductDto pDto = sst.selectOne("mybatis.mapper.productmanages.selectUpdateByPk", product_id);
+	public ProductDto selectAllInfo(String product_id) {
+		ProductDto pDto = sst.selectOne("mybatis.mapper.productmanages.selectAllInfo", product_id);
 		return pDto;
 	}
+
+	public int edit(ProductDto pmDto) {
+		int rows = sst.update("mybatis.mapper.productmanages.edit", pmDto);
+		return rows;
+	}
+
 
 }

@@ -13,6 +13,7 @@
 			available_quantity,
 			post_date,
 			thumbnail,
+			best,
 			main_img,
 			sub1_img,
 			sub2_img,
@@ -23,9 +24,14 @@
 	
 	<insert id="insert" parameterType="productmanage">
 		insert into products
-		(product_id, product_name, product_category, product_price, product_desc, percentage_discount, available_quantity, post_date, thumbnail, main_img, sub1_img, sub2_img, sub3_img, thumbnailhover)
+		(product_id, product_name, product_category, product_price, product_desc, percentage_discount, available_quantity, post_date, best, thumbnail, main_img, sub1_img, sub2_img, sub3_img, thumbnailhover, old_product_id, selling_price)
 		values
-		(#{product_id}, #{product_name}, #{product_category}, #{product_price}, #{product_desc}, #{percentage_discount}, #{available_quantity}, #{post_date}, #{thumbnail}, #{main_img}, #{sub1_img, jdbcType=VARCHAR}, #{sub2_img, jdbcType=VARCHAR}, #{sub3_img, jdbcType=VARCHAR}, #{thumbnailhover}) 
+		(#{product_id}, #{product_name},
+		 #{product_category}, #{product_price}, #{product_desc},
+		  #{percentage_discount}, #{available_quantity}, #{post_date},
+		   #{best}, #{thumbnail}, #{main_img}, #{sub1_img, jdbcType=VARCHAR},
+		    #{sub2_img, jdbcType=VARCHAR}, #{sub3_img, jdbcType=VARCHAR},
+		     #{thumbnailhover}, #{product_id}, #{selling_price}) 
 	</insert>
 	
 	<select id="selectByPk" parameterType="string" resultType="productmanage">
@@ -34,7 +40,45 @@
 		where product_id = #{product_id}
 	</select>
 	
+	<select id="selectAllInfo"
+			parameterType="string"
+			resultType="productmanage">
+		select
+			product_id,
+			product_name,
+			product_category,
+			product_price,
+			product_desc,
+			percentage_discount,
+			available_quantity,
+			post_date,
+			thumbnail,
+			best,
+			main_img,
+			sub1_img,
+			sub2_img,
+			sub3_img,
+			thumbnailhover,
+			old_product_id,
+			selling_price
+		from products
+		where product_id = #{product_id}
+	</select>
 	
+	<update id="edit" parameterType ="productmanage">
+		update products
+		set product_id = #{product_id},
+			product_name = #{product_name},
+			product_category = #{product_category},
+			product_price = #{product_price},
+			product_desc = #{product_desc},
+			percentage_discount = #{percentage_discount},
+			available_quantity = #{available_quantity},
+			post_date = #{post_date},
+			best = #{best},
+			old_product_id = #{old_product_id}
+		where product_id = #{old_product_id}
+	</update>
 	
 
 </mapper>

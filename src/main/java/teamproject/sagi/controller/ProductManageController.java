@@ -48,7 +48,8 @@ public class ProductManageController {
 
 	@PostMapping("/add/add_upload")
 	public String add_upload(ProductDto product, HttpSession session) {
-
+		
+		product.setBest(false);
 		
 		// thubnail img
 		MultipartFile thumbnail = product.getThumbnail_file();
@@ -149,8 +150,26 @@ public class ProductManageController {
 	}
 	
 
+	@GetMapping("/edit/edit_product")
+	public String edit_productForm(String product_id, Model model) {
+		logger.info("edit_product 실행 중");
+		product_id = "2-wonneej2";
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		
+		model.addAttribute("pmDto", pmDto);
+		
+		
+		return "product_manage/edit/edit_product";
+	}
 	
-	
+	@PostMapping("/edit/edit_product")
+	public String edit_product(ProductDto pmDto) {
+		logger.info(pmDto.getProduct_id());
+		logger.info(pmDto.getOld_product_id());
+		pmService.edit(pmDto); 
+		logger.info("수정수정 실행 중");
+		return "product_manage/edit/edit_product";
+	}
 	
 	
 	/*

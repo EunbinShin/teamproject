@@ -34,9 +34,15 @@ public class ProductManageService {
 		return pDto;
 	}
 
-	public ProductDto getUpdateProduct(String product_id) {
-		ProductDto pDto = pmDao.selectUpdateByPk(product_id);
+	public ProductDto getAllProduct(String product_id) {
+		ProductDto pDto = pmDao.selectAllInfo(product_id);
 		return pDto;
 	}
+
+	public void edit(ProductDto pmDto) {
+		pmDao.edit(pmDto);
+	}
+	
+	
 	
 }

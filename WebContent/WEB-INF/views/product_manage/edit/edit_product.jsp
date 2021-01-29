@@ -71,7 +71,7 @@
 	<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 	
 	<div class="add">
-		<form method= "post" enctype="multipart/form-data" name="addForm" action="add/add_upload" class="form-horizontal">
+		<form method= "post" enctype="multipart/form-data" name="edit_productForm" action="edit_product" class="form-horizontal">
 			<fieldset>
 			<!-- Form Name -->
 			<legend id="form-name">상품 수정</legend>
@@ -98,6 +98,7 @@
 				<label for="product_id" class="col-md-4 control-label">상품 코드</label>
 				<div class="col-md-4">
 					<input readonly value="${pmDto.product_id}" id="product_id" name="product_id"  class="form-control input-md"  type="text">
+					<input hidden value="${pmDto.old_product_id}" id="old_product_id" name="old_product_id"  class="form-control input-md"  type="text">
 				</div>
 			</div>
 			
@@ -162,26 +163,13 @@
 				</div>
 			</div>
 
-			<!-- File Button --> 
-			<div class="form-group" style="margin-bottom:50px;">
-				<label for="thumbnailhovert_file" class="col-md-4 control-label">이미지는 수정이 불가능합니다. 삭제 후 다시  이미지</label>
-				<div class="col-md-4">
-					<input type="file" id="thumbnail_file" name="thumbnail_file" requried class="input-file"/>
-				</div>
-			</div>
-			
+			<!-- File Button -->			
 			<div class="form-group">
-				<label for="product_img" class="col-md-4 control-label">상품 이미지 관련 안내</label>
-				<div class="col-md-4">                     
-					<textarea class="form-control">
-					상품 이미지는 수정이 불가능합니다. <br/>
-					삭제 후 다시 상품을 등록해주실 바랍니다. <br/>
-					</textarea>
-				</div>
+				<label for="product_img" class="col-md-4 control-label">상품 이미지는 수정이 불가능합니다. 삭제 후 다시 상품을 등록해주실 바랍니다.</label>
 			</div>
 	
 			<!-- Button -->
-			<button type="submit" class="btn btn-primary">저장</button>
+			<button type="submit" class="btn btn-warning">수정</button>
 			</fieldset>
 		</form>
 		</div> <!-- /add -->
