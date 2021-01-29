@@ -13,7 +13,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:if test="${list == null}">
+			<c:if test="${size == 0}">
 				<caption>작성된 리뷰가 없습니다.</caption>
 			</c:if>
 			<c:forEach var="board" items="${list}">

@@ -124,33 +124,12 @@
 			flex: 1;
 		}
 		
-				
-		#row {
-			text-align: center;
+		.mybtn{
+	     	display: inline-block;
+			border: 1px solid #ced4da;
+			border-bottom: none;
+			margin-top: 50px;
+			height: 35px;
+			width: 200px;
+			background-color: 
 		}
-		
-		.txt {
-			margin: 50px;
-			font-size: 20px;
-			text-align: center;
-		}
-		
-		#table_container{
-			margin: 100px auto;
-			flex: 1;
-			width: 80%;
-		}
-		
-		#table_container th{
-			padding-left: 20px;
-			margin-top: 20px;
-		}
-		
-	    #table_container th a:hover{
-			color:gray;
-		}
-	    
-	    #boardTable{
-	    	text-align:left;
-	    	margin:50px;
-	    }

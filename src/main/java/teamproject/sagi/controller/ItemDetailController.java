@@ -147,8 +147,9 @@ public class ItemDetailController {
 	public String reviewform01(String product_id, Model model) {
 		logger.info(product_id);
 		List<ReviewDto> reviews = reviewService.getProductReview(product_id);
+		model.addAttribute("size", reviews.size());
 		model.addAttribute("list", reviews);
-		logger.info("리뷰페이지 보냄");
+		logger.info(reviews.size()+"개의 리뷰페이지 보냄");
 		return "item_list/item_detail/reviewform01";
 	}
 	

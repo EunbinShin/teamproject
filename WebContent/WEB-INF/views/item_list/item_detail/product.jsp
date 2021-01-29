@@ -35,8 +35,8 @@
 					</div>
 				</div> <!-- cover -->
 				<div class="info">
-					<h2> 이름: ${iDetail.product_name} </h2><br/>
-					<h4> 가격: ${iDetail.product_price} </h4><br/>
+					<h2>${iDetail.product_name}</h2><br/>
+					<h4>${iDetail.product_price} &#8361</h4><br/>
 					
 					<input id="buy_quantity"
 					name="buy_quantity" placeholder="4" type="number"
@@ -66,9 +66,9 @@
 			<article>
 				<jsp:include page="/WEB-INF/views/item_list/item_detail/product_slide.jsp"/>
 				<div class="btn_detail">
-					<a id="detail" class="btn btn-info btn-sm" href="javascript:detail()">상세페이지</a>
-					<a id="review" class="btn btn-info btn-sm" href="javascript:review()">리뷰</a>
-					<a id="delivery" class="btn btn-info btn-sm" href="javascript:delivery()">배송정보</a>
+					<a id="detail" class="mybtn" href="javascript:detail()">상세페이지</a>
+					<a id="review" class="mybtn" href="javascript:review()">리뷰</a>
+					<a id="delivery" class="mybtn" href="javascript:delivery()">배송정보</a>
 				</div>
 				<script>
 					var id = "<c:out value='${iDetail.product_id}'/>";
@@ -79,6 +79,12 @@
 							data: {product_id : id},
 							success: (data) => {
 								console.log("성공");
+								$("#detail").css("background-color","#ced4da");
+								$("#detail").css("color","white");
+								$("#review").css("background-color","white");
+								$("#review").css("color","black");
+								$("#delivery").css("background-color","white");
+								$("#delivery").css("color","black");
 								$("#deatail").html(data);
 							}
 						})
@@ -90,6 +96,12 @@
 							data: {product_id : id},
 							success: (data) => {
 								console.log("성공");
+								$("#detail").css("background-color","white");
+								$("#detail").css("color","black");
+								$("#review").css("background-color","#ced4da");
+								$("#review").css("color","white");
+								$("#delivery").css("background-color","white");
+								$("#delivery").css("color","black");
 								$("#deatail").html(data);
 							}
 						})
@@ -100,6 +112,12 @@
 							method:"get",
 							success: (data) => {
 								console.log("성공");
+								$("#detail").css("background-color","white");
+								$("#detail").css("color","black");
+								$("#review").css("background-color","white");
+								$("#review").css("color","black");
+								$("#delivery").css("background-color","#ced4da");
+								$("#delivery").css("color","white");
 								$("#deatail").html(data);
 							}
 						})
