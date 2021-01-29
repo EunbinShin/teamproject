@@ -38,7 +38,7 @@
     	}
     		
 		$(function() {
-			$('#pw2').blur(function() {
+			$('#password2').blur(function() {
 				if ($("#password").val() != $("#password2").val()) {
 					if ($("#password2").val() != "") {
 						alert("비밀번호가 일치하지 않습니다");
