@@ -2,6 +2,7 @@ package teamproject.sagi.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -153,9 +154,11 @@ public class ProductManageController {
 	@GetMapping("/edit/edit_product")
 	public String edit_productForm(String product_id, Model model) {
 		logger.info("edit_product 실행 중");
-		product_id = "2-wonneej2";
-		ProductDto pmDto = pmService.getAllProduct(product_id);
+		product_id = "2-dumdum123";
 		
+		
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		logger.info(pmDto.getMain_img());
 		model.addAttribute("pmDto", pmDto);
 		
 		
@@ -164,6 +167,9 @@ public class ProductManageController {
 	
 	@PostMapping("/edit/edit_product")
 	public String edit_product(ProductDto pmDto) {
+		
+		logger.info(pmDto.getMain_img());
+		
 		logger.info(pmDto.getProduct_id());
 		logger.info(pmDto.getOld_product_id());
 		pmService.edit(pmDto); 
@@ -172,6 +178,123 @@ public class ProductManageController {
 	}
 	
 	
+	@GetMapping("/edit/edit_thumbphoto")
+	public void edit_thumbphoto(String product_id, HttpServletResponse response) throws Exception {
+		product_id = "2-1321231";
+		
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		
+		String photo_name = pmDto.getThumbnail();
+		String filePath =  "D:/MyWorkspace/uploadfiles/add/" + product_id + "/thumbnail/" + photo_name;
+		
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	@GetMapping("/edit/edit_thumbhoverphoto")
+	public void edit_thumbhoverphoto(String product_id, HttpServletResponse response) throws Exception {
+		product_id = "2-1321231";
+		
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		
+		String photo_name = pmDto.getThumbnailhover();
+		String filePath =  "D:/MyWorkspace/uploadfiles/add/" + product_id + "/thumbnailhover/" + photo_name;
+		
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	@GetMapping("/edit/edit_mainphoto")
+	public void edit_mainphoto(String product_id, HttpServletResponse response) throws Exception {
+		product_id = "2-1321231";
+		
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		
+		String photo_name = pmDto.getMain_img();
+		String filePath =  "D:/MyWorkspace/uploadfiles/add/" + product_id + "/main/" + photo_name;
+		
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	@GetMapping("/edit/edit_sub1photo")
+	public void edit_sub1photo(String product_id, HttpServletResponse response) throws Exception {
+		product_id = "2-1321231";
+		
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		
+		String photo_name = pmDto.getSub1_img();
+		String filePath =  "D:/MyWorkspace/uploadfiles/add/" + product_id + "/sub/" + photo_name;
+		
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	@GetMapping("/edit/edit_sub2photo")
+	public void edit_sub2photo(String product_id, HttpServletResponse response) throws Exception {
+		product_id = "2-1321231";
+		
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		
+		String photo_name = pmDto.getSub2_img();
+		String filePath =  "D:/MyWorkspace/uploadfiles/add/" + product_id + "/sub/" + photo_name;
+		
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	@GetMapping("/edit/edit_sub3photo")
+	public void edit_sub3photo(String product_id, HttpServletResponse response) throws Exception {
+		product_id = "2-1321231";
+		
+		ProductDto pmDto = pmService.getAllProduct(product_id);
+		
+		String photo_name = pmDto.getSub3_img();
+		String filePath =  "D:/MyWorkspace/uploadfiles/add/" + product_id + "/sub/" + photo_name;
+		
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+
+	
+
 	/*
 	
 	@RequestMapping("/add/add_confirm")

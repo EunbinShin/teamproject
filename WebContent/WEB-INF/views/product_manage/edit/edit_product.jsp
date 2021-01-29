@@ -167,7 +167,14 @@
 			<div class="form-group">
 				<label for="product_img" class="col-md-4 control-label">상품 이미지는 수정이 불가능합니다. 삭제 후 다시 상품을 등록해주실 바랍니다.</label>
 			</div>
-	
+			
+			<div><img src="edit_thumbphoto?product_id=${pmDto.product_id}" width="60px"></div>
+			<div><img src="edit_thumbhoverphoto?product_id=${pmDto.product_id}" width="60px"></div>
+			<div><img src="edit_mainphoto?product_id=${pmDto.product_id}" width="60px"></div>
+			<div><img src="edit_sub1photo?product_id=${pmDto.product_id}" width="60px"></div>
+			<div><img src="edit_sub2photo?product_id=${pmDto.product_id}" width="60px"></div>
+			<div><img src="edit_sub3photo?product_id=${pmDto.product_id}" width="60px"></div>
+	 
 			<!-- Button -->
 			<button type="submit" class="btn btn-warning">수정</button>
 			</fieldset>
