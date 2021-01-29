@@ -12,6 +12,7 @@ import teamproject.sagi.controller.BoardController;
 import teamproject.sagi.dao.ItemListDao;
 import teamproject.sagi.dao.QnaDao;
 import teamproject.sagi.dao.ReviewDao;
+import teamproject.sagi.dto.ListPager;
 import teamproject.sagi.dto.Pager;
 import teamproject.sagi.dto.ProductDto;
 import teamproject.sagi.dto.QnaDto;
@@ -29,7 +30,12 @@ public class ItemListService {
 		return rows;
 	}
 
-	public List<ProductDto> getItemList(Pager pager) {
+	public int getTotalRows(int category) {
+		int rows = itemListDao.countAll(category);
+		return rows;
+	}
+	
+	public List<ProductDto> getItemList(ListPager pager) {
 		// TODO Auto-generated method stub
 		List<ProductDto> items = itemListDao.selectByPage(pager);
 		return items;

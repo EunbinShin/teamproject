@@ -8,8 +8,15 @@
 		from products
 	</select>
 	
+	<select id="countAllCategory" 
+		resultType="int">
+		select count(*)
+		from products
+		where product_category = #{category}
+	</select>
+	
 	<select id="selectByPage" 
-		parameterType="pager"
+		parameterType="listpager"
 		resultType="productmanage">
 		select rno, product_id, product_name, product_category,
 				product_price, product_desc, percentage_discount,
@@ -35,7 +42,22 @@
 						sub1_img, sub2_img, sub3_img,
 						thumbnailhover
 		        from products
-		        order by post_date desc)
+	        <if test="category != 0">
+	        	where product_category = #{category}
+	        </if>
+	        <if test="type == 0">
+				order by post_date asc
+			</if>
+	        <if test="type == 1">
+				order by product_name asc
+			</if>
+	        <if test="type == 2">
+				order by product_price desc
+			</if>
+	        <if test="type == 3">
+				order by product_price asc
+			</if>
+		        )
 		    where rownum &lt;= #{endRowNo}	
 		)
 		where rno &gt;= #{startRowNo}

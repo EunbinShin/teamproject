@@ -9,6 +9,7 @@
 		<typeAlias alias="qnaboard" type="teamproject.sagi.dto.QnaDto"/>
 		<typeAlias alias="reviewboard" type="teamproject.sagi.dto.ReviewDto"/>
 		<typeAlias alias="pager" type="teamproject.sagi.dto.Pager"/>
+		<typeAlias alias="listpager" type="teamproject.sagi.dto.ListPager"/>
 		<typeAlias alias="signupdto" type="teamproject.sagi.dto.SignupDto"/>
 		<typeAlias alias="productmanage" type="teamproject.sagi.dto.ProductDto"/>
 	</typeAliases>

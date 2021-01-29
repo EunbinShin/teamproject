@@ -16,7 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import teamproject.sagi.dto.ListPager;
 import teamproject.sagi.dto.Pager;
 import teamproject.sagi.dto.ProductDto;
 import teamproject.sagi.service.ItemListService;
@@ -30,12 +32,23 @@ public class ItemListController {
 	private ItemListService itemListService;
 	
 	@RequestMapping("/default")
-	public String content(int page, Model model) {
+	public String content(
+			@RequestParam(defaultValue="1") int page,
+			@RequestParam(defaultValue="0") int ordertype,
+			@RequestParam(defaultValue="0") int category,
+			Model model) {
 		logger.info("실행");
-		int totalRows = itemListService.getTotalRows();
+		int totalRows = 0;
+		if(category == 0) {
+			totalRows = itemListService.getTotalRows();
+		}else {
+			totalRows = itemListService.getTotalRows(category);
+		}
 		logger.info(totalRows+"행");
-		Pager pager = new Pager(16, 10, totalRows, page);
+		
+		ListPager pager = new ListPager(16, 10, totalRows, page, ordertype,category);
 		List<ProductDto> products = itemListService.getItemList(pager);
+		
 		model.addAttribute("products", products);
 		model.addAttribute("pager", pager);
 		model.addAttribute("page", page);

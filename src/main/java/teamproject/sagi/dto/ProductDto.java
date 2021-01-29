@@ -8,9 +8,9 @@ public class ProductDto {
 	private String product_id; 
 	private String product_name;
 	private int product_category; //d
-	private double product_price; 
+	private int product_price; 
 	private double percentage_discount;
-	private double selling_price;
+	private int selling_price;
 	private String product_desc;
 	private int available_quantity;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -50,11 +50,18 @@ public class ProductDto {
 	public void setProduct_category(int product_category) {
 		this.product_category = product_category;
 	}
-	public double getProduct_price() {
+	
+	public int getProduct_price() {
 		return product_price;
 	}
-	public void setProduct_price(double product_price) {
+	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
+	}
+	public int getSelling_price() {
+		return selling_price;
+	}
+	public void setSelling_price(int selling_price) {
+		this.selling_price = selling_price;
 	}
 	public double getPercentage_discount() {
 		return percentage_discount;
@@ -62,12 +69,7 @@ public class ProductDto {
 	public void setPercentage_discount(double percentage_discount) {
 		this.percentage_discount = percentage_discount;
 	}
-	public double getSelling_price() {
-		return selling_price;
-	}
-	public void setSelling_price(double selling_price) {
-		this.selling_price = selling_price;
-	}
+	
 	public String getProduct_desc() {
 		return product_desc;
 	}

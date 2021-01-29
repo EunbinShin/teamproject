@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import teamproject.sagi.dto.ListPager;
 import teamproject.sagi.dto.Pager;
 import teamproject.sagi.dto.ProductDto;
 import teamproject.sagi.dto.QnaDto;
@@ -20,8 +21,15 @@ public class ItemListDao {
 		int count = sst.selectOne("mybatis.mapper.itemlist.countAll");
 		return count;
 	}
+	
+	public int countAll(int category) {
+		int count = sst.selectOne(
+				"mybatis.mapper.itemlist.countAllCategory",
+				category);
+		return count;
+	}
 
-	public List<ProductDto> selectByPage(Pager pager) {
+	public List<ProductDto> selectByPage(ListPager pager) {
 		List<ProductDto> list = sst.selectList(
 				"mybatis.mapper.itemlist.selectByPage", pager);
 		return list;

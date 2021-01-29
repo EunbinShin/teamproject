@@ -33,16 +33,17 @@
 			</div>
 			<h3>상품</h3>
 			<ul class="breadcrumb justify-content-center">
-				<li class="breadcrumb-item active"><a href="#">도자기</a></li>
-				<li class="breadcrumb-item"><a href="#">식기</a></li>
-				<li class="breadcrumb-item"><a href="#">유리그릇</a></li>
+				<li class="breadcrumb-item active"><a href="default?ordertype=1&category=1">도자기</a></li>
+				<li class="breadcrumb-item"><a href="default?ordertype=1&category=2">식기</a></li>
+				<li class="breadcrumb-item"><a href="default?ordertype=1&category=3">유리그릇</a></li>
+				<li class="breadcrumb-item"><a href="default?ordertype=1&category=4">장식품</a></li>
 			</ul>
 
 			<div id="explainRight">
 				<ul>
-					<li><a href="#">상품명</a></li>
-					<li><a href="#">높은가격순</a></li>
-					<li><a href="#">낮은가격순</a></li>
+					<li><a href="default?ordertype=1&category=${pager.category}">상품명</a></li>
+					<li><a href="default?ordertype=2&category=${pager.category}">높은가격순</a></li>
+					<li><a href="default?ordertype=3&category=${pager.category}">낮은가격순</a></li>
 				</ul>
 			</div>
 		</div>
@@ -53,12 +54,12 @@
 			<c:forEach var="product" items="${products}" varStatus="status">
 				<div class="column">
 					<a href="item_detail/product01?item=${product.product_id}"> 
-						<img src="thumbnail?id=${product.product_id}&image=${product.thumbnail}" class="img-bottom">
-						<img src="thumbnail_hover?id=${product.product_id}&image=${product.thumbnailhover}" class="img-top">
+						<img width="490" height="615" src="thumbnail?id=${product.product_id}&image=${product.thumbnail}" class="img-bottom">
+						<img width="490" height="615" src="thumbnail_hover?id=${product.product_id}&image=${product.thumbnailhover}" class="img-top">
 					</a>
 					<a href="item_detail/product01?item=${product.product_id}">${product.product_name}</a>
 					<p>
-						<b>가격: ${product.product_price}</b>
+						<b>가격: ${product.product_price} &#8361</b>
 					</p>
 				</div>
 		  	</c:forEach>
@@ -67,22 +68,22 @@
 		<!-- page number navigation -->
 			<div class="d-flex align-items-center justify-content-center">
 				<div>
-					<a href="default?page=1" class="btn btn-outline-dark btn-sm mr-1">처음</a>
+					<a href="default?page=1&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm mr-1">처음</a>
 					<c:if test="${pager.groupNo > 1}">
-						<a href="default?page=${pager.startPageNo-1}" class="btn btn-outline-dark btn-sm mr-1">이전</a>
+						<a href="default?page=${pager.startPageNo-1}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm mr-1">이전</a>
 					</c:if>
 					<c:forEach var="i" begin="${pager.startPageNo}" end="${pager.endPageNo}">
 						<c:if test="${i == pager.pageNo }">
-							<a href="default?page=${i}" class="btn btn-secondary btn-sm mr-1">${i}</a>
+							<a href="default?page=${i}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-secondary btn-sm mr-1">${i}</a>
 						</c:if>
 						<c:if test="${i != pager.pageNo }">
-							<a href="default?page=${i}" class="btn btn-outline-secondary btn-sm mr-1">${i}</a>
+							<a href="default?page=${i}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-secondary btn-sm mr-1">${i}</a>
 						</c:if>
 					</c:forEach>
 					<c:if test="${pager.groupNo < pager.totalGroupNo}">
-						<a href="default?page=${pager.endPageNo+1}" class="btn btn-outline-dark btn-sm ml-1 mr-1">다음</a>
+						<a href="default?page=${pager.endPageNo+1}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm ml-1 mr-1">다음</a>
 					</c:if>
-					<a href="default?page=${pager.totalPageNo}" class="btn btn-outline-dark btn-sm">맨끝</a>
+					<a href="default?page=${pager.totalPageNo}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm">맨끝</a>
 				</div>
 			</div>
 
