@@ -52,25 +52,27 @@ public class ProductManageController {
 		
 		String thumbnail_hover_sname = 
 				new Date().getTime() + "-" + product.getThumbnailhover_file().getOriginalFilename();
-		product.setThumbnailhover(thumbnail_sname);
+		product.setThumbnailhover(thumbnail_hover_sname);
 		
 		String main_sname = 
 				new Date().getTime() + "-" + product.getMain_img_file().getOriginalFilename();
-		product.setMain_img(thumbnail_sname);
+		product.setMain_img(main_sname);
 		
-		if(product.getSub1_img_file() != null) {
+		if(!product.getSub1_img_file().isEmpty()) {
 			String sub1_sname = 
 					new Date().getTime() + "-" + product.getSub1_img_file().getOriginalFilename();
 			product.setSub1_img(sub1_sname);
 		}
 		
-		if(product.getSub2_img_file() != null) {
+		if(!product.getSub2_img_file().isEmpty()) {
 			String sub2_sname = 
 					new Date().getTime() + "-" + product.getSub2_img_file().getOriginalFilename();
 			product.setSub2_img(sub2_sname);
 		}
 		
-		if(product.getSub3_img_file() != null) {
+		logger.info(product.getSub3_img_file().isEmpty() +"sub3 file name");
+		
+		if(!product.getSub3_img_file().isEmpty()) {
 			String sub3_sname = 
 					new Date().getTime() + "-" + product.getSub3_img_file().getOriginalFilename();
 			product.setSub3_img(sub3_sname);
@@ -114,16 +116,10 @@ public class ProductManageController {
 			e.printStackTrace();
 		}
 		
-
-		
-		
 		 MultipartFile[] files = new MultipartFile[3];
 		 files[0] = product.getSub1_img_file(); 
 		 files[1] = product.getSub2_img_file(); 
 		 files[2] = product.getSub3_img_file();
-		 
-		 
-		 
 		 for(int i = 0 ; i < 3; i++) { 
 			 if(!files[i].isEmpty()) { 
 				 saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/sub/";
@@ -136,7 +132,6 @@ public class ProductManageController {
 					 filePath = saveDirPath + product.getSub3_img(); 
 				 }
 				 
-				
 				file = new File(filePath);
 				
 				try {

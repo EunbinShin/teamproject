@@ -338,10 +338,29 @@ public class BoardController {
 	//아이템 리스트들의 사진
 	@GetMapping("/searchphoto")
 	public void searchphoto(
-			String id,
+			int id,
 			String image,
 			HttpServletResponse response) throws IOException {
 		
+		String filePath = "D:/MyWorkspace/uploadfiles/add/"
+				+id+"/thumbnail/"+image;
+			
+		InputStream is = new FileInputStream(filePath);
+		OutputStream os = response.getOutputStream();
+		
+		FileCopyUtils.copy(is, os);
+		
+		os.flush();
+		os.close();
+		is.close();
+	}
+	
+	@GetMapping("/searchphoto2")
+	public void searchphoto2(
+			int id,
+			HttpServletResponse response) throws IOException {
+		
+		String image = searchService.getThumbnail(id);
 		String filePath = "D:/MyWorkspace/uploadfiles/add/"
 				+id+"/thumbnail/"+image;
 			
