@@ -24,7 +24,7 @@
 	</select>
 	
 	<select id="selectseqval" resultType="int">
-		select pid_seq.currval from dual
+		select max(product_id) from products
 	</select>
 	
 	<insert id="insert" parameterType="productmanage">

@@ -52,7 +52,7 @@ public class ProductManageController {
 
 		product.setBest(false);
 		
-		int id = pmService.getID();
+		int id = pmService.getID() + 1;
 		
 		logger.info("product id :" + id ) ;
 		
