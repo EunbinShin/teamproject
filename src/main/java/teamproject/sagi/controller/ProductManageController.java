@@ -49,14 +49,15 @@ public class ProductManageController {
 
 	@PostMapping("/add/add_upload")
 	public String add_upload(ProductDto product, HttpSession session) {
-		
+
 		product.setBest(false);
+		
+		int id = pmService.getID();
+		
+		logger.info("product id :" + id ) ;
 		
 		// thubnail img
 		MultipartFile thumbnail = product.getThumbnail_file();
-
-		String id = product.getProduct_id();
-
 		if (!thumbnail.isEmpty()) {
 			String fileName = new Date().getTime() + "-" + thumbnail.getOriginalFilename();
 			String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/thumbnail/";
@@ -152,12 +153,10 @@ public class ProductManageController {
 	
 		//////////////////////
 	
-	
+	/*
 	@GetMapping("/edit/edit_product")
 	public String edit_productForm(String product_id, ProductDto product, Model model) {
 		logger.info("edit_product 실행 중");
-		product_id = "2-shin";
-		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		logger.info(pmDto.getMain_img());
 		model.addAttribute("pmDto", pmDto);
@@ -265,7 +264,6 @@ public class ProductManageController {
 	
 	@GetMapping("/edit/edit_thumbphoto")
 	public void edit_thumbphoto(String product_id, HttpServletResponse response) throws Exception {
-		product_id = "2-1321231";
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -284,7 +282,6 @@ public class ProductManageController {
 	
 	@GetMapping("/edit/edit_thumbhoverphoto")
 	public void edit_thumbhoverphoto(String product_id, HttpServletResponse response) throws Exception {
-		product_id = "2-1321231";
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -303,8 +300,6 @@ public class ProductManageController {
 	
 	@GetMapping("/edit/edit_mainphoto")
 	public void edit_mainphoto(String product_id, HttpServletResponse response) throws Exception {
-		product_id = "2-1321231";
-		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
 		String photo_name = pmDto.getMain_img();
@@ -322,7 +317,6 @@ public class ProductManageController {
 	
 	@GetMapping("/edit/edit_sub1photo")
 	public void edit_sub1photo(String product_id, HttpServletResponse response) throws Exception {
-		product_id = "2-1321231";
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -337,11 +331,11 @@ public class ProductManageController {
 		os.flush();
 		os.close();
 		is.close();
+		
 	}
 	
 	@GetMapping("/edit/edit_sub2photo")
 	public void edit_sub2photo(String product_id, HttpServletResponse response) throws Exception {
-		product_id = "2-1321231";
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -360,7 +354,6 @@ public class ProductManageController {
 	
 	@GetMapping("/edit/edit_sub3photo")
 	public void edit_sub3photo(String product_id, HttpServletResponse response) throws Exception {
-		product_id = "2-1321231";
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -379,7 +372,6 @@ public class ProductManageController {
 	
 	@GetMapping("/edit/delete_product")
 	public String boarddelete(String product_id) {
-		product_id = "2-shin";
 		logger.info("product_id");
 		pmService.deleteProduct(product_id);
 		return "redirect:/";
@@ -387,7 +379,7 @@ public class ProductManageController {
 	
 	
 	
-	
+	/*
 	
 
 	

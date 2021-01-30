@@ -47,17 +47,6 @@
 			document.getElementById("selling_price").value = sellp.toFixed(0);
 
 		}
-	
-		
-		
-		genId = function() {
-			var pcate = document.getElementById("product_category").value
-			var pname = document.getElementById("product_name").value
-			document.getElementById("product_id").value = pcate + "-" + pname;
-		}
-		
-		
-		
 		
 	</script>
 	
@@ -81,7 +70,7 @@
 			<div class="form-group">
 				<label for="product_categorie" class="col-md-4 control-label">상품 카테고리</label>
 				<div class="col-md-4">
-					<select onchange="genId()" id="product_category" name="product_category" class="form-control">
+					<select id="product_category" name="product_category" class="form-control">
 						<option value="">상품 카테고리</option>
 						<option value="1">도자기 </option>
 						<option value="2">식기</option>
@@ -95,16 +84,8 @@
 			<div class="form-group">
 				<label for="product_name" class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
-					<input onchange="genId()" id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
+					<input id="product_name" name="product_name" placeholder="상품명" class="form-control input-md" type="text">
 					
-				</div>
-			</div>
-			
-			<!-- Text input-->
-			<div class="form-group">
-				<label for="product_id" class="col-md-4 control-label">상품 코드</label>
-				<div class="col-md-4">
-					<input readonly id="product_id" name="product_id" placeholder="상품 코드" class="form-control input-md"  type="text">
 				</div>
 			</div>
 			

@@ -26,7 +26,7 @@ public class ProductManageService {
 	 }
 
 	public void saveproduct(ProductDto product) {
-		pmDao.insert(product);		
+		pmDao.insert(product);
 	}
 
 	public ProductDto getProduct(String product_id) {
@@ -47,7 +47,12 @@ public class ProductManageService {
 		pmDao.delete(product_id);
 		
 	}
-	
+
+	public int getID() {
+		int product_id = pmDao.selectID();
+		return product_id;
+	}
+
 	
 	
 }

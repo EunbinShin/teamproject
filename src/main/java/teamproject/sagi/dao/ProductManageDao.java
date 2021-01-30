@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+
 import teamproject.sagi.dto.ProductDto;
 
 @Repository
@@ -24,12 +25,12 @@ public class ProductManageDao {
 	   	
 		return list;
    }
-
-	public int insert(ProductDto product) {
-		int rows = sst.insert("mybatis.mapper.productmanages.insert", product);
-		return rows;
-	}
-
+   
+   public int insert(ProductDto product) {
+	   int rows = sst.insert("mybatis.mapper.productmanages.insert", product);
+	   return rows;
+   }
+   
 	public ProductDto selectByPk(String product_id) {
 		ProductDto pDto = sst.selectOne("mybatis.mapper.productmanages.selectByPk", product_id);
 		return pDto;
@@ -50,5 +51,9 @@ public class ProductManageDao {
 		return rows;		
 	}
 
+	public int selectID() {
+		int product_id = sst.selectOne("mybatis.mapper.productmanages.selectseqval");
+		return product_id;
+	}
 
 }

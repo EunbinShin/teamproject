@@ -183,23 +183,30 @@
 				</div>
 				
 				<div>
-					<img src="edit_sub1photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<c:if test="${pmDto.product_id} == null">
+						<img src="edit_sub1photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					</c:if>
 					<input type="file" id="sub1_img_file" name="sub1_img_file"  class="input-file"/>
 				</div>
 			
 				<div>
-					<img src="edit_sub2photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<c:if test="${pmDto.product_id} == null">
+						<img src="edit_sub2photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					</c:if>
 					<input type="file" id="sub2_img_file" name="sub2_img_file"  class="input-file"/>
 				</div>
 				
 				<div>
-					<img src="edit_sub3photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<c:if test="${pmDto.product_id} == null">
+						<img src="edit_sub3photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					</c:if>
 					<input type="file" id="sub3_img_file" name="sub3_img_file"  class="input-file"/>
 				</div>
 				
 			</div>
 	 
 			<!-- Button -->
+			<button type="submit" class="btn btn-primary">수정 완료</button>
 			<a type="submit" class="btn btn-danger" href="delete_product?product_id=${pmDto.product_id}">삭제</a>
 			</fieldset>
 		</form>

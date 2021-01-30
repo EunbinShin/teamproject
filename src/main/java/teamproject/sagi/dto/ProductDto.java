@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDto {
-	private String product_id; 
+	private int product_id; 
 	private String product_name;
 	private String old_product_id;
 	private int product_category; //d
@@ -54,12 +54,14 @@ public class ProductDto {
 	
 	
 	///일반 
-	public String getProduct_id() {
+	public int getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(String product_id) {
+	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
+	
+	
 	public String getProduct_name() {
 		return product_name;
 	}
