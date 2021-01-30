@@ -160,7 +160,7 @@
 				<div class="col-md-4">
 					<input id="post_date" name="post_date" requried class="form-control input-md" type="date">
 					<script>
-						document.getElementById('online_date').valueAsDate = new Date();
+						document.getElementById('post_date').valueAsDate = new Date();
 					</script>
 					
 				</div>

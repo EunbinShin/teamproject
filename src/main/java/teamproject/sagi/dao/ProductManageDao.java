@@ -45,5 +45,10 @@ public class ProductManageDao {
 		return rows;
 	}
 
+	public int delete(String product_id) {
+		int rows = sst.delete("mybatis.mapper.productmanages.delete",product_id);
+		return rows;		
+	}
+
 
 }

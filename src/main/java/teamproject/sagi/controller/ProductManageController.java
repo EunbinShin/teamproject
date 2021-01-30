@@ -150,12 +150,13 @@ public class ProductManageController {
 		return "product_manage/add/add_confirm2";
 	}
 	
-
+		//////////////////////
+	
+	
 	@GetMapping("/edit/edit_product")
-	public String edit_productForm(String product_id, Model model) {
+	public String edit_productForm(String product_id, ProductDto product, Model model) {
 		logger.info("edit_product 실행 중");
-		product_id = "2-dumdum123";
-		
+		product_id = "2-shin";
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		logger.info(pmDto.getMain_img());
@@ -165,13 +166,97 @@ public class ProductManageController {
 		return "product_manage/edit/edit_product";
 	}
 	
+	
+	///////////////////////////////
+	
 	@PostMapping("/edit/edit_product")
 	public String edit_product(ProductDto pmDto) {
 		
-		logger.info(pmDto.getMain_img());
+		String product_id = pmDto.getProduct_id();
+
+		MultipartFile thumbnail = pmDto.getThumbnail_file();
+		 if (!thumbnail.isEmpty()) { 
+			 String fileName = new Date().getTime() + "-" + thumbnail.getOriginalFilename(); 
+		 
+			 String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id + "/thumbnail/";
+			 pmDto.setThumbnail(fileName); 
+			 String filePath = saveDirPath + fileName;
+			 File file = new File(filePath); 
+			 
+			 try {  
+				 thumbnail.transferTo(file); 
+			 } catch (IOException e) {
+				 e.printStackTrace(); 
+			 } 
+		 }
+		 
+		// thumbnailhover img
+			MultipartFile thumbnailhover = pmDto.getThumbnailhover_file();
+			if (!thumbnailhover.isEmpty()) {
+				String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id + "/thumbnailhover/";
+				String fileName = new Date().getTime() + "-" + thumbnailhover.getOriginalFilename();
+
+				pmDto.setThumbnailhover(fileName);
+
+				String filePath = saveDirPath + fileName;
+				File file = new File(filePath);
+				try {
+					thumbnailhover.transferTo(file);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			// main_img
+			MultipartFile main_img = pmDto.getMain_img_file();
+			if (!main_img.isEmpty()) {
+				String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id + "/main/";
+				String fileName = new Date().getTime() + "-" + main_img.getOriginalFilename();
+				pmDto.setMain_img(fileName);
+				String filePath = saveDirPath + fileName;
+				File file = new File(filePath);
+				try {
+					main_img.transferTo(file);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			
+
+			 MultipartFile[] files = new MultipartFile[3];
+			 files[0] = pmDto.getSub1_img_file(); 
+			 files[1] = pmDto.getSub2_img_file(); 
+			 files[2] = pmDto.getSub3_img_file();
+			 
+			 String []fileNames = new String[3];
+			 
+			 for(int i = 0 ; i < 3; i++) { 
+				 if(!files[i].isEmpty()) { 
+					 String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id + "/sub/";
+					 fileNames[i] = new Date().getTime() + "-" + files[i].getOriginalFilename();
+					 logger.info(fileNames[i]);
+
+					 if(i == 0) {
+						 pmDto.setSub1_img(fileNames[i]);
+					 } else if (i == 1) {
+						 pmDto.setSub2_img(fileNames[i]);
+					 } else {
+						 pmDto.setSub3_img(fileNames[i]);
+					 }
+					 
+					String filePath = saveDirPath + fileNames[i]; 
+					File file = new File(filePath);
+					
+					try {
+						files[i].transferTo(file); 
+					} catch (IOException e) {
+						e.printStackTrace(); } 
+				}
+			 }
+		 
 		
-		logger.info(pmDto.getProduct_id());
-		logger.info(pmDto.getOld_product_id());
+		
 		pmService.edit(pmDto); 
 		logger.info("수정수정 실행 중");
 		return "product_manage/edit/edit_product";
@@ -291,6 +376,18 @@ public class ProductManageController {
 		os.close();
 		is.close();
 	}
+	
+	@GetMapping("/edit/delete_product")
+	public String boarddelete(String product_id) {
+		product_id = "2-shin";
+		logger.info("product_id");
+		pmService.deleteProduct(product_id);
+		return "redirect:/";
+	}
+	
+	
+	
+	
 	
 
 	

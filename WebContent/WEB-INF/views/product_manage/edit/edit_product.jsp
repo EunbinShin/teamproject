@@ -57,8 +57,6 @@
 		}
 		
 		
-		
-		
 	</script>
 	
 </head>
@@ -98,7 +96,7 @@
 				<label for="product_id" class="col-md-4 control-label">상품 코드</label>
 				<div class="col-md-4">
 					<input readonly value="${pmDto.product_id}" id="product_id" name="product_id"  class="form-control input-md"  type="text">
-					<input hidden value="${pmDto.old_product_id}" id="old_product_id" name="old_product_id"  class="form-control input-md"  type="text">
+					<input hidden value="${pmDto.product_id}" id="old_product_id" name="old_product_id"  class="form-control input-md"  type="text">
 				</div>
 			</div>
 			
@@ -152,31 +150,57 @@
 			<div class="form-group">
 				<label for="post_date" class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
-					<input value="${pmDto.post_date}" id="post_date" name="post_date" requried class="form-control input-md" type="date">					
+					<input value="${pmDto.post_date}" id="post_date" name="post_date" class="form-control input-md" type="date">					
 				</div>
 			</div>	
 
 			<div class="form-group">
 				<label for="best" class="col-md-4 control-label">상품 뱃지 설정</label>  
 				<div class="col-md-4">
-					<input value="${pmDto.best}" id="best" name="best"  class="form-control input-md" type="checkbox">					
+					<input  id="best" name="best"  class="form-control input-md" type="checkbox"	
+						<c:if test="${pmDto.best == true}">
+							checked
+						</c:if>>
+								
 				</div>
 			</div>
-
-			<!-- File Button -->			
-			<div class="form-group">
-				<label for="product_img" class="col-md-4 control-label">상품 이미지는 수정이 불가능합니다. 삭제 후 다시 상품을 등록해주실 바랍니다.</label>
-			</div>
 			
-			<div><img src="edit_thumbphoto?product_id=${pmDto.product_id}" width="60px"></div>
-			<div><img src="edit_thumbhoverphoto?product_id=${pmDto.product_id}" width="60px"></div>
-			<div><img src="edit_mainphoto?product_id=${pmDto.product_id}" width="60px"></div>
-			<div><img src="edit_sub1photo?product_id=${pmDto.product_id}" width="60px"></div>
-			<div><img src="edit_sub2photo?product_id=${pmDto.product_id}" width="60px"></div>
-			<div><img src="edit_sub3photo?product_id=${pmDto.product_id}" width="60px"></div>
+			<div>
+				<h4>상품 이미지</h4>
+				<div>
+					<img src="edit_thumbphoto?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<input type="file" id="thumbnail_file" name="thumbnail_file"  class="input-file"/>
+				</div>
+				
+				<div>
+					<img src="edit_thumbhoverphoto?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<input type="file" id="thumbnailhover_file" name="thumbnailhover_file"  class="input-file"/>
+				</div>
+				
+				<div>
+					<img src="edit_mainphoto?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<input type="file" id="main_img_file" name="main_img_file"  class="input-file"/>
+				</div>
+				
+				<div>
+					<img src="edit_sub1photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<input type="file" id="sub1_img_file" name="sub1_img_file"  class="input-file"/>
+				</div>
+			
+				<div>
+					<img src="edit_sub2photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<input type="file" id="sub2_img_file" name="sub2_img_file"  class="input-file"/>
+				</div>
+				
+				<div>
+					<img src="edit_sub3photo?product_id=${pmDto.product_id}" width="60px" height="60px">
+					<input type="file" id="sub3_img_file" name="sub3_img_file"  class="input-file"/>
+				</div>
+				
+			</div>
 	 
 			<!-- Button -->
-			<button type="submit" class="btn btn-warning">수정</button>
+			<a type="submit" class="btn btn-danger" href="delete_product?product_id=${pmDto.product_id}">삭제</a>
 			</fieldset>
 		</form>
 		</div> <!-- /add -->

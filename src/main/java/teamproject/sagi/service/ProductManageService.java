@@ -42,6 +42,11 @@ public class ProductManageService {
 	public void edit(ProductDto pmDto) {
 		pmDao.edit(pmDto);
 	}
+
+	public void deleteProduct(String product_id) {
+		pmDao.delete(product_id);
+		
+	}
 	
 	
 	

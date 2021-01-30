@@ -75,10 +75,33 @@
 			percentage_discount = #{percentage_discount},
 			available_quantity = #{available_quantity},
 			post_date = #{post_date},
+			<if test="thumbnail != null">
+				thumbnail = #{thumbnail},
+			</if>
 			best = #{best},
+			<if test="main_img != null">
+				main_img = #{main_img},
+			</if>
+			<if test="sub1_img != null">
+				sub1_img = #{sub1_img},
+			</if>
+			<if test="sub2_img != null">
+				sub2_img = #{sub2_img},
+			</if>
+			<if test="sub3_img != null">
+				sub3_img = #{sub3_img},
+			</if>
+			<if test="thumbnailhover != null">
+				thumbnailhover = #{thumbnailhover},
+			</if>
 			old_product_id = #{old_product_id}
 		where product_id = #{old_product_id}
 	</update>
+	
+	<delete id="delete">
+		delete from products
+		where product_id = #{product_id}
+	</delete>
 	
 
 </mapper>
