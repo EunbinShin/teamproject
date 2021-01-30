@@ -32,16 +32,18 @@
 
 	<div id="icon_content">
 		<div id="mySearchBox">
-			<input type="text" placeholder="Search.." id="myInput"
-				onkeyup="filterFunction()">
+			<input type="text" placeholder="Search.." id="myInput" onkeyup="searching()">
 		</div>
 		<i onclick="searchBar()" id="mySearch" style="margin-right: 30px"
 			class="fas fa-search"></i>
+		<div id="searchResult">
+		</div>
 	</div>
+	
 
 	<script type="text/javascript">
+	
 		let toggle = true;
-		
 		const searchBar = () =>{
 			if(toggle){
 				document.getElementById("mySearchBox").style.display = "inline";
@@ -51,6 +53,27 @@
 				toggle = !toggle;
 			}	
 		};
+	
+		const searching = () =>{
+			var search = $("#myInput").val();
+			console.log(search);
+			$.ajax({
+				url:"/teamproject/search",
+				method:"get",
+				data: {search : search},
+				success: (data) => {
+					console.log("성공");
+					if(search.length == 0){
+						console.log("검색어 없음");
+						$("#searchResult").css("display","none");
+					}else{
+						console.log("검색어 있음");
+						$("#searchResult").css("display","block");
+					}
+					$("#searchResult").html(data);
+				}
+			});
+		}
 
 	</script>
 	<a href="<%=application.getContextPath() %>/login/">

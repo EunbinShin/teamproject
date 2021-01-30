@@ -21,14 +21,14 @@ public class SearchDao {
 		return items;
 	}
 
-	public String selectThumbnailByPk(String product_id) {
+	public String selectThumbnailByPk(int product_id) {
 		String thumbnail = sst.selectOne(
 								"mybatis.mapper.search.selectThumbnailByPk",
 								product_id);
 		return thumbnail;
 	}
 
-	public ProductDto selectByPk(String products_product_id) {
+	public ProductDto selectByPk(int products_product_id) {
 		ProductDto product = sst.selectOne("mybatis.mapper.search.selectByPk", products_product_id);
 		return product;
 	}

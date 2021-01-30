@@ -67,9 +67,9 @@
 			<article>
 				<jsp:include page="/WEB-INF/views/item_list/item_detail/product_slide.jsp"/>
 				<div class="btn_detail">
-					<a id="detail" class="btn btn-info btn-sm" href="javascript:detail()">상세페이지</a>
-					<a id="review" class="btn btn-info btn-sm" href="javascript:review()">리뷰</a>
-					<a id="delivery" class="btn btn-info btn-sm" href="javascript:delivery()">배송정보</a>
+					<a id="detail" class="mybtn" href="javascript:detail()">상세페이지</a>
+					<a id="review" class="mybtn" href="javascript:review()">리뷰</a>
+					<a id="delivery" class="mybtn" href="javascript:delivery()">배송정보</a>
 				</div>
 				<script>
 					var id = "<c:out value='${iDetail.product_id}'/>";

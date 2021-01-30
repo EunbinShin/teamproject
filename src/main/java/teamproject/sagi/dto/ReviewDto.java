@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ReviewDto {
 	private int review_no;
-	private String products_product_id;
+	private int products_product_id;
 	private String review_title;
 	private String users_id;
 	private String review_content;
@@ -25,10 +25,10 @@ public class ReviewDto {
 	public void setReview_no(int review_no) {
 		this.review_no = review_no;
 	}
-	public String getProducts_product_id() {
+	public int getProducts_product_id() {
 		return products_product_id;
 	}
-	public void setProducts_product_id(String products_product_id) {
+	public void setProducts_product_id(int products_product_id) {
 		this.products_product_id = products_product_id;
 	}
 	public String getReview_title() {

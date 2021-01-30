@@ -65,7 +65,7 @@ public class ItemListController {
 	//thumbnail이미지 가져옴
 	@GetMapping("/thumbnail")
 	public void thumbnail(
-			String id,
+			int id,
 			String image,
 			HttpServletResponse response) throws IOException {
 		
@@ -84,7 +84,7 @@ public class ItemListController {
 	//thumnail-hover이미지 가져옴
 	@GetMapping("/thumbnail_hover")
 	public void thumbnail_hover(
-			String id,
+			int id,
 			String image,
 			HttpServletResponse response) throws IOException {
 		

@@ -20,12 +20,12 @@ public class SearchService {
 		return items;
 	}
 
-	public String getThumbnail(String product_id) {
+	public String getThumbnail(int product_id) {
 		String thumbnail = searchDao.selectThumbnailByPk(product_id);
 		return thumbnail;
 	}
 
-	public ProductDto getProduct(String products_product_id) {
+	public ProductDto getProduct(int products_product_id) {
 		// TODO Auto-generated method stub
 		ProductDto product = searchDao.selectByPk(products_product_id);
 		return product;

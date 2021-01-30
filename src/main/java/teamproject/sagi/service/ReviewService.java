@@ -51,7 +51,7 @@ public class ReviewService {
 	public void editReview(ReviewDto review) {
 		reviewDao.update(review);
 	}
-	public List<ReviewDto> getProductReview(String product_id) {
+	public List<ReviewDto> getProductReview(int product_id) {
 		List<ReviewDto> reviews = reviewDao.selectByProduct(product_id);
 		return reviews;
 	}

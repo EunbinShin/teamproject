@@ -47,7 +47,7 @@
 						<c:forEach var="board" items="${list}">
 					  		<tr>
 					      		<td>${board.review_no}</td>
-					      		<td><a href="showreview?bno=${board.review_no}&page=${page}" class="text-danger text-decoration-none">${board.review_title}</a></td>
+					      		<td><a href="showreview?bno=${board.review_no}&page=${page}" class="text-decoration-none">${board.review_title}</a></td>
 					      		<td>${board.users_id}</td>
 					      		<td><fmt:formatDate value="${board.review_date}" pattern="yyyy.MM.dd"/></td>
 					    	</tr>

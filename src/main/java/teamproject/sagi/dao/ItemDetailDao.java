@@ -17,7 +17,7 @@ public class ItemDetailDao {
 	@Resource
 	private SqlSessionTemplate sst;
  
-	public ProductDto selectByPk(String product_id) {
+	public ProductDto selectByPk(int product_id) {
 		ProductDto iDetail = sst.selectOne("mybatis.mapper.itemDetail.selectByPk", product_id);
 		return iDetail;
 	}

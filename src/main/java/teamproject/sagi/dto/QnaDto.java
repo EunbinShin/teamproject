@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class QnaDto {
 	private int qna_bno;
 	private int qna_category;
-	private String products_product_id;
+	private int products_product_id;
 	private String category_name;
 	private String qna_title;
 	private String users_id;
@@ -35,10 +35,10 @@ public class QnaDto {
 		this.qna_category = qna_category;
 	}
 	
-	public String getProducts_product_id() {
+	public int getProducts_product_id() {
 		return products_product_id;
 	}
-	public void setProducts_product_id(String products_product_id) {
+	public void setProducts_product_id(int products_product_id) {
 		this.products_product_id = products_product_id;
 	}
 	public String getCategory_name() {

@@ -58,3 +58,8 @@
 	    	margin: 20px;
 	    	border: 2px solid rgb(242,242,242);
 	    }
+	    
+	     #desc_container div{
+	        margin-top: 10px;
+	        margin-left: 10px;
+	    }

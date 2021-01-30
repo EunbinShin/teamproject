@@ -63,7 +63,7 @@
 				 	review_title ,users_id, review_content, review_date,
 				 	image1, image2, image3, image4)
 			values
-				(#{review_no}, #{products_product_id},,
+				(#{review_no}, #{products_product_id},
 				 #{review_title} ,#{users_id}, #{review_content}, sysdate,
 				 #{image1}, #{image2, jdbcType=VARCHAR}, #{image3, jdbcType=VARCHAR}, #{image4, jdbcType=VARCHAR})
 	 	</if>

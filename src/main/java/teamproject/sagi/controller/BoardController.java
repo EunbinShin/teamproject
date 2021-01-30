@@ -53,11 +53,13 @@ public class BoardController {
 	public String qna(Model model, @RequestParam(defaultValue="1") int page) {
 		logger.info(page+"번 qna 페이지 실행");
 		int totalRows = qnaService.getTotalRows();
-		Pager pager = new Pager(15, 10, totalRows, page);
-		List<QnaDto> list = qnaService.getBoardList(pager);
-		model.addAttribute("list", list);
-		model.addAttribute("pager", pager);
-		model.addAttribute("page", page);
+		if(totalRows>0) {
+			Pager pager = new Pager(15, 10, totalRows, page);
+			List<QnaDto> list = qnaService.getBoardList(pager);
+			model.addAttribute("list", list);
+			model.addAttribute("pager", pager);
+			model.addAttribute("page", page);
+		}
 		return "board/qna";
 	}
 	//1. Review화면 실행
@@ -66,11 +68,13 @@ public class BoardController {
 			@RequestParam(defaultValue="1") int page) {
 		logger.info(page+"번 review 페이지 실행");
 		int totalRows = reviewService.getTotalRows();
-		Pager pager = new Pager(15, 10, totalRows, page);
-		List<ReviewDto> list = reviewService.getBoardList(pager);
-		model.addAttribute("list", list);
-		model.addAttribute("pager", pager);
-		model.addAttribute("page", page);
+		if(totalRows>0) {
+			Pager pager = new Pager(15, 10, totalRows, page);
+			List<ReviewDto> list = reviewService.getBoardList(pager);
+			model.addAttribute("list", list);
+			model.addAttribute("pager", pager);
+			model.addAttribute("page", page);
+		}
 		return "board/review";
 	}
 	
@@ -354,7 +358,7 @@ public class BoardController {
 	//popup화면 결과
 	@PostMapping("/update_item")
 	public void update_item(
-			String product_id,
+			int product_id,
 			HttpServletResponse response) throws IOException {
 		response.setContentType("application/json; charset=UTF-8");
 		

@@ -37,9 +37,9 @@ public class ItemDetailController {
 	
 	@GetMapping("/item_detail")
 	public String product(
-			@RequestParam("item")String product_id,
+			int product_id,
 			Model model) {
-		logger.info(product_id);
+		logger.info(product_id+"번 아이템");
 		
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		 
@@ -48,7 +48,7 @@ public class ItemDetailController {
 	}
 	
 	@GetMapping("/detail_thumbnail") 
-	public void thumbphoto(String product_id, HttpServletResponse response) throws Exception {
+	public void thumbphoto(int product_id, HttpServletResponse response) throws Exception {
 		logger.info("사진 로딩");
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
@@ -66,7 +66,7 @@ public class ItemDetailController {
 	}
 	
 	@GetMapping("/mainphoto")
-	public void mainphoto(String product_id, HttpServletResponse response) throws Exception {
+	public void mainphoto(int product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
 		String photo_name = iDetail.getMain_img();
@@ -83,7 +83,7 @@ public class ItemDetailController {
 	}
 	
 	@GetMapping("/sub1photo")
-	public void sub1photo(String product_id, HttpServletResponse response) throws Exception {
+	public void sub1photo(int product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
 		String photo_name = iDetail.getSub1_img();
@@ -100,7 +100,7 @@ public class ItemDetailController {
 	}
 	
 	@GetMapping("/sub2photo")
-	public void sub2photo(String product_id, HttpServletResponse response) throws Exception {
+	public void sub2photo(int product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
 		String photo_name = iDetail.getSub2_img();
@@ -117,7 +117,7 @@ public class ItemDetailController {
 	}
 	
 	@GetMapping("/sub3photo")
-	public void edit_sub3photo(String product_id, HttpServletResponse response) throws Exception {
+	public void edit_sub3photo(int product_id, HttpServletResponse response) throws Exception {
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		
 		String photo_name = iDetail.getSub3_img();
@@ -135,8 +135,8 @@ public class ItemDetailController {
 	
 	
 	@GetMapping("/defaultform")
-	public String defaultform(String product_id, Model model) {
-		logger.info(product_id);
+	public String defaultform(int product_id, Model model) {
+		logger.info(product_id+"번 아이템");
 		ProductDto iDetail = itemdetailService.iDetail(product_id);
 		model.addAttribute("itemdetail", iDetail);
 		logger.info("상세페이지 보냄");
@@ -144,8 +144,8 @@ public class ItemDetailController {
 	}
 	
 	@GetMapping("/reviewform")
-	public String reviewform01(String product_id, Model model) {
-		logger.info(product_id);
+	public String reviewform01(int product_id, Model model) {
+		logger.info(product_id+"번 아이템");
 		List<ReviewDto> reviews = reviewService.getProductReview(product_id);
 		model.addAttribute("size", reviews.size());
 		model.addAttribute("list", reviews);

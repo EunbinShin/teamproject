@@ -62,7 +62,6 @@
 					<a href="writeQnA" id="submitBtn" class="btn btn-sm btn-secondary">글쓰기</a>
 				</c:if>
 			</div>
-			
 			<!-- page number navigation -->
 			<div class="d-flex align-items-center justify-content-center">
 				<div>

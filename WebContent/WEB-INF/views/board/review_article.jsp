@@ -42,10 +42,10 @@
 						<img height="130px"
 						src="searchphoto?id=${product.product_id}&image=${product.thumbnail}">
 					</c:if>
-					<div class="ml-5">
+					<div id="desc_container" class="ml-5">
 						<div><a>${product.product_name }</a></div>
 						<div><a>${product.product_price } 원</a></div>
-						<div><a class="btn btn-sm btn-primary">상세보기</a></div>
+						<div><a href="/teamproject/item_list/item_detail?product_id=${product.product_id}" class="btn btn-sm btn-secondary">상세보기</a></div>
 					</div>
 				</div>
 				<table id="article_table" class="table">

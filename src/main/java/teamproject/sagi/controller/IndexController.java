@@ -70,4 +70,20 @@ public class IndexController {
 		is.close();
 	}
 	
+	@GetMapping("/search")
+	public String slider(
+					String search,
+					Model model) {
+		logger.info(search +"실행");
+		
+		if(search.length() > 0) {
+			List<ProductDto> items = searchService.findItem(search);
+			
+			model.addAttribute("items", items);
+			model.addAttribute("result", items.size());
+		}
+
+		return "include/navbarlist";
+	}
+	
 }

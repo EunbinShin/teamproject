@@ -55,7 +55,7 @@ public class ReviewDao {
 		return rows;
 	}
 
-	public List<ReviewDto> selectByProduct(String product_id) {
+	public List<ReviewDto> selectByProduct(int product_id) {
 		// TODO Auto-generated method stub
 		List<ReviewDto> reviews = sst.selectList("mybatis.mapper.review_boards.selectByProduct", product_id);
 		return reviews;

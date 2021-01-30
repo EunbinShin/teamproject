@@ -5,7 +5,7 @@
 	<ul>
 		<li>
 		<c:forEach var="product" items="${products}">
-			<a href="/teamproject/item_list/item_detail?item=${product.product_id}">
+			<a href="/teamproject/item_list/item_detail?product_id=${product.product_id}">
 				<img style="width: 15%" src="thumbnail?id=${product.product_id}&image=${product.thumbnail}"/>
 			</a>
 		</c:forEach>
