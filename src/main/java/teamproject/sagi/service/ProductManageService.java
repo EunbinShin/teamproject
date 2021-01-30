@@ -48,11 +48,9 @@ public class ProductManageService {
 		
 	}
 
-	public int getID() {
-		int product_id = pmDao.selectID();
-		return product_id;
+	public void upload(ProductDto product) {
+		pmDao.insertProduct(product);
 	}
-
 	
 	
 }

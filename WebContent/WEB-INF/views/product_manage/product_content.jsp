@@ -182,7 +182,7 @@
 			</div>				
 				
 			<!-- Button -->
-			<button type="submit" class="btn btn-primary">저장</button>
+			<button id="add_upload" name="add_upload" class="btn btn-primary">저장</button>
 			</fieldset>
 		</form>
 		</div> <!-- /add -->

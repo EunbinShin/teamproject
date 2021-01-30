@@ -51,9 +51,9 @@ public class ProductManageDao {
 		return rows;		
 	}
 
-	public int selectID() {
-		int product_id = sst.selectOne("mybatis.mapper.productmanages.selectseqval");
-		return product_id;
+	public int insertProduct(ProductDto product) {
+		int rows = sst.insert("mybatis.mapper.productmanages.insertProduct", product);
+		return rows;
 	}
 
 }

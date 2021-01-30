@@ -23,15 +23,23 @@
 		from products
 	</select>
 	
-	<select id="selectseqval" resultType="int">
-		select max(product_id) from products
-	</select>
-	
-	<insert id="insert" parameterType="productmanage">
+	<insert id="insertProduct" parameterType="productmanage">
+		<selectKey keyProperty="product_id" resultType="int" order="BEFORE">
+			select pid_seq.nextval
+			from dual
+		</selectKey>
 		insert into products
-		(product_id,product_name,product_category,percentage_discount,product_price,selling_price,product_desc,available_quantity,post_date,best,thumbnail,thumbnailhover,main_img,sub1_img,sub2_img,sub3_img)
+		(product_id,product_name,product_category,
+		percentage_discount,product_price,selling_price,
+		product_desc,available_quantity,post_date,best,
+		thumbnail,thumbnailhover,main_img,
+		sub1_img,sub2_img,sub3_img)
 		values
-		(pid_seq.nextval,#{product_name},#{product_category},#{percentage_discount},#{product_price},#{selling_price},#{product_desc},#{available_quantity},#{post_date},#{best},#{thumbnail},#{thumbnailhover},#{main_img},#{sub1_img, jdbcType=VARCHAR},#{sub2_img, jdbcType=VARCHAR},#{sub3_img, jdbcType=VARCHAR}) 
+		(pid_seq.nextval,#{product_name},#{product_category},
+		#{percentage_discount},#{product_price},#{selling_price},
+		#{product_desc},#{available_quantity},#{post_date},#{best},
+		#{thumbnail},#{thumbnailhover},#{main_img},
+		#{sub1_img, jdbcType=VARCHAR},#{sub2_img, jdbcType=VARCHAR},#{sub3_img, jdbcType=VARCHAR}) 		
 	</insert>
 	
 	<select id="selectByPk" parameterType="string" resultType="productmanage">

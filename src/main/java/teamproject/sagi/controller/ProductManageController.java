@@ -42,22 +42,21 @@ public class ProductManageController {
 		return "product_manage/product_content";
 	}
 
-	@GetMapping("/add/add_upload")
-	public String addForm() {
-		return "product_manage/add/add_upload";
-	}
-
-	@PostMapping("/add/add_upload")
+	@RequestMapping("/add/add_upload")
 	public String add_upload(ProductDto product, HttpSession session) {
-
+		logger.info("요거");
 		product.setBest(false);
+		logger.info("요거2");
+		MultipartFile thumbnail = product.getThumbnail_file();
+		logger.info("요거3");
 		
-		int id = pmService.getID() + 1;
+		pmService.upload(product);
 		
-		logger.info("product id :" + id ) ;
+		int id = product.getProduct_id();
+		logger.info("id              l123: " + id);
 		
 		// thubnail img
-		MultipartFile thumbnail = product.getThumbnail_file();
+		
 		if (!thumbnail.isEmpty()) {
 			String fileName = new Date().getTime() + "-" + thumbnail.getOriginalFilename();
 			String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/thumbnail/";
@@ -137,8 +136,6 @@ public class ProductManageController {
 		 }
 		 
 		logger.info("상품 등록 완료");
-
-		pmService.saveproduct(product);
 		
 		return "redirect:/product_manage/add/add_confirm2?product_id="+product.getProduct_id();
 	}
