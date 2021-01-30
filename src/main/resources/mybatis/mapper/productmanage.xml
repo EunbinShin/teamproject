@@ -29,17 +29,17 @@
 			from dual
 		</selectKey>
 		insert into products
-		(product_id,product_name,product_category,
-		percentage_discount,product_price,selling_price,
-		product_desc,available_quantity,post_date,best,
-		thumbnail,thumbnailhover,main_img,
-		sub1_img,sub2_img,sub3_img)
+			(product_id,product_name,product_category,
+			percentage_discount,product_price,selling_price,
+			product_desc,available_quantity,post_date,best,
+			thumbnail,thumbnailhover,main_img,
+			sub1_img,sub2_img,sub3_img)
 		values
-		(pid_seq.nextval,#{product_name},#{product_category},
-		#{percentage_discount},#{product_price},#{selling_price},
-		#{product_desc},#{available_quantity},#{post_date},#{best},
-		#{thumbnail},#{thumbnailhover},#{main_img},
-		#{sub1_img, jdbcType=VARCHAR},#{sub2_img, jdbcType=VARCHAR},#{sub3_img, jdbcType=VARCHAR}) 		
+			(#{product_id},#{product_name},#{product_category},
+			#{percentage_discount},#{product_price},#{selling_price},
+			#{product_desc},#{available_quantity},#{post_date},#{best},
+			#{thumbnail},#{thumbnailhover},#{main_img},
+			#{sub1_img, jdbcType=VARCHAR},#{sub2_img, jdbcType=VARCHAR},#{sub3_img, jdbcType=VARCHAR}) 		
 	</insert>
 	
 	<select id="selectByPk" parameterType="string" resultType="productmanage">

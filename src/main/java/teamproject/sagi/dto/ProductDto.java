@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductDto {
 	private int product_id; 
 	private String product_name;
-	private String old_product_id;
 	private int product_category; //d
 	private int product_price; 
 	private double percentage_discount;
@@ -32,15 +31,6 @@ public class ProductDto {
 	private String sub3_img;
 	
 	private boolean best;
-	
-	///
-	
-	public String getOld_product_id() {
-		return old_product_id;
-	}
-	public void setOld_product_id(String old_product_id) {
-		this.old_product_id = old_product_id;
-	}
 	
 	
 	// 뱃지	

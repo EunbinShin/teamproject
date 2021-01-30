@@ -44,89 +44,100 @@ public class ProductManageController {
 
 	@RequestMapping("/add/add_upload")
 	public String add_upload(ProductDto product, HttpSession session) {
-		logger.info("요거");
 		product.setBest(false);
-		logger.info("요거2");
-		MultipartFile thumbnail = product.getThumbnail_file();
-		logger.info("요거3");
+		
+		String thumbnail_sname = 
+				new Date().getTime() + "-" + product.getThumbnail_file().getOriginalFilename();
+		product.setThumbnail(thumbnail_sname);
+		
+		String thumbnail_hover_sname = 
+				new Date().getTime() + "-" + product.getThumbnailhover_file().getOriginalFilename();
+		product.setThumbnailhover(thumbnail_sname);
+		
+		String main_sname = 
+				new Date().getTime() + "-" + product.getMain_img_file().getOriginalFilename();
+		product.setMain_img(thumbnail_sname);
+		
+		if(product.getSub1_img_file() != null) {
+			String sub1_sname = 
+					new Date().getTime() + "-" + product.getSub1_img_file().getOriginalFilename();
+			product.setSub1_img(sub1_sname);
+		}
+		
+		if(product.getSub2_img_file() != null) {
+			String sub2_sname = 
+					new Date().getTime() + "-" + product.getSub2_img_file().getOriginalFilename();
+			product.setSub2_img(sub2_sname);
+		}
+		
+		if(product.getSub3_img_file() != null) {
+			String sub3_sname = 
+					new Date().getTime() + "-" + product.getSub3_img_file().getOriginalFilename();
+			product.setSub3_img(sub3_sname);
+		}
 		
 		pmService.upload(product);
 		
 		int id = product.getProduct_id();
-		logger.info("id              l123: " + id);
+		logger.info("id: "+id);
 		
-		// thubnail img
+		// thumbnail img
 		
-		if (!thumbnail.isEmpty()) {
-			String fileName = new Date().getTime() + "-" + thumbnail.getOriginalFilename();
-			String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/thumbnail/";
-			product.setThumbnail(fileName);
-			String filePath = saveDirPath + fileName;
-			File file = new File(filePath);
-			try {
-				thumbnail.transferTo(file);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/thumbnail/";
+		String filePath = saveDirPath + product.getThumbnail();
+		File file = new File(filePath);
+		try {
+			product.getThumbnail_file().transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		
 
 		// thumbnailhover img
-		MultipartFile thumbnailhover = product.getThumbnailhover_file();
-		if (!thumbnailhover.isEmpty()) {
-			String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/thumbnailhover/";
-			String fileName = new Date().getTime() + "-" + thumbnailhover.getOriginalFilename();
-
-			product.setThumbnailhover(fileName);
-
-			String filePath = saveDirPath + fileName;
-			File file = new File(filePath);
-			try {
-				thumbnailhover.transferTo(file);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/thumbnailhover/";
+		filePath = saveDirPath + product.getThumbnailhover();
+		file = new File(filePath);
+		try {
+			product.getThumbnailhover_file().transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-
-		// main_img
-		MultipartFile main_img = product.getMain_img_file();
-		if (!main_img.isEmpty()) {
-			String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/main/";
-			String fileName = new Date().getTime() + "-" + main_img.getOriginalFilename();
-			product.setMain_img(fileName);
-			String filePath = saveDirPath + fileName;
-			File file = new File(filePath);
-			try {
-				main_img.transferTo(file);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
 		
 
+		// main_img
+		saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/main/";
+		filePath = saveDirPath + product.getMain_img();
+		file = new File(filePath);
+		try {
+			product.getMain_img_file().transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+
+		
+		
 		 MultipartFile[] files = new MultipartFile[3];
 		 files[0] = product.getSub1_img_file(); 
 		 files[1] = product.getSub2_img_file(); 
 		 files[2] = product.getSub3_img_file();
 		 
-		 String []fileNames = new String[3];
+		 
 		 
 		 for(int i = 0 ; i < 3; i++) { 
 			 if(!files[i].isEmpty()) { 
-				 String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/sub/";
-				 fileNames[i] = new Date().getTime() + "-" + files[i].getOriginalFilename();
-				 logger.info(fileNames[i]);
-
+				 saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + id + "/sub/";
+				 
 				 if(i == 0) {
-					 product.setSub1_img(fileNames[i]);
+					 filePath = saveDirPath + product.getSub1_img(); 
 				 } else if (i == 1) {
-					 product.setSub2_img(fileNames[i]);
+					 filePath = saveDirPath + product.getSub2_img(); 
 				 } else {
-					 product.setSub3_img(fileNames[i]);
+					 filePath = saveDirPath + product.getSub3_img(); 
 				 }
 				 
-				String filePath = saveDirPath + fileNames[i]; 
-				File file = new File(filePath);
+				
+				file = new File(filePath);
 				
 				try {
 					files[i].transferTo(file); 

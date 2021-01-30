@@ -34,17 +34,22 @@
 						<img src="detail_thumbnail?product_id=${iDetail.product_id}" style="height:100%">
 					</div>
 				</div> <!-- cover -->
-				<div class="info">
-					<h2> 이름: ${iDetail.product_name} </h2><br/>
-					<h4> 가격: ${iDetail.product_price} </h4><br/>
-					
+				<div class="info border-bottom border-top">
+					<h5> ${iDetail.product_name} </h5>
+					<h4> ${iDetail.product_price} 원 </h4>
+					<div class="ml-5 d-flex flex-row bd-highlight mb-3">
+						<div class="p-2 bd-highlight">배송비</div>
+						<div class="p-2 bd-highlight">
+							4000원 (100,000원 이상 구매 시 무료)<br/>
+							제주 및 도서 산간 2000원 추가</div>
+					</div>
 					<input id="buy_quantity"
-					name="buy_quantity" placeholder="4" type="number"
-					style="width: 100px" min="1"><br/>
+						name="buy_quantity" placeholder="1" type="number"
+						style="width: 100px" min="1"><br/>
 
 					<div class="Button" >
 						<c:if test="${loginStatus.id != 'admin'}">
-						<a id="b1" href="<%=application.getContextPath() %>/buy/buy_product" target="_blank">Buy</a>
+						<a id="b1" href="<%=application.getContextPath() %>/buy/buy_product" target="_blank">구매하기</a>
 						</c:if>
 						
 						<c:if test="${loginStatus.id == 'admin'}">
