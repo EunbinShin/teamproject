@@ -38,14 +38,14 @@
 						<!-- input은 inline요소 -->
 						<c:if test="${loginStatus == null}">
 							<form onsubmit="login()">
-								<input id="id" name="id" value="${id}" type="text"  onkeyup="handleIdChange()" placeholder="아이디" required=""/>
+								<input id="id" name="id" value="${uid}" type="text"  onkeyup="handleIdChange()" placeholder="아이디" required=""/>
 								<small id="errorId" class="form-text text-danger"></small>
 								<input id="password" name="password" onkeyup="handlePasswordChange()" type="password" placeholder="패스워드" required=""/>
 								<small id="errorPassword" class="form-text text-danger"></small>
 								
 								<div id="myCheckBox">
 									<input id="ucheck" name="ucheck" type="checkbox" ${remerberID}/>
-									<label for="check">아이디 기억하기</label>
+									<label for="ucheck">아이디 기억하기</label>
 								</div>
 								
 								<div class="hbox">
@@ -71,6 +71,8 @@
 							const login = () =>{
 								//<form>태그의 기본 이동 기능을 취소
 								event.preventDefault();
+
+								console.log("실행");
 								//에러초기화
 								$("#errorId").html("");
 								$("#errorPassword").html("");
@@ -78,6 +80,8 @@
 								//입력값 받기
 								const id = $("#id").val();
 								const password = $("#password").val();
+								const ucheck = $("#ucheck").is(":checked");
+								
 								if(id===""){
 									$("#errorId").html("필수 입력 사항입니다.");
 									validation = false;
@@ -94,7 +98,8 @@
 									url: "login",
 									method: "post",
 									data: {id:id,
-											password:password},
+											password:password,
+											ucheck:ucheck},
 									success: (data)=>{
 										if(data.result === "success"){
 											alert("로그인 성공");
