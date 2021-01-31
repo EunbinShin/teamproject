@@ -374,8 +374,10 @@ public class ProductManageController {
 	
 	@GetMapping("/edit/delete_product")
 	public String boarddelete(int product_id) {
-		logger.info("product_id");
+		logger.info("삭제 실행 중 ");
+		logger.info("product id: " + product_id);
 		pmService.deleteProduct(product_id);
+		logger.info("삭제 완료 ");
 		return "redirect:/";
 	}
 	
