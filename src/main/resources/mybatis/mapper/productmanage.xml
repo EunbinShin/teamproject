@@ -42,68 +42,54 @@
 			#{sub1_img, jdbcType=VARCHAR},#{sub2_img, jdbcType=VARCHAR},#{sub3_img, jdbcType=VARCHAR}) 		
 	</insert>
 	
-	<select id="selectByPk" parameterType="string" resultType="productmanage">
+	<select id="selectByPk" parameterType="int" resultType="productmanage">
 		select product_id
 		from products
 		where product_id = #{product_id}
 	</select>
 	
 	<select id="selectAllInfo"
-			parameterType="string"
+			parameterType="int"
 			resultType="productmanage">
 		select
 			product_id,
 			product_name,
 			product_category,
-			product_price,
-			product_desc,
 			percentage_discount,
+			product_price,
+			selling_price
+			product_desc,
 			available_quantity,
 			post_date,
-			thumbnail,
 			best,
+			thumbnail,
+			thumbnailhover,
 			main_img,
 			sub1_img,
 			sub2_img,
-			sub3_img,
-			thumbnailhover,
-			old_product_id,
-			selling_price
+			sub3_img
 		from products
 		where product_id = #{product_id}
 	</select>
 	
 	<update id="edit" parameterType ="productmanage">
 		update products
-		set product_id = #{product_id},
-			product_name = #{product_name},
-			product_category = #{product_category},
-			product_price = #{product_price},
-			product_desc = #{product_desc},
-			percentage_discount = #{percentage_discount},
-			available_quantity = #{available_quantity},
-			post_date = #{post_date},
-			<if test="thumbnail != null">
-				thumbnail = #{thumbnail},
-			</if>
-			best = #{best},
-			<if test="main_img != null">
-				main_img = #{main_img},
-			</if>
-			<if test="sub1_img != null">
-				sub1_img = #{sub1_img},
-			</if>
-			<if test="sub2_img != null">
-				sub2_img = #{sub2_img},
-			</if>
-			<if test="sub3_img != null">
-				sub3_img = #{sub3_img},
-			</if>
-			<if test="thumbnailhover != null">
-				thumbnailhover = #{thumbnailhover},
-			</if>
-			old_product_id = #{old_product_id}
-		where product_id = #{old_product_id}
+		set product_name = #{product_name}
+			,product_category = #{product_category}
+			,percentage_discount = #{percentage_discount}
+			,product_price = #{product_price}
+			,selling_price = #{selling_price}
+			,product_desc = #{product_desc}
+			,available_quantity = #{available_quantity}
+			,post_date = #{post_date}
+			,best = #{best}
+			<if test="thumbnail != null">,thumbnail = #{thumbnail}</if>
+			<if test="thumbnailhover != null">,thumbnailhover = #{thumbnailhover}</if>
+			<if test="main_img != null">,main_img = #{main_img}</if>
+			<if test="sub1_img != null">,sub1_img = #{sub1_img}</if>
+			<if test="sub2_img != null">,sub2_img = #{sub2_img}</if>
+			<if test="sub3_img != null">,sub3_img = #{sub3_img}</if>
+		where product_id = #{product_id}
 	</update>
 	
 	<delete id="delete">

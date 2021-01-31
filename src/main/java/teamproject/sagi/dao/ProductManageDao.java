@@ -36,7 +36,7 @@ public class ProductManageDao {
 		return pDto;
 	}
 
-	public ProductDto selectAllInfo(String product_id) {
+	public ProductDto selectAllInfo(int product_id) {
 		ProductDto pDto = sst.selectOne("mybatis.mapper.productmanages.selectAllInfo", product_id);
 		return pDto;
 	}
@@ -46,7 +46,7 @@ public class ProductManageDao {
 		return rows;
 	}
 
-	public int delete(String product_id) {
+	public int delete(int product_id) {
 		int rows = sst.delete("mybatis.mapper.productmanages.delete",product_id);
 		return rows;		
 	}

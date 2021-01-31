@@ -154,28 +154,27 @@ public class ProductManageController {
 		return "product_manage/add/add_confirm2";
 	}
 	
-		//////////////////////
 	
-	/*
 	@GetMapping("/edit/edit_product")
-	public String edit_productForm(String product_id, ProductDto product, Model model) {
+	public String edit_productForm(int product_id, ProductDto product, Model model) {
 		logger.info("edit_product 실행 중");
 		ProductDto pmDto = pmService.getAllProduct(product_id);
-		logger.info(pmDto.getMain_img());
+		logger.info("edit_product  읽기 성공 ");
 		model.addAttribute("pmDto", pmDto);
 		
 		
 		return "product_manage/edit/edit_product";
 	}
-	
-	
-	///////////////////////////////
-	
+
 	@PostMapping("/edit/edit_product")
 	public String edit_product(ProductDto pmDto) {
+		logger.info("상품 수정 중");
 		
-		String product_id = pmDto.getProduct_id();
-
+		int product_id = pmDto.getProduct_id();
+		int sellingp = pmDto.getSelling_price();
+		logger.info("제품 코드: " + product_id);
+		logger.info("판매가 :   " + sellingp);
+		
 		MultipartFile thumbnail = pmDto.getThumbnail_file();
 		 if (!thumbnail.isEmpty()) { 
 			 String fileName = new Date().getTime() + "-" + thumbnail.getOriginalFilename(); 
@@ -266,7 +265,7 @@ public class ProductManageController {
 	
 	
 	@GetMapping("/edit/edit_thumbphoto")
-	public void edit_thumbphoto(String product_id, HttpServletResponse response) throws Exception {
+	public void edit_thumbphoto(int product_id, HttpServletResponse response) throws Exception {
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -284,7 +283,7 @@ public class ProductManageController {
 	}
 	
 	@GetMapping("/edit/edit_thumbhoverphoto")
-	public void edit_thumbhoverphoto(String product_id, HttpServletResponse response) throws Exception {
+	public void edit_thumbhoverphoto(int product_id, HttpServletResponse response) throws Exception {
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -302,7 +301,7 @@ public class ProductManageController {
 	}
 	
 	@GetMapping("/edit/edit_mainphoto")
-	public void edit_mainphoto(String product_id, HttpServletResponse response) throws Exception {
+	public void edit_mainphoto(int product_id, HttpServletResponse response) throws Exception {
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
 		String photo_name = pmDto.getMain_img();
@@ -319,7 +318,7 @@ public class ProductManageController {
 	}
 	
 	@GetMapping("/edit/edit_sub1photo")
-	public void edit_sub1photo(String product_id, HttpServletResponse response) throws Exception {
+	public void edit_sub1photo(int product_id, HttpServletResponse response) throws Exception {
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -338,7 +337,7 @@ public class ProductManageController {
 	}
 	
 	@GetMapping("/edit/edit_sub2photo")
-	public void edit_sub2photo(String product_id, HttpServletResponse response) throws Exception {
+	public void edit_sub2photo(int product_id, HttpServletResponse response) throws Exception {
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -356,7 +355,7 @@ public class ProductManageController {
 	}
 	
 	@GetMapping("/edit/edit_sub3photo")
-	public void edit_sub3photo(String product_id, HttpServletResponse response) throws Exception {
+	public void edit_sub3photo(int product_id, HttpServletResponse response) throws Exception {
 		
 		ProductDto pmDto = pmService.getAllProduct(product_id);
 		
@@ -374,43 +373,11 @@ public class ProductManageController {
 	}
 	
 	@GetMapping("/edit/delete_product")
-	public String boarddelete(String product_id) {
+	public String boarddelete(int product_id) {
 		logger.info("product_id");
 		pmService.deleteProduct(product_id);
 		return "redirect:/";
 	}
-	
-	
-	
-	/*
-	
-
-	
-
-	/*
-	
-	@RequestMapping("/add/add_confirm")
-	public String review(String product_id, Model model) {
-		logger.info("add confirm 실행");
-		logger.info(product_id+" 실행");
-		model.addAttribute("product_id", product_id);
-		return "product_manage/add/add_confirm";
-	}
-	
-   @RequestMapping("add/add_photolist")
-   public String add_photolist(Model model, String product_id) {
-      logger.info("실행");
-      logger.info(product_id);
-      String saveDirPath = "D:/MyWorkspace/uploadfiles/add/" + product_id +"/thumbnail/";
-      logger.info(saveDirPath);
-      File dir = new File(saveDirPath);
-      String[] fileNames = dir.list();
-      model.addAttribute("product_id", product_id);
-      model.addAttribute("fileNames", fileNames);
-      return "product_manage/add/add_photolist";
-   }
-	
-	*/
 	
 	
 

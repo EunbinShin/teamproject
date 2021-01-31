@@ -47,16 +47,7 @@
 			document.getElementById("selling_price").value = sellp.toFixed(0);
 
 		}
-	
-		
-		
-		genId = function() {
-			var pcate = document.getElementById("product_category").value
-			var pname = document.getElementById("product_name").value
-			document.getElementById("product_id").value = pcate + "-" + pname;
-		}
-		
-		
+
 	</script>
 	
 </head>
@@ -78,7 +69,7 @@
 			<div class="form-group">
 				<label for="product_categorie" class="col-md-4 control-label">상품 카테고리</label>
 				<div class="col-md-4">
-					<input onchange="genId()" value="${pmDto.product_category}" id="product_category" name="product_category" class="form-control" type="text">
+					<input value="${pmDto.product_category}" id="product_category" name="product_category" class="form-control" type="text">
 				</div>
 			</div>
 			
@@ -86,7 +77,7 @@
 			<div class="form-group">
 				<label for="product_name" class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
-					<input onchange="genId()" value="${pmDto.product_name}" id="product_name" name="product_name"  class="form-control input-md" type="text">
+					<input value="${pmDto.product_name}" id="product_name" name="product_name"  class="form-control input-md" type="text">
 					
 				</div>
 			</div>
@@ -96,7 +87,6 @@
 				<label for="product_id" class="col-md-4 control-label">상품 코드</label>
 				<div class="col-md-4">
 					<input readonly value="${pmDto.product_id}" id="product_id" name="product_id"  class="form-control input-md"  type="text">
-					<input hidden value="${pmDto.product_id}" id="old_product_id" name="old_product_id"  class="form-control input-md"  type="text">
 				</div>
 			</div>
 			

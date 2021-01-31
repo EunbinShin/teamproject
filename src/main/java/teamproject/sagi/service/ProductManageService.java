@@ -34,7 +34,7 @@ public class ProductManageService {
 		return pDto;
 	}
 
-	public ProductDto getAllProduct(String product_id) {
+	public ProductDto getAllProduct(int product_id) {
 		ProductDto pDto = pmDao.selectAllInfo(product_id);
 		return pDto;
 	}
@@ -43,7 +43,7 @@ public class ProductManageService {
 		pmDao.edit(pmDto);
 	}
 
-	public void deleteProduct(String product_id) {
+	public void deleteProduct(int product_id) {
 		pmDao.delete(product_id);
 		
 	}
