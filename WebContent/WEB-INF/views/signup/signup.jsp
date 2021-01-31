@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/footer.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/signup.css?after" type="text/css">
 	<script>
+		var idcheck = false;
+		var samecheck = false;
     	function idCheck(){
     		var id = $("#id").val();
     		
@@ -28,16 +30,18 @@
    				success: function(data) {
    					if(data.id === "success"){
    						alert("사용하실 수 있습니다.");
+   						idcheck = true;
    						console.log('사용가능');
    					} else{
    						alert("중복입니다");
+   						idcheck = false;
    						console.log("중복");
    					}
    				}
    			});
     	}
     		
-		$(function() {
+		/*$(function() {
 			$('#password2').blur(function() {
 				if ($("#password").val() != $("#password2").val()) {
 					if ($("#password2").val() != "") {
@@ -47,8 +51,36 @@
 					}
 				}
 			})
-		});
+		});*/
 		
+		const checkPassword =() =>{
+			var checkpwd = $("#password2").val();
+			var pwd = $("#password").val();
+			console.log(checkpwd);
+			if(pwd.length > 0){
+				if(pwd == checkpwd){
+					$("#checkpwd").html('비밀번호가 같습니다.');
+					samecheck = true;
+				}else{
+					$("#checkpwd").html('비밀번호가 다릅니다.');
+					samecheck = false;
+				}
+			}
+			
+		};
+		
+		const signup = () => {
+			if(idcheck == false){
+				alert("아이디 중복 확인을 해주세요!");
+				return false;
+			}else if(samecheck == false){
+				alert("비밀번호 일치 확인을 해주세요!");
+				return false;
+			}else{
+				console.log("회원가입 가능");
+				return true;
+			}
+		};
 	</script>
 </head>
 	
@@ -61,7 +93,7 @@
 		<div class="add">
 		
 		<div class="form-group" align="center" > 
-			<form action="signup" method="post" enctype="multipart/form-data" class="mt-5">
+			<form action="signup" method="post" onsubmit="return signup()" enctype="multipart/form-data" class="mt-5">
 				<div class="form-group">
 					<label for="id">아이디</label>
 					<div class="d-flex">
@@ -84,9 +116,9 @@
 				</div>
 				<div class="form-group">
 					<label for="password2">비밀번호 확인</label>
-					<input type="password" class="form-control"
+					<input onkeyup="checkPassword()" type="password" class="form-control"
 						 id="password2" name="password2" required/>
-					<small class="form-text text-muted">필수 입력 사항입니다.</small>
+					<small id="checkpwd" class="form-text text-muted">필수 입력 사항입니다.</small>
 				</div>
 				<div class="form-group">
 					<label for="cellphone">전화번호</label>
@@ -103,7 +135,7 @@
 				<div class="form-group">
 					<label for="address">주소</label>
 					<input type="text" class="form-control" 
-						name="address" id="address" required/>
+						name="address" id="address"/>
 				</div>
 				<div class="form-group">
 					<label for="photo">프로필사진</label><br/>

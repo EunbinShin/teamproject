@@ -8,12 +8,13 @@
 	<div class="d-flex flex-row bd-highlight mb-3 border border-secondary">
 		<div class="p-2 bd-highlight">
 			<a href="/teamproject/item_list/item_detail?product_id=${item.product_id}">
-				<img width="80px" height="80px" src="searchphoto?id=${item.product_id}&image=${item.thumbnail}">
+				<img width="80px" height="80px" src="/teamproject/board/searchphoto?id=${item.product_id}&image=${item.thumbnail}">
 			</a>
 		</div>
 		<div class="p-2 bd-highlight align-middle">
 			<a href="/teamproject/item_list/item_detail?product_id=${item.product_id}">${item.product_name}</a>
-			<a href="/teamproject/item_list/item_detail?product_id=${item.product_id}">${item.product_price}</a>
+			<br/>
+			<a href="/teamproject/item_list/item_detail?product_id=${item.product_id}">${item.selling_price}원</a>
 		</div>
 	</div>
 </c:forEach>

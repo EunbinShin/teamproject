@@ -40,5 +40,17 @@ public class ItemListService {
 		List<ProductDto> items = itemListDao.selectByPage(pager);
 		return items;
 	}
+
+	public String getThumbnail(int id) {
+		// TODO Auto-generated method stub
+		String image = itemListDao.selectThumbnailByPk(id);
+		return image;
+	}
+
+	public String getThumbnailHover(int id) {
+		// TODO Auto-generated method stub
+		String image = itemListDao.selectThumbnailHoverByPk(id);
+		return image;
+	}
 	
 }

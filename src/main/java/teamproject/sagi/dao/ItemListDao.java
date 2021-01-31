@@ -34,6 +34,18 @@ public class ItemListDao {
 				"mybatis.mapper.itemlist.selectByPage", pager);
 		return list;
 	}
+
+	public String selectThumbnailByPk(int id) {
+		// TODO Auto-generated method stub
+		String image = sst.selectOne("mybatis.mapper.itemlist.selectThumbnailByPk",id);
+		return image;
+	}
+
+	public String selectThumbnailHoverByPk(int id) {
+		// TODO Auto-generated method stub
+		String image = sst.selectOne("mybatis.mapper.itemlist.selectThumbnailHoverByPk" ,id);
+		return image;
+	}
 	
 
 }

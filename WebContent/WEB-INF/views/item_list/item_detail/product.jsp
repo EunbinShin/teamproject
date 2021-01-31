@@ -29,14 +29,14 @@
 	<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>	
 		
 			<section>
-				<div class="img"> 
+				<div class="img border"> 
 					<div>
 						<img src="detail_thumbnail?product_id=${iDetail.product_id}" style="height:100%">
 					</div>
 				</div> <!-- cover -->
 				<div class="info border-bottom border-top">
 					<h5> ${iDetail.product_name} </h5>
-					<h4> ${iDetail.product_price} 원 </h4>
+					<h4> ${iDetail.selling_price} 원 </h4>
 					<div class="ml-5 d-flex flex-row bd-highlight mb-3">
 						<div class="p-2 bd-highlight">배송비</div>
 						<div class="p-2 bd-highlight">
@@ -53,11 +53,11 @@
 						</c:if>
 						
 						<c:if test="${loginStatus.id == 'admin'}">
-						<a id="b2" href="<%=application.getContextPath() %>/product_manage/edit/delete_product?product_id=${iDetail.product_id}" target="_blank">Delete</a><p></p>
+						<a id="b2" href="delete" target="_blank">Delete</a><p></p>
 						</c:if>
 						
 						<c:if test="${loginStatus.id == 'admin' }">
-						<a id="b2" href="<%=application.getContextPath() %>/product_manage/edit/edit_product?product_id=${iDetail.product_id}" target="_blank">Edit</a><p></p>
+						<a id="b2" href="<%=application.getContextPath() %>/product_manage/edit/edit_product?product_id=${iDetail.product_id}" target="_blank">Edit</a>
 						</c:if>
 						
 						<c:if test="${loginStatus.id != 'admin'}">

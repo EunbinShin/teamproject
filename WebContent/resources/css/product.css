@@ -133,3 +133,22 @@
 			width: 200px;
 			background-color: 
 		}
+		
+		.p-2{
+			margin-top: 20px;
+			margin-left: 80px;
+			margin-bottom: 50px;
+		}
+
+		h5{
+			margin-top: 50px;
+		}
+
+		h4{
+			margin-top: 50px;
+		}
+
+		input{
+			font-size: 20px;
+			margin-bottom: 50px;
+		}

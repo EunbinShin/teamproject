@@ -66,9 +66,9 @@ public class ItemListController {
 	@GetMapping("/thumbnail")
 	public void thumbnail(
 			int id,
-			String image,
 			HttpServletResponse response) throws IOException {
 		
+		String image = itemListService.getThumbnail(id);
 		String filePath = "D:/MyWorkspace/uploadfiles/add/"
 				+id+"/thumbnail/"+image;
 			
@@ -85,9 +85,8 @@ public class ItemListController {
 	@GetMapping("/thumbnail_hover")
 	public void thumbnail_hover(
 			int id,
-			String image,
 			HttpServletResponse response) throws IOException {
-		
+		String image = itemListService.getThumbnailHover(id);
 		String filePath = "D:/MyWorkspace/uploadfiles/add/"
 				+id+"/thumbnailhover/"+image;
 			

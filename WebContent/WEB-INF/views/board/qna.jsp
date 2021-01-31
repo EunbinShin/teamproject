@@ -38,6 +38,7 @@
 					<thead>
 						<tr>
 							<th>번호</th>
+							<th>제품</th>
 							<th>문의</th>
 							<th>제목</th>
 							<th>작성자</th>
@@ -46,11 +47,12 @@
 					</thead>
 					<c:forEach var="board" items="${list}">
 				  		<tr>
-				      		<td>${board.qna_bno}</td>
-				      		<td>${board.category_name}</td>
-				      		<td><a href="showqna?bno=${board.qna_bno}&page=${page}" class="text-decoration-none">${board.qna_title}</a></td>
-				      		<td>${board.users_id}</td>
-				      		<td><fmt:formatDate value="${board.qna_date}" pattern="yyyy.MM.dd"/></td>
+				      		<td class="align-middle">${board.qna_bno}</td>
+				      		<td><img width="75px" class="border rounded" src="searchphoto2?id=${board.products_product_id}"></td>
+				      		<td class="align-middle">${board.category_name}</td>
+				      		<td class="align-middle"><a href="showqna?bno=${board.qna_bno}&page=${page}" class="text-decoration-none">${board.qna_title}</a></td>
+				      		<td class="align-middle">${board.users_id}</td>
+				      		<td class="align-middle"><fmt:formatDate value="${board.qna_date}" pattern="yyyy.MM.dd"/></td>
 				    	</tr>
 				  	</c:forEach>
 				</table>

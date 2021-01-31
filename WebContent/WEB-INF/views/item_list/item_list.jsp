@@ -54,12 +54,12 @@
 			<c:forEach var="product" items="${products}" varStatus="status">
 				<div class="column">
 					<a href="item_detail?product_id=${product.product_id}"> 
-						<img width="490" height="615" src="thumbnail?id=${product.product_id}&image=${product.thumbnail}" class="img-bottom">
-						<img width="490" height="615" src="thumbnail_hover?id=${product.product_id}&image=${product.thumbnailhover}" class="img-top">
+						<img width="490" height="615" src="thumbnail?id=${product.product_id}" class="img-bottom">
+						<img width="490" height="615" src="thumbnail_hover?id=${product.product_id}" class="img-top">
 					</a>
 					<a href="item_detail?product_id=${product.product_id}">${product.product_name}</a>
 					<p>
-						<b>가격: ${product.product_price} &#8361</b>
+						<b>가격: ${product.selling_price} &#8361</b>
 					</p>
 				</div>
 		  	</c:forEach>

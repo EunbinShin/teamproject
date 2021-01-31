@@ -15,11 +15,25 @@
 		where product_category = #{category}
 	</select>
 	
+	<select id="selectThumbnailByPk" 
+		resultType="string">
+		select thumbnail
+		from products
+		where product_id = #{id}
+	</select>
+	
+	<select id="selectThumbnailHoverByPk" 
+		resultType="string">
+		select thumbnailhover
+		from products
+		where product_id = #{id}
+	</select>
+	
 	<select id="selectByPage" 
 		parameterType="listpager"
 		resultType="productmanage">
 		select rno, product_id, product_name, product_category,
-				product_price, product_desc, percentage_discount,
+				product_price, product_desc,selling_price, percentage_discount,
 				available_quantity, post_date,
 				thumbnail,
 				main_img,
@@ -27,7 +41,7 @@
 				thumbnailhover
 		from(
 			select rownum as rno, product_id, product_name, product_category,
-					product_price, product_desc, percentage_discount,
+					product_price, product_desc,selling_price, percentage_discount,
 					available_quantity, post_date,
 					thumbnail,
 					main_img,
@@ -35,7 +49,7 @@
 					thumbnailhover
 		    from (
 		        select product_id, product_name, product_category,
-						product_price, product_desc, percentage_discount,
+						product_price, product_desc,selling_price, percentage_discount,
 						available_quantity, post_date,
 						thumbnail,
 						main_img,
@@ -52,10 +66,10 @@
 				order by product_name asc
 			</if>
 	        <if test="type == 2">
-				order by product_price desc
+				order by selling_price desc
 			</if>
 	        <if test="type == 3">
-				order by product_price asc
+				order by selling_price asc
 			</if>
 		        )
 		    where rownum &lt;= #{endRowNo}	

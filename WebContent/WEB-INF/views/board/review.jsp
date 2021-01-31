@@ -38,6 +38,7 @@
 					<thead>
 						<tr>
 							<th>번호</th>
+							<th>제품</th>
 							<th style="width: 50%;">제목</th>
 							<th>작성자</th>
 							<th>날짜</th>
@@ -46,10 +47,11 @@
 					<tbody>
 						<c:forEach var="board" items="${list}">
 					  		<tr>
-					      		<td>${board.review_no}</td>
-					      		<td><a href="showreview?bno=${board.review_no}&page=${page}" class="text-decoration-none">${board.review_title}</a></td>
-					      		<td>${board.users_id}</td>
-					      		<td><fmt:formatDate value="${board.review_date}" pattern="yyyy.MM.dd"/></td>
+					      		<td class="align-middle">${board.review_no}</td>
+					      		<td><img width="75px" class="border rounded" src="searchphoto2?id=${board.products_product_id}"></td>
+				      			<td class="align-middle"><a href="showreview?bno=${board.review_no}&page=${page}" class="text-decoration-none">${board.review_title}</a></td>
+					      		<td class="align-middle">${board.users_id}</td>
+					      		<td class="align-middle"><fmt:formatDate value="${board.review_date}" pattern="yyyy.MM.dd"/></td>
 					    	</tr>
 					  	</c:forEach>
 				  	</tbody>
