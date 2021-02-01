@@ -47,7 +47,7 @@
 			document.getElementById("selling_price").value = sellp.toFixed(0);
 
 		}
-
+		
 	</script>
 	
 </head>
@@ -65,29 +65,31 @@
 			<!-- Form Name -->
 			<legend id="form-name">상품 수정</legend>
 
-			<!-- Select Basic -->
+			<!-- 상품 카테코리 Select Basic -->
 			<div class="form-group">
 				<label for="product_categorie" class="col-md-4 control-label">상품 카테고리</label>
 				<div class="col-md-4">
-					<input value="${pmDto.product_category}" id="product_category" name="product_category" class="form-control" type="text">
-				</div>
-			</div>
-			
-			<!-- Text input-->
-			<div class="form-group">
-				<label for="product_name" class="col-md-4 control-label">상품명</label>
-				<div class="col-md-4">
+
 					<select id="product_category" name="product_category" class="form-control">
-					<option value="${pmDto.product_name}" id="product_name" name="product_name"  class="form-control input-md" type="text"> </option>
-						<option value="1">도자기 </option>
-						<option value="2">식기</option>
-						<option value="3">유리그릇</option>
-						<option value="4">장식품</option>
+						<option value="1" <c:if test="${pmDto.product_category} == 1"> selected="selected"</c:if> >도자기 </option>
+						<option value="2" <c:if test="${pmDto.product_category} == 2"> selected="selected"</c:if> >식기</option>
+						<option value="3" <c:if test="${pmDto.product_category} == 3"> selected="selected"</c:if> >유리그릇</option>
+						<option value="4" <c:if test="${pmDto.product_category} == 4"> selected="selected"</c:if> >장식품</option>
 					</select>
 				</div>
 			</div>
+
 			
-			<!-- Text input-->
+			<!-- 상품명 Text input-->
+			<div class="form-group">
+				<label for="product_name" class="col-md-4 control-label">상품명</label>
+				<div class="col-md-4">
+					<input value="${pmDto.product_name}" id="product_name" name="product_name"  class="form-control input-md" type="text">
+					
+				</div>
+			</div>
+			
+			<!-- 상품코드 Text input-->
 			<div class="form-group">
 				<label for="product_id" class="col-md-4 control-label">상품 코드</label>
 				<div class="col-md-4">
@@ -95,7 +97,7 @@
 				</div>
 			</div>
 			
-			<!-- num input-->
+			<!-- 상품 가격 num input-->
 			<div class="form-group">
 				<label for="product_price" class="col-md-4 control-label">상품 가격</label>  
 				<div class="col-md-4">
@@ -104,7 +106,7 @@
 				</div>
 			</div>
 			
-			<!-- num input-->
+			<!-- 상품 할인율 num input-->
 			<div class="form-group">
 				<label for="percentage_discount" class="col-md-4 control-label">상품 할인율</label>  
 				<div class="col-md-4">
@@ -114,17 +116,18 @@
 			</div>
 			
 			
-			<!-- num input-->
+			<!-- 상품 판매가 num input-->
 			<div class="form-group">				
 				<label for="selling_price" class="col-md-4 control-label">상품 판매가 (할인 적용) </label>  
 				
 				<div class="col-md-4">
 				<input readonly value="${pmDto.selling_price}" id="selling_price"  name="selling_price" value ="selling_price" class="form-control input-md" type="number">
+				<div>상품 판매가 ${pmDto.selling_price}</div>
 			</div>
 
 			</div>
 			
-			<!-- Textarea -->
+			<!-- 상품 설명  Textarea -->
 			<div class="form-group">
 				<label for="product_desc" class="col-md-4 control-label">상품 설명</label>
 				<div class="col-md-4">                     
@@ -132,7 +135,7 @@
 				</div>
 			</div>
 			
-			<!-- Text input-->
+			<!-- 주문 가능 수량 num input-->
 			<div class="form-group">
 				<label for="available_quantity" class="col-md-4 control-label">주문 가능 수량</label>  
 				<div class="col-md-4">
@@ -141,7 +144,7 @@
 				</div>
 			</div>
 			
-			<!-- Text input-->
+			<!-- 상품 개시일  date input-->
 			<div class="form-group">
 				<label for="post_date" class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
@@ -149,8 +152,9 @@
 				</div>
 			</div>	
 
+			<!-- 상품 뱃지 checkbox input-->
 			<div class="form-group">
-				<label for="best" class="col-md-4 control-label">상품 뱃지 설정</label>  
+				<label for="best" class="col-md-4 control-label">상품 뱃지</label>  
 				<div class="col-md-4">
 					<input  id="best" name="best"  class="form-control input-md" type="checkbox"	
 						<c:if test="${pmDto.best == true}">
