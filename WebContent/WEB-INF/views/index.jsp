@@ -163,7 +163,7 @@
 					}
 				</script>
 				<div style="width: 100%; height: 380px;" id="slider">
-					<jsp:include page="/WEB-INF/views/item_list/item_detail/product_slide.jsp"/>
+					<jsp:include page="/WEB-INF/views/index/index_product_slide.jsp"/>
 				</div>
 			</div> <!-- trend_con -->
 		</div> <!-- trend  -->

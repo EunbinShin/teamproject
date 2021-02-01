@@ -1,5 +1,3 @@
-<%@ page  contentType="text/html; charset=UTF-8"%>
-
 <style type="text/css">
 
 *{margin:0;padding:0;}
@@ -24,9 +22,6 @@ li img{
 	display: flex;
 	animation: slide 10s infinite;
 } 
-.slide li {
-	width: calc(100%/ 4);
-}
 
 #slide_ul:hover {
   animation-play-state: paused;
@@ -45,6 +40,8 @@ li img{
 }
 
 </style>
+
+<%@ page  contentType="text/html; charset=UTF-8"%>
 
 <div class="slide">
 	<ul id="slide_ul">

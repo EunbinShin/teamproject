@@ -143,7 +143,7 @@ public class ProductManageController {
 		 
 		logger.info("상품 등록 완료");
 		
-		return "redirect:/product_manage/add/add_confirm2?product_id="+product.getProduct_id();
+		return "redirect:/product_manage/teamproject/product_manage/product_content";
 	}
 	
 	@RequestMapping("/add/add_confirm2")
@@ -260,7 +260,7 @@ public class ProductManageController {
 		
 		pmService.edit(pmDto); 
 		logger.info("수정수정 실행 중");
-		return "product_manage/edit/edit_product";
+		return "redirect:/";
 	}
 	
 	

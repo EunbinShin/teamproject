@@ -1,3 +1,20 @@
+<script>
+	carousel01 = function() {
+		location.href="<%=application.getContextPath() %>/item_list/item_detail?product_id=38";
+		logger.info("carousel01 실행");
+	}
+	
+	carousel02 = function() {
+		location.href="<%=application.getContextPath() %>/item_list/item_detail?product_id=32";
+		logger.info("carousel01 실행");
+	}
+	
+	carousel03 = function() {
+		location.href="<%=application.getContextPath() %>/item_list/item_detail?product_id=35";
+		logger.info("carousel01 실행");
+	}
+</script>
+
 <%@ page  contentType="text/html; charset=UTF-8"%>
 
 <div id="demo" class="carousel slide" data-ride="carousel">
@@ -9,13 +26,13 @@
 
 	<div class="carousel-inner">
 		<div class="carousel-item active">
-			<img src= "<%=application.getContextPath() %>/resources/img/home_a01.jpg" alt="A" >
+			<img onclick="carousel01()" src= "<%=application.getContextPath() %>/resources/img/carousel01.jpg" alt="A" >
 		</div>
 		<div class="carousel-item">
-			<img src= "<%=application.getContextPath() %>/resources/img/home_a02.jpg" alt="B" >
+			<img onclick="carousel02()" src= "<%=application.getContextPath() %>/resources/img/carousel02.jpg" alt="B" >
 		</div>
 		<div class="carousel-item">
-			<img src= "<%=application.getContextPath() %>/resources/img/home_a03.jpg" alt="C">
+			<img onclick="carousel03()" src= "<%=application.getContextPath() %>/resources/img/carousel03.jpg" alt="C">
 		</div>
 	</div>
 
