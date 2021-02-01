@@ -23,6 +23,9 @@
 				<a href="<%=application.getContextPath() %>/item_list/bestitems?page=1">BEST</a>
 			</div>
 		</li>
+		<c:if test="${loginStatus.id != null}">
+		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/mypage/mypage?id=${loginStatus.id}">MyPage</a></li>
+		</c:if>
 		<c:if test="${loginStatus.id == 'admin'}">
 		<li class="nav-item"><a class="nav-link" href="<%=application.getContextPath() %>/product_manage/product_content">ADD</a></li>
 		</c:if>

@@ -1,0 +1,150 @@
+		* {
+			box-sizing: border-box;
+		}
+		
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		
+		a:visited{
+			color: black;
+			text-decoration: none;
+		}
+		
+		#wrapper{
+			display:flex;
+			flex-direction: column;
+		}
+		
+		section {
+			background-color: white;
+			display: block;
+			float: left;
+			box-sizing: border-box;
+			padding-top: 60px;
+			padding-left: 15%;
+			display: flex;
+			flex-direction: row;
+		}
+		.img {
+			flex: 4;
+			box-sizing: border-box;
+			display: inline-block;
+		}
+		.info {
+			font-size: 15px;
+			background-color: white;
+			flex: 8;
+			text-align: center;
+			box-sizing: border-box;
+			display: inline-block;
+			margin-top: 7%;
+			margin-left: 10%;
+			margin-right: 15%;
+			}
+		.Button{
+			display: flex;
+			justify-content: space-around;
+			border-radius: 10px;
+			padding: 2px;
+		}
+		#b1:link, #b1:visited{
+			margin: 10px;
+			color: black;
+			background-color: #ced4da;
+			flex: 3;
+			font-size: 24px;
+  			padding: 14px 25px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			border-radius: 15px;
+		}
+		#b1:hover, #b1:active {
+  			background-color: #ffc9c9;
+		}
+		#b2{
+			margin: 10px;
+			color: black;
+			background-color: #e9ecef;
+			flex: 2;
+			font-size: 24px;
+  			padding: 14px 25px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			border-radius: 15px;
+			
+		}
+		#b2:hover, #b2:active {
+  			background-color: #ffc9c9;
+		}
+		#b3{
+			margin: 10px;
+			color: black;
+			background-color: #f1f3f5;
+			flex: 1;
+			font-size: 24px;
+  			padding: 14px 25px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			border-radius: 15px;
+		}
+		
+		#b3:hover, #b3:active {
+  			background-color: #ffc9c9;
+		}
+
+	
+		
+		article {
+			float: left;
+			background-color: white;
+			display: inline-block;
+			margin-top: 3%;
+			margin-left: 15%;
+			margin-right: 15%;
+			text-align: center;
+		}
+		
+		.btn_detail{
+			margin: 50px;
+			diplay: flex;
+			justify-content:space-evenly; 
+		}
+		
+		#detail{
+			flex: 1;
+		}
+		#review{
+			flex: 1;
+		}
+		#delivery{
+			flex: 1;
+		}
+		
+		.mybtn{
+	     	display: inline-block;
+			border: 1px solid #ced4da;
+			border-bottom: none;
+			margin-top: 50px;
+			height: 35px;
+			width: 200px;
+			background-color: 
+		}
+		
+		.delivery{
+			margin-top: 20px;
+			margin-left: 80px;
+			margin-bottom: 50px;
+		}
+
+		h5{
+			margin-top: 50px;
+		}
+
+		h4{
+			margin-top: 50px;
+		}

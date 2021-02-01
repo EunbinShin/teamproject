@@ -12,5 +12,6 @@
 		<typeAlias alias="listpager" type="teamproject.sagi.dto.ListPager"/>
 		<typeAlias alias="signupdto" type="teamproject.sagi.dto.SignupDto"/>
 		<typeAlias alias="productmanage" type="teamproject.sagi.dto.ProductDto"/>
+		<typeAlias alias="mypage" type="teamproject.sagi.dto.MypageDto"/>
 	</typeAliases>
 </configuration>
