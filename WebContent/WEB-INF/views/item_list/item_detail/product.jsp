@@ -15,10 +15,10 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/add.css?after" type="text/css"> 
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/header.css?after" type="text/css">
-	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/footer.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product_slide.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/product.css?after" type="text/css">
+	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/menu_bar.css?after" type="text/css">
 	
 </head>
 <body>
@@ -38,8 +38,8 @@
 					<h5> ${iDetail.product_name} </h5>
 					<h4> ${iDetail.selling_price} 원 </h4>
 					<div class="ml-5 d-flex flex-row bd-highlight mb-3">
-						<div class="p-2 bd-highlight">배송비</div>
-						<div class="p-2 bd-highlight">
+						<div class="delivery bd-highlight">배송비</div>
+						<div class="delivery bd-highlight">
 							4000원 (100,000원 이상 구매 시 무료)<br/>
 							제주 및 도서 산간 2000원 추가</div>
 					</div>

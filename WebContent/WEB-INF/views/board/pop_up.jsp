@@ -74,14 +74,15 @@
 					}
 					const selectItem = (product_id) => {
 						console.log("select Item");
+						var keyword = $("#keyword").val();
 						$.ajax({
 							url: "update_item",
 							method: "post",
 							data: {product_id:product_id},
 							success: (data)=>{
 								console.log("load Item 실행");
-								$(opener.document).find("#ptest").text(data.product_id);
-								var url = "searchphoto?id="+data.product_id+"&image="+data.thumbnail;
+								$(opener.document).find("#ptest").text(data.product_name);
+								var url = "searchphoto?id="+data.product_id;
 								$(opener.document).find("#selectImg").attr("src", url);
 								$(opener.document).find("#products_product_id").val(data.product_id);
 								self.close();

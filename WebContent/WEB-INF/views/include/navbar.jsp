@@ -45,7 +45,6 @@
 		const searchBar = () =>{
 			if(toggle){
 				document.getElementById("mySearchBox").style.display = "inline";
-				document.getElementById("searchResult").style.display = "block";
 				toggle = !toggle;
 			}else{
 				document.getElementById("mySearchBox").style.display = "none";
