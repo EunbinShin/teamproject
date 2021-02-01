@@ -77,8 +77,13 @@
 			<div class="form-group">
 				<label for="product_name" class="col-md-4 control-label">상품명</label>
 				<div class="col-md-4">
-					<input value="${pmDto.product_name}" id="product_name" name="product_name"  class="form-control input-md" type="text">
-					
+					<select id="product_category" name="product_category" class="form-control">
+					<option value="${pmDto.product_name}" id="product_name" name="product_name"  class="form-control input-md" type="text"> </option>
+						<option value="1">도자기 </option>
+						<option value="2">식기</option>
+						<option value="3">유리그릇</option>
+						<option value="4">장식품</option>
+					</select>
 				</div>
 			</div>
 			

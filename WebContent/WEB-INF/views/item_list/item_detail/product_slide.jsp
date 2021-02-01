@@ -1,7 +1,11 @@
+<script type="text/javascript">
+
+</script>
+
 <%@ page  contentType="text/html; charset=UTF-8"%>
 
 <div class="slide">
-	<ul>
+	<ul id = "slide_ul">
 		<li><img
 			src="<%=application.getContextPath()%>/resources/img/img01-1.jpg"
 			style="width: 15%" /> <img
