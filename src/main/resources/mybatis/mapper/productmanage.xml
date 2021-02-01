@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.mapper.productmanages">
-	<select id="selectAll"
-			resultType="productmanage">
-		select
-			product_id,
-			product_name,
-			product_category,
-			percentage_discount,
-			product_price,
-			selling_price
-			product_desc,
-			available_quantity,
-			post_date,
-			thumbnail,
-			thumbnailhover,
-			best,
-			main_img,
-			sub1_img,
-			sub2_img,
-			sub3_img			
-		from products
-	</select>
-	
+
 	<insert id="insertProduct" parameterType="productmanage">
 		<selectKey keyProperty="product_id" resultType="int" order="BEFORE">
 			select pid_seq.nextval
@@ -57,7 +36,7 @@
 			product_category,
 			percentage_discount,
 			product_price,
-			selling_price
+			selling_price,
 			product_desc,
 			available_quantity,
 			post_date,

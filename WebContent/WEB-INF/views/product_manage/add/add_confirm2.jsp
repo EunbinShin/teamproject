@@ -38,16 +38,17 @@
 	<h3>상품을 등록을 완료했습니다</h3>
 			<fieldset>
 			<!-- Text input-->
-			<div class="form-group">
-				<label for="product_id" class="col-md-4 control-label">등록된 상품 코드</label>
+			<div class="form-group" style="margin-top:10px;">
+				<label for="product_id" class="col-md-4 control-label">상품 등록 코드</label>
 				<div class="col-md-4">
 					<input readonly value="${pDto.product_id}"  class="form-control input-md"  type="text">
 				</div>
 			</div>			
 				
-			<div style="margin-top:30px;">
-			<a href="<%=application.getContextPath() %>/add/add" class="btn btn-secondary">추가</a>
-			<a href="<%=application.getContextPath() %>"class="btn btn-secondary">홈페이지</a>	
+			<div style="margin-top:30px; margin-left:15px;">
+			<a href="<%=application.getContextPath() %>/product_manage/product_content" class="btn btn-secondary btn-sm">상품 추가</a>
+			<a href="<%=application.getContextPath() %>/item_list/default" class="btn btn-secondary btn-sm">상품 리스트</a>
+			<a href="<%=application.getContextPath() %>"class="btn btn-secondary btn-sm">홈페이지</a>	
 			</div>
 			</fieldset>
 	</form>

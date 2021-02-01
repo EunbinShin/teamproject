@@ -159,6 +159,7 @@ public class ProductManageController {
 	public String edit_productForm(int product_id, ProductDto product, Model model) {
 		logger.info("edit_product 실행 중");
 		ProductDto pmDto = pmService.getAllProduct(product_id);
+		logger.info(pmDto.getSelling_price()+"");
 		logger.info("edit_product  읽기 성공 ");
 		model.addAttribute("pmDto", pmDto);
 		
@@ -260,7 +261,8 @@ public class ProductManageController {
 		
 		pmService.edit(pmDto); 
 		logger.info("수정수정 실행 중");
-		return "redirect:/";
+		logger.info("product_id: " + product_id);
+		return "redirect:/item_list/item_detail?product_id="+product_id;
 	}
 	
 	

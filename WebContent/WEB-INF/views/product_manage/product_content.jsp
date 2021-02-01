@@ -175,9 +175,9 @@
 			<div class="form-group" style="margin-bottom:50px;">
 				<label class="col-md-4 control-label">서브 이미지</label>
 				<div class="col-md-4">
-					<input type="file" id="sub1_img_file" name="sub1_img_file" class="input-file"/>
-					<input type="file" id="sub2_img_file" name="sub2_img_file" class="input-file"/>
-					<input type="file" id="sub3_img_file" name="sub3_img_file" class="input-file"/>
+					<input type="file" id="sub1_img_file" name="sub1_img_file" class="input-file" style="margin-bottom:5px;"/> <br/>
+					<input type="file" id="sub2_img_file" name="sub2_img_file" class="input-file" style="margin-bottom:5px;"/> <br/>
+					<input type="file" id="sub3_img_file" name="sub3_img_file" class="input-file" /> <br/>
 				</div>
 			</div>				
 				

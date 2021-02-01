@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -122,7 +123,6 @@
 				
 				<div class="col-md-4">
 				<input readonly value="${pmDto.selling_price}" id="selling_price"  name="selling_price" value ="selling_price" class="form-control input-md" type="number">
-				<div>상품 판매가 ${pmDto.selling_price}</div>
 			</div>
 
 			</div>
@@ -148,7 +148,8 @@
 			<div class="form-group">
 				<label for="post_date" class="col-md-4 control-label">상품 개시일</label>  
 				<div class="col-md-4">
-					<input value="${pmDto.post_date}" id="post_date" name="post_date" class="form-control input-md" type="date">					
+					<fmt:formatDate var="fmtDate" value="${pmDto.post_date}" pattern="yyyy-MM-dd"/>
+					<input value="${fmtDate}" pattern="yyyy.MM.dd" id="post_date" name="post_date" class="form-control input-md" type="date">		
 				</div>
 			</div>	
 
@@ -185,14 +186,14 @@
 					<c:if test="${pmDto.product_id} == null">
 						<img src="edit_sub1photo?product_id=${pmDto.product_id}" width="60px" height="60px">
 					</c:if>
-					<input type="file" id="sub1_img_file" name="sub1_img_file"  class="input-file"/>
+					<input type="file" id="sub1_img_file" name="sub1_img_file"  class="input-file" style="margin-bottom:5px;"/> <br/>
 				</div>
 			
 				<div>
 					<c:if test="${pmDto.product_id} == null">
 						<img src="edit_sub2photo?product_id=${pmDto.product_id}" width="60px" height="60px">
 					</c:if>
-					<input type="file" id="sub2_img_file" name="sub2_img_file"  class="input-file"/>
+					<input type="file" id="sub2_img_file" name="sub2_img_file"  class="input-file"style="margin-bottom:5px;"/> <br/>
 				</div>
 				
 				<div>
