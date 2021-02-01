@@ -62,7 +62,7 @@
 		<!-- 수정: 이미지위 텍스트  --> 
 		<div id="banner_row">
 			<div class="banner_column">
-				<a href="<%=application.getContextPath() %>/item_list/item_list?page=1">
+				<a href="<%=application.getContextPath() %>/item_list/default?page=1">
 					<img id= "col_1" src="<%=application.getContextPath() %>/resources/img/main_event03.jpg" title="아이템 둘러보기">
 				</a>
 				<a href="<%=application.getContextPath() %>/item_list/bestitems?page=1">
@@ -74,65 +74,67 @@
 		<!-- 수정: 완료  --> 
 		
 		
-		<div id="row">		
-			<div id="row_name"> <h3>금주의 베스트 셀러</h3> </div>
-			<div class="column">
-				<a href = "html/product.html">
-					<img  src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom"  >
-					<img  src= "<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top"  >
-					<span class="badge badge-secondary">Best</span>
-				</a>
-			</div> 
-			<div class="column">
-				<a href = "html/product.html">
-					<img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg" class="img-bottom" >
-					<img src= "<%=application.getContextPath() %>/resources/img/img02-2.jpg" class="img-top"  >
-					<span class="badge badge-secondary">New</span>
-				</a>
-			</div> 
-			<div class="column">
-				<a href = "html/product.html">
-					<img src= "<%=application.getContextPath() %>/resources/img/img03-1.jpg" class="img-bottom" >
-					<img src= "<%=application.getContextPath() %>/resources/img/img03-2.jpg" class="img-top" >
-					<span class="badge badge-secondary">New</span>
-				</a>
-			</div> 
-			<div class="column">
-				<a href = "html/product.html">
-					<img src= "<%=application.getContextPath() %>/resources/img/img04-1.jpg" class="img-bottom" >
-					<img src= "<%=application.getContextPath() %>/resources/img/img04-2.jpg" class="img-top" >
-					<span class="badge badge-secondary">New</span>
-				</a>
-			</div> 		
-			<div class="column">
-				<a href = "html/product.html">
-					<img src= "<%=application.getContextPath() %>/resources/img/img05-1.jpg" class="img-bottom" >
-					<img src= "<%=application.getContextPath() %>/resources/img/img05-2.jpg" class="img-top" >
-					<span class="badge badge-secondary">New</span>
-				</a>
-			</div> 		
-			<div class="column">
-				<a href = "html/product.html">
-					<img src= "<%=application.getContextPath() %>/resources/img/img06-1.jpg" class="img-bottom" >
-					<img src= "<%=application.getContextPath() %>/resources/img/img06-2.jpg" class="img-top" >
-					<span class="badge badge-secondary">New</span>
-				</a>
-			</div> 		
-			<div class="column">
-				<a href = "html/product.html">
-					<img src= "<%=application.getContextPath() %>/resources/img/img07-1.jpg" class="img-bottom" >
-					<img src= "<%=application.getContextPath() %>/resources/img/img07-2.jpg" class="img-top" >
-					<span class="badge badge-secondary">New</span>
-				</a>
-			</div> 
-			<div class="column">
-				<a href = "html/product.html">
-					<img src= "<%=application.getContextPath() %>/resources/img/img08-1.jpg" class="img-bottom" >
-					<img src= "<%=application.getContextPath() %>/resources/img/img08-2.jpg" class="img-top" >
-					<span class="badge badge-secondary">New</span>
-				</a>
-			</div> 
-		</div> <!-- row -->
+		 <div id="row">      
+         <div id="row_name"> <h3>금주의 베스트 셀러</h3> </div>
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=57">
+                  <img  src= "<%=application.getContextPath() %>/resources/img/index_photo/img (1).jpg" class="img-bottom">
+                  <img  src= "<%=application.getContextPath() %>/resources/img/index_photo/img (2).jpg" class="img-top">
+                  <span class="badge badge-secondary">Best</span>
+            </a>
+                  
+         </div> 
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=45">
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (3).jpg" class="img-bottom" >
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (4).jpg" class="img-top"  >
+                  <span class="badge badge-secondary">Best</span>
+            </a>
+         </div> 
+         
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=54">
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (5).jpg" class="img-bottom" >
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (6).jpg" class="img-top" >
+               <span class="badge badge-secondary">Best</span>
+            </a>
+         </div> 
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=53">
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (7).jpg" class="img-bottom" >
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (8).jpg" class="img-top" >
+               <span class="badge badge-secondary">Best</span>
+            </a>
+         </div>       
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=55">
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (9).jpg" class="img-bottom" >
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (10).jpg" class="img-top" >
+               <span class="badge badge-secondary">Best</span>
+            </a>
+         </div>       
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=49">
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (11).jpg" class="img-bottom" >
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (12).jpg" class="img-top" >
+               <span class="badge badge-secondary">Best</span>
+            </a>
+         </div>       
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=33">
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (13).jpg" class="img-bottom" >
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (14).jpg" class="img-top" >
+               <span class="badge badge-secondary">Best</span>
+            </a>
+         </div> 
+         <div class="column">
+            <a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=36">
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (15).jpg" class="img-bottom" >
+               <img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (16).jpg" class="img-top" >
+               <span class="badge badge-secondary">Best</span>
+            </a>
+         </div> 
+      </div> <!-- row -->
 		
 		<div id="trend">
 			<h3># 모아보기</h3>
