@@ -31,7 +31,7 @@ public class ProductManageDao {
 	   return rows;
    }
    
-	public ProductDto selectByPk(String product_id) {
+	public ProductDto selectByPk(int product_id) {
 		ProductDto pDto = sst.selectOne("mybatis.mapper.productmanages.selectByPk", product_id);
 		return pDto;
 	}

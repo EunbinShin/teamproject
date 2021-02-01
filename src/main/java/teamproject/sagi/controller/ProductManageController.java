@@ -143,12 +143,12 @@ public class ProductManageController {
 		 
 		logger.info("상품 등록 완료");
 		
-		return "redirect:/product_manage/teamproject/product_manage/product_content";
+		return "redirect:/product_manage/add/add_confirm2?product_id="+id;
 	}
 	
 	@RequestMapping("/add/add_confirm2")
-	public String add_confirm2(String product_id, Model model) {
-		logger.info(product_id);
+	public String add_confirm2(int product_id, Model model) {
+		logger.info(product_id+"");
 		ProductDto pDto = pmService.getProduct(product_id);
 		model.addAttribute("pDto", pDto);
 		return "product_manage/add/add_confirm2";

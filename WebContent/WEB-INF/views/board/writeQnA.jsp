@@ -38,7 +38,7 @@
 						<a class="btn btn-secondary" 
 							onclick="popUp()">
 							상품정보선택</a>
-						<input id="products_product_id" name="products_product_" type="hidden">
+						<input id="products_product_id" name="products_product_id" type="hidden">
 						<span id="ptest"></span>
 					</div>
 					

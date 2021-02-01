@@ -29,7 +29,7 @@ public class ProductManageService {
 		pmDao.insert(product);
 	}
 
-	public ProductDto getProduct(String product_id) {
+	public ProductDto getProduct(int product_id) {
 		ProductDto pDto = pmDao.selectByPk(product_id);
 		return pDto;
 	}
