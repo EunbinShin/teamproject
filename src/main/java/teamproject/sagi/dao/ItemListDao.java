@@ -46,6 +46,25 @@ public class ItemListDao {
 		String image = sst.selectOne("mybatis.mapper.itemlist.selectThumbnailHoverByPk" ,id);
 		return image;
 	}
+
+	public int countBestAll() {
+		int count = sst.selectOne("mybatis.mapper.itemlist.countBestAll");
+		return count;
+	}
+
+	public int countBestAll(int category) {
+		int count = sst.selectOne(
+				"mybatis.mapper.itemlist.countBestAllCategory",
+				category);
+		return count;
+	}
+
+	public List<ProductDto> selectBestByPage(ListPager pager) {
+		// TODO Auto-generated method stub
+		List<ProductDto> list = sst.selectList(
+				"mybatis.mapper.itemlist.selectBestByPage", pager);
+		return list;
+	}
 	
 
 }

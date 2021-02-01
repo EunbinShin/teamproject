@@ -15,6 +15,20 @@
 		where product_category = #{category}
 	</select>
 	
+	<select id="countBestAll" 
+		resultType="int">
+		select count(*)
+		from products
+		where best = 1
+	</select>
+	
+	<select id="countBestAllCategory" 
+		resultType="int">
+		select count(*)
+		from products
+		where product_category = #{category} AND best = 1
+	</select>
+	
 	<select id="selectThumbnailByPk" 
 		resultType="string">
 		select thumbnail
@@ -58,6 +72,55 @@
 		        from products
 	        <if test="category != 0">
 	        	where product_category = #{category}
+	        </if>
+	        <if test="type == 0">
+				order by post_date asc
+			</if>
+	        <if test="type == 1">
+				order by product_name asc
+			</if>
+	        <if test="type == 2">
+				order by selling_price desc
+			</if>
+	        <if test="type == 3">
+				order by selling_price asc
+			</if>
+		        )
+		    where rownum &lt;= #{endRowNo}	
+		)
+		where rno &gt;= #{startRowNo}
+	</select>
+	
+	<select id="selectBestByPage" 
+		parameterType="listpager"
+		resultType="productmanage">
+		select rno, product_id, product_name, product_category,
+				product_price, product_desc,selling_price, percentage_discount,
+				available_quantity, post_date,
+				thumbnail,
+				main_img,
+				sub1_img, sub2_img, sub3_img,
+				thumbnailhover
+		from(
+			select rownum as rno, product_id, product_name, product_category,
+					product_price, product_desc,selling_price, percentage_discount,
+					available_quantity, post_date,
+					thumbnail,
+					main_img,
+					sub1_img, sub2_img, sub3_img,
+					thumbnailhover
+		    from (
+		        select product_id, product_name, product_category,
+						product_price, product_desc,selling_price, percentage_discount,
+						available_quantity, post_date,
+						thumbnail,
+						main_img,
+						sub1_img, sub2_img, sub3_img,
+						thumbnailhover
+		        from products
+		        where best = 1
+	        <if test="category != 0">
+	        	AND product_category = #{category}
 	        </if>
 	        <if test="type == 0">
 				order by post_date asc

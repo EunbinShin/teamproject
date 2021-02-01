@@ -40,230 +40,74 @@
 	</head>
 	
 	<body onload="start()">
-		<jsp:include page="/WEB-INF/views/include/sideNav.jsp"/>
-		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
-		
-		<div id="wrapper">
-			<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
-			
-			<div id="explainList">
-				<div id="explainLeft">
-					총 <b>16</b>개의 상품이 검색되었습니다.
-				</div>
-				<h3>Best Item</h3>
-				<ul class="breadcrumb justify-content-center">
-					<li class="breadcrumb-item"><a href="#">도자기</a></li>
-					<li class="breadcrumb-item"><a href="#">식기</a></li>
-					<li class="breadcrumb-item"><a href="#">유리그릇</a></li>
+	<jsp:include page="/WEB-INF/views/include/sideNav.jsp"/>
+	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+
+	<div id="wrapper">
+		<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
+
+		<div id="explainList">
+			<div id="explainLeft">
+				총 <b>${total_products}</b>개의 상품이 검색되었습니다.
+			</div>
+			<h3>상품</h3>
+			<ul class="breadcrumb justify-content-center">
+				<li class="breadcrumb-item active"><a href="default?ordertype=1&category=1">도자기</a></li>
+				<li class="breadcrumb-item"><a href="default?ordertype=1&category=2">식기</a></li>
+				<li class="breadcrumb-item"><a href="default?ordertype=1&category=3">유리그릇</a></li>
+				<li class="breadcrumb-item"><a href="default?ordertype=1&category=4">장식품</a></li>
+			</ul>
+
+			<div id="explainRight">
+				<ul>
+					<li><a href="default?ordertype=1&category=${pager.category}">상품명</a></li>
+					<li><a href="default?ordertype=2&category=${pager.category}">높은가격순</a></li>
+					<li><a href="default?ordertype=3&category=${pager.category}">낮은가격순</a></li>
 				</ul>
-				
-				<div id="explainRight">
-					<ul>
-						<li><a href="#">상품명</a></li>
-						<li><a href="#">높은가격순</a></li>
-						<li><a href="#">낮은가격순</a></li>
-					</ul>
+			</div>
+		</div>
+		
+		<!-- row -->
+		
+		<div id="row"> 
+			<c:forEach var="product" items="${products}" varStatus="status">
+				<div class="column">
+					<a href="item_detail?product_id=${product.product_id}"> 
+						<img width="490" height="615" src="thumbnail?id=${product.product_id}" class="img-bottom">
+						<img width="490" height="615" src="thumbnail_hover?id=${product.product_id}" class="img-top">
+					</a>
+					<span class="badge badge-warning">Best</span>
+					<a href="item_detail?product_id=${product.product_id}">${product.product_name}</a>
+					<p>
+						<b>가격: ${product.selling_price} &#8361</b>
+					</p>
+				</div>
+		  	</c:forEach>
+	  	</div> 
+		
+		<!-- page number navigation -->
+			<div class="d-flex align-items-center justify-content-center">
+				<div>
+					<a href="default?page=1&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm mr-1">처음</a>
+					<c:if test="${pager.groupNo > 1}">
+						<a href="default?page=${pager.startPageNo-1}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm mr-1">이전</a>
+					</c:if>
+					<c:forEach var="i" begin="${pager.startPageNo}" end="${pager.endPageNo}">
+						<c:if test="${i == pager.pageNo }">
+							<a href="default?page=${i}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-secondary btn-sm mr-1">${i}</a>
+						</c:if>
+						<c:if test="${i != pager.pageNo }">
+							<a href="default?page=${i}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-secondary btn-sm mr-1">${i}</a>
+						</c:if>
+					</c:forEach>
+					<c:if test="${pager.groupNo < pager.totalGroupNo}">
+						<a href="default?page=${pager.endPageNo+1}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm ml-1 mr-1">다음</a>
+					</c:if>
+					<a href="default?page=${pager.totalPageNo}&ordertype=${pager.type}&category=${pager.category}" class="btn btn-outline-dark btn-sm">맨끝</a>
 				</div>
 			</div>
-			<div id="row">
-				<div>
-				<div class="column">
-					<!-- 모든 태그에 a태그 추가하기 -->
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img01-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img01-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b><b>가격: 25,000</b></b></p>
-				</div> </div>
-				<div class="column">
-					<a href = "/html_css_javaspring/item_detail/product02.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img02-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img02-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "/html_css_javaspring/item_detail/product03.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img03-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img03-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "/html_css_javaspring/item_detail/product04.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img04-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img04-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img05-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img05-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img06-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img06-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img07-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img07-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> <div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img08-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img08-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img09-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img09-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> <div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img10-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img10-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> <div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img11-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img11-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img12-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img12-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img13-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img13-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img14-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img14-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img15-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img15-2.jpg" class="img-top" >	
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-				<div class="column">
-					<a href = "html/product.html">
-						<img src= "<%=application.getContextPath() %>/resources/img/img16-1.jpg" class="img-bottom">
-						<img src= "<%=application.getContextPath() %>/resources/img/img16-2.jpg" class="img-top" >
-					</a>
-					<a href = "/html_css_javaspring/item_detail/product01.html">
-						<span class="badge badge-warning">Best</span>
-						이름이름이름
-					</a>
-					<p><b>가격: 25,000</b></p>
-				</div> 
-			</div> <!-- row -->
-		
-			<!-- page number navigation -->
-			<ul class="pagination justify-content-center">
-				<li class="page-item<c:if test="${page == 1}"> disabled</c:if>"><a class="page-link" href="bestitems?page=${page-1}"> 
-					<span aria-hidden="true">&laquo;</span>
-        			<span class="sr-only">Previous</span></a></li>
-			    <li class="page-item<c:if test="${page == 1}"> active</c:if>"><a class="page-link" href="bestitems?page=1">1</a></li>
-			    <li class="page-item<c:if test="${page == 2}"> active</c:if>"><a class="page-link" href="bestitems?page=2">2</a></li>
-			    <li class="page-item<c:if test="${page == 3}"> active</c:if>"><a class="page-link" href="bestitems?page=3">3</a></li>
-			    <li class="page-item<c:if test="${page == 4}"> active</c:if>"><a class="page-link" href="bestitems?page=4">4</a></li>
-			    <li class="page-item<c:if test="${page == 5}"> active</c:if>"><a class="page-link" href="bestitems?page=5">5</a></li>
-			    <li class="page-item<c:if test="${page == 6}"> active</c:if>"><a class="page-link" href="bestitems?page=6">6</a></li>
-			    <li class="page-item<c:if test="${page == 7}"> active</c:if>"><a class="page-link" href="bestitems?page=7">7</a></li>
-			    <li class="page-item<c:if test="${page == 8}"> active</c:if>"><a class="page-link" href="bestitems?page=8">8</a></li>
-			    <li class="page-item<c:if test="${page == 9}"> active</c:if>"><a class="page-link" href="bestitems?page=9">9</a></li>
-			    <li class="page-item<c:if test="${page == 10}"> active</c:if>"><a class="page-link" href="bestitems?page=10">10</a></li>
-			    <li class="page-item"><a class="page-link" href="bestitems?page=${page+1}">
-			    	<span aria-hidden="true">&raquo;</span>
-        			<span class="sr-only">Next</span></a></li>
-  			</ul>
-  			
-			<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
-		</div>
-	</body>
+
+		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+	</div>
+</body>
 </html>

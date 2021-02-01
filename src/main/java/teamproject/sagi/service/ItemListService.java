@@ -52,5 +52,21 @@ public class ItemListService {
 		String image = itemListDao.selectThumbnailHoverByPk(id);
 		return image;
 	}
+
+	public int getTotalBestRows() {
+		int rows = itemListDao.countBestAll();
+		return rows;
+	}
+
+	public int getTotalBestRows(int category) {
+		int rows = itemListDao.countBestAll(category);
+		return rows;
+	}
+
+	public List<ProductDto> getBestItemList(ListPager pager) {
+		// TODO Auto-generated method stub
+		List<ProductDto> items = itemListDao.selectBestByPage(pager);
+		return items;
+	}
 	
 }
