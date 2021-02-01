@@ -53,7 +53,7 @@
 						</c:if>
 						
 						<c:if test="${loginStatus.id == 'admin'}">
-						<a id="b2" href="delete" target="_blank">Delete</a><p></p>
+						<a id="b2" href="<%=application.getContextPath() %>/product_manage/edit/delete_product?product_id=${iDetail.product_id}" target="_blank">Delete</a><p></p>
 						</c:if>
 						
 						<c:if test="${loginStatus.id == 'admin' }">
