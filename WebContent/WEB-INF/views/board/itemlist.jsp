@@ -3,7 +3,7 @@
 
 <c:forEach var="item" items="${items}">
 	<tr class="item_result border border-secondary">
-		<td><img width="80px" height="80px" src="searchphoto?id=${item.product_id}&image=${item.thumbnail}"></td>
+		<td><img width="80px" height="80px" src="searchphoto?id=${item.product_id}"></td>
 		<td class="align-middle">
 			<a>${item.product_name}</a>
 			<a>${item.product_price}</a>

@@ -39,7 +39,7 @@
 					</c:if>
 					<c:if test="${product != null}"> 
 						<img height="130px"
-						src="searchphoto?id=${product.product_id}&image=${product.thumbnail}">
+						src="searchphoto?id=${product.product_id}">
 					</c:if>
 					<div id="desc_container" class="ml-5">
 						<div><a>${product.product_name }</a></div>

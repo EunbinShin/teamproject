@@ -339,9 +339,8 @@ public class BoardController {
 	@GetMapping("/searchphoto")
 	public void searchphoto(
 			int id,
-			String image,
 			HttpServletResponse response) throws IOException {
-		
+		String image = searchService.getThumbnail(id);
 		String filePath = "D:/MyWorkspace/uploadfiles/add/"
 				+id+"/thumbnail/"+image;
 			
