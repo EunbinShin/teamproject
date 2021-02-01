@@ -46,31 +46,69 @@ li img{
 <div class="slide">
 	<ul id="slide_ul">
 		<li class="slide_li">
-			<img src="<%=application.getContextPath()%>/resources/img/img01-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img02-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img03-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img04-1.jpg" style="width: 15%" />
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=57">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/img (1).jpg" style="width: 15%" />
+			</a>
+			
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=45">
+			 	<img src="<%=application.getContextPath() %>/resources/img/index_photo/img (3).jpg" style="width: 15%" /> 
+			</a>
+			
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=54">
+				<img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (5).jpg" style="width: 15%" />
+			</a>
+						
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=53">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/img (7).jpg" style="width: 15%" /> 
+			</a>			
 		</li>
 
 		<li class="slide_li">
-			<img src="<%=application.getContextPath()%>/resources/img/img05-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img06-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img07-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img08-1.jpg" style="width: 15%" />
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=49">
+				<img src= "<%=application.getContextPath() %>/resources/img/index_photo/img (11).jpg" style="width: 15%" /> 
+			</a>
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=33">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/img (13).jpg" style="width: 15%" /> 
+			</a>
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=36">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/img (15).jpg" style="width: 15%" /> 
+			</a>
+			
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=55">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/img (9).jpg" style="width: 15%" />
+			</a>
 		</li>
 
 		<li class="slide_li">
-			<img src="<%=application.getContextPath()%>/resources/img/img09-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img10-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img11-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img12-1.jpg" style="width: 15%" />
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=52">
+				<img src= "<%=application.getContextPath() %>/resources/img/index_photo/cup (2).jpg" style="width: 15%" /> 
+			</a>
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=50">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/img19.jpg" style="width: 15%" /> 
+			</a>
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=40">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/maple.jpg" style="width: 15%" /> 
+			</a>
+			
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=51">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/mug.jpg" style="width: 15%" />
+			</a>
 		</li>
 
 		<li class="slide_li">
-			<img src="<%=application.getContextPath()%>/resources/img/img13-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img14-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img15-1.jpg" style="width: 15%" /> 
-			<img src="<%=application.getContextPath()%>/resources/img/img16-1.jpg" style="width: 15%" />
+						<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=39">
+				<img src= "<%=application.getContextPath() %>/resources/img/index_photo/plate.jpg" style="width: 15%" /> 
+			</a>
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=38">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/tray.jpg" style="width: 15%" /> 
+			</a>
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=43">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/tea.jpg" style="width: 15%" /> 
+			</a>
+			
+			<a href="<%=application.getContextPath() %>/item_list/item_detail?product_id=41">
+				<img src="<%=application.getContextPath() %>/resources/img/index_photo/holder.jpg" style="width: 15%" />
+			</a>
 		</li>
 	</ul>
 </div>
