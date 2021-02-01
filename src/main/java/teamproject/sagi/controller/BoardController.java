@@ -381,10 +381,11 @@ public class BoardController {
 		response.setContentType("application/json; charset=UTF-8");
 		
 		String thumbnail = searchService.getThumbnail(product_id);
-		
+		ProductDto product = searchService.getProduct(product_id);
 		PrintWriter pw = response.getWriter();
 		JSONObject root = new JSONObject();
 		root.put("product_id", product_id);
+		root.put("product_name", product.getProduct_name());
 		root.put("thumbnail", thumbnail);
 		
 		logger.info(thumbnail);
