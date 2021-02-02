@@ -30,5 +30,22 @@ public class MyPageService {
 		
 	}
 	
+
+	public MypageDto getUinfo(String id) {
+		MypageDto mpDto = mpDao.selectAllUserInfo(id);
+		return mpDto;
+	}
+
+	public String passcheck(MypageDto mypage) {
+		MypageDto mpDto = mpDao.selectByPk(mypage.getId());
+		
+		if(mpDto.getPassword().equals(mypage.getPassword())) {
+			return "success";
+		} else {
+			return "wrongPassword";
+		}
+	}
+
+	
 	
 }

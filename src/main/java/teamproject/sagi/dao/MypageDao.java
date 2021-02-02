@@ -18,16 +18,21 @@ public class MypageDao {
    @Resource
    private SqlSessionTemplate sst;
 
-public MypageDto selectAllUserInfo(String id) {
-	MypageDto mpDto = sst.selectOne("mybatis.mapper.mypage.selectAllUserInfo", id);
-	return mpDto;
-}
-
-public int edit(MypageDto mpDto) {
-	int rows = sst.update("mybatis.mapper.mypage.edit", mpDto);
-	return rows;
+	public MypageDto selectAllUserInfo(String id) {
+		MypageDto mpDto = sst.selectOne("mybatis.mapper.mypage.selectAllUserInfo", id);
+		return mpDto;
+	}
 	
-}
+	public int edit(MypageDto mpDto) {
+		int rows = sst.update("mybatis.mapper.mypage.edit", mpDto);
+		return rows;
+		
+	}
+	
+	public MypageDto selectByPk(String id) {
+		MypageDto mpDto = sst.selectOne("mybatis.mapper.mypage.selectByPk", id);
+		return mpDto;
+	}
 
    
 }

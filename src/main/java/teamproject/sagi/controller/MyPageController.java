@@ -5,11 +5,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -31,9 +34,13 @@ public class MyPageController {
 	@Resource
 	private MyPageService mpService;
 	
+
+		
 	@GetMapping("/mypage")
 	public String edit_userForm(String id, MypageDto mypage, Model model) {
 		logger.info("마이페이지실행 중 / 정보 읽기");		
+
+		logger.info("id :      " + id);
 		
 		MypageDto mpDto = mpService.getAllUserInfo(id);
 		
@@ -44,7 +51,7 @@ public class MyPageController {
 		logger.info("마이페이지 실행 성공 ");
 		model.addAttribute("mpDto", mpDto);
 		
-		return "/mypage/mypage";
+		return "mypage/mypage";
 	}
 	
 	@GetMapping("/edit_photo_file")
@@ -66,8 +73,7 @@ public class MyPageController {
 		is.close();
 		
 		logger.info("프로필 사진 가져오기 성공 :)");
-	}
-	
+	}	
 	
 	@PostMapping("/mypage")
 	public String mypage(MypageDto mpDto) {
@@ -101,7 +107,5 @@ public class MyPageController {
 		logger.info("마이페이지 수정 성공 ");
 		return "redirect:/";
 	}
-	
-	
 
 }

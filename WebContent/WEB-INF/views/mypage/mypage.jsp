@@ -21,40 +21,6 @@
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/mypage.css?after" type="text/css">
 	<link rel="stylesheet" href="<%=application.getContextPath() %>/resources/css/add.css?after" type="text/css">
 	
-	<script>
-		var validation = false;
-		
-		passCheck = function () {
-			event.preventDefault();	
-			
-			var f_password = $("#password").val();
-			var s_password = $("#password2").val();
-			
-			
-			if(f_password != s_password){
-				$("#errorPassword").html("비밀번호가 일치하지 않습니다!");
-				validation = false;
-			} else {
-				validation = true;
-			}
-			
-			if(!validation){
-				return;
-			}
-			
-		}
-		
-		const mypage = function() {
-			if(validation == false){
-				alert("비밀번호 일치 확인을 해주세요!");
-				return false;
-			} else {
-				console.log("회원가입이 성공적으로 완료되었습니다.")
-				return true;
-			}
-		}
-	</script>
-	
 </head>
 
 
@@ -66,75 +32,74 @@
 		<jsp:include page="/WEB-INF/views/include/navbar.jsp"/>
 		
 		<div class="add">
-		<form method= "post" enctype="multipart/form-data" name="edit_userForm" action="mypage" class="form-horizontal">
-			<fieldset>
-			<!-- Form Name -->
-			<legend id="form-name">마이페이지</legend>
-			
-			<!-- 프로필 사진 multifile input-->
-			<label for="photo_file" class="col-md-4 control-label">프로필 사진</label>
-			<div>
-				<img src="edit_photo_file?id=${mpDto.id}" width="100px;" height="100px;"> 
-				<input type="file" id="photo_file" name="photo_file"  class="input-file"/>
-			</div>
 
-			<!-- 아이디 Text input-->
-			<div class="form-group">
-				<label for="id" class="col-md-4 control-label">아이디</label>
-				<div class="col-md-4">
-					<input readonly value="${mpDto.id}" id="id" name="id"  class="form-control input-md" type="text">
-				</div>
-			</div>
-			
-			<!-- 패스워드 password input-->
-			<div class="form-group">
-				<label for="password" class="col-md-4 control-label">패스워드</label>
-				<div class="col-md-4">
-					<input value="${mpDto.password}" id="password" name="password"  class="form-control input-md" type="password">
-					<input id="password2" name="password2"  class="form-control input-md" type="password">
-					<small id ="errorPassword" class="form-text text-muted"> asd </small>
-				</div>
-			</div>
-			
-			<!-- 이름 Text input-->
-			<div class="form-group">
-				<label for="name" class="col-md-4 control-label">이름</label>
-				<div class="col-md-4">
-					<input value="${mpDto.name}" id="name" name="name"  class="form-control input-md" type="text">
-				</div>
-			</div>
-			
-			<!-- 전화번호  password input-->
-			<div class="form-group">
-				<label for="cellphone" class="col-md-4 control-label">전화번호</label>
-				<div class="col-md-4">
-					<input value="${mpDto.cellphone}" id="cellphone" name="cellphone"  class="form-control input-md" type="text">
-				</div>
-			</div>
-			
-			<!-- 이메일 text input-->
-			<div class="form-group">
-				<label for="email" class="col-md-4 control-label">이메일</label>
-				<div class="col-md-4">
-					<input value="${mpDto.email}" id="email" name="email"  class="form-control input-md" type="text">
-				</div>
-			</div>
-			
-			<!-- 주소 text input-->
-			<div class="form-group">
-				<label for="product_name" class="col-md-4 control-label">주소</label>
-				<div class="col-md-4">
-					<input value="${mpDto.address}" id="address" name="address"  class="form-control input-md" type="text">
-				</div>
-			</div>
-		
-			<!-- Button -->
-			<button id="edit_userinfo" name="edit_userinfo" class="btn btn-primary">수정 저장</button>
-			</fieldset>
-		</form>
+<form method= "post" enctype="multipart/form-data" name="edit_userForm" action="mypage" class="form-horizontal">
+	<fieldset>
+	<!-- Form Name -->
+	<legend id="form-name">마이페이지</legend>
+	
+	<!-- 프로필 사진 multifile input-->
+	<label for="photo_file" class="col-md-4 control-label">프로필 사진</label>
+	<div>
+		<img src="edit_photo_file?id=${mpDto.id}" width="100px;" height="100px;"> 
+		<input type="file" id="photo_file" name="photo_file"  class="input-file"/>
+	</div>
+
+	<!-- 아이디 Text input-->
+	<div class="form-group">
+		<label for="id" class="col-md-4 control-label">아이디</label>
+		<div class="col-md-4">
+			<input readonly value="${mpDto.id}" id="id" name="id"  class="form-control input-md" type="text">
+		</div>
+	</div>
+	
+	<!-- 패스워드 password input-->
+	<div class="form-group">
+		<label for="password" class="col-md-4 control-label">패스워드</label>
+		<div class="col-md-4">
+			<input value="${mpDto.password}" id="password" name="password"  class="form-control input-md" type="password">
+			<input onkeyup = "vpas()" id="password2" name="password2"  class="form-control input-md" type="password">
+		</div>
+	</div>
+	
+	<!-- 이름 Text input-->
+	<div class="form-group">
+		<label for="name" class="col-md-4 control-label">이름</label>
+		<div class="col-md-4">
+			<input value="${mpDto.name}" id="name" name="name"  class="form-control input-md" type="text">
+		</div>
+	</div>
+	
+	<!-- 전화번호  password input-->
+	<div class="form-group">
+		<label for="cellphone" class="col-md-4 control-label">전화번호</label>
+		<div class="col-md-4">
+			<input value="${mpDto.cellphone}" id="cellphone" name="cellphone"  class="form-control input-md" type="text">
+		</div>
+	</div>
+	
+	<!-- 이메일 text input-->
+	<div class="form-group">
+		<label for="email" class="col-md-4 control-label">이메일</label>
+		<div class="col-md-4">
+			<input value="${mpDto.email}" id="email" name="email"  class="form-control input-md" type="text">
+		</div>
+	</div>
+	
+	<!-- 주소 text input-->
+	<div class="form-group">
+		<label for="product_name" class="col-md-4 control-label">주소</label>
+		<div class="col-md-4">
+			<input value="${mpDto.address}" id="address" name="address"  class="form-control input-md" type="text">
+		</div>
+	</div>
+
+	<!-- Button -->
+	<button id="edit_userinfo" name="edit_userinfo" class="btn btn-primary">수정 저장</button>
+	</fieldset>
+</form>
+
 		</div> <!-- /add -->
-				
-		
 		<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 
 	</div> <!-- wrapper -->	
